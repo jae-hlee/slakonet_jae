@@ -282,7 +282,7 @@ not well represented in the training set), not a pure model failure.
 ## Reproducing
 
 ```bash
-cd /Users/jaelee/Desktop/work/alignn_slako/comprehensive_analysis
+cd alignn_slakonet/comprehensive_analysis
 python compare_all.py
 ```
 
