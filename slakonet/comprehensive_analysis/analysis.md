@@ -1,8 +1,8 @@
 # SlakoNet cross-dataset analysis
 
-Aggregates the SlakoNet runs in `../slako_v03_*` through `../slako_v08_*`.
-Re-running `build_analysis.py` will pick up `slako_v09_*`, `slako_v10_*`, `slako_v11_*`
-automatically once those runs drop a `summary.csv` (or `results/all_results.json`).
+Aggregates the following SlakoNet runs: `v03_alex`, `v04_cccbdb`, `v05_interface`, `v06_surface`, `v07_vacancy`, `v08_supercon`, `v09_1d`.
+Re-running `build_analysis.py` automatically picks up any sister `slako_v*`
+project once it drops a `summary.csv` (or `results/all_results.json`).
 
 ## Datasets loaded
 

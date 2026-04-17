@@ -1,5 +1,5 @@
 """
-Cross-dataset analysis for SlakoNet runs v03–v08 (extensible to v09/v10/v11).
+Cross-dataset analysis for SlakoNet runs v03–v09 (extensible to v10/v11).
 
 Loads the per-dataset summaries and per-structure results already produced by each
 sister project and emits a unified set of comparison plots into this directory:
@@ -14,7 +14,7 @@ sister project and emits a unified set of comparison plots into this directory:
   - summary_table.csv / .md      : Headline stats
 
 Silently skips datasets that have no `results/all_results.json` yet, so the same
-script picks up v09_1d / v10_2d / v11_alexwz once those runs finish.
+script picks up v10_2d / v11_alexwz once those runs finish.
 """
 
 from __future__ import annotations
@@ -519,9 +519,10 @@ def write_markdown(datasets: list[Dataset], summary_df: pd.DataFrame) -> None:
     lines: list[str] = []
     lines.append("# SlakoNet cross-dataset analysis")
     lines.append("")
-    lines.append("Aggregates the SlakoNet runs in `../slako_v03_*` through `../slako_v08_*`.")
-    lines.append("Re-running `build_analysis.py` will pick up `slako_v09_*`, `slako_v10_*`, `slako_v11_*`")
-    lines.append("automatically once those runs drop a `summary.csv` (or `results/all_results.json`).")
+    loaded_keys = ", ".join(f"`{ds.key}`" for ds in datasets)
+    lines.append(f"Aggregates the following SlakoNet runs: {loaded_keys}.")
+    lines.append("Re-running `build_analysis.py` automatically picks up any sister `slako_v*`")
+    lines.append("project once it drops a `summary.csv` (or `results/all_results.json`).")
     lines.append("")
     lines.append("## Datasets loaded")
     lines.append("")
