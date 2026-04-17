@@ -14,9 +14,9 @@ slakonet/                     SlakoNet inference per dataset
   slako_v06_surface/          JARVIS surface_db slabs     (N = 466)
   slako_v07_vacancy/          JARVIS vacancy_db defects   (N = 444)
   slako_v08_supercon/         Alexandria supercon set     (N = 4,827)
-  slako_v09_1d/               Alexandria PBE 1D           (in progress)
+  slako_v09_1d/               Alexandria PBE 1D           (N = 8,636)
   slako_v10_2d/               Alexandria PBE 2D           (in progress)
-  slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter
+  slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter (in progress)
   comprehensive_analysis/     Cross-dataset aggregation + unified plots
 
 alignn_slakonet/              ALIGNN cross-check on Alexandria PBE 3D
@@ -36,6 +36,7 @@ Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's D
 | Dataset        |     N  | SK mean | SK median | Frac metallic | Ref mean | MAE   | RMSE  |  r    |
 |----------------|-------:|--------:|----------:|--------------:|---------:|------:|------:|------:|
 | Alexandria 3D  | 31,211 | 1.54    | 0.01      | 0.63          | 1.22     | 0.93  | 1.65  | 0.81  |
+| Alexandria 1D  |  8,636 | 1.87    | 0.31      | 0.40          | 1.09     | 0.99  | 1.70  | 0.88  |
 | CCCBDB mols.   |  1,318 | 7.45    | 6.31      | 0.00          | 6.74     | 2.52  | 3.52  | 0.65  |
 | interface_db   |    433 | 1.43    | 1.41      | 0.17          | 0.43     | 1.01  | 1.26  | 0.73  |
 | surface_db     |    466 | 1.67    | 1.18      | 0.35          | 0.77     | 0.97  | 1.59  | 0.75  |

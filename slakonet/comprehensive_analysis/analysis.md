@@ -14,6 +14,7 @@ automatically once those runs drop a `summary.csv` (or `results/all_results.json
 | v06_surface | Surface slabs (PBE) | surface | 466 | dft_bandgap_eV |
 | v07_vacancy | Vacancy defects | defect | 444 | — |
 | v08_supercon | Alexandria supercon candidates | supercon | 4,827 | — |
+| v09_1d | Alexandria 1D PBE | low_dim | 8,636 | dft_bandgap_eV |
 
 ## Headline metrics (see `summary_table.csv`)
 
@@ -25,6 +26,7 @@ automatically once those runs drop a `summary.csv` (or `results/all_results.json
 | v06_surface | 466 | 1.673 | 1.176 | 0.348 | 0.773 | 0.973 | 1.595 | 0.746 |
 | v07_vacancy | 444 | 0.157 | 0.001 | 0.921 | — | — | — | — |
 | v08_supercon | 4827 | 0.019 | 0.004 | 0.983 | — | — | — | — |
+| v09_1d | 8636 | 1.869 | 0.308 | 0.398 | 1.088 | 0.989 | 1.701 | 0.879 |
 
 ## Figures
 

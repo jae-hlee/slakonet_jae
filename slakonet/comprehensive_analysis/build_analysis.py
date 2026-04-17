@@ -419,6 +419,7 @@ def _iter_dos_files(dataset_key: str) -> Iterable[dict]:
         "v06_surface": ROOT / "slako_v06_surface" / "results" / "all_results.json",
         "v07_vacancy": ROOT / "slako_v07_vacancy" / "results" / "all_results.json",
         "v08_supercon": ROOT / "slako_v08_supercon" / "results" / "all_results.json",
+        "v09_1d": ROOT / "slako_v09_1d" / "results" / "all_results.json",
     }
     path = mapping.get(dataset_key)
     if path is None or not path.exists():

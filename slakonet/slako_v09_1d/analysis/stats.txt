@@ -1,0 +1,24 @@
+================================================================================
+SlakoNet vs PBE on Alexandria 1D
+================================================================================
+Source entries:         13295
+SlakoNet completed:     8636
+Joined (id matched):    8636
+PBE metals (gap≤0):     2940
+PBE non-metals:         5696
+
+Indirect gap (SlakoNet vs PBE band_gap_ind):
+  All                               N=  8636  MAE=0.9887  RMSE=1.7006  R²=-0.2464  MaxErr=20.9471
+  PBE metals (gap=0)                N=  2940  MAE=0.1602  RMSE=0.4812  R²=nan  MaxErr=9.1811
+  PBE non-metals (gap>0)            N=  5696  MAE=1.4163  RMSE=2.0652  R²=-0.6456  MaxErr=20.9471
+
+Direct gap (SlakoNet vs PBE band_gap_dir):
+  All                               N=  8636  MAE=0.9769  RMSE=1.6756  R²=-0.2153  MaxErr=20.9338
+  PBE non-metals                    N=  5696  MAE=1.3967  RMSE=2.0362  R²=-0.6130  MaxErr=20.9338
+
+Metal / non-metal classification  (SK threshold = 0.1 eV)
+  accuracy = 0.7536
+  TN=2123  FP=817  FN=1311  TP=4385
+
+False negatives (PBE says non-metal, SK predicts metal): N=1311
+  PBE gap:  min=0.000  median=0.257  mean=0.526  max=4.364
