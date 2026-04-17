@@ -1,0 +1,57 @@
+Paired structures (v02 TB-mBJ ∩ SlakoNet): 31211
+  PBE metals (gap==0): 15119   PBE non-metals: 16092
+  ALIGNN TB-mBJ negative predictions (clamped to 0): 6718
+  ALIGNN TB-mBJ max prediction: 99.003 eV
+  ALIGNN TB-mBJ > 15 eV outliers: 8
+
+==========================================================================================
+REGRESSION vs PBE indirect gap  (PBE is the reference label)
+==========================================================================================
+
+All structures:
+  SlakoNet                                  N= 31211  MAE=0.9299  RMSE=1.6487  R²=-0.0082  ME=+0.3285  MaxErr=21.4872
+  ALIGNN TB-mBJ (raw)                       N= 31211  MAE=0.7571  RMSE=1.4622  R²=0.2070  ME=+0.3534  MaxErr=99.0029
+  ALIGNN TB-mBJ (clamped >= 0)              N= 31211  MAE=0.7519  RMSE=1.4611  R²=0.2082  ME=+0.3585  MaxErr=99.0029
+
+Non-metals only (PBE gap > 0):
+  SlakoNet                                  N= 16092  MAE=1.7810  RMSE=2.2909  R²=-1.0685  ME=+0.6145  MaxErr=21.4872
+  ALIGNN TB-mBJ (raw)                       N= 16092  MAE=1.2379  RMSE=1.5962  R²=-0.0042  ME=+0.4710  MaxErr=11.9999
+  ALIGNN TB-mBJ (clamped >= 0)              N= 16092  MAE=1.2359  RMSE=1.5944  R²=-0.0019  ME=+0.4729  MaxErr=11.9999
+
+Metals only (PBE gap == 0):
+  SlakoNet                                  N= 15119  MAE=0.0241  RMSE=0.1596  R²=nan  ME=+0.0241  MaxErr=5.6349
+  ALIGNN TB-mBJ (raw)                       N= 15119  MAE=0.2453  RMSE=1.3045  R²=nan  ME=+0.2282  MaxErr=99.0029
+  ALIGNN TB-mBJ (clamped >= 0)              N= 15119  MAE=0.2367  RMSE=1.3044  R²=nan  ME=+0.2367  MaxErr=99.0029
+
+==========================================================================================
+ALIGNN TB-mBJ vs SlakoNet (direct comparison, no PBE reference)
+==========================================================================================
+
+All structures:
+  ALIGNN TB-mBJ − SlakoNet                  N= 31211  MAE=0.7511  RMSE=1.6185  R²=0.6176  ME=+0.0300  MaxErr=98.9679
+
+Non-metals only:
+  ALIGNN TB-mBJ − SlakoNet                  N= 16092  MAE=1.2315  RMSE=1.8675  R²=0.6148  ME=-0.1416  MaxErr=21.0495
+
+Generating parity plots...
+Generating residual histograms...
+
+Computing classification metrics (threshold = 0.1 eV)...
+
+SlakoNet metal/non-metal classification:
+  Accuracy: 0.8298
+  TN(metal→metal)=14715  FP(metal→nonmetal)=404  FN(nonmetal→metal)=4909  TP(nonmetal→nonmetal)=11183
+
+ALIGNN TB-mBJ metal/non-metal classification:
+  Accuracy: 0.8377
+  TN(metal→metal)=11871  FP(metal→nonmetal)=3248  FN(nonmetal→metal)=1817  TP(nonmetal→nonmetal)=14275
+
+Generating head-to-head error plot (vs PBE)...
+  SlakoNet closer to PBE:     13121 (42.0%)
+  ALIGNN TB-mBJ closer to PBE: 18090 (58.0%)
+Generating gap distribution plot...
+Generating mBJ-vs-PBE gap-size plot...
+Linear fit ALIGNN-mBJ = a * PBE + b on non-metals...
+  slope = 1.2252   intercept = -0.0581 eV
+  interpretation: TB-mBJ ≈ 1.23·PBE + -0.06 eV on PBE non-metals
+Dumping paired_predictions.json...

@@ -1,0 +1,1743 @@
+Loading from local file: surface_db_dd.json.zip
+Loaded 607 entries
+Skipped (elements Z > 65): 120
+Skipped (already computed): 0
+Total valid entries to run: 487
+Using 4 GPUs
+Loading cached model from /weka/scratch/kchoudh2/jlee859/repo/slakonet/slakonet/slakonet_v0/slakonet_v0.pt
+Grouping parameters by pair...
+Parameter grouping took: 0.03s
+Creating 4095 SKF optimizers...
+Optimizer creation took: 0.67s
+State dict loading took: 11.56s
+✅ Compact model loaded from: /weka/scratch/kchoudh2/jlee859/repo/slakonet/slakonet/slakonet_v0/slakonet_v0.pt
+Total time: 41.18s
+Loading cached model from /weka/scratch/kchoudh2/jlee859/repo/slakonet/slakonet/slakonet_v0/slakonet_v0.pt
+Grouping parameters by pair...
+Parameter grouping took: 0.03s
+Creating 4095 SKF optimizers...
+Optimizer creation took: 0.64s
+State dict loading took: 11.33s
+✅ Compact model loaded from: /weka/scratch/kchoudh2/jlee859/repo/slakonet/slakonet/slakonet_v0/slakonet_v0.pt
+Total time: 39.58s
+Loading cached model from /weka/scratch/kchoudh2/jlee859/repo/slakonet/slakonet/slakonet_v0/slakonet_v0.pt
+Grouping parameters by pair...
+Parameter grouping took: 0.03s
+Creating 4095 SKF optimizers...
+Optimizer creation took: 0.64s
+State dict loading took: 10.88s
+✅ Compact model loaded from: /weka/scratch/kchoudh2/jlee859/repo/slakonet/slakonet/slakonet_v0/slakonet_v0.pt
+Total time: 40.51s
+Loading cached model from /weka/scratch/kchoudh2/jlee859/repo/slakonet/slakonet/slakonet_v0/slakonet_v0.pt
+Grouping parameters by pair...
+Parameter grouping took: 0.03s
+Creating 4095 SKF optimizers...
+Optimizer creation took: 0.67s
+State dict loading took: 11.07s
+✅ Compact model loaded from: /weka/scratch/kchoudh2/jlee859/repo/slakonet/slakonet/slakonet_v0/slakonet_v0.pt
+Total time: 40.67s
+potential_energy 0.0
+electronic_energy tensor(-1129.4674, device='cuda:0')
+[GPU 0] Surface-JVASP-15348_miller_1_1_0_thickness_16_VASP_PBE_noDP BeAlB vbm=7.388 cbm=7.286 sk=0.0042
+potential_energy 0.0
+electronic_energy tensor(-783.9864, device='cuda:0')
+[GPU 0] Surface-JVASP-63938_miller_1_1_0_thickness_16_VASP_PBE_noDP BaNaBr vbm=1.924 cbm=1.315 sk=0.0025
+potential_energy 0.0
+electronic_energy tensor(-1437.5234, device='cuda:0')
+[GPU 0] Surface-JVASP-7844_miller_1_1_0_thickness_16_VASP_PBE_noDP AlN vbm=9.168 cbm=5.622 sk=4.1769
+potential_energy 0.0
+electronic_energy tensor(-1474.8444, device='cuda:0')
+[GPU 0] Surface-JVASP-8047_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnSe vbm=2.477 cbm=1.222 sk=4.2398
+potential_energy 0.0
+electronic_energy tensor(-782.4055, device='cuda:0')
+[GPU 0] Surface-JVASP-8182_miller_1_1_0_thickness_16_VASP_PBE_noDP AlP vbm=6.41 cbm=4.36 sk=2.9505
+potential_energy 0.0
+electronic_energy tensor(-620.0034, device='cuda:0')
+[GPU 0] Surface-JVASP-85122_miller_1_1_0_thickness_16_VASP_PBE_noDP InP vbm=5.004 cbm=4.629 sk=3.3173
+potential_energy 0.0
+electronic_energy tensor(-2209.5305, device='cuda:0')
+[GPU 0] Surface-JVASP-96_miller_0_0_1_thickness_16_VASP_PBE_noDP ZnSe vbm=2.426 cbm=1.202 sk=1.0807
+potential_energy 0.0
+electronic_energy tensor(-782.4227, device='cuda:0')
+[GPU 0] Surface-JVASP-8182_miller_1_1_0_thickness_16_VASP_PBE AlP vbm=6.41 cbm=4.36 sk=2.9509
+potential_energy 0.0
+electronic_energy tensor(-620.0510, device='cuda:0')
+[GPU 0] Surface-JVASP-85122_miller_1_1_0_thickness_16_VASP_PBE InP vbm=5.004 cbm=4.629 sk=3.3183
+potential_energy 0.0
+electronic_energy tensor(-2207.1633, device='cuda:0')
+[GPU 0] Surface-JVASP-96_miller_0_0_1_thickness_16_VASP_PBE ZnSe vbm=2.426 cbm=1.202 sk=1.4886
+potential_energy 0.0
+electronic_energy tensor(-940.7621, device='cuda:0')
+[GPU 0] Surface-JVASP-1327_miller_1_0_0_thickness_16_VASP_PBE_noDP AlP vbm=6.054 cbm=4.26 sk=1.2483
+potential_energy 0.0
+electronic_energy tensor(-1527.4034, device='cuda:0')
+[GPU 0] Surface-JVASP-22685_miller_1_1_0_thickness_16_VASP_PBE_noDP CdTe vbm=1.776 cbm=2.302 sk=3.7990
+potential_energy 0.0
+electronic_energy tensor(-562.3689, device='cuda:0')
+[GPU 0] Surface-JVASP-35711_miller_1_1_0_thickness_16_VASP_PBE_noDP GaSb vbm=4.454 cbm=4.453 sk=1.5486
+potential_energy 0.0
+electronic_energy tensor(-1272.9954, device='cuda:0')
+[GPU 0] Surface-JVASP-36408_miller_0_0_1_thickness_16_VASP_PBE_noDP SnC vbm=8.324 cbm=7.576 sk=0.0687
+potential_energy 0.0
+electronic_energy tensor(-1162.4661, device='cuda:0')
+[GPU 0] Surface-JVASP-36873_miller_0_0_1_thickness_16_VASP_PBE_noDP BSb vbm=8.111 cbm=7.166 sk=0.0101
+potential_energy 0.0
+electronic_energy tensor(-1437.5187, device='cuda:0')
+[GPU 0] Surface-JVASP-7844_miller_1_1_0_thickness_16_VASP_PBE AlN vbm=9.168 cbm=5.622 sk=4.1678
+potential_energy 0.0
+electronic_energy tensor(-1478.3949, device='cuda:0')
+[GPU 0] Surface-JVASP-8047_miller_1_1_0_thickness_16_VASP_PBE ZnSe vbm=2.477 cbm=1.222 sk=4.3439
+potential_energy 0.0
+electronic_energy tensor(-851.5431, device='cuda:0')
+[GPU 0] Surface-JVASP-1002_miller_0_0_1_thickness_16_VASP_R2SCAN Si vbm=6.19 cbm=5.459 sk=0.0361
+potential_energy 0.0
+electronic_energy tensor(-861.7338, device='cuda:0')
+[GPU 0] Surface-JVASP-1002_miller_1_1_0_thickness_16_VASP_R2SCAN Si vbm=6.19 cbm=5.459 sk=0.3161
+potential_energy 0.0
+electronic_energy tensor(-376.3744, device='cuda:0')
+[GPU 0] Surface-JVASP-816_miller_1_1_0_thickness_16_VASP_R2SCAN Al vbm=3.468 cbm=20.232 sk=0.0032
+potential_energy 0.0
+electronic_energy tensor(-1034.6427, device='cuda:0')
+[GPU 0] Surface-JVASP-963_miller_0_0_1_thickness_16_VASP_R2SCAN Pd vbm=7.917 cbm=9.431 sk=0.0020
+potential_energy 0.0
+electronic_energy tensor(-1365.1338, device='cuda:0')
+[GPU 0] Surface-JVASP-813_miller_1_1_0_thickness_16_VASP_R2SCAN Ag vbm=4.194 cbm=13.371 sk=0.0264
+potential_energy 0.0
+electronic_energy tensor(-445.4498, device='cuda:0')
+[GPU 0] Surface-JVASP-14837_miller_1_1_0_thickness_16_VASP_R2SCAN V vbm=4.618 cbm=9.431 sk=0.0010
+potential_energy 0.0
+electronic_energy tensor(-906.6429, device='cuda:0')
+[GPU 0] Surface-JVASP-890_miller_0_0_1_thickness_16_VASP_R2SCAN Ge vbm=4.28 cbm=4.363 sk=0.0008
+potential_energy 0.0
+electronic_energy tensor(-595.4124, device='cuda:0')
+[GPU 0] Surface-JVASP-62940_miller_0_0_1_thickness_16_VASP_R2SCAN BN vbm=6.564 cbm=2.104 sk=3.9090
+potential_energy 0.0
+electronic_energy tensor(-2409.1699, device='cuda:0')
+[GPU 0] Surface-JVASP-8003_miller_1_1_0_thickness_16_VASP_R2SCAN CdS vbm=1.818 cbm=0.825 sk=4.0464
+potential_energy 0.0
+electronic_energy tensor(-2195.2991, device='cuda:0')
+[GPU 0] Surface-JVASP-96_miller_1_1_1_thickness_16_VASP_R2SCAN ZnSe vbm=2.426 cbm=1.202 sk=0.6455
+potential_energy 0.0
+electronic_energy tensor(-1313.1887, device='cuda:0')
+[GPU 0] Surface-JVASP-133719_miller_0_0_1_thickness_16_VASP_R2SCAN BAs vbm=6.984 cbm=5.688 sk=0.0119
+potential_energy 0.0
+electronic_energy tensor(-940.3691, device='cuda:0')
+[GPU 0] Surface-JVASP-1327_miller_0_0_1_thickness_16_VASP_R2SCAN AlP vbm=6.054 cbm=4.26 sk=1.2619
+potential_energy 0.0
+electronic_energy tensor(-456.3563, device='cuda:0')
+[GPU 0] Surface-JVASP-8184_miller_0_0_1_thickness_16_VASP_R2SCAN GaP vbm=5.657 cbm=4.395 sk=0.0069
+potential_energy 0.0
+electronic_energy tensor(-842.5887, device='cuda:0')
+[GPU 0] Surface-JVASP-1177_miller_1_1_1_thickness_16_VASP_R2SCAN GaSb vbm=4.35 cbm=4.35 sk=0.8760
+potential_energy 0.0
+electronic_energy tensor(-2030.9678, device='cuda:0')
+[GPU 0] Surface-JVASP-91_miller_1_1_1_thickness_16_VASP_R2SCAN C vbm=13.914 cbm=9.457 sk=0.0006
+potential_energy 0.0
+electronic_energy tensor(-967.6444, device='cuda:0')
+[GPU 0] Surface-JVASP-8118_miller_1_1_0_thickness_16_VASP_R2SCAN SiC vbm=10.545 cbm=7.927 sk=2.0935
+potential_energy 0.0
+electronic_energy tensor(-843.5195, device='cuda:0')
+[GPU 0] Surface-JVASP-36403_miller_1_1_0_thickness_16_VASP_R2SCAN SiSn vbm=5.588 cbm=5.34 sk=0.4737
+potential_energy 0.0
+electronic_energy tensor(-756.4642, device='cuda:0')
+[GPU 0] Surface-JVASP-30_miller_0_0_1_thickness_16_VASP_R2SCAN GaN vbm=6.834 cbm=4.891 sk=2.6732
+potential_energy 0.0
+electronic_energy tensor(-841.5174, device='cuda:0')
+[GPU 0] Surface-JVASP-1177_miller_1_1_0_thickness_16_VASP_PBE GaSb vbm=4.35 cbm=4.35 sk=0.6462
+potential_energy 0.0
+electronic_energy tensor(-2348.0566, device='cuda:0')
+[GPU 0] Surface-JVASP-1192_miller_0_0_1_thickness_16_VASP_PBE CdSe vbm=0.871 cbm=0.416 sk=1.2073
+potential_energy 0.0
+electronic_energy tensor(-844.7948, device='cuda:0')
+[GPU 0] Surface-JVASP-1408_miller_0_0_1_thickness_16_VASP_PBE AlSb vbm=5.611 cbm=4.289 sk=0.8879
+potential_energy 0.0
+electronic_energy tensor(-942.3125, device='cuda:0')
+[GPU 0] Surface-JVASP-30_miller_1_0_0_thickness_16_VASP_PBE GaN vbm=6.834 cbm=4.891 sk=0.0058
+potential_energy 0.0
+electronic_energy tensor(-591.4908, device='cuda:0')
+[GPU 0] Surface-JVASP-36119_miller_1_1_0_thickness_16_VASP_PBE InAs vbm=3.822 cbm=3.822 sk=2.1791
+potential_energy 0.0
+electronic_energy tensor(-823.8285, device='cuda:0')
+[GPU 0] Surface-JVASP-37905_miller_1_1_0_thickness_16_VASP_PBE BAs vbm=7.282 cbm=5.922 sk=1.1705
+potential_energy 0.0
+electronic_energy tensor(-1755.6089, device='cuda:0')
+[GPU 0] Surface-JVASP-858_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Co vbm=9.212 cbm=11.468 sk=0.0014
+potential_energy 0.0
+electronic_energy tensor(-3416.2173, device='cuda:0')
+[GPU 0] Surface-JVASP-895_miller_1_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN I vbm=3.494 cbm=2.579 sk=1.5684
+potential_energy 0.0
+electronic_energy tensor(-664.4205, device='cuda:0')
+[GPU 0] Surface-JVASP-816_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Al vbm=3.468 cbm=20.232 sk=0.0038
+potential_energy 0.0
+electronic_energy tensor(-1603.1963, device='cuda:0')
+[GPU 0] Surface-JVASP-993_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Sb vbm=6.324 cbm=6.465 sk=0.0022
+potential_energy 0.0
+electronic_energy tensor(-664.7455, device='cuda:0')
+[GPU 0] Surface-JVASP-816_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Al vbm=3.468 cbm=20.232 sk=0.0049
+potential_energy 0.0
+electronic_energy tensor(-794.3090, device='cuda:0')
+potential_energy 0.0
+electronic_energy tensor(-978.1393, device='cuda:1')
+[GPU 1] Surface-JVASP-66053_miller_1_1_0_thickness_16_VASP_PBE_noDP BaGaSb vbm=2.665 cbm=2.149 sk=0.2080
+potential_energy 0.0
+electronic_energy tensor(-1320.2185, device='cuda:1')
+[GPU 1] Surface-JVASP-7630_miller_1_1_0_thickness_16_VASP_PBE_noDP BAs vbm=7.112 cbm=5.697 sk=0.6613
+potential_energy 0.0
+electronic_energy tensor(-1389.6713, device='cuda:1')
+[GPU 1] Surface-JVASP-79204_miller_1_1_0_thickness_16_VASP_PBE_noDP BN vbm=12.674 cbm=7.243 sk=3.3945
+potential_energy 0.0
+electronic_energy tensor(-1352.3459, device='cuda:1')
+[GPU 1] Surface-JVASP-813_miller_1_1_1_thickness_16_VASP_PBE_noDP Ag vbm=4.194 cbm=13.371 sk=0.0039
+potential_energy 0.0
+electronic_energy tensor(-588.2286, device='cuda:1')
+[GPU 1] Surface-JVASP-8183_miller_1_1_0_thickness_16_VASP_PBE_noDP AlAs vbm=5.399 cbm=3.592 sk=3.1713
+potential_energy 0.0
+electronic_energy tensor(-461.5200, device='cuda:1')
+[GPU 1] Surface-JVASP-861_miller_0_0_1_thickness_16_VASP_PBE_noDP Cr vbm=10.023 cbm=13.39 sk=0.0077
+potential_energy 0.0
+electronic_energy tensor(-1261.2076, device='cuda:1')
+[GPU 1] Surface-JVASP-984_miller_1_1_1_thickness_16_VASP_PBE_noDP Rh vbm=9.542 cbm=12.383 sk=0.0052
+potential_energy 0.0
+electronic_energy tensor(-588.2534, device='cuda:1')
+[GPU 1] Surface-JVASP-8183_miller_1_1_0_thickness_16_VASP_PBE AlAs vbm=5.399 cbm=3.592 sk=3.1711
+potential_energy 0.0
+electronic_energy tensor(-460.6512, device='cuda:1')
+[GPU 1] Surface-JVASP-861_miller_0_0_1_thickness_16_VASP_PBE Cr vbm=10.023 cbm=13.39 sk=0.0013
+potential_energy 0.0
+electronic_energy tensor(-842.2952, device='cuda:1')
+[GPU 1] Surface-JVASP-1189_miller_1_1_0_thickness_16_VASP_PBE_noDP InSb vbm=4.351 cbm=4.351 sk=1.4688
+potential_energy 0.0
+electronic_energy tensor(-925.6216, device='cuda:1')
+[GPU 1] Surface-JVASP-1393_miller_1_1_0_thickness_16_VASP_PBE_noDP GaP vbm=5.776 cbm=4.294 sk=2.9216
+potential_energy 0.0
+electronic_energy tensor(-2292.7256, device='cuda:1')
+[GPU 1] Surface-JVASP-23_miller_0_0_1_thickness_16_VASP_PBE_noDP CdTe vbm=2.253 cbm=1.755 sk=1.2372
+potential_energy 0.0
+electronic_energy tensor(-561.6857, device='cuda:1')
+[GPU 1] Surface-JVASP-35748_miller_1_1_0_thickness_16_VASP_PBE_noDP AlSb vbm=5.451 cbm=4.393 sk=2.3689
+potential_energy 0.0
+electronic_energy tensor(-823.8241, device='cuda:1')
+[GPU 1] Surface-JVASP-37905_miller_1_1_0_thickness_16_VASP_PBE_noDP BAs vbm=7.282 cbm=5.922 sk=1.1706
+potential_energy 0.0
+electronic_energy tensor(-1320.0919, device='cuda:1')
+[GPU 1] Surface-JVASP-7630_miller_1_1_0_thickness_16_VASP_PBE BAs vbm=7.112 cbm=5.697 sk=0.6584
+potential_energy 0.0
+electronic_energy tensor(-1389.6722, device='cuda:1')
+[GPU 1] Surface-JVASP-79204_miller_1_1_0_thickness_16_VASP_PBE BN vbm=12.674 cbm=7.243 sk=3.3945
+potential_energy 0.0
+electronic_energy tensor(-1352.3860, device='cuda:1')
+[GPU 1] Surface-JVASP-813_miller_1_1_1_thickness_16_VASP_PBE Ag vbm=4.194 cbm=13.371 sk=0.0016
+potential_energy 0.0
+electronic_energy tensor(-1291.4493, device='cuda:1')
+[GPU 1] Surface-JVASP-867_miller_0_0_1_thickness_16_VASP_R2SCAN Cu vbm=4.358 cbm=12.889 sk=0.0014
+potential_energy 0.0
+electronic_energy tensor(-859.7039, device='cuda:1')
+[GPU 1] Surface-JVASP-1002_miller_1_1_1_thickness_16_VASP_R2SCAN Si vbm=6.19 cbm=5.459 sk=0.0211
+potential_energy 0.0
+electronic_energy tensor(-1865.2467, device='cuda:1')
+[GPU 1] Surface-JVASP-943_miller_0_0_1_thickness_16_VASP_R2SCAN Ni vbm=6.682 cbm=8.108 sk=0.0006
+potential_energy 0.0
+electronic_energy tensor(-1020.4720, device='cuda:1')
+[GPU 1] Surface-JVASP-963_miller_1_1_1_thickness_16_VASP_R2SCAN Pd vbm=7.917 cbm=9.431 sk=0.0006
+potential_energy 0.0
+electronic_energy tensor(-1289.9285, device='cuda:1')
+[GPU 1] Surface-JVASP-8158_miller_1_1_1_thickness_16_VASP_R2SCAN SiC vbm=9.408 cbm=7.788 sk=0.4914
+potential_energy 0.0
+electronic_energy tensor(-948.5328, device='cuda:1')
+[GPU 1] Surface-JVASP-25142_miller_1_1_0_thickness_16_VASP_R2SCAN Fe vbm=10.216 cbm=12.135 sk=0.0032
+potential_energy 0.0
+electronic_energy tensor(-899.3168, device='cuda:1')
+[GPU 1] Surface-JVASP-890_miller_1_1_1_thickness_16_VASP_R2SCAN Ge vbm=4.28 cbm=4.363 sk=0.0021
+potential_energy 0.0
+electronic_energy tensor(-1391.7671, device='cuda:1')
+[GPU 1] Surface-JVASP-62940_miller_1_1_1_thickness_16_VASP_R2SCAN BN vbm=6.564 cbm=2.104 sk=4.0697
+potential_energy 0.0
+electronic_energy tensor(-2352.1243, device='cuda:1')
+[GPU 1] Surface-JVASP-1192_miller_1_1_0_thickness_16_VASP_R2SCAN CdSe vbm=0.871 cbm=0.416 sk=2.7218
+potential_energy 0.0
+electronic_energy tensor(-1281.7632, device='cuda:1')
+[GPU 1] Surface-JVASP-1312_miller_1_1_0_thickness_16_VASP_R2SCAN BP vbm=8.701 cbm=7.186 sk=1.5733
+potential_energy 0.0
+electronic_energy tensor(-1151.9727, device='cuda:1')
+[GPU 1] Surface-JVASP-36873_miller_1_1_1_thickness_16_VASP_R2SCAN BSb vbm=8.111 cbm=7.166 sk=0.0093
+potential_energy 0.0
+electronic_energy tensor(-880.0027, device='cuda:1')
+[GPU 1] Surface-JVASP-1372_miller_0_0_1_thickness_16_VASP_R2SCAN AlAs vbm=5.176 cbm=3.495 sk=0.0013
+potential_energy 0.0
+electronic_energy tensor(-770.5604, device='cuda:1')
+[GPU 1] Surface-JVASP-8184_miller_1_1_0_thickness_16_VASP_R2SCAN GaP vbm=5.657 cbm=4.395 sk=3.1277
+potential_energy 0.0
+electronic_energy tensor(-891.7330, device='cuda:1')
+[GPU 1] Surface-JVASP-1180_miller_1_1_0_thickness_16_VASP_R2SCAN InN vbm=5.98 cbm=5.98 sk=0.9989
+potential_energy 0.0
+electronic_energy tensor(-2045.1212, device='cuda:1')
+[GPU 1] Surface-JVASP-91_miller_1_1_0_thickness_16_VASP_R2SCAN C vbm=13.914 cbm=9.457 sk=0.0104
+potential_energy 0.0
+electronic_energy tensor(-1936.7860, device='cuda:1')
+[GPU 1] Surface-JVASP-107_miller_1_1_1_thickness_16_VASP_R2SCAN SiC vbm=10.349 cbm=7.855 sk=0.4394
+potential_energy 0.0
+electronic_energy tensor(-820.4042, device='cuda:1')
+[GPU 1] Surface-JVASP-36403_miller_1_1_1_thickness_16_VASP_R2SCAN SiSn vbm=5.588 cbm=5.34 sk=0.0024
+potential_energy 0.0
+electronic_energy tensor(-886.8307, device='cuda:1')
+[GPU 1] Surface-JVASP-1186_miller_0_0_1_thickness_16_VASP_PBE_noDP InAs vbm=3.774 cbm=3.774 sk=0.0016
+potential_energy 0.0
+electronic_energy tensor(-530.1002, device='cuda:1')
+[GPU 1] Surface-JVASP-1180_miller_0_0_1_thickness_16_VASP_PBE InN vbm=5.98 cbm=5.98 sk=0.0004
+potential_energy 0.0
+electronic_energy tensor(-2088.3689, device='cuda:1')
+[GPU 1] Surface-JVASP-1198_miller_0_0_1_thickness_16_VASP_PBE ZnTe vbm=3.797 cbm=2.741 sk=1.4510
+potential_energy 0.0
+electronic_energy tensor(-1427.5205, device='cuda:1')
+[GPU 1] Surface-JVASP-17700_miller_1_1_0_thickness_16_VASP_PBE InN vbm=5.967 cbm=5.967 sk=0.5287
+potential_energy 0.0
+electronic_energy tensor(-955.9282, device='cuda:1')
+[GPU 1] Surface-JVASP-30_miller_1_1_0_thickness_16_VASP_PBE GaN vbm=6.834 cbm=4.891 sk=4.3976
+potential_energy 0.0
+electronic_energy tensor(-563.6554, device='cuda:1')
+[GPU 1] Surface-JVASP-36123_miller_1_1_0_thickness_16_VASP_PBE InSb vbm=4.414 cbm=4.414 sk=1.8713
+potential_energy 0.0
+electronic_energy tensor(-1095.7759, device='cuda:1')
+[GPU 1] Surface-JVASP-10591_miller_0_0_1_thickness_16_VASP_PBE ZnS vbm=3.899 cbm=1.796 sk=3.9516
+potential_energy 0.0
+electronic_energy tensor(-1122.4111, device='cuda:1')
+[GPU 1] Surface-JVASP-858_miller_0_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Co vbm=9.212 cbm=11.468 sk=0.0043
+potential_energy 0.0
+electronic_energy tensor(-2579.8215, device='cuda:1')
+[GPU 1] Surface-JVASP-840_miller_0_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Br vbm=1.396 cbm=0.088 sk=2.0036
+potential_energy 0.0
+electronic_energy tensor(-458.9572, device='cuda:1')
+[GPU 1] Surface-JVASP-834_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Be vbm=4.002 cbm=6.037 sk=0.0281
+potential_energy 0.0
+electronic_energy tensor(-1784.7832, device='cuda:1')
+[GPU 1] Surface-JVASP-984_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Rh vbm=9.542 cbm=12.383 sk=0.0109
+potential_energy 0.0
+electronic_energy tensor(-1511.4766, device='cuda:1')
+[GPU 1] Surface-JVASP-890_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Ge vbm=4.28 cbm=4.363 sk=0.0026
+potential_energy 0.0
+electronic_energy tensor(-658.7140, device='cuda:1')
+potential_energy 0.0
+electronic_energy tensor(-884.6395, device='cuda:2')
+[GPU 2] Surface-JVASP-1372_miller_1_1_0_thickness_16_VASP_PBE_noDP AlAs vbm=5.176 cbm=3.495 sk=2.6808
+potential_energy 0.0
+electronic_energy tensor(-1567.5729, device='cuda:2')
+[GPU 2] Surface-JVASP-7671_miller_1_1_0_thickness_16_VASP_PBE_noDP CdSe vbm=0.922 cbm=0.423 sk=3.1448
+potential_energy 0.0
+electronic_energy tensor(-3389.1299, device='cuda:2')
+[GPU 2] Surface-JVASP-7923_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnO vbm=1.599 cbm=0.728 sk=3.7974
+potential_energy 0.0
+electronic_energy tensor(-1299.1658, device='cuda:2')
+[GPU 2] Surface-JVASP-8158_miller_0_0_1_thickness_16_VASP_PBE_noDP SiC vbm=9.408 cbm=7.788 sk=0.0051
+potential_energy 0.0
+electronic_energy tensor(-632.8806, device='cuda:2')
+[GPU 2] Surface-JVASP-8185_miller_1_1_0_thickness_16_VASP_PBE_noDP GaAs vbm=3.604 cbm=3.506 sk=2.8327
+potential_energy 0.0
+electronic_energy tensor(-913.5521, device='cuda:2')
+[GPU 2] Surface-JVASP-890_miller_1_1_0_thickness_16_VASP_PBE_noDP Ge vbm=4.28 cbm=4.363 sk=0.0934
+potential_energy 0.0
+electronic_energy tensor(-1304.8895, device='cuda:2')
+[GPU 2] Surface-JVASP-8158_miller_0_0_1_thickness_16_VASP_PBE SiC vbm=9.408 cbm=7.788 sk=0.0011
+potential_energy 0.0
+electronic_energy tensor(-632.8542, device='cuda:2')
+[GPU 2] Surface-JVASP-8185_miller_1_1_0_thickness_16_VASP_PBE GaAs vbm=3.604 cbm=3.506 sk=2.8225
+potential_energy 0.0
+electronic_energy tensor(-911.0379, device='cuda:2')
+[GPU 2] Surface-JVASP-890_miller_1_1_0_thickness_16_VASP_PBE Ge vbm=4.28 cbm=4.363 sk=0.0029
+potential_energy 0.0
+electronic_energy tensor(-2348.7246, device='cuda:2')
+[GPU 2] Surface-JVASP-1192_miller_0_0_1_thickness_16_VASP_PBE_noDP CdSe vbm=0.871 cbm=0.416 sk=1.1953
+potential_energy 0.0
+electronic_energy tensor(-844.7700, device='cuda:2')
+[GPU 2] Surface-JVASP-1408_miller_0_0_1_thickness_16_VASP_PBE_noDP AlSb vbm=5.611 cbm=4.289 sk=0.8694
+potential_energy 0.0
+electronic_energy tensor(-2290.4351, device='cuda:2')
+[GPU 2] Surface-JVASP-23_miller_1_1_0_thickness_16_VASP_PBE_noDP CdTe vbm=2.253 cbm=1.755 sk=2.6094
+potential_energy 0.0
+electronic_energy tensor(-589.2692, device='cuda:2')
+[GPU 2] Surface-JVASP-36119_miller_1_1_0_thickness_16_VASP_PBE_noDP InAs vbm=3.822 cbm=3.822 sk=2.0935
+potential_energy 0.0
+electronic_energy tensor(-563.9026, device='cuda:2')
+[GPU 2] Surface-JVASP-36123_miller_1_1_0_thickness_16_VASP_PBE_noDP InSb vbm=4.414 cbm=4.414 sk=2.4191
+potential_energy 0.0
+electronic_energy tensor(-1567.5718, device='cuda:2')
+[GPU 2] Surface-JVASP-7671_miller_1_1_0_thickness_16_VASP_PBE CdSe vbm=0.922 cbm=0.423 sk=3.1406
+potential_energy 0.0
+electronic_energy tensor(-3388.0361, device='cuda:2')
+[GPU 2] Surface-JVASP-7923_miller_1_1_0_thickness_16_VASP_PBE ZnO vbm=1.599 cbm=0.728 sk=3.6057
+potential_energy 0.0
+electronic_energy tensor(-1858.5133, device='cuda:2')
+[GPU 2] Surface-JVASP-943_miller_1_1_1_thickness_16_VASP_R2SCAN Ni vbm=6.682 cbm=8.108 sk=0.0005
+potential_energy 0.0
+electronic_energy tensor(-1295.6682, device='cuda:2')
+[GPU 2] Surface-JVASP-867_miller_1_1_0_thickness_16_VASP_R2SCAN Cu vbm=4.358 cbm=12.889 sk=0.0148
+potential_energy 0.0
+electronic_energy tensor(-380.7814, device='cuda:2')
+[GPU 2] Surface-JVASP-816_miller_0_0_1_thickness_16_VASP_R2SCAN Al vbm=3.468 cbm=20.232 sk=0.0052
+potential_energy 0.0
+electronic_energy tensor(-303.3958, device='cuda:2')
+[GPU 2] Surface-JVASP-1029_miller_1_1_1_thickness_16_VASP_R2SCAN Ti vbm=5.807 cbm=6.174 sk=0.0017
+potential_energy 0.0
+electronic_energy tensor(-1038.8975, device='cuda:2')
+[GPU 2] Surface-JVASP-963_miller_1_1_0_thickness_16_VASP_R2SCAN Pd vbm=7.917 cbm=9.431 sk=0.0012
+potential_energy 0.0
+electronic_energy tensor(-1294.0504, device='cuda:2')
+[GPU 2] Surface-JVASP-8158_miller_1_1_0_thickness_16_VASP_R2SCAN SiC vbm=9.408 cbm=7.788 sk=1.1948
+potential_energy 0.0
+electronic_energy tensor(-105.6611, device='cuda:2')
+[GPU 2] Surface-JVASP-919_miller_0_0_1_thickness_16_VASP_R2SCAN Mg vbm=1.108 cbm=3.45 sk=0.0134
+potential_energy 0.0
+electronic_energy tensor(-715.4766, device='cuda:2')
+[GPU 2] Surface-JVASP-39_miller_0_0_1_thickness_16_VASP_R2SCAN AlN vbm=10.306 cbm=5.832 sk=2.7038
+potential_energy 0.0
+electronic_energy tensor(-1392.5400, device='cuda:2')
+[GPU 2] Surface-JVASP-62940_miller_1_1_0_thickness_16_VASP_R2SCAN BN vbm=6.564 cbm=2.104 sk=4.0601
+potential_energy 0.0
+electronic_energy tensor(-2116.7002, device='cuda:2')
+[GPU 2] Surface-JVASP-1195_miller_1_1_0_thickness_16_VASP_R2SCAN ZnO vbm=1.682 cbm=0.717 sk=4.3611
+potential_energy 0.0
+electronic_energy tensor(-1277.4700, device='cuda:2')
+[GPU 2] Surface-JVASP-1312_miller_0_0_1_thickness_16_VASP_R2SCAN BP vbm=8.701 cbm=7.186 sk=0.0003
+potential_energy 0.0
+electronic_energy tensor(-1168.8263, device='cuda:2')
+[GPU 2] Surface-JVASP-36873_miller_1_1_0_thickness_16_VASP_R2SCAN BSb vbm=8.111 cbm=7.166 sk=1.1069
+potential_energy 0.0
+electronic_energy tensor(-884.6042, device='cuda:2')
+[GPU 2] Surface-JVASP-1372_miller_1_1_0_thickness_16_VASP_R2SCAN AlAs vbm=5.176 cbm=3.495 sk=2.6751
+potential_energy 0.0
+electronic_energy tensor(-917.4634, device='cuda:2')
+[GPU 2] Surface-JVASP-1174_miller_1_1_1_thickness_16_VASP_R2SCAN GaAs vbm=3.492 cbm=3.407 sk=0.0028
+potential_energy 0.0
+electronic_energy tensor(-933.4978, device='cuda:2')
+[GPU 2] Surface-JVASP-1183_miller_1_1_0_thickness_16_VASP_R2SCAN InP vbm=4.918 cbm=4.588 sk=2.8349
+potential_energy 0.0
+electronic_energy tensor(-638.6262, device='cuda:2')
+[GPU 2] Surface-JVASP-8118_miller_0_0_1_thickness_16_VASP_R2SCAN SiC vbm=10.545 cbm=7.927 sk=0.1535
+potential_energy 0.0
+electronic_energy tensor(-1275.8799, device='cuda:2')
+[GPU 2] Surface-JVASP-36408_miller_1_1_0_thickness_16_VASP_R2SCAN SnC vbm=8.324 cbm=7.576 sk=1.9266
+potential_energy 0.0
+electronic_energy tensor(-824.1145, device='cuda:2')
+[GPU 2] Surface-JVASP-1008_miller_1_1_0_thickness_16_VASP_R2SCAN Sn vbm=4.62 cbm=4.93 sk=0.0014
+potential_energy 0.0
+electronic_energy tensor(-717.4039, device='cuda:2')
+[GPU 2] Surface-JVASP-1073_miller_1_1_0_thickness_16_VASP_PBE SiGe vbm=5.594 cbm=5.191 sk=0.2059
+potential_energy 0.0
+electronic_energy tensor(-933.8516, device='cuda:2')
+[GPU 2] Surface-JVASP-1183_miller_0_0_1_thickness_16_VASP_PBE InP vbm=4.918 cbm=4.588 sk=1.3405
+potential_energy 0.0
+electronic_energy tensor(-940.6411, device='cuda:2')
+[GPU 2] Surface-JVASP-1327_miller_1_0_0_thickness_16_VASP_PBE AlP vbm=6.054 cbm=4.26 sk=1.2543
+potential_energy 0.0
+electronic_energy tensor(-1527.4297, device='cuda:2')
+[GPU 2] Surface-JVASP-22685_miller_1_1_0_thickness_16_VASP_PBE CdTe vbm=1.776 cbm=2.302 sk=3.7943
+potential_energy 0.0
+electronic_energy tensor(-562.6249, device='cuda:2')
+[GPU 2] Surface-JVASP-35711_miller_1_1_0_thickness_16_VASP_PBE GaSb vbm=4.454 cbm=4.453 sk=1.6037
+potential_energy 0.0
+electronic_energy tensor(-799.0747, device='cuda:2')
+[GPU 2] Surface-JVASP-36204_miller_1_1_0_thickness_16_VASP_PBE BP vbm=8.847 cbm=7.47 sk=2.1605
+potential_energy 0.0
+electronic_energy tensor(-1758.1860, device='cuda:2')
+[GPU 2] Surface-JVASP-858_miller_1_1_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Co vbm=9.212 cbm=11.468 sk=0.0003
+potential_energy 0.0
+electronic_energy tensor(-204.3897, device='cuda:2')
+[GPU 2] Surface-JVASP-919_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Mg vbm=1.108 cbm=3.45 sk=0.0252
+potential_energy 0.0
+electronic_energy tensor(-1758.1578, device='cuda:2')
+[GPU 2] Surface-JVASP-858_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Co vbm=9.212 cbm=11.468 sk=0.0005
+potential_energy 0.0
+electronic_energy tensor(-132.9029, device='cuda:2')
+[GPU 2] Surface-JVASP-919_miller_0_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Mg vbm=1.108 cbm=3.45 sk=0.0251
+potential_energy 0.0
+electronic_energy tensor(-3413.6599, device='cuda:2')
+[GPU 2] Surface-JVASP-895_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN I vbm=3.494 cbm=2.579 sk=0.0080
+potential_energy 0.0
+electronic_energy tensor(-204.8293, device='cuda:2')
+[GPU 2] Surface-JVASP-919_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Mg vbm=1.108 cbm=3.45 sk=0.0203
+potential_energy 0.0
+electronic_energy tensor(-1598.4712, device='cuda:2')
+potential_energy 0.0
+electronic_energy tensor(-907.6202, device='cuda:3')
+[GPU 3] Surface-JVASP-1248_miller_1_1_0_thickness_16_VASP_PBE_noDP BeTe vbm=6.63 cbm=4.428 sk=3.4120
+potential_energy 0.0
+electronic_energy tensor(-1988.5092, device='cuda:3')
+[GPU 3] Surface-JVASP-7836_miller_1_1_0_thickness_16_VASP_PBE_noDP BN vbm=11.937 cbm=7.124 sk=3.0003
+potential_energy 0.0
+electronic_energy tensor(-2411.1514, device='cuda:3')
+[GPU 3] Surface-JVASP-8003_miller_0_0_1_thickness_16_VASP_PBE_noDP CdS vbm=1.818 cbm=0.825 sk=2.0558
+potential_energy 0.0
+electronic_energy tensor(-1524.6941, device='cuda:3')
+[GPU 3] Surface-JVASP-8169_miller_1_1_0_thickness_16_VASP_PBE_noDP GaN vbm=6.655 cbm=4.87 sk=4.2879
+potential_energy 0.0
+electronic_energy tensor(-1392.9028, device='cuda:3')
+[GPU 3] Surface-JVASP-8186_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnTe vbm=3.859 cbm=2.781 sk=3.1100
+potential_energy 0.0
+electronic_energy tensor(-1606.1562, device='cuda:3')
+[GPU 3] Surface-JVASP-95_miller_1_1_0_thickness_16_VASP_PBE_noDP CdS vbm=1.878 cbm=0.823 sk=4.6389
+potential_energy 0.0
+electronic_energy tensor(-1524.6926, device='cuda:3')
+[GPU 3] Surface-JVASP-8169_miller_1_1_0_thickness_16_VASP_PBE GaN vbm=6.655 cbm=4.87 sk=4.2879
+potential_energy 0.0
+electronic_energy tensor(-1392.8765, device='cuda:3')
+[GPU 3] Surface-JVASP-8186_miller_1_1_0_thickness_16_VASP_PBE ZnTe vbm=3.859 cbm=2.781 sk=3.1156
+potential_energy 0.0
+electronic_energy tensor(-1604.1859, device='cuda:3')
+[GPU 3] Surface-JVASP-95_miller_1_1_0_thickness_16_VASP_PBE CdS vbm=1.878 cbm=0.823 sk=4.4766
+potential_energy 0.0
+electronic_energy tensor(-2089.8467, device='cuda:3')
+[GPU 3] Surface-JVASP-1198_miller_0_0_1_thickness_16_VASP_PBE_noDP ZnTe vbm=3.797 cbm=2.741 sk=0.0071
+potential_energy 0.0
+electronic_energy tensor(-1427.5173, device='cuda:3')
+[GPU 3] Surface-JVASP-17700_miller_1_1_0_thickness_16_VASP_PBE_noDP InN vbm=5.967 cbm=5.967 sk=0.5268
+potential_energy 0.0
+electronic_energy tensor(-955.9196, device='cuda:3')
+[GPU 3] Surface-JVASP-30_miller_1_1_0_thickness_16_VASP_PBE_noDP GaN vbm=6.834 cbm=4.891 sk=4.3956
+potential_energy 0.0
+electronic_energy tensor(-798.7069, device='cuda:3')
+[GPU 3] Surface-JVASP-36204_miller_1_1_0_thickness_16_VASP_PBE_noDP BP vbm=8.847 cbm=7.47 sk=2.1276
+potential_energy 0.0
+electronic_energy tensor(-817.6987, device='cuda:3')
+[GPU 3] Surface-JVASP-36403_miller_0_0_1_thickness_16_VASP_PBE_noDP SiSn vbm=5.588 cbm=5.34 sk=0.0131
+potential_energy 0.0
+electronic_energy tensor(-1988.5092, device='cuda:3')
+[GPU 3] Surface-JVASP-7836_miller_1_1_0_thickness_16_VASP_PBE BN vbm=11.937 cbm=7.124 sk=3.0003
+potential_energy 0.0
+electronic_energy tensor(-2410.2979, device='cuda:3')
+[GPU 3] Surface-JVASP-8003_miller_0_0_1_thickness_16_VASP_PBE CdS vbm=1.818 cbm=0.825 sk=2.0597
+potential_energy 0.0
+electronic_energy tensor(-1867.0178, device='cuda:3')
+[GPU 3] Surface-JVASP-943_miller_1_1_0_thickness_16_VASP_R2SCAN Ni vbm=6.682 cbm=8.108 sk=0.0005
+potential_energy 0.0
+electronic_energy tensor(-851.5442, device='cuda:3')
+[GPU 3] Surface-JVASP-1002_miller_1_0_0_thickness_16_VASP_R2SCAN Si vbm=6.19 cbm=5.459 sk=0.0361
+potential_energy 0.0
+electronic_energy tensor(-375.7299, device='cuda:3')
+[GPU 3] Surface-JVASP-816_miller_1_1_1_thickness_16_VASP_R2SCAN Al vbm=3.468 cbm=20.232 sk=0.0084
+potential_energy 0.0
+electronic_energy tensor(-306.1262, device='cuda:3')
+[GPU 3] Surface-JVASP-1029_miller_1_1_0_thickness_16_VASP_R2SCAN Ti vbm=5.807 cbm=6.174 sk=0.0020
+potential_energy 0.0
+electronic_energy tensor(-1361.6344, device='cuda:3')
+[GPU 3] Surface-JVASP-813_miller_0_0_1_thickness_16_VASP_R2SCAN Ag vbm=4.194 cbm=13.371 sk=0.0109
+potential_energy 0.0
+electronic_energy tensor(-431.0645, device='cuda:3')
+[GPU 3] Surface-JVASP-861_miller_1_1_0_thickness_16_VASP_R2SCAN Cr vbm=10.023 cbm=13.39 sk=0.0001
+potential_energy 0.0
+electronic_energy tensor(-947.0117, device='cuda:3')
+[GPU 3] Surface-JVASP-1056_miller_0_0_1_thickness_16_VASP_R2SCAN Zn vbm=-0.797 cbm=4.632 sk=0.0064
+potential_energy 0.0
+electronic_energy tensor(-1076.9883, device='cuda:3')
+[GPU 3] Surface-JVASP-39_miller_1_1_0_thickness_16_VASP_R2SCAN AlN vbm=10.306 cbm=5.832 sk=3.9542
+potential_energy 0.0
+electronic_energy tensor(-3569.4053, device='cuda:3')
+[GPU 3] Surface-JVASP-20092_miller_0_0_1_thickness_16_VASP_R2SCAN CdO vbm=1.166 cbm=1.46 sk=1.2043
+potential_energy 0.0
+electronic_energy tensor(-1687.8325, device='cuda:3')
+[GPU 3] Surface-JVASP-1195_miller_0_0_1_thickness_16_VASP_R2SCAN ZnO vbm=1.682 cbm=0.717 sk=0.6208
+potential_energy 0.0
+electronic_energy tensor(-1280.1428, device='cuda:3')
+[GPU 3] Surface-JVASP-1312_miller_1_1_1_thickness_16_VASP_R2SCAN BP vbm=8.701 cbm=7.186 sk=0.7388
+potential_energy 0.0
+electronic_energy tensor(-942.5688, device='cuda:3')
+[GPU 3] Surface-JVASP-1327_miller_1_1_0_thickness_16_VASP_R2SCAN AlP vbm=6.054 cbm=4.26 sk=2.7495
+potential_energy 0.0
+electronic_energy tensor(-848.5157, device='cuda:3')
+[GPU 3] Surface-JVASP-1408_miller_1_1_0_thickness_16_VASP_R2SCAN AlSb vbm=5.611 cbm=4.289 sk=1.9495
+potential_energy 0.0
+electronic_energy tensor(-948.2207, device='cuda:3')
+[GPU 3] Surface-JVASP-1174_miller_1_1_0_thickness_16_VASP_R2SCAN GaAs vbm=3.492 cbm=3.407 sk=1.9663
+potential_energy 0.0
+electronic_energy tensor(-2036.4474, device='cuda:3')
+[GPU 3] Surface-JVASP-91_miller_0_0_1_thickness_16_VASP_R2SCAN C vbm=13.914 cbm=9.457 sk=0.0025
+potential_energy 0.0
+electronic_energy tensor(-965.9116, device='cuda:3')
+[GPU 3] Surface-JVASP-8118_miller_1_1_1_thickness_16_VASP_R2SCAN SiC vbm=10.545 cbm=7.927 sk=0.0024
+potential_energy 0.0
+electronic_energy tensor(-844.1887, device='cuda:3')
+[GPU 3] Surface-JVASP-105410_miller_1_1_1_thickness_16_VASP_R2SCAN SiGe vbm=5.714 cbm=5.02 sk=0.0039
+potential_energy 0.0
+electronic_energy tensor(-827.2252, device='cuda:3')
+[GPU 3] Surface-JVASP-1008_miller_0_0_1_thickness_16_VASP_R2SCAN Sn vbm=4.62 cbm=4.93 sk=0.0048
+potential_energy 0.0
+electronic_energy tensor(-846.7465, device='cuda:3')
+[GPU 3] Surface-JVASP-1177_miller_0_0_1_thickness_16_VASP_PBE GaSb vbm=4.35 cbm=4.35 sk=0.0154
+potential_energy 0.0
+electronic_energy tensor(-887.9308, device='cuda:3')
+[GPU 3] Surface-JVASP-1186_miller_0_0_1_thickness_16_VASP_PBE InAs vbm=3.774 cbm=3.774 sk=0.4109
+potential_energy 0.0
+electronic_energy tensor(-925.6080, device='cuda:3')
+[GPU 3] Surface-JVASP-1393_miller_1_1_0_thickness_16_VASP_PBE GaP vbm=5.776 cbm=4.294 sk=2.9186
+potential_energy 0.0
+electronic_energy tensor(-2290.4287, device='cuda:3')
+[GPU 3] Surface-JVASP-23_miller_1_1_0_thickness_16_VASP_PBE CdTe vbm=2.253 cbm=1.755 sk=2.6091
+potential_energy 0.0
+electronic_energy tensor(-562.1442, device='cuda:3')
+[GPU 3] Surface-JVASP-35748_miller_1_1_0_thickness_16_VASP_PBE AlSb vbm=5.451 cbm=4.393 sk=2.3891
+potential_energy 0.0
+electronic_energy tensor(-1274.8855, device='cuda:3')
+[GPU 3] Surface-JVASP-36408_miller_0_0_1_thickness_16_VASP_PBE SnC vbm=8.324 cbm=7.576 sk=0.0784
+potential_energy 0.0
+electronic_energy tensor(-2277.4016, device='cuda:3')
+[GPU 3] Surface-JVASP-895_miller_0_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN I vbm=3.494 cbm=2.579 sk=1.8634
+potential_energy 0.0
+electronic_energy tensor(-2234.9648, device='cuda:3')
+[GPU 3] Surface-JVASP-828_miller_0_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN B vbm=7.321 cbm=5.633 sk=0.0383
+potential_energy 0.0
+electronic_energy tensor(-1705.2180, device='cuda:3')
+[GPU 3] Surface-JVASP-895_miller_0_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN I vbm=3.494 cbm=2.579 sk=0.0003
+potential_energy 0.0
+electronic_energy tensor(-200.7102, device='cuda:3')
+[GPU 3] Surface-JVASP-919_miller_1_1_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Mg vbm=1.108 cbm=3.45 sk=0.0038
+potential_energy 0.0
+electronic_energy tensor(-578.0752, device='cuda:3')
+[GPU 3] Surface-JVASP-934_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Nb vbm=3.421 cbm=10.262 sk=0.0006
+potential_energy 0.0
+electronic_energy tensor(-465.2870, device='cuda:3')
+[GPU 3] Surface-JVASP-1029_miller_1_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Ti vbm=5.807 cbm=6.174 sk=0.0003
+potential_energy 0.0
+electronic_energy tensor(-762.5560, device='cuda:3')
+[GPU 3] Surface-JVASP-21195_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Mo vbm=10.564 cbm=15.761 sk=0.0032
+potential_energy 0.0
+electronic_energy tensor(-681.1493, device='cuda:3')
+[GPU 3] Surface-JVASP-14837_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN V vbm=4.618 cbm=9.431 sk=0.0012
+potential_energy 0.0
+electronic_energy tensor(-632.8235, device='cuda:3')
+[GPU 3] Surface-JVASP-107_miller_0_0_1_thickness_16_VASP_PBE_noDP SiC vbm=10.349 cbm=7.855 sk=0.0100
+potential_energy 0.0
+electronic_energy tensor(-530.1085, device='cuda:3')
+[GPU 3] Surface-JVASP-1180_miller_0_0_1_thickness_16_VASP_PBE_noDP InN vbm=5.98 cbm=5.98 sk=0.0005
+potential_energy 0.0
+electronic_energy tensor(-2352.1143, device='cuda:3')
+[GPU 3] Surface-JVASP-1192_miller_1_1_0_thickness_16_VASP_PBE_noDP CdSe vbm=0.871 cbm=0.416 sk=2.7260
+potential_energy 0.0
+electronic_energy tensor(-707.0725, device='cuda:3')
+[GPU 3] Surface-JVASP-1073_miller_1_1_0_thickness_16_VASP_PBE_noDP SiGe vbm=5.594 cbm=5.191 sk=1.1622
+potential_energy 0.0
+electronic_energy tensor(-930.0941, device='cuda:3')
+[GPU 3] Surface-JVASP-1183_miller_0_0_1_thickness_16_VASP_PBE_noDP InP vbm=4.918 cbm=4.588 sk=1.3510
+potential_energy 0.0
+electronic_energy tensor(-852.9253, device='cuda:3')
+[GPU 3] Surface-JVASP-1765_miller_1_1_0_thickness_16_VASP_PBE_noDP LiMgAs vbm=3.642 cbm=2.121 sk=2.6592
+potential_energy 0.0
+electronic_energy tensor(-1281.8362, device='cuda:3')
+[GPU 3] Surface-JVASP-1312_miller_1_1_0_thickness_16_VASP_PBE_noDP BP vbm=8.701 cbm=7.186 sk=1.5742
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 97 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 123 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 141 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 144 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 152 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 164 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 164 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 152 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 144 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 141 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 134 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 188 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 199 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 223 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 211 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 151 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 124 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 123 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 123 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 123 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 123 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 123 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 90 is not positive-definite)., falling back to eig
+potential_energy 0.0
+electronic_energy tensor(-593.2200, device='cuda:3')
+[GPU 3] Surface-JVASP-108112_miller_1_1_0_thickness_16_VASP_PBE_noDP KRbMnF6 vbm=0.43 cbm=-1.965 sk=0.0014
+potential_energy 0.0
+electronic_energy tensor(-732.9511, device='cuda:3')
+[GPU 3] Surface-JVASP-101477_miller_1_1_0_thickness_16_VASP_PBE_noDP LiCaSb vbm=4.975 cbm=4.256 sk=1.7877
+potential_energy 0.0
+electronic_energy tensor(-1874.1681, device='cuda:3')
+[GPU 3] Surface-JVASP-1957_miller_1_1_0_thickness_16_VASP_PBE_noDP AgI vbm=3.834 cbm=2.574 sk=3.1338
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 362 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 282 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 194 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 186 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 290 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 356 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 275 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 185 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 323 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 235 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 185 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 186 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 222 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 353 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 356 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 275 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 185 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 162 is not positive-definite)., falling back to eig
+potential_energy 0.0
+electronic_energy tensor(-3564.5400, device='cuda:3')
+[GPU 3] Surface-JVASP-101229_miller_1_1_0_thickness_16_VASP_PBE_noDP BaSrMgTeO6 vbm=5.379 cbm=3.374 sk=0.0039
+potential_energy 0.0
+electronic_energy tensor(-1825.7288, device='cuda:3')
+[GPU 3] Surface-JVASP-1513_miller_1_1_0_thickness_16_VASP_PBE_noDP TiCoSb vbm=9.276 cbm=8.205 sk=0.3033
+potential_energy 0.0
+electronic_energy tensor(-1077.9446, device='cuda:3')
+[GPU 3] Surface-JVASP-39_miller_1_0_0_thickness_16_VASP_PBE_noDP AlN vbm=10.306 cbm=5.832 sk=4.1089
+potential_energy 0.0
+electronic_energy tensor(-849.5403, device='cuda:3')
+[GPU 3] Surface-JVASP-105410_miller_0_0_1_thickness_16_VASP_PBE SiGe vbm=5.714 cbm=5.02 sk=0.0163
+potential_energy 0.0
+electronic_energy tensor(-794.3626, device='cuda:3')
+[GPU 1] Surface-JVASP-816_miller_1_1_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Al vbm=3.468 cbm=20.232 sk=0.0024
+potential_energy 0.0
+electronic_energy tensor(-1597.7942, device='cuda:1')
+[GPU 1] Surface-JVASP-993_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Sb vbm=6.324 cbm=6.465 sk=0.0036
+potential_energy 0.0
+electronic_energy tensor(-50.6355, device='cuda:1')
+[GPU 1] Surface-JVASP-931_miller_0_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Na vbm=-1.901 cbm=2.451 sk=0.0038
+potential_energy 0.0
+electronic_energy tensor(-1459.6338, device='cuda:1')
+[GPU 1] Surface-JVASP-963_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Pd vbm=7.917 cbm=9.431 sk=0.0031
+potential_energy 0.0
+electronic_energy tensor(-465.5456, device='cuda:1')
+[GPU 1] Surface-JVASP-1029_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Ti vbm=5.807 cbm=6.174 sk=0.0006
+potential_energy 0.0
+electronic_energy tensor(-2361.6006, device='cuda:1')
+[GPU 1] Surface-JVASP-1056_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Zn vbm=-0.797 cbm=4.632 sk=0.0043
+potential_energy 0.0
+electronic_energy tensor(-771.7292, device='cuda:1')
+[GPU 1] Surface-JVASP-21195_miller_1_1_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Mo vbm=10.564 cbm=15.761 sk=0.0020
+potential_energy 0.0
+electronic_energy tensor(-1921.6792, device='cuda:1')
+[GPU 1] Surface-JVASP-107_miller_1_1_0_thickness_16_VASP_PBE SiC vbm=10.349 cbm=7.855 sk=2.1842
+potential_energy 0.0
+electronic_energy tensor(-937.6187, device='cuda:1')
+[GPU 1] Surface-JVASP-1174_miller_0_0_1_thickness_16_VASP_PBE_noDP GaAs vbm=3.492 cbm=3.407 sk=0.0849
+potential_energy 0.0
+electronic_energy tensor(-848.5219, device='cuda:1')
+[GPU 1] Surface-JVASP-1408_miller_1_1_0_thickness_16_VASP_PBE_noDP AlSb vbm=5.611 cbm=4.289 sk=1.9528
+potential_energy 0.0
+electronic_energy tensor(-849.5504, device='cuda:1')
+[GPU 1] Surface-JVASP-105410_miller_0_0_1_thickness_16_VASP_PBE_noDP SiGe vbm=5.714 cbm=5.02 sk=0.0193
+potential_energy 0.0
+electronic_energy tensor(-1611.4767, device='cuda:1')
+[GPU 1] Surface-JVASP-1109_miller_1_0_0_thickness_16_VASP_PBE_noDP SnS vbm=6.392 cbm=5.375 sk=1.3471
+potential_energy 0.0
+electronic_energy tensor(-749.1790, device='cuda:1')
+[GPU 1] Surface-JVASP-66546_miller_1_1_0_thickness_16_VASP_PBE_noDP BaNaSb vbm=2.178 cbm=1.485 sk=2.3029
+potential_energy 0.0
+electronic_energy tensor(-777.3512, device='cuda:1')
+[GPU 1] Surface-JVASP-67988_miller_1_1_0_thickness_16_VASP_PBE_noDP Na2BeGe vbm=3.834 cbm=3.631 sk=0.0022
+potential_energy 0.0
+electronic_energy tensor(-1935.3829, device='cuda:1')
+[GPU 1] Surface-JVASP-70484_miller_1_1_0_thickness_16_VASP_PBE_noDP Be2NbCo vbm=6.216 cbm=5.725 sk=0.0011
+potential_energy 0.0
+electronic_energy tensor(-947.4899, device='cuda:1')
+[GPU 1] Surface-JVASP-1774_miller_1_1_0_thickness_16_VASP_PBE_noDP MgSe vbm=3.133 cbm=0.351 sk=5.0925
+potential_energy 0.0
+electronic_energy tensor(-1771.8024, device='cuda:1')
+[GPU 1] Surface-JVASP-1201_miller_1_1_0_thickness_16_VASP_PBE_noDP CuCl vbm=4.196 cbm=3.467 sk=0.7614
+potential_energy 0.0
+electronic_energy tensor(-1372.7318, device='cuda:1')
+[GPU 1] Surface-JVASP-1167_miller_1_1_0_thickness_16_VASP_PBE_noDP BeS vbm=6.755 cbm=3.36 sk=4.5130
+potential_energy 0.0
+electronic_energy tensor(-942.1771, device='cuda:1')
+[GPU 1] Surface-JVASP-104499_miller_1_1_0_thickness_16_VASP_PBE_noDP KNaSe vbm=2.426 cbm=0.231 sk=3.5744
+potential_energy 0.0
+electronic_energy tensor(-738.4933, device='cuda:1')
+[GPU 1] Surface-JVASP-104498_miller_1_1_0_thickness_16_VASP_PBE_noDP NaCaSb vbm=4.238 cbm=3.378 sk=2.0422
+potential_energy 0.0
+electronic_energy tensor(-955.3646, device='cuda:1')
+[GPU 1] Surface-JVASP-30_miller_1_0_0_thickness_16_VASP_PBE_noDP GaN vbm=6.834 cbm=4.891 sk=4.2487
+potential_energy 0.0
+electronic_energy tensor(-848.5192, device='cuda:1')
+[GPU 1] Surface-JVASP-1408_miller_1_1_0_thickness_16_VASP_PBE AlSb vbm=5.611 cbm=4.289 sk=1.9527
+potential_energy 0.0
+electronic_energy tensor(-839.2210, device='cuda:1')
+[GPU 1] Surface-JVASP-22735_miller_1_1_0_thickness_16_VASP_PBE_noDP LiCaAs vbm=1.227 cbm=3.11 sk=2.6384
+potential_energy 0.0
+electronic_energy tensor(-880.8581, device='cuda:1')
+[GPU 1] Surface-JVASP-7762_miller_1_1_0_thickness_16_VASP_PBE_noDP MgTe vbm=4.118 cbm=1.623 sk=4.4296
+potential_energy 0.0
+electronic_energy tensor(-1401.8616, device='cuda:1')
+[GPU 1] Surface-JVASP-22652_miller_1_1_0_thickness_16_VASP_PBE_noDP ScSbPd vbm=7.481 cbm=7.776 sk=0.0748
+potential_energy 0.0
+electronic_energy tensor(-812.0812, device='cuda:1')
+[GPU 1] Surface-JVASP-7706_miller_1_1_0_thickness_16_VASP_PBE_noDP LiGaSi vbm=5.64 cbm=5.414 sk=0.3410
+potential_energy 0.0
+electronic_energy tensor(-1576.4390, device='cuda:1')
+[GPU 1] Surface-JVASP-8562_miller_1_1_0_thickness_16_VASP_PBE_noDP CuI vbm=5.31 cbm=4.06 sk=2.1134
+potential_energy 0.0
+electronic_energy tensor(-687.1960, device='cuda:1')
+[GPU 1] Surface-JVASP-78746_miller_1_1_0_thickness_16_VASP_PBE_noDP NaYSn vbm=2.812 cbm=2.642 sk=0.0030
+potential_energy 0.0
+electronic_energy tensor(-1426.1038, device='cuda:1')
+[GPU 1] Surface-JVASP-36018_miller_1_1_0_thickness_16_VASP_PBE_noDP GeC vbm=8.524 cbm=6.597 sk=1.6623
+potential_energy 0.0
+electronic_energy tensor(-788.2316, device='cuda:1')
+[GPU 1] Surface-JVASP-78883_miller_1_1_0_thickness_16_VASP_PBE_noDP LiMgSb vbm=4.228 cbm=3.17 sk=2.0339
+potential_energy 0.0
+electronic_energy tensor(-878.7057, device='cuda:1')
+[GPU 1] Surface-JVASP-22540_miller_1_1_0_thickness_16_VASP_PBE_noDP LiMgP vbm=2.544 cbm=4.283 sk=3.0546
+potential_energy 0.0
+electronic_energy tensor(-1399.5507, device='cuda:1')
+[GPU 1] Surface-JVASP-22546_miller_1_1_0_thickness_16_VASP_PBE_noDP LiMgN vbm=2.626 cbm=5.412 sk=2.7397
+potential_energy 0.0
+electronic_energy tensor(-878.7279, device='cuda:1')
+[GPU 1] Surface-JVASP-31161_miller_1_1_0_thickness_16_VASP_PBE_noDP LiMgP vbm=4.283 cbm=2.544 sk=3.0534
+potential_energy 0.0
+electronic_energy tensor(-1406.2424, device='cuda:1')
+[GPU 1] Surface-JVASP-40776_miller_1_1_0_thickness_16_VASP_PBE_noDP ZrSiPd vbm=8.963 cbm=8.19 sk=0.0960
+potential_energy 0.0
+electronic_energy tensor(-1847.3052, device='cuda:1')
+[GPU 1] Surface-JVASP-40788_miller_1_1_0_thickness_16_VASP_PBE_noDP TiFeTe vbm=9.98 cbm=8.878 sk=0.4637
+potential_energy 0.0
+electronic_energy tensor(-928.2931, device='cuda:1')
+[GPU 1] Surface-JVASP-40835_miller_1_1_0_thickness_16_VASP_PBE_noDP LiCaRh vbm=3.989 cbm=3.638 sk=0.0050
+potential_energy 0.0
+electronic_energy tensor(-750.9725, device='cuda:1')
+[GPU 1] Surface-JVASP-40842_miller_1_1_0_thickness_16_VASP_PBE_noDP BaNaSb vbm=3.243 cbm=2.828 sk=1.5364
+potential_energy 0.0
+electronic_energy tensor(-1524.6611, device='cuda:1')
+[GPU 1] Surface-JVASP-78357_miller_1_1_0_thickness_16_VASP_PBE_noDP GaN vbm=6.655 cbm=4.87 sk=4.2879
+potential_energy 0.0
+electronic_energy tensor(-1889.4779, device='cuda:1')
+[GPU 1] Surface-JVASP-40764_miller_1_1_0_thickness_16_VASP_PBE_noDP ZrFeTe vbm=11.187 cbm=9.974 sk=0.2697
+potential_energy 0.0
+electronic_energy tensor(-6393.4443, device='cuda:1')
+[GPU 1] Surface-JVASP-34397_miller_1_1_0_thickness_16_VASP_PBE_noDP MoSBr vbm=6.342 cbm=5.457 sk=0.0050
+potential_energy 0.0
+electronic_energy tensor(-1671.6674, device='cuda:1')
+[GPU 1] Surface-JVASP-109426_miller_1_1_0_thickness_16_VASP_PBE_noDP TiTeRu vbm=9.469 cbm=8.615 sk=0.0031
+potential_energy 0.0
+electronic_energy tensor(-1596.3320, device='cuda:1')
+[GPU 1] Surface-JVASP-27401_miller_1_1_0_thickness_16_VASP_PBE_noDP NbSbRu vbm=8.224 cbm=7.855 sk=0.0014
+potential_energy 0.0
+electronic_energy tensor(-2896.6960, device='cuda:1')
+[GPU 1] Surface-JVASP-116006_miller_1_1_0_thickness_16_VASP_PBE_noDP LaOF vbm=9.278 cbm=4.485 sk=6.0350
+potential_energy 0.0
+electronic_energy tensor(-819.0116, device='cuda:1')
+[GPU 1] Surface-JVASP-115436_miller_1_1_0_thickness_16_VASP_PBE_noDP NaSrAs vbm=2.152 cbm=0.854 sk=2.5068
+potential_energy 0.0
+electronic_energy tensor(-968.0016, device='cuda:1')
+[GPU 1] Surface-JVASP-117621_miller_1_1_0_thickness_16_VASP_PBE_noDP BaSe vbm=1.696 cbm=-0.632 sk=3.6944
+potential_energy 0.0
+electronic_energy tensor(-817.0736, device='cuda:1')
+[GPU 1] Surface-JVASP-118851_miller_1_1_0_thickness_16_VASP_PBE_noDP NaCaAs vbm=2.795 cbm=1.104 sk=2.6159
+potential_energy 0.0
+[GPU 0] Surface-JVASP-993_miller_0_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Sb vbm=6.324 cbm=6.465 sk=0.0093
+potential_energy 0.0
+electronic_energy tensor(-1931.2231, device='cuda:0')
+[GPU 0] Surface-JVASP-840_miller_0_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Br vbm=1.396 cbm=0.088 sk=0.0003
+potential_energy 0.0
+electronic_energy tensor(-1789.0781, device='cuda:0')
+[GPU 0] Surface-JVASP-984_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Rh vbm=9.542 cbm=12.383 sk=0.0006
+potential_energy 0.0
+electronic_energy tensor(-1452.0040, device='cuda:0')
+[GPU 0] Surface-JVASP-963_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Pd vbm=7.917 cbm=9.431 sk=0.0002
+potential_energy 0.0
+electronic_energy tensor(-462.4947, device='cuda:0')
+[GPU 0] Surface-JVASP-1029_miller_1_1_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Ti vbm=5.807 cbm=6.174 sk=0.0012
+potential_energy 0.0
+electronic_energy tensor(-759.6159, device='cuda:0')
+[GPU 0] Surface-JVASP-21195_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Mo vbm=10.564 cbm=15.761 sk=0.0015
+potential_energy 0.0
+electronic_energy tensor(-806.7418, device='cuda:0')
+[GPU 0] Surface-JVASP-1109_miller_0_0_1_thickness_16_VASP_PBE_noDP SnS vbm=6.392 cbm=5.375 sk=1.2030
+potential_energy 0.0
+electronic_energy tensor(-847.5118, device='cuda:0')
+[GPU 0] Surface-JVASP-105410_miller_1_1_0_thickness_16_VASP_PBE SiGe vbm=5.714 cbm=5.02 sk=0.4179
+potential_energy 0.0
+electronic_energy tensor(-2202.4048, device='cuda:0')
+[GPU 0] Surface-JVASP-1702_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnS vbm=3.883 cbm=1.796 sk=4.0239
+potential_energy 0.0
+electronic_energy tensor(-1938.7563, device='cuda:0')
+[GPU 0] Surface-JVASP-107_miller_1_1_0_thickness_16_VASP_PBE_noDP SiC vbm=10.349 cbm=7.855 sk=1.7954
+potential_energy 0.0
+electronic_energy tensor(-949.9838, device='cuda:0')
+[GPU 0] Surface-JVASP-66581_miller_1_1_0_thickness_16_VASP_PBE_noDP BaInSb vbm=3.369 cbm=2.945 sk=0.3698
+potential_energy 0.0
+electronic_energy tensor(-1094.3423, device='cuda:0')
+[GPU 0] Surface-JVASP-75493_miller_1_1_0_thickness_16_VASP_PBE_noDP LiSnAs vbm=5.38 cbm=5.257 sk=1.4019
+potential_energy 0.0
+electronic_energy tensor(-1387.6501, device='cuda:0')
+[GPU 0] Surface-JVASP-1321_miller_1_1_0_thickness_16_VASP_PBE_noDP BeSe vbm=5.442 cbm=2.594 sk=3.6003
+potential_energy 0.0
+electronic_energy tensor(-791.7933, device='cuda:0')
+[GPU 0] Surface-JVASP-105933_miller_1_1_0_thickness_16_VASP_PBE_noDP LiMgSb vbm=4.438 cbm=3.048 sk=2.4750
+potential_energy 0.0
+electronic_energy tensor(-1725.8413, device='cuda:0')
+[GPU 0] Surface-JVASP-1948_miller_1_1_0_thickness_16_VASP_PBE_noDP CuBr vbm=3.319 cbm=2.687 sk=0.8284
+potential_energy 0.0
+electronic_energy tensor(-1883.1794, device='cuda:0')
+[GPU 0] Surface-JVASP-1441_miller_1_1_0_thickness_16_VASP_PBE_noDP ScNiSb vbm=7.482 cbm=7.22 sk=0.2780
+potential_energy 0.0
+electronic_energy tensor(-5293.7227, device='cuda:0')
+[GPU 0] Surface-JVASP-101231_miller_1_1_0_thickness_16_VASP_PBE_noDP BaNaTiNbO6 vbm=3.681 cbm=2.084 sk=4.7523
+potential_energy 0.0
+electronic_energy tensor(-3077.0732, device='cuda:0')
+[GPU 0] Surface-JVASP-1555_miller_1_1_0_thickness_16_VASP_PBE_noDP LiZnN vbm=3.925 cbm=3.1 sk=1.6206
+potential_energy 0.0
+electronic_energy tensor(-464.8472, device='cuda:0')
+[GPU 0] Surface-JVASP-1029_miller_0_0_1_thickness_16_VASP_PBE Ti vbm=5.807 cbm=6.174 sk=0.0003
+potential_energy 0.0
+electronic_energy tensor(-889.5358, device='cuda:0')
+[GPU 0] Surface-JVASP-1186_miller_1_1_0_thickness_16_VASP_PBE_noDP InAs vbm=3.774 cbm=3.774 sk=1.5095
+potential_energy 0.0
+electronic_energy tensor(-1110.2406, device='cuda:0')
+[GPU 0] Surface-JVASP-107095_miller_1_1_0_thickness_16_VASP_PBE_noDP LiSiB vbm=7.434 cbm=7.016 sk=0.0830
+potential_energy 0.0
+electronic_energy tensor(-1008.9088, device='cuda:0')
+[GPU 0] Surface-JVASP-7761_miller_1_1_0_thickness_16_VASP_PBE_noDP MgS vbm=4.328 cbm=0.746 sk=5.6810
+potential_energy 0.0
+electronic_energy tensor(-1438.2964, device='cuda:0')
+[GPU 0] Surface-JVASP-7820_miller_1_1_0_thickness_16_VASP_PBE_noDP Li2CuSb vbm=6.907 cbm=6.299 sk=0.0335
+potential_energy 0.0
+electronic_energy tensor(-1874.1437, device='cuda:0')
+[GPU 0] Surface-JVASP-52585_miller_1_1_0_thickness_16_VASP_PBE_noDP AgI vbm=3.834 cbm=2.575 sk=3.1384
+potential_energy 0.0
+electronic_energy tensor(-2352.1138, device='cuda:0')
+[GPU 0] Surface-JVASP-78441_miller_1_1_0_thickness_16_VASP_PBE_noDP CdSe vbm=0.871 cbm=0.416 sk=2.7255
+potential_energy 0.0
+electronic_energy tensor(-1655.5233, device='cuda:0')
+[GPU 0] Surface-JVASP-78585_miller_1_1_0_thickness_16_VASP_PBE_noDP VSiRh vbm=7.821 cbm=7.431 sk=0.0004
+potential_energy 0.0
+electronic_energy tensor(-1809.3186, device='cuda:0')
+[GPU 0] Surface-JVASP-78857_miller_1_1_0_thickness_16_VASP_PBE_noDP NbCoSn vbm=8.406 cbm=7.349 sk=0.0007
+potential_energy 0.0
+electronic_energy tensor(-632.7888, device='cuda:0')
+[GPU 0] Surface-JVASP-107_miller_0_0_1_thickness_16_VASP_PBE SiC vbm=10.349 cbm=7.855 sk=0.0099
+potential_energy 0.0
+electronic_energy tensor(-843.3296, device='cuda:0')
+[GPU 0] Surface-JVASP-36403_miller_1_1_0_thickness_16_VASP_PBE_noDP SiSn vbm=5.588 cbm=5.34 sk=0.4880
+potential_energy 0.0
+electronic_energy tensor(-2090.5056, device='cuda:0')
+[GPU 0] Surface-JVASP-54897_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnTe vbm=3.799 cbm=2.742 sk=2.6401
+potential_energy 0.0
+electronic_energy tensor(-1596.3433, device='cuda:0')
+[GPU 0] Surface-JVASP-22552_miller_1_1_0_thickness_16_VASP_PBE_noDP NbSbRu vbm=7.855 cbm=8.224 sk=0.0014
+potential_energy 0.0
+electronic_energy tensor(-1990.0659, device='cuda:0')
+[GPU 0] Surface-JVASP-40775_miller_1_1_0_thickness_16_VASP_PBE_noDP TiFeSe vbm=8.87 cbm=7.845 sk=0.3562
+potential_energy 0.0
+electronic_energy tensor(-1617.0593, device='cuda:0')
+[GPU 0] Surface-JVASP-40476_miller_1_1_0_thickness_16_VASP_PBE_noDP LiCuS vbm=5.848 cbm=4.822 sk=0.7755
+potential_energy 0.0
+electronic_energy tensor(-1968.1123, device='cuda:0')
+[GPU 0] Surface-JVASP-40117_miller_1_1_0_thickness_16_VASP_PBE_noDP AgBr vbm=2.202 cbm=1.171 sk=1.7480
+potential_energy 0.0
+electronic_energy tensor(-1381.8679, device='cuda:0')
+[GPU 0] Surface-JVASP-40800_miller_1_1_0_thickness_16_VASP_PBE_noDP ZrSnPd vbm=9.085 cbm=8.591 sk=0.0007
+potential_energy 0.0
+electronic_energy tensor(-2093.7822, device='cuda:0')
+[GPU 0] Surface-JVASP-40811_miller_1_1_0_thickness_16_VASP_PBE_noDP LiZnP vbm=5.013 cbm=3.786 sk=1.9501
+potential_energy 0.0
+electronic_energy tensor(-806.9929, device='cuda:0')
+[GPU 0] Surface-JVASP-40763_miller_1_1_0_thickness_16_VASP_PBE_noDP KBaP vbm=3.199 cbm=1.981 sk=2.1462
+potential_energy 0.0
+electronic_energy tensor(-1566.0872, device='cuda:0')
+[GPU 0] Surface-JVASP-37048_miller_1_1_0_thickness_16_VASP_PBE_noDP Ti2MnAl vbm=7.52 cbm=7.35 sk=0.0016
+potential_energy 0.0
+electronic_energy tensor(-2011.5284, device='cuda:0')
+[GPU 0] Surface-JVASP-108570_miller_1_1_0_thickness_16_VASP_PBE_noDP LiZnSb vbm=4.36 cbm=3.89 sk=1.1810
+potential_energy 0.0
+electronic_energy tensor(-5408.5591, device='cuda:0')
+[GPU 0] Surface-JVASP-109392_miller_1_1_0_thickness_16_VASP_PBE_noDP Li2SO4 vbm=2.668 cbm=-1.137 sk=0.7341
+potential_energy 0.0
+electronic_energy tensor(-1618.9880, device='cuda:0')
+[GPU 0] Surface-JVASP-110330_miller_1_1_0_thickness_16_VASP_PBE_noDP VSnRh vbm=8.105 cbm=7.609 sk=0.0071
+potential_energy 0.0
+electronic_energy tensor(-2228.0747, device='cuda:0')
+[GPU 0] Surface-JVASP-114592_miller_1_1_0_thickness_16_VASP_PBE_noDP BaZnTe vbm=2.758 cbm=0.988 sk=1.8277
+potential_energy 0.0
+electronic_energy tensor(-2519.1328, device='cuda:0')
+[GPU 0] Surface-JVASP-114037_miller_1_1_0_thickness_16_VASP_PBE_noDP BaCdSe vbm=2.171 cbm=0.59 sk=2.0036
+potential_energy 0.0
+electronic_energy tensor(-1372.7312, device='cuda:0')
+[GPU 0] Surface-JVASP-117700_miller_1_1_0_thickness_16_VASP_PBE_noDP BeS vbm=6.665 cbm=3.418 sk=4.5130
+potential_energy 0.0
+electronic_energy tensor(-863.7985, device='cuda:0')
+[GPU 0] Surface-JVASP-135531_miller_1_1_0_thickness_16_VASP_PBE_noDP NaSrP vbm=2.777 cbm=1.186 sk=3.1148
+potential_energy 0.0
+electronic_energy tensor(-5411.3447, device='cuda:0')
+[GPU 0] Surface-JVASP-135879_miller_1_1_0_thickness_16_VASP_PBE_noDP BaSO4 vbm=5.179 cbm=0.849 sk=1.4689
+potential_energy 0.0
+[GPU 2] Surface-JVASP-993_miller_1_1_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Sb vbm=6.324 cbm=6.465 sk=0.0033
+potential_energy 0.0
+electronic_energy tensor(-72.3779, device='cuda:2')
+[GPU 2] Surface-JVASP-931_miller_1_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Na vbm=-1.901 cbm=2.451 sk=0.0005
+potential_energy 0.0
+electronic_energy tensor(-1428.1924, device='cuda:2')
+[GPU 2] Surface-JVASP-1002_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Si vbm=6.19 cbm=5.459 sk=0.0018
+potential_energy 0.0
+electronic_energy tensor(-461.9439, device='cuda:2')
+[GPU 2] Surface-JVASP-1029_miller_1_1_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN Ti vbm=5.807 cbm=6.174 sk=0.0007
+potential_energy 0.0
+electronic_energy tensor(-1183.8313, device='cuda:2')
+[GPU 2] Surface-JVASP-1056_miller_0_0_1_x1015_thickness_16_VASP_R2SCAN_R2SCAN Zn vbm=-0.797 cbm=4.632 sk=0.0076
+potential_energy 0.0
+electronic_energy tensor(-687.3752, device='cuda:2')
+[GPU 2] Surface-JVASP-14837_miller_1_0_0_x1015_thickness_16_VASP_R2SCAN_R2SCAN V vbm=4.618 cbm=9.431 sk=0.0017
+potential_energy 0.0
+electronic_energy tensor(-5508.7871, device='cuda:2')
+[GPU 2] Surface-JVASP-10591_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnS vbm=3.899 cbm=1.796 sk=4.0901
+potential_energy 0.0
+electronic_energy tensor(-846.8029, device='cuda:2')
+[GPU 2] Surface-JVASP-1177_miller_0_0_1_thickness_16_VASP_PBE_noDP GaSb vbm=4.35 cbm=4.35 sk=0.0111
+potential_energy 0.0
+electronic_energy tensor(-2214.7524, device='cuda:2')
+[GPU 2] Surface-JVASP-96_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnSe vbm=2.426 cbm=1.202 sk=3.7839
+potential_energy 0.0
+electronic_energy tensor(-847.5137, device='cuda:2')
+[GPU 2] Surface-JVASP-105410_miller_1_1_0_thickness_16_VASP_PBE_noDP SiGe vbm=5.714 cbm=5.02 sk=0.4169
+potential_energy 0.0
+electronic_energy tensor(-841.5195, device='cuda:2')
+[GPU 2] Surface-JVASP-1177_miller_1_1_0_thickness_16_VASP_PBE_noDP GaSb vbm=4.35 cbm=4.35 sk=0.6472
+potential_energy 0.0
+electronic_energy tensor(-2234.3887, device='cuda:2')
+[GPU 2] Surface-JVASP-66567_miller_1_1_0_thickness_16_VASP_PBE_noDP BaZnTe vbm=2.637 cbm=1.014 sk=1.5256
+potential_energy 0.0
+electronic_energy tensor(-1576.4204, device='cuda:2')
+[GPU 2] Surface-JVASP-92236_miller_1_1_0_thickness_16_VASP_PBE_noDP CuI vbm=5.23 cbm=3.994 sk=2.0825
+potential_energy 0.0
+electronic_energy tensor(-942.9085, device='cuda:2')
+[GPU 2] Surface-JVASP-1327_miller_1_1_0_thickness_16_VASP_PBE_noDP AlP vbm=6.054 cbm=4.26 sk=2.7641
+potential_energy 0.0
+electronic_energy tensor(-933.6136, device='cuda:2')
+[GPU 2] Surface-JVASP-1183_miller_1_1_0_thickness_16_VASP_PBE_noDP InP vbm=4.918 cbm=4.588 sk=2.8341
+potential_energy 0.0
+electronic_energy tensor(-2129.2095, device='cuda:2')
+[GPU 2] Surface-JVASP-1636_miller_1_1_0_thickness_16_VASP_PBE_noDP LiZnAs vbm=3.392 cbm=2.851 sk=1.7461
+potential_energy 0.0
+electronic_energy tensor(-1649.5916, device='cuda:2')
+[GPU 2] Surface-JVASP-102056_miller_1_1_0_thickness_16_VASP_PBE_noDP ZrSbRh vbm=10.218 cbm=9.051 sk=0.4680
+potential_energy 0.0
+electronic_energy tensor(-1727.2473, device='cuda:2')
+[GPU 2] Surface-JVASP-101739_miller_1_1_0_thickness_16_VASP_PBE_noDP CaHF vbm=4.968 cbm=0.252 sk=5.7101
+potential_energy 0.0
+electronic_energy tensor(-1810.3569, device='cuda:2')
+[GPU 2] Surface-JVASP-1684_miller_1_1_0_thickness_16_VASP_PBE_noDP NbFeSb vbm=8.66 cbm=7.911 sk=0.1599
+potential_energy 0.0
+electronic_energy tensor(-2090.5200, device='cuda:2')
+[GPU 2] Surface-JVASP-1198_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnTe vbm=3.797 cbm=2.741 sk=2.6486
+potential_energy 0.0
+electronic_energy tensor(-2202.3835, device='cuda:2')
+[GPU 2] Surface-JVASP-1702_miller_1_1_0_thickness_16_VASP_PBE ZnS vbm=3.883 cbm=1.796 sk=4.0312
+potential_energy 0.0
+electronic_energy tensor(-817.0682, device='cuda:2')
+[GPU 2] Surface-JVASP-22736_miller_1_1_0_thickness_16_VASP_PBE_noDP NaCaAs vbm=1.096 cbm=2.891 sk=2.6155
+potential_energy 0.0
+electronic_energy tensor(-1406.3079, device='cuda:2')
+[GPU 2] Surface-JVASP-7772_miller_1_1_0_thickness_16_VASP_PBE_noDP YN vbm=4.228 cbm=1.995 sk=2.9666
+potential_energy 0.0
+electronic_energy tensor(-1294.1691, device='cuda:2')
+[GPU 2] Surface-JVASP-8158_miller_1_1_0_thickness_16_VASP_PBE_noDP SiC vbm=9.408 cbm=7.788 sk=1.1944
+potential_energy 0.0
+electronic_energy tensor(-1908.1443, device='cuda:2')
+[GPU 2] Surface-JVASP-7715_miller_1_1_0_thickness_16_VASP_PBE_noDP YNiSb vbm=6.684 cbm=6.41 sk=0.0232
+potential_energy 0.0
+electronic_energy tensor(-1624.9238, device='cuda:2')
+[GPU 2] Surface-JVASP-8750_miller_1_1_0_thickness_16_VASP_PBE_noDP VSbRu vbm=8.54 cbm=8.15 sk=0.0005
+potential_energy 0.0
+electronic_energy tensor(-863.7565, device='cuda:2')
+[GPU 2] Surface-JVASP-78748_miller_1_1_0_thickness_16_VASP_PBE_noDP NaLiTe vbm=3.587 cbm=1.516 sk=3.4057
+potential_energy 0.0
+electronic_energy tensor(-1832.0638, device='cuda:2')
+[GPU 2] Surface-JVASP-78738_miller_1_1_0_thickness_16_VASP_PBE_noDP TiNiSn vbm=7.824 cbm=7.362 sk=0.0023
+potential_energy 0.0
+electronic_energy tensor(-945.1058, device='cuda:2')
+[GPU 2] Surface-JVASP-36165_miller_1_1_0_thickness_16_VASP_PBE_noDP CaSe vbm=2.851 cbm=-0.45 sk=5.0815
+potential_energy 0.0
+electronic_energy tensor(-1989.1267, device='cuda:2')
+[GPU 2] Surface-JVASP-40772_miller_1_1_0_thickness_16_VASP_PBE_noDP YNiP vbm=6.339 cbm=5.759 sk=0.0620
+potential_energy 0.0
+electronic_energy tensor(-1449.6111, device='cuda:2')
+[GPU 2] Surface-JVASP-40778_miller_1_1_0_thickness_16_VASP_PBE_noDP SrTePd vbm=5.434 cbm=5.306 sk=0.0802
+potential_energy 0.0
+electronic_energy tensor(-1962.3220, device='cuda:2')
+[GPU 2] Surface-JVASP-40790_miller_1_1_0_thickness_16_VASP_PBE_noDP ScNiP vbm=7.328 cbm=6.752 sk=0.5456
+potential_energy 0.0
+electronic_energy tensor(-1384.3148, device='cuda:2')
+[GPU 2] Surface-JVASP-40797_miller_1_1_0_thickness_16_VASP_PBE_noDP TiSnPd vbm=8.125 cbm=7.598 sk=0.0003
+potential_energy 0.0
+electronic_energy tensor(-1773.9999, device='cuda:2')
+[GPU 2] Surface-JVASP-56856_miller_1_1_0_thickness_16_VASP_PBE_noDP VFeSb vbm=8.844 cbm=8.329 sk=0.1825
+potential_energy 0.0
+electronic_energy tensor(-1645.7617, device='cuda:2')
+[GPU 2] Surface-JVASP-79540_miller_1_1_0_thickness_16_VASP_PBE_noDP Ti2MnGa vbm=7.505 cbm=7.296 sk=0.0024
+potential_energy 0.0
+electronic_energy tensor(-1988.3232, device='cuda:2')
+[GPU 2] Surface-JVASP-40766_miller_1_1_0_thickness_16_VASP_PBE_noDP ZrFeSe vbm=9.513 cbm=9.119 sk=0.4058
+potential_energy 0.0
+electronic_energy tensor(-1203.5178, device='cuda:2')
+[GPU 2] Surface-JVASP-7629_miller_1_1_0_thickness_16_VASP_PBE_noDP SnS vbm=3.502 cbm=3.131 sk=1.6633
+potential_energy 0.0
+electronic_energy tensor(-1399.5496, device='cuda:2')
+[GPU 2] Surface-JVASP-31185_miller_1_1_0_thickness_16_VASP_PBE_noDP LiMgN vbm=5.412 cbm=2.626 sk=2.7414
+potential_energy 0.0
+electronic_energy tensor(-2220.7207, device='cuda:2')
+[GPU 2] Surface-JVASP-110652_miller_1_1_0_thickness_16_VASP_PBE_noDP BaBrCl vbm=4.159 cbm=-0.717 sk=5.6037
+potential_energy 0.0
+electronic_energy tensor(-255.5114, device='cuda:2')
+[GPU 2] Surface-JVASP-116272_miller_1_1_0_thickness_16_VASP_PBE_noDP LiH vbm=2.903 cbm=-1.863 sk=3.6469
+potential_energy 0.0
+electronic_energy tensor(-1436.1821, device='cuda:2')
+[GPU 2] Surface-JVASP-115607_miller_1_1_0_thickness_16_VASP_PBE_noDP BaTePd vbm=4.794 cbm=4.418 sk=0.1245
+potential_energy 0.0
+electronic_energy tensor(-884.6039, device='cuda:2')
+[GPU 2] Surface-JVASP-120123_miller_1_1_0_thickness_16_VASP_PBE_noDP AlAs vbm=5.082 cbm=3.515 sk=2.6761
+potential_energy 0.0
+electronic_energy tensor(-1168.5536, device='cuda:2')
+[GPU 2] Surface-JVASP-133843_miller_1_1_0_thickness_16_VASP_PBE_noDP BSb vbm=7.991 cbm=7.161 sk=1.1003
+potential_energy 0.0
+electronic_energy tensor(-826.0482, device='cuda:2')
+[GPU 2] Surface-JVASP-134415_miller_1_1_0_thickness_16_VASP_PBE_noDP CaTe vbm=3.499 cbm=0.478 sk=4.1976
+potential_energy 0.0
+electronic_energy tensor(-1521.7911, device='cuda:2')
+[GPU 2] Surface-JVASP-138309_miller_1_1_0_thickness_16_VASP_PBE_noDP AgH vbm=6.618 cbm=5.75 sk=0.6245
+potential_energy 0.0
+electronic_energy tensor(-6602.3496, device='cuda:2')
+[GPU 2] Surface-JVASP-149059_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnSO4 vbm=1.455 cbm=-2.86 sk=0.9135
+potential_energy 0.0
+electronic_energy tensor(-2218.8486, device='cuda:2')
+[GPU 2] Surface-JVASP-5485_miller_1_0_0_thickness_16_VASP_PBE_noDP CdI2 vbm=3.709 cbm=1.59 sk=5.2859
+potential_energy 0.0
+electronic_energy tensor(-2602.5869, device='cuda:2')
+[GPU 2] Surface-JVASP-88080_miller_1_0_0_thickness_16_VASP_PBE_noDP Ba4Br6O vbm=4.499 cbm=0.087 sk=5.3701
+potential_energy 0.0
+electronic_energy tensor(-2484.4045, device='cuda:2')
+[GPU 2] Surface-JVASP-96805_miller_1_0_0_thickness_16_VASP_PBE_noDP La4S3NCl3 vbm=8.194 cbm=5.159 sk=3.5656
+potential_energy 0.0
+electronic_energy tensor(-1071.0193, device='cuda:2')
+[GPU 2] Surface-JVASP-104777_miller_1_0_0_thickness_16_VASP_PBE_noDP LiSnN vbm=6.339 cbm=5.268 sk=0.0031
+potential_energy 0.0
+electronic_energy tensor(-951.6515, device='cuda:2')
+[GPU 2] Surface-JVASP-107458_miller_1_0_0_thickness_16_VASP_PBE_noDP LiCl vbm=4.766 cbm=-1.216 sk=7.3395
+potential_energy 0.0
+electronic_energy tensor(-1590.9800, device='cuda:2')
+[GPU 2] Surface-JVASP-49361_miller_1_0_0_thickness_16_VASP_PBE_noDP K6CdTe4 vbm=2.296 cbm=0.779 sk=3.3505
+potential_energy 0.0
+electronic_energy tensor(-772.8605, device='cuda:2')
+[GPU 2] Surface-JVASP-8184_miller_1_0_0_thickness_16_VASP_PBE_noDP GaP vbm=5.657 cbm=4.395 sk=2.7683
+potential_energy 0.0
+electronic_energy tensor(-876.3914, device='cuda:2')
+[GPU 2] Surface-JVASP-8603_miller_1_0_0_thickness_16_VASP_PBE_noDP CuH vbm=5.997 cbm=5.321 sk=0.0054
+potential_energy 0.0
+electronic_energy tensor(-1249.1467, device='cuda:2')
+[GPU 2] Surface-JVASP-8561_miller_1_0_0_thickness_16_VASP_PBE_noDP AgI vbm=3.859 cbm=2.575 sk=3.1263
+potential_energy 0.0
+electronic_energy tensor(-2464.8916, device='cuda:2')
+[GPU 2] Surface-JVASP-57476_miller_1_0_0_thickness_16_VASP_PBE_noDP CuCSN vbm=4.297 cbm=2.226 sk=2.2214
+potential_energy 0.0
+electronic_energy tensor(-1390.7559, device='cuda:2')
+[GPU 2] Surface-JVASP-79204_miller_1_0_0_thickness_16_VASP_PBE_noDP BN vbm=12.674 cbm=7.243 sk=3.3615
+potential_energy 0.0
+electronic_energy tensor(-772.8579, device='cuda:2')
+[GPU 2] Surface-JVASP-79624_miller_1_0_0_thickness_16_VASP_PBE_noDP GaP vbm=5.658 cbm=4.395 sk=2.7679
+potential_energy 0.0
+electronic_energy tensor(-631.9137, device='cuda:2')
+[GPU 2] Surface-JVASP-35695_miller_1_0_0_thickness_16_VASP_PBE_noDP MgSe vbm=3.207 cbm=0.404 sk=5.1252
+potential_energy 0.0
+electronic_energy tensor(-1782.9557, device='cuda:2')
+[GPU 2] Surface-JVASP-23972_miller_1_0_0_thickness_16_VASP_PBE_noDP H4NF vbm=-4.554 cbm=1.423 sk=16.2104
+potential_energy 0.0
+electronic_energy tensor(-724.8232, device='cuda:2')
+[GPU 2] Surface-JVASP-38538_miller_1_0_0_thickness_16_VASP_PBE_noDP LiBr vbm=3.79 cbm=-1.356 sk=6.6093
+potential_energy 0.0
+electronic_energy tensor(-1701.7915, device='cuda:2')
+[GPU 2] Surface-JVASP-290_miller_1_0_0_thickness_16_VASP_PBE_noDP SnS2 vbm=5.233 cbm=4.132 sk=0.3509
+potential_energy 0.0
+electronic_energy tensor(-1137.3340, device='cuda:2')
+[GPU 2] Surface-JVASP-45247_miller_1_0_0_thickness_16_VASP_PBE_noDP Na3Sr3GaAs4 vbm=2.687 cbm=2.283 sk=1.9196
+potential_energy 0.0
+electronic_energy tensor(-2351.8845, device='cuda:2')
+[GPU 2] Surface-JVASP-13047_miller_1_0_0_thickness_16_VASP_PBE_noDP K4Sb2O3 vbm=2.458 cbm=1.07 sk=0.6088
+potential_energy 0.0
+electronic_energy tensor(-1561.2140, device='cuda:2')
+[GPU 2] Surface-JVASP-110096_miller_1_0_0_thickness_16_VASP_PBE_noDP SrClO vbm=-0.138 cbm=-0.68 sk=0.0026
+potential_energy 0.0
+electronic_energy tensor(-2576.1807, device='cuda:2')
+[GPU 2] Surface-JVASP-26790_miller_1_0_0_thickness_16_VASP_PBE_noDP Sr4Br6O vbm=4.956 cbm=0.34 sk=5.3012
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 65 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 70 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 72 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 73 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 71 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 77 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 88 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 87 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 82 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 70 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 65 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 70 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 72 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 73 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 71 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 77 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 88 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 87 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 82 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 70 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 60 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 74 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 68 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+[GPU 3] Surface-JVASP-1435_miller_1_1_0_thickness_16_VASP_PBE_noDP LiAlSi vbm=5.369 cbm=5.138 sk=0.6436
+potential_energy 0.0
+electronic_energy tensor(-2094.0310, device='cuda:3')
+[GPU 3] Surface-JVASP-1687_miller_1_1_0_thickness_16_VASP_PBE_noDP LiZnP vbm=4.951 cbm=3.481 sk=2.2127
+potential_energy 0.0
+electronic_energy tensor(-803.3317, device='cuda:3')
+[GPU 3] Surface-JVASP-8105_miller_1_1_0_thickness_16_VASP_PBE_noDP LiAlGe vbm=5.091 cbm=4.912 sk=1.0299
+potential_energy 0.0
+electronic_energy tensor(-2409.0552, device='cuda:3')
+[GPU 3] Surface-JVASP-8003_miller_1_1_0_thickness_16_VASP_PBE_noDP CdS vbm=1.818 cbm=0.825 sk=4.0385
+potential_energy 0.0
+electronic_energy tensor(-1083.9426, device='cuda:3')
+[GPU 3] Surface-JVASP-7833_miller_1_1_0_thickness_16_VASP_PBE_noDP SnTe vbm=3.214 cbm=3.107 sk=1.0569
+potential_energy 0.0
+electronic_energy tensor(-1863.7915, device='cuda:3')
+[GPU 3] Surface-JVASP-1091_miller_1_1_0_thickness_16_VASP_PBE_noDP ZrNiSn vbm=8.867 cbm=8.381 sk=0.0007
+potential_energy 0.0
+electronic_energy tensor(-812.9283, device='cuda:3')
+[GPU 3] Surface-JVASP-78583_miller_1_1_0_thickness_16_VASP_PBE_noDP NaBeSb vbm=5.711 cbm=4.516 sk=1.4893
+potential_energy 0.0
+electronic_energy tensor(-2857.4634, device='cuda:3')
+[GPU 3] Surface-JVASP-78633_miller_1_1_0_thickness_16_VASP_PBE_noDP YOF vbm=7.094 cbm=1.334 sk=6.7458
+potential_energy 0.0
+electronic_energy tensor(-934.5220, device='cuda:3')
+[GPU 3] Surface-JVASP-1174_miller_1_0_0_thickness_16_VASP_PBE GaAs vbm=3.492 cbm=3.407 sk=0.1794
+potential_energy 0.0
+electronic_energy tensor(-1649.5352, device='cuda:3')
+[GPU 3] Surface-JVASP-36402_miller_1_1_0_thickness_16_VASP_PBE_noDP RuC vbm=9.088 cbm=8.427 sk=0.0031
+potential_energy 0.0
+electronic_energy tensor(-1428.7988, device='cuda:3')
+[GPU 3] Surface-JVASP-36391_miller_1_1_0_thickness_16_VASP_PBE_noDP ScN vbm=4.83 cbm=2.254 sk=3.0112
+potential_energy 0.0
+electronic_energy tensor(-728.1151, device='cuda:3')
+[GPU 3] Surface-JVASP-35673_miller_1_1_0_thickness_16_VASP_PBE_noDP Li2MgSi vbm=4.023 cbm=3.82 sk=0.5954
+potential_energy 0.0
+electronic_energy tensor(-1423.1951, device='cuda:3')
+[GPU 3] Surface-JVASP-40774_miller_1_1_0_thickness_16_VASP_PBE_noDP TiSiPd vbm=8.063 cbm=7.226 sk=0.0017
+potential_energy 0.0
+electronic_energy tensor(-682.8860, device='cuda:3')
+[GPU 3] Surface-JVASP-40780_miller_1_1_0_thickness_16_VASP_PBE_noDP MgScGa vbm=2.96 cbm=2.811 sk=0.6656
+potential_energy 0.0
+electronic_energy tensor(-1899.6542, device='cuda:3')
+[GPU 3] Surface-JVASP-40793_miller_1_1_0_thickness_16_VASP_PBE_noDP ScCoTe vbm=9.095 cbm=8.193 sk=0.6130
+potential_energy 0.0
+electronic_energy tensor(-876.2378, device='cuda:3')
+[GPU 3] Surface-JVASP-40798_miller_1_1_0_thickness_16_VASP_PBE_noDP LiMgP vbm=4.506 cbm=2.612 sk=2.6074
+potential_energy 0.0
+electronic_energy tensor(-676.9255, device='cuda:3')
+[GPU 3] Surface-JVASP-39508_miller_1_1_0_thickness_16_VASP_PBE_noDP KYSn vbm=3.378 cbm=2.582 sk=0.5531
+potential_energy 0.0
+electronic_energy tensor(-933.6201, device='cuda:3')
+[GPU 3] Surface-JVASP-266_miller_1_1_0_thickness_16_VASP_PBE_noDP InP vbm=4.918 cbm=4.588 sk=2.8341
+potential_energy 0.0
+electronic_energy tensor(-1168.5833, device='cuda:3')
+[GPU 3] Surface-JVASP-36873_miller_1_1_0_thickness_16_VASP_PBE_noDP BSb vbm=8.111 cbm=7.166 sk=1.0978
+potential_energy 0.0
+electronic_energy tensor(-1584.1149, device='cuda:3')
+[GPU 3] Surface-JVASP-64991_miller_1_1_0_thickness_16_VASP_PBE_noDP Be2NbRh vbm=6.757 cbm=6.194 sk=0.0033
+potential_energy 0.0
+electronic_energy tensor(-1703.9609, device='cuda:3')
+[GPU 3] Surface-JVASP-109827_miller_1_1_0_thickness_16_VASP_PBE_noDP ScTeRh vbm=8.476 cbm=8.095 sk=0.2189
+potential_energy 0.0
+electronic_energy tensor(-1771.5500, device='cuda:3')
+[GPU 3] Surface-JVASP-111073_miller_1_1_0_thickness_16_VASP_PBE_noDP CuCl vbm=4.177 cbm=3.592 sk=0.8078
+potential_energy 0.0
+electronic_energy tensor(-255.5094, device='cuda:3')
+[GPU 3] Surface-JVASP-116283_miller_1_1_0_thickness_16_VASP_PBE_noDP LiH vbm=2.677 cbm=-1.814 sk=3.6459
+potential_energy 0.0
+electronic_energy tensor(-2093.7920, device='cuda:3')
+[GPU 3] Surface-JVASP-113670_miller_1_1_0_thickness_16_VASP_PBE_noDP LiZnP vbm=4.99 cbm=3.773 sk=1.9473
+potential_energy 0.0
+electronic_energy tensor(-3855.6348, device='cuda:3')
+[GPU 3] Surface-JVASP-120170_miller_1_1_0_thickness_16_VASP_PBE_noDP ScOF vbm=6.93 cbm=2.334 sk=5.8429
+potential_energy 0.0
+electronic_energy tensor(-6080.6182, device='cuda:3')
+[GPU 3] Surface-JVASP-140471_miller_1_1_0_thickness_16_VASP_PBE_noDP Al5AgS8 vbm=6.6 cbm=5.214 sk=2.4720
+potential_energy 0.0
+electronic_energy tensor(-3966.5408, device='cuda:3')
+[GPU 3] Surface-JVASP-136599_miller_1_1_0_thickness_16_VASP_PBE_noDP NbOF vbm=6.44 cbm=5.479 sk=0.0004
+potential_energy 0.0
+electronic_energy tensor(-1319.8204, device='cuda:3')
+[GPU 3] Surface-JVASP-133719_miller_1_1_0_thickness_16_VASP_PBE_noDP BAs vbm=6.984 cbm=5.688 sk=0.4558
+potential_energy 0.0
+electronic_energy tensor(-6602.5723, device='cuda:3')
+[GPU 3] Surface-JVASP-148851_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnSO4 vbm=1.455 cbm=-2.861 sk=0.8494
+potential_energy 0.0
+electronic_energy tensor(-9174.4805, device='cuda:3')
+[GPU 3] Surface-JVASP-22623_miller_1_0_0_thickness_16_VASP_PBE_noDP ZnS vbm=1.794 cbm=3.889 sk=3.6807
+potential_energy 0.0
+electronic_energy tensor(-2760.7681, device='cuda:3')
+[GPU 3] Surface-JVASP-96463_miller_1_0_0_thickness_16_VASP_PBE_noDP Sr4Cl6O vbm=5.678 cbm=0.811 sk=6.7210
+potential_energy 0.0
+electronic_energy tensor(-1527.6189, device='cuda:3')
+[GPU 3] Surface-JVASP-22685_miller_1_0_0_thickness_16_VASP_PBE_noDP CdTe vbm=1.776 cbm=2.302 sk=2.8916
+potential_energy 0.0
+electronic_energy tensor(-2547.4849, device='cuda:3')
+[GPU 3] Surface-JVASP-50830_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6MgO4 vbm=2.945 cbm=0.534 sk=4.8616
+potential_energy 0.0
+electronic_energy tensor(-1337.5071, device='cuda:3')
+[GPU 3] Surface-JVASP-105566_miller_1_0_0_thickness_16_VASP_PBE_noDP LiGeN vbm=5.989 cbm=4.502 sk=0.0021
+potential_energy 0.0
+electronic_energy tensor(-587.3527, device='cuda:3')
+[GPU 3] Surface-JVASP-1273_miller_1_0_0_thickness_16_VASP_PBE_noDP MgTe vbm=4.165 cbm=1.634 sk=4.7001
+potential_energy 0.0
+electronic_energy tensor(-1393.6436, device='cuda:3')
+[GPU 3] Surface-JVASP-8186_miller_1_0_0_thickness_16_VASP_PBE_noDP ZnTe vbm=3.859 cbm=2.781 sk=2.6152
+potential_energy 0.0
+electronic_energy tensor(-969.8757, device='cuda:3')
+[GPU 3] Surface-JVASP-8118_miller_1_0_0_thickness_16_VASP_PBE_noDP SiC vbm=10.545 cbm=7.927 sk=1.4030
+potential_energy 0.0
+electronic_energy tensor(-1474.7358, device='cuda:3')
+[GPU 3] Surface-JVASP-8047_miller_1_0_0_thickness_16_VASP_PBE_noDP ZnSe vbm=2.477 cbm=1.222 sk=3.7783
+potential_energy 0.0
+electronic_energy tensor(-709.3716, device='cuda:3')
+[GPU 3] Surface-JVASP-1073_miller_1_0_0_thickness_16_VASP_PBE_noDP SiGe vbm=5.594 cbm=5.191 sk=1.0050
+potential_energy 0.0
+electronic_energy tensor(-2715.4280, device='cuda:3')
+[GPU 3] Surface-JVASP-55611_miller_1_0_0_thickness_16_VASP_PBE_noDP Ba4Cl6O vbm=4.998 cbm=0.488 sk=6.0482
+potential_energy 0.0
+electronic_energy tensor(-623.1319, device='cuda:3')
+[GPU 3] Surface-JVASP-82129_miller_1_0_0_thickness_16_VASP_PBE_noDP InP vbm=5.005 cbm=4.63 sk=3.1163
+potential_energy 0.0
+electronic_energy tensor(-563.5234, device='cuda:3')
+[GPU 3] Surface-JVASP-35748_miller_1_0_0_thickness_16_VASP_PBE_noDP AlSb vbm=5.451 cbm=4.393 sk=2.0565
+potential_energy 0.0
+electronic_energy tensor(-1605.9427, device='cuda:3')
+[GPU 3] Surface-JVASP-95_miller_1_0_0_thickness_16_VASP_PBE_noDP CdS vbm=1.878 cbm=0.823 sk=3.9116
+potential_energy 0.0
+electronic_energy tensor(-1673.4656, device='cuda:3')
+[GPU 3] Surface-JVASP-33818_miller_1_0_0_thickness_16_VASP_PBE_noDP BrCl vbm=0.375 cbm=-0.303 sk=2.7589
+potential_energy 0.0
+electronic_energy tensor(-6228.1284, device='cuda:3')
+[GPU 3] Surface-JVASP-46672_miller_1_0_0_thickness_16_VASP_PBE_noDP Mn4OF6 vbm=5.575 cbm=4.145 sk=0.0005
+potential_energy 0.0
+electronic_energy tensor(-1181.2861, device='cuda:3')
+[GPU 3] Surface-JVASP-45246_miller_1_0_0_thickness_16_VASP_PBE_noDP Na3Sr3GaP4 vbm=3.287 cbm=2.614 sk=1.5707
+potential_energy 0.0
+electronic_energy tensor(-686.8020, device='cuda:3')
+[GPU 3] Surface-JVASP-109806_miller_1_0_0_thickness_16_VASP_PBE_noDP BaNaN vbm=2.124 cbm=1.777 sk=1.3140
+potential_energy 0.0
+electronic_energy tensor(-4438.4282, device='cuda:3')
+[GPU 3] Surface-JVASP-29604_miller_1_0_0_thickness_16_VASP_PBE_noDP CdI2 vbm=1.587 cbm=3.762 sk=5.2166
+potential_energy 0.0
+electronic_energy tensor(-1527.1565, device='cuda:3')
+[GPU 3] Surface-JVASP-57708_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6CoSe4 vbm=2.24 cbm=1.812 sk=0.0034
+potential_energy 0.0
+electronic_energy tensor(-2381.1548, device='cuda:3')
+[GPU 3] Surface-JVASP-59059_miller_1_0_0_thickness_16_VASP_PBE_noDP Sr4I6O vbm=6.128 cbm=2.086 sk=4.8122
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 174 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 169 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 182 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 210 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 218 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 189 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 174 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 169 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 182 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 210 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 218 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 189 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 181 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 228 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 89 is not positive-definite)., falling back to eig
+potential_energy 0.0
+electronic_energy tensor(-271.4111, device='cuda:2')
+[GPU 2] Surface-JVASP-45297_miller_1_0_0_thickness_16_VASP_PBE_noDP K6MgO4 vbm=2.513 cbm=0.634 sk=0.0014
+potential_energy 0.0
+electronic_energy tensor(-6862.8486, device='cuda:2')
+[GPU 2] Surface-JVASP-112334_miller_1_0_0_thickness_16_VASP_PBE_noDP Cd2Mo3O8 vbm=5.038 cbm=4.787 sk=0.0012
+potential_energy 0.0
+electronic_energy tensor(-1682.6573, device='cuda:2')
+[GPU 2] Surface-JVASP-141207_miller_1_0_0_thickness_16_VASP_PBE_noDP K6ZnS4 vbm=2.174 cbm=0.293 sk=2.2135
+potential_energy 0.0
+electronic_energy tensor(-901.0331, device='cuda:2')
+[GPU 2] Surface-JVASP-890_miller_1_1_0_thickness_16_VASP_PBE_DP Ge vbm=4.28 cbm=4.363 sk=0.0005
+[GPU 2] Total timeouts: 0
+electronic_energy tensor(-1617.0948, device='cuda:1')
+[GPU 1] Surface-JVASP-138743_miller_1_1_0_thickness_16_VASP_PBE_noDP LiCuS vbm=5.848 cbm=4.924 sk=0.7885
+potential_energy 0.0
+electronic_energy tensor(-1521.7727, device='cuda:1')
+[GPU 1] Surface-JVASP-138301_miller_1_1_0_thickness_16_VASP_PBE_noDP AgH vbm=6.609 cbm=5.802 sk=0.6290
+potential_energy 0.0
+electronic_energy tensor(-2090.5110, device='cuda:1')
+[GPU 1] Surface-JVASP-149595_miller_1_1_0_thickness_16_VASP_PBE_noDP ZnTe vbm=3.737 cbm=2.756 sk=2.6424
+potential_energy 0.0
+electronic_energy tensor(-1886.5730, device='cuda:1')
+[GPU 1] Surface-JVASP-156490_miller_1_1_0_thickness_16_VASP_PBE_noDP NbGaNi vbm=5.913 cbm=5.688 sk=0.0073
+potential_energy 0.0
+electronic_energy tensor(-1867.9370, device='cuda:1')
+[GPU 1] Surface-JVASP-90425_miller_1_0_0_thickness_16_VASP_PBE_noDP ScAlCO vbm=7.114 cbm=5.848 sk=0.7722
+potential_energy 0.0
+electronic_energy tensor(-1532.1530, device='cuda:1')
+[GPU 1] Surface-JVASP-98974_miller_1_0_0_thickness_16_VASP_PBE_noDP K6CoSe4 vbm=1.74 cbm=1.276 sk=0.0027
+potential_energy 0.0
+electronic_energy tensor(-672.7523, device='cuda:1')
+[GPU 1] Surface-JVASP-103280_miller_1_0_0_thickness_16_VASP_PBE_noDP MgS vbm=4.411 cbm=0.825 sk=5.8405
+potential_energy 0.0
+electronic_energy tensor(-2117.9358, device='cuda:1')
+[GPU 1] Surface-JVASP-1195_miller_1_0_0_thickness_16_VASP_PBE_noDP ZnO vbm=1.682 cbm=0.717 sk=3.7761
+potential_energy 0.0
+electronic_energy tensor(-1342.0234, device='cuda:1')
+[GPU 1] Surface-JVASP-3075_miller_1_0_0_thickness_16_VASP_PBE_noDP LiZnSb vbm=5.074 cbm=4.552 sk=0.4787
+potential_energy 0.0
+electronic_energy tensor(-589.9879, device='cuda:1')
+[GPU 1] Surface-JVASP-8183_miller_1_0_0_thickness_16_VASP_PBE_noDP AlAs vbm=5.399 cbm=3.592 sk=2.8097
+potential_energy 0.0
+electronic_energy tensor(-1727.4944, device='cuda:1')
+[GPU 1] Surface-JVASP-27530_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6ZnS4 vbm=3.152 cbm=0.916 sk=3.7139
+potential_energy 0.0
+electronic_energy tensor(-1568.1248, device='cuda:1')
+[GPU 1] Surface-JVASP-7671_miller_1_0_0_thickness_16_VASP_PBE_noDP CdSe vbm=0.922 cbm=0.423 sk=2.7235
+potential_energy 0.0
+electronic_energy tensor(-3799.2773, device='cuda:1')
+[GPU 1] Surface-JVASP-31882_miller_1_0_0_thickness_16_VASP_PBE_noDP FeN3ClO3 vbm=1.224 cbm=-0.07 sk=2.1901
+potential_energy 0.0
+electronic_energy tensor(-1069.4725, device='cuda:1')
+[GPU 1] Surface-JVASP-34228_miller_1_0_0_thickness_16_VASP_PBE_noDP MgO vbm=4.27 cbm=0.472 sk=5.9021
+potential_energy 0.0
+electronic_energy tensor(-2604.6138, device='cuda:1')
+[GPU 1] Surface-JVASP-50191_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6BeO4 vbm=3.371 cbm=1.083 sk=2.1656
+potential_energy 0.0
+electronic_energy tensor(-1050.5947, device='cuda:1')
+[GPU 1] Surface-JVASP-56190_miller_1_0_0_thickness_16_VASP_PBE_noDP CuI vbm=5.404 cbm=4.107 sk=2.0812
+potential_energy 0.0
+electronic_energy tensor(-637.4905, device='cuda:1')
+[GPU 1] Surface-JVASP-54821_miller_1_0_0_thickness_16_VASP_PBE_noDP LiI vbm=4.827 cbm=0.274 sk=5.7608
+potential_energy 0.0
+electronic_energy tensor(-2898.9436, device='cuda:1')
+[GPU 1] Surface-JVASP-182_miller_1_0_0_thickness_16_VASP_PBE_noDP SiC vbm=10.136 cbm=7.834 sk=0.0004
+potential_energy 0.0
+electronic_energy tensor(-1677.8850, device='cuda:1')
+[GPU 1] Surface-JVASP-35260_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6ZnSe4 vbm=2.338 cbm=0.583 sk=3.0440
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 193 is not positive-definite)., falling back to eig
+potential_energy 0.0
+electronic_energy tensor(-2117.0745, device='cuda:1')
+[GPU 1] Surface-JVASP-49211_miller_1_0_0_thickness_16_VASP_PBE_noDP K6CoS4 vbm=2.308 cbm=1.843 sk=0.0018
+potential_energy 0.0
+electronic_energy tensor(-1836.7896, device='cuda:1')
+[GPU 1] Surface-JVASP-22618_miller_1_0_0_thickness_16_VASP_PBE_noDP ZnS vbm=1.806 cbm=3.945 sk=3.9063
+potential_energy 0.0
+electronic_energy tensor(-7339.9468, device='cuda:1')
+[GPU 1] Surface-JVASP-57104_miller_1_0_0_thickness_16_VASP_PBE_noDP ZnS vbm=3.891 cbm=1.794 sk=3.8185
+potential_energy 0.0
+electronic_energy tensor(-1112.2040, device='cuda:1')
+[GPU 1] Surface-JVASP-49235_miller_1_0_0_thickness_16_VASP_PBE_noDP Na3Ca3AlAs4 vbm=3.544 cbm=2.588 sk=2.0698
+potential_energy 0.0
+electronic_energy tensor(-1431.3582, device='cuda:1')
+[GPU 1] Surface-JVASP-55253_miller_1_0_0_thickness_16_VASP_PBE_noDP K6MnSe4 vbm=2.02 cbm=0.795 sk=0.0025
+potential_energy 0.0
+electronic_energy tensor(-1683.5330, device='cuda:1')
+[GPU 1] Surface-JVASP-142134_miller_1_0_0_thickness_16_VASP_PBE_noDP K6ZnSe4 vbm=1.594 cbm=0.025 sk=3.3427
+potential_energy 0.0
+electronic_energy tensor(-866.7106, device='cuda:1')
+[GPU 1] Surface-JVASP-134136_miller_1_0_0_thickness_16_VASP_PBE_noDP BeSe vbm=6.1 cbm=2.726 sk=3.8749
+potential_energy 0.0
+electronic_energy tensor(-3537.0959, device='cuda:1')
+[GPU 1] Surface-JVASP-151876_miller_1_0_0_thickness_16_VASP_PBE_noDP AlPO4 vbm=3.725 cbm=-1.441 sk=7.5811
+[GPU 1] Total timeouts: 0
+electronic_energy tensor(-2561.1348, device='cuda:0')
+[GPU 0] Surface-JVASP-134866_miller_1_1_0_thickness_16_VASP_PBE_noDP YSF vbm=5.706 cbm=1.444 sk=4.9995
+potential_energy 0.0
+electronic_energy tensor(-2135.0674, device='cuda:0')
+[GPU 0] Surface-JVASP-43629_miller_1_0_0_thickness_16_VASP_PBE_noDP MgO vbm=4.106 cbm=0.249 sk=5.4395
+potential_energy 0.0
+electronic_energy tensor(-1923.3513, device='cuda:0')
+[GPU 0] Surface-JVASP-107_miller_1_0_0_thickness_16_VASP_PBE_noDP SiC vbm=10.349 cbm=7.855 sk=0.0007
+potential_energy 0.0
+electronic_energy tensor(-1711.8770, device='cuda:0')
+[GPU 0] Surface-JVASP-102236_miller_1_0_0_thickness_16_VASP_PBE_noDP NaFeN vbm=5.374 cbm=4.968 sk=0.0001
+potential_energy 0.0
+electronic_energy tensor(-680.5331, device='cuda:0')
+[GPU 0] Surface-JVASP-102823_miller_1_0_0_thickness_16_VASP_PBE_noDP NaSrN vbm=1.97 cbm=1.681 sk=1.8739
+potential_energy 0.0
+electronic_energy tensor(-1527.6359, device='cuda:0')
+[GPU 0] Surface-JVASP-7757_miller_1_0_0_thickness_16_VASP_PBE_noDP CdTe vbm=2.302 cbm=1.776 sk=2.8898
+potential_energy 0.0
+electronic_energy tensor(-788.4985, device='cuda:0')
+[GPU 0] Surface-JVASP-8182_miller_1_0_0_thickness_16_VASP_PBE_noDP AlP vbm=6.41 cbm=4.36 sk=3.1001
+potential_energy 0.0
+electronic_energy tensor(-3672.2183, device='cuda:0')
+[GPU 0] Surface-JVASP-7648_miller_1_0_0_thickness_16_VASP_PBE_noDP ZnS vbm=3.91 cbm=1.798 sk=3.7339
+potential_energy 0.0
+electronic_energy tensor(-1727.4951, device='cuda:0')
+[GPU 0] Surface-JVASP-45318_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6ZnS4 vbm=3.152 cbm=0.916 sk=3.7142
+potential_energy 0.0
+electronic_energy tensor(-1427.5222, device='cuda:0')
+[GPU 0] Surface-JVASP-49209_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6MnSe4 vbm=2.682 cbm=1.407 sk=0.0031
+potential_energy 0.0
+electronic_energy tensor(-623.1406, device='cuda:0')
+[GPU 0] Surface-JVASP-85122_miller_1_0_0_thickness_16_VASP_PBE_noDP InP vbm=5.004 cbm=4.629 sk=3.1193
+potential_energy 0.0
+electronic_energy tensor(-1140.0997, device='cuda:0')
+[GPU 0] Surface-JVASP-80722_miller_1_0_0_thickness_16_VASP_PBE_noDP AgH vbm=6.734 cbm=5.939 sk=1.1826
+potential_energy 0.0
+electronic_energy tensor(-1390.7534, device='cuda:0')
+[GPU 0] Surface-JVASP-57695_miller_1_0_0_thickness_16_VASP_PBE_noDP BN vbm=12.674 cbm=7.242 sk=3.3607
+potential_energy 0.0
+electronic_energy tensor(-800.1173, device='cuda:0')
+[GPU 0] Surface-JVASP-36204_miller_1_0_0_thickness_16_VASP_PBE_noDP BP vbm=8.847 cbm=7.47 sk=1.3364
+potential_energy 0.0
+electronic_energy tensor(-2681.8706, device='cuda:0')
+[GPU 0] Surface-JVASP-23901_miller_1_0_0_thickness_16_VASP_PBE_noDP Ca4Cl6O vbm=1.16 cbm=6.713 sk=7.2908
+potential_energy 0.0
+electronic_energy tensor(-823.8268, device='cuda:0')
+[GPU 0] Surface-JVASP-37905_miller_1_0_0_thickness_16_VASP_PBE_noDP BAs vbm=7.282 cbm=5.922 sk=0.7834
+potential_energy 0.0
+electronic_energy tensor(-1466.6475, device='cuda:0')
+[GPU 0] Surface-JVASP-21263_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6MnS4 vbm=3.516 cbm=1.989 sk=0.0030
+potential_energy 0.0
+electronic_energy tensor(-547.7610, device='cuda:0')
+[GPU 0] Surface-JVASP-8209_miller_1_0_0_thickness_16_VASP_PBE_noDP LiBeSb vbm=6.904 cbm=5.771 sk=0.8129
+potential_energy 0.0
+electronic_energy tensor(-1314.6482, device='cuda:0')
+[GPU 0] Surface-JVASP-49210_miller_1_0_0_thickness_16_VASP_PBE_noDP Na6MnTe4 vbm=3.66 cbm=2.208 sk=0.0037
+potential_energy 0.0
+electronic_energy tensor(-1772.1897, device='cuda:0')
+[GPU 0] Surface-JVASP-34040_miller_1_0_0_thickness_16_VASP_PBE_noDP TeMoS vbm=8.233 cbm=7.641 sk=0.0040
+potential_energy 0.0
+electronic_energy tensor(-5507.8203, device='cuda:0')
+[GPU 0] Surface-JVASP-10591_miller_1_0_0_thickness_16_VASP_PBE_noDP ZnS vbm=3.899 cbm=1.796 sk=3.6908
+potential_energy 0.0
+electronic_energy tensor(-5709.7998, device='cuda:0')
+[GPU 0] Surface-JVASP-140612_miller_1_0_0_thickness_16_VASP_PBE_noDP TiMn3O8 vbm=4.04 cbm=3.243 sk=0.0014
+potential_energy 0.0
+electronic_energy tensor(-1390.7828, device='cuda:0')
+[GPU 0] Surface-JVASP-135775_miller_1_0_0_thickness_16_VASP_PBE_noDP BN vbm=12.731 cbm=7.279 sk=3.3738
+potential_energy 0.0
+electronic_energy tensor(-5680.4966, device='cuda:0')
+[GPU 0] Surface-JVASP-145586_miller_1_0_0_thickness_16_VASP_PBE_noDP Mn3SnO8 vbm=4.61 cbm=3.832 sk=0.0000
+[GPU 0] Total timeouts: 0
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 167 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+Cholesky failed: linalg.cholesky: (Batch element 0): The factorization could not be completed because the input is not positive-definite (the leading minor of order 208 is not positive-definite)., falling back to eig
+potential_energy 0.0
+electronic_energy tensor(85.7586, device='cuda:3')
+[GPU 3] Surface-JVASP-122101_miller_1_0_0_thickness_16_VASP_PBE_noDP Rb6CdO4 vbm=2.159 cbm=0.804 sk=0.0023
+potential_energy 0.0
+electronic_energy tensor(-5400.4331, device='cuda:3')
+[GPU 3] Surface-JVASP-139888_miller_1_0_0_thickness_16_VASP_PBE_noDP Mg2V3O8 vbm=3.917 cbm=3.392 sk=0.0024
+potential_energy 0.0
+electronic_energy tensor(-1024.1289, device='cuda:3')
+[GPU 3] Surface-JVASP-144564_miller_1_0_0_thickness_16_VASP_PBE_noDP Na3Ca3AlSb4 vbm=4.002 cbm=3.531 sk=1.9962
+[GPU 3] Total timeouts: 0
+
+Completed: 466 structures

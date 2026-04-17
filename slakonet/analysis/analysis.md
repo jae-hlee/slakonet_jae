@@ -1,0 +1,45 @@
+# SlakoNet cross-dataset analysis
+
+Aggregates the SlakoNet runs in `../slako_v03_*` through `../slako_v08_*`.
+Re-running `build_analysis.py` will pick up `slako_v09_*`, `slako_v10_*`, `slako_v11_*`
+automatically once those runs drop a `summary.csv` (or `results/all_results.json`).
+
+## Datasets loaded
+
+| key | title | kind | N | reference |
+|-----|-------|------|---:|-----------|
+| v03_alex | Alexandria 3D PBE | crystal | 31,211 | dft_bandgap_eV |
+| v04_cccbdb | CCCBDB molecules | molecule | 1,318 | dft_bandgap_eV |
+| v05_interface | Interface slabs (optB88vdW) | interface | 433 | dft_bandgap_eV |
+| v06_surface | Surface slabs (PBE) | surface | 466 | dft_bandgap_eV |
+| v07_vacancy | Vacancy defects | defect | 444 | — |
+| v08_supercon | Alexandria supercon candidates | supercon | 4,827 | — |
+
+## Headline metrics (see `summary_table.csv`)
+
+| dataset | N | sk_mean_eV | sk_median_eV | frac_sk_metal | ref_mean_eV | MAE_eV | RMSE_eV | pearson_r |
+|---|---|---|---|---|---|---|---|---|
+| v03_alex | 31211 | 1.544 | 0.006 | 0.629 | 1.215 | 0.930 | 1.649 | 0.807 |
+| v04_cccbdb | 1318 | 7.451 | 6.312 | 0.000 | 6.735 | 2.518 | 3.517 | 0.648 |
+| v05_interface | 433 | 1.432 | 1.412 | 0.173 | 0.429 | 1.013 | 1.259 | 0.730 |
+| v06_surface | 466 | 1.673 | 1.176 | 0.348 | 0.773 | 0.973 | 1.595 | 0.746 |
+| v07_vacancy | 444 | 0.157 | 0.001 | 0.921 | — | — | — | — |
+| v08_supercon | 4827 | 0.019 | 0.004 | 0.983 | — | — | — | — |
+
+## Figures
+
+- `dataset_overview.png` — Per-dataset N, metallic fraction, SK gap median±IQR
+- `gap_distributions.png` — SK gap histograms (reference overlaid where available)
+- `parity_grid.png` — SK vs reference DFT gap, hexbin parity
+- `residual_distributions.png` — SK − reference residual densities
+- `error_summary.png` — MAE / RMSE / Pearson-r vs reference
+- `dos_average_grid.png` — Mean SlakoNet DOS per dataset (Fermi-aligned)
+- `v08_tc_correlations.png` — v08 supercon: Tc vs SK gap, DOS(E_F), λ
+
+## Notes
+
+- Reference gap for v03 is the paired subset of Alexandria PBE entries that also have an ALIGNN prediction (~31 k of 48 k). This is the scalar cache produced by `slako_v03_alex/analyze_alignn.py`.
+- v04 assumes the CCCBDB HOMO/LUMO columns are in **Hartree** (the `hl_gap_hartree_eV` column in that project's `summary.csv`). The alternative eV assumption yields 0.1–0.3 eV gaps that are clearly wrong relative to SlakoNet's 4–15 eV predictions.
+- v05/v06 clip the DFT reference to ≥ 0 (v06 subtracts `surf_cbm − surf_vbm`, which goes slightly negative for metals — treated as gap = 0).
+- v07 (vacancy) and v08 (supercon) have **no DFT band-gap reference**, so they do not appear in the parity / residual / error plots — only in the distribution and DOS grids.
+- Metallic threshold used for coverage bars: SlakoNet gap < 0.10 eV.
