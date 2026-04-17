@@ -241,7 +241,7 @@ def palette(n: int) -> list:
 
 
 def plot_dataset_overview(datasets: list[Dataset]) -> None:
-    fig, axes = plt.subplots(1, 3, figsize=(14, 4))
+    fig, axes = plt.subplots(1, 3, figsize=(14, 4), constrained_layout=True)
     keys = [d.key for d in datasets]
     colors = palette(len(datasets))
 
@@ -280,7 +280,7 @@ def plot_dataset_overview(datasets: list[Dataset]) -> None:
     axes[2].set_title("Predicted gap magnitude")
     axes[2].invert_yaxis()
 
-    fig.suptitle("SlakoNet cross-dataset overview", fontsize=12, y=1.02)
+    fig.suptitle("SlakoNet cross-dataset overview", fontsize=12)
     fig.savefig(OUT / "dataset_overview.png")
     plt.close(fig)
 
@@ -289,7 +289,7 @@ def plot_gap_distributions(datasets: list[Dataset]) -> None:
     n = len(datasets)
     ncol = 3
     nrow = math.ceil(n / ncol)
-    fig, axes = plt.subplots(nrow, ncol, figsize=(4.2 * ncol, 3.0 * nrow), sharex=True)
+    fig, axes = plt.subplots(nrow, ncol, figsize=(4.2 * ncol, 3.2 * nrow), sharex=True, constrained_layout=True)
     axes = np.atleast_2d(axes)
     bins = np.linspace(0, 15, 61)
     for ax, ds in zip(axes.flat, datasets):
@@ -308,7 +308,7 @@ def plot_gap_distributions(datasets: list[Dataset]) -> None:
     # hide unused subplots
     for ax in axes.flat[n:]:
         ax.axis("off")
-    fig.suptitle("SlakoNet gap distributions (reference gap overlaid where available)", y=1.01)
+    fig.suptitle("SlakoNet gap distributions (reference gap overlaid where available)")
     fig.savefig(OUT / "gap_distributions.png")
     plt.close(fig)
 
@@ -320,7 +320,7 @@ def plot_parity_grid(datasets: list[Dataset]) -> None:
     n = len(ref_sets)
     ncol = min(3, n)
     nrow = math.ceil(n / ncol)
-    fig, axes = plt.subplots(nrow, ncol, figsize=(4.3 * ncol, 4.0 * nrow))
+    fig, axes = plt.subplots(nrow, ncol, figsize=(4.5 * ncol, 4.3 * nrow), constrained_layout=True)
     axes = np.atleast_1d(axes).flatten()
     for ax, ds in zip(axes, ref_sets):
         ref = ds.frame[ds.reference].values
@@ -339,7 +339,7 @@ def plot_parity_grid(datasets: list[Dataset]) -> None:
         fig.colorbar(hb, ax=ax, shrink=0.85, label="log10 count")
     for ax in axes[n:]:
         ax.axis("off")
-    fig.suptitle("SlakoNet parity against reference DFT gaps", y=1.02)
+    fig.suptitle("SlakoNet parity against reference DFT gaps")
     fig.savefig(OUT / "parity_grid.png")
     plt.close(fig)
 
@@ -348,7 +348,7 @@ def plot_residuals(datasets: list[Dataset]) -> None:
     ref_sets = [d for d in datasets if d.has_reference]
     if not ref_sets:
         return
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(8, 5), constrained_layout=True)
     colors = palette(len(ref_sets))
     bins = np.linspace(-8, 10, 73)
     for ds, color in zip(ref_sets, colors):
@@ -384,7 +384,7 @@ def plot_error_summary(datasets: list[Dataset]) -> pd.DataFrame:
     # bar chart
     ref_df = df.dropna(subset=["MAE_eV"]).copy()
     if len(ref_df):
-        fig, axes = plt.subplots(1, 3, figsize=(13, 4))
+        fig, axes = plt.subplots(1, 3, figsize=(13, 4.2), constrained_layout=True)
         colors = palette(len(ref_df))
         axes[0].bar(ref_df["dataset"], ref_df["MAE_eV"], color=colors)
         axes[0].set_title("MAE vs reference (eV)")
@@ -403,7 +403,7 @@ def plot_error_summary(datasets: list[Dataset]) -> pd.DataFrame:
         axes[2].axhline(0, color="k", lw=0.7)
         axes[2].tick_params(axis="x", rotation=30)
 
-        fig.suptitle("Regression quality on datasets with a DFT reference", y=1.02)
+        fig.suptitle("Regression quality on datasets with a DFT reference")
         fig.savefig(OUT / "error_summary.png")
         plt.close(fig)
     return df
@@ -470,7 +470,7 @@ def plot_dos_grid(datasets: list[Dataset]) -> None:
     n = len(series)
     ncol = 3
     nrow = math.ceil(n / ncol)
-    fig, axes = plt.subplots(nrow, ncol, figsize=(4.5 * ncol, 3.0 * nrow), sharex=True)
+    fig, axes = plt.subplots(nrow, ncol, figsize=(4.5 * ncol, 3.3 * nrow), sharex=True, constrained_layout=True)
     axes = np.atleast_1d(axes).flatten()
     for ax, (ds, en, dos, nsamp) in zip(axes, series):
         ax.plot(en, dos, color="#2166ac", lw=1.2)
@@ -481,7 +481,7 @@ def plot_dos_grid(datasets: list[Dataset]) -> None:
         ax.set_ylabel("DOS (arb.)")
     for ax in axes[n:]:
         ax.axis("off")
-    fig.suptitle("Mean SlakoNet DOS per dataset (Fermi-aligned)", y=1.01)
+    fig.suptitle("Mean SlakoNet DOS per dataset (Fermi-aligned)")
     fig.savefig(OUT / "dos_average_grid.png")
     plt.close(fig)
 
@@ -492,7 +492,7 @@ def plot_v08_extras(datasets: list[Dataset]) -> None:
         return
     df = v08.frame.copy()
     df = df[(df["Tc_K"] >= 0) & (df["Tc_K"] < 200)]
-    fig, axes = plt.subplots(1, 3, figsize=(13, 4))
+    fig, axes = plt.subplots(1, 3, figsize=(13, 4.2), constrained_layout=True)
     axes[0].scatter(df["sk_bandgap_eV"], df["Tc_K"], s=4, alpha=0.35, color="#2166ac")
     axes[0].set_xscale("symlog", linthresh=0.01)
     axes[0].set_xlabel("SlakoNet gap (eV, symlog)")
@@ -509,7 +509,7 @@ def plot_v08_extras(datasets: list[Dataset]) -> None:
     axes[2].set_ylabel("Tc (K)")
     axes[2].set_title("Tc vs λ (Eliashberg)")
 
-    fig.suptitle("v08 supercon: Tc correlations", y=1.02)
+    fig.suptitle("v08 supercon: Tc correlations")
     fig.savefig(OUT / "v08_tc_correlations.png")
     plt.close(fig)
 
