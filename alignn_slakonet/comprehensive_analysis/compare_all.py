@@ -20,7 +20,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
 
-ROOT = Path("/Users/jaelee/Desktop/work/alignn_slako")
+ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "comprehensive_analysis"
 PLOTS = OUT / "plots"
 PLOTS.mkdir(parents=True, exist_ok=True)
@@ -36,6 +36,12 @@ LABELS = {
     "alignn_pbe": "ALIGNN mp_gappbe (PBE)",
     "alignn_mbj": "ALIGNN jv_mbj (TB-mBJ)",
     "alignn_optb":"ALIGNN jv_optb88vdw (OptB88vdW)",
+}
+SHORT_LABELS = {
+    "slakonet":   "SlakoNet",
+    "alignn_pbe": "ALIGNN PBE",
+    "alignn_mbj": "ALIGNN TB-mBJ",
+    "alignn_optb":"ALIGNN OptB88vdW",
 }
 COLORS = {
     "slakonet":   "#e45756",
@@ -274,8 +280,9 @@ def plot_head_to_head(pbe, preds_clamped, keys, fname):
         ax.plot([0, hi], [0, hi], "w--", lw=0.8)
         wins_ref   = int(np.sum(a < b))
         wins_other = int(np.sum(b < a))
-        ax.set_title(f"{LABELS[other]}  vs  {LABELS[ref_key]}\n"
-                     f"ref-better: {wins_ref}   other-better: {wins_other}")
+        ax.set_title(f"{SHORT_LABELS[other]}  vs  {SHORT_LABELS[ref_key]}\n"
+                     f"ref-better: {wins_ref}   other-better: {wins_other}",
+                     fontsize=10)
         ax.set_xlabel(f"|{LABELS[ref_key]} − PBE|")
         ax.set_ylabel(f"|{LABELS[other]} − PBE|")
         ax.set_xlim(0, hi); ax.set_ylim(0, hi)
@@ -296,10 +303,11 @@ def plot_pairwise_model_agreement(preds_clamped, keys, fname):
                        norm=LogNorm(vmin=1, vmax=max(2, len(xa))),
                        extent=(0, hi, 0, hi))
         ax.plot([0, hi], [0, hi], "w--", lw=0.8)
-        ax.set_xlabel(f"{LABELS[a]} (eV)")
-        ax.set_ylabel(f"{LABELS[b]} (eV)")
         mae_ab = float(np.mean(np.abs(xa - yb)))
-        ax.set_title(f"{LABELS[a]}  vs  {LABELS[b]}\nMAE={mae_ab:.3f} eV")
+        ax.set_title(f"{SHORT_LABELS[a]}  vs  {SHORT_LABELS[b]}\nMAE={mae_ab:.3f} eV",
+                     fontsize=10)
+        ax.set_xlabel(f"{SHORT_LABELS[a]} (eV)")
+        ax.set_ylabel(f"{SHORT_LABELS[b]} (eV)")
     fig.savefig(PLOTS / fname, dpi=140)
     plt.close(fig)
 
