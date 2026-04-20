@@ -178,6 +178,17 @@ if __name__ == '__main__':
     # Precompute shell_dict once
     shell_dict = generate_shell_dict_upto_Z65()
 
+    # SLURM array sharding: each task processes its slice of the full list.
+    # Run without --array and both vars default to (0, 1) → no sharding.
+    shard_id = int(os.environ.get('SLURM_ARRAY_TASK_ID', 0))
+    shard_count = int(os.environ.get('SLURM_ARRAY_TASK_COUNT', 1))
+    if shard_count > 1:
+        dft_3d = dft_3d[shard_id::shard_count]
+        print(
+            f"[array {shard_id}/{shard_count}] this task owns {len(dft_3d)} entries",
+            flush=True,
+        )
+
     # "_all": no e_above_hull filter, no element filter — run every entry
     # that doesn't already have a result JSON on disk.
     valid_entries = []
@@ -211,4 +222,13 @@ if __name__ == '__main__':
         mem = run_single_gpu(valid_entries, shell_dict)
 
     print(f"\nCompleted: {len(mem)} structures", flush=True)
-    dumpjson(data=mem, filename=os.path.join(RESULTS_DIR, 'all_results.json'))
+    # In array mode, tasks would clobber each other's all_results.json.
+    # Per-material JSONs are the canonical output; aggregate separately
+    # after all shards finish.
+    if shard_count > 1:
+        dumpjson(
+            data=mem,
+            filename=os.path.join(RESULTS_DIR, f'all_results_shard{shard_id:03d}.json'),
+        )
+    else:
+        dumpjson(data=mem, filename=os.path.join(RESULTS_DIR, 'all_results.json'))
