@@ -17,6 +17,7 @@ slakonet/                     SlakoNet inference per dataset
   slako_v09_1d/               Alexandria PBE 1D           (N = 8,636)
   slako_v10_2d/               Alexandria PBE 2D           (in progress)
   slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter (in progress)
+  slako_v12_all/              Alexandria PBE 3D, full 5M set, no filters (in progress)
   comprehensive_analysis/     Cross-dataset aggregation + unified plots
 
 alignn_slakonet/              ALIGNN cross-check on Alexandria PBE 3D
@@ -70,11 +71,11 @@ python jslako_v<N>.py          # auto-detects single vs multi-GPU
 
 The inference environment needs `torch`, the full `slakonet` package (`pip install` from [atomgptlab/slakonet](https://github.com/atomgptlab/slakonet)), `jarvis-tools`, and `tqdm`. ALIGNN runs additionally need the `alignn` package and a pretrained model that `alignn.pretrained.get_figshare_model` can fetch on first use.
 
-Each run filters to elements with Z ≤ 65 (`slako_v11_alexwz` is the exception — no element filter), checkpoints per-structure into `results/<id>.json`, and times out any single structure that exceeds 180 s. Re-running skips structures whose result file already exists.
+Each run filters to elements with Z ≤ 65 (`slako_v11_alexwz` and `slako_v12_all` are the exceptions — no element filter), checkpoints per-structure into `results/<id>.json`, and times out any single structure that exceeds 180 s. Re-running skips structures whose result file already exists.
 
 ### Data
 
-Small input zips (interface_db, surface_db, vacancy_db, CCCBDB, alex_supercon, Alexandria 1D / 2D) ship with the repo. The 1.1 GB **Alexandria PBE 3D** dataset (`alexandria_pbe_3d_2024.10.1_jarvis_tools.json.zip`) is excluded for size; download it from the [Alexandria database](https://alexandria.icams.rub.de/) and place it in the working directory of `slako_v03_alex/`, `slako_v11_alexwz/`, and `alslak_v0{1,2,3}/` before running those projects.
+Small input zips (interface_db, surface_db, vacancy_db, CCCBDB, alex_supercon, Alexandria 1D / 2D) ship with the repo. The 1.1 GB **Alexandria PBE 3D** dataset (`alexandria_pbe_3d_2024.10.1_jarvis_tools.json.zip`) is excluded for size; download it from the [Alexandria database](https://alexandria.icams.rub.de/) and place it in the working directory of `slako_v03_alex/`, `slako_v11_alexwz/`, `slako_v12_all/`, and `alslak_v0{1,2,3}/` before running those projects.
 
 ### Analysis
 

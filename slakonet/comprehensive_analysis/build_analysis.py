@@ -14,7 +14,7 @@ sister project and emits a unified set of comparison plots into this directory:
   - summary_table.csv / .md      : Headline stats
 
 Silently skips datasets that have no `results/all_results.json` yet, so the same
-script picks up v10_2d / v11_alexwz once those runs finish.
+script picks up v10_2d / v11_alexwz / v12_all once those runs finish.
 """
 
 from __future__ import annotations
@@ -199,6 +199,7 @@ def load_all() -> list[Dataset]:
         lambda: load_stub("v09_1d", "Alexandria 1D PBE", "low_dim", "slako_v09_1d"),
         lambda: load_stub("v10_2d", "Alexandria 2D PBE", "low_dim", "slako_v10_2d"),
         lambda: load_stub("v11_alexwz", "Alexandria WZ PBE", "crystal", "slako_v11_alexwz"),
+        lambda: load_stub("v12_all", "Alexandria 3D PBE (all)", "crystal", "slako_v12_all"),
     ]
     out: list[Dataset] = []
     for fn in candidates:
@@ -420,6 +421,9 @@ def _iter_dos_files(dataset_key: str) -> Iterable[dict]:
         "v07_vacancy": ROOT / "slako_v07_vacancy" / "results" / "all_results.json",
         "v08_supercon": ROOT / "slako_v08_supercon" / "results" / "all_results.json",
         "v09_1d": ROOT / "slako_v09_1d" / "results" / "all_results.json",
+        "v10_2d": ROOT / "slako_v10_2d" / "results" / "all_results.json",
+        "v11_alexwz": ROOT / "slako_v11_alexwz" / "results" / "all_results.json",
+        "v12_all": None,  # too large once complete; skip
     }
     path = mapping.get(dataset_key)
     if path is None or not path.exists():
