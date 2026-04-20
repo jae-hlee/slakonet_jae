@@ -75,7 +75,18 @@ Each run filters to elements with Z ≤ 65 (`slako_v11_alexwz` and `slako_v12_al
 
 ### Data
 
-Small input zips (interface_db, surface_db, vacancy_db, CCCBDB, alex_supercon, Alexandria 1D / 2D) ship with the repo. The 1.1 GB **Alexandria PBE 3D** dataset (`alexandria_pbe_3d_2024.10.1_jarvis_tools.json.zip`) is excluded for size; download it from the [Alexandria database](https://alexandria.icams.rub.de/) and place it in the working directory of `slako_v03_alex/`, `slako_v11_alexwz/`, `slako_v12_all/`, and `alslak_v0{1,2,3}/` before running those projects.
+No dataset zips ship with the repo. Download each from the [atomgptlab JARVIS databases page](https://atomgptlab.github.io/jarvis/databases/) and drop it into the matching sub-project working directory before running — the inference scripts look zips up by filename.
+
+| Sub-project                                                                 | Expected zip                                                 |
+|-----------------------------------------------------------------------------|--------------------------------------------------------------|
+| `slako_v03_alex`, `slako_v11_alexwz`, `slako_v12_all`, `alslak_v0{1,2,3}`   | `alexandria_pbe_3d_2024.10.1_jarvis_tools.json.zip` (1.1 GB) |
+| `slako_v04_cccbdb`                                                          | `cccbdb.json.zip`                                            |
+| `slako_v05_interface`                                                       | `interface_db_dd.json.zip`                                   |
+| `slako_v06_surface`                                                         | `surface_db_dd.json.zip`                                     |
+| `slako_v07_vacancy`                                                         | `vacancydb.json.zip`                                         |
+| `slako_v08_supercon`                                                        | `alex_supercon.json.zip`                                     |
+| `slako_v09_1d`                                                              | `alexandria_pbe_1d_2024.10.1_jarvis_tools.json.zip`          |
+| `slako_v10_2d`                                                              | `alexandria_pbe_2d_2024.10.1_jarvis_tools.json.zip`          |
 
 ### Analysis
 
