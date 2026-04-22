@@ -11,7 +11,10 @@
   is expected and physically meaningful, not a model defect.
 - **Paired set**: 31,211 structures (intersection of 48,764 v02 ALIGNN predictions
   and 31,211 SlakoNet results). 17,553 ALIGNN-only structures are carried over
-  from the v00 missing set and are not analyzed here.
+  from the v00 missing set and are not analyzed here — 99.9 % of those are
+  lanthanide-containing cells that SlakoNet silently rejects (see
+  `../alslak_v00/analysis/analysis.md`), so the excluded set is not
+  recoverable by rerunning.
 
 ## Key numbers
 

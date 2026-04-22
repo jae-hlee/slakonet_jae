@@ -205,8 +205,19 @@ prediction?", the pretrained ALIGNN model `mp_gappbe_alignn` (trained on
 Materials Project PBE gaps) was run on the same filtered Alexandria set
 (`predict_alignn.py`). 48,764 structures were predicted; 31,211 overlap with
 the existing SlakoNet results and form the paired comparison set below.
-The remaining 17,553 ALIGNN entries have no SK counterpart (SlakoNet timeouts
-/ prep failures — candidates for `rerun_missing.py`).
+The remaining 17,553 ALIGNN entries have no SK counterpart. **Those 17,553
+are not "timeouts / prep failures" and should not be re-run via
+`rerun_missing.py`:** a post-hoc element audit shows **99.9 % (17,529 /
+17,553) contain an f-block lanthanide (Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb)**,
+the remaining 19 contain a noble gas, and only 5 are truly unexplained.
+Zero completed structures contain any of those elements. This is the same
+deterministic 4f-shell wall documented in `../slako_v09_1d/analysis/analysis.md`
+and `../slako_v10_2d/analysis/analysis.md`: `generate_shell_dict_upto_Z65()`
+nominally produces a shell dict for those elements so the `ALLOWED_SYMBOLS`
+filter passes them, but `model.compute_multi_element_properties(...)` throws
+inside `gpu_worker`, which silently swallows the exception. **Effective
+usable ceiling is Z ≤ 57 (through La), not Z ≤ 65.** Rerunning those ids
+will just re-fail.
 
 ### Regression vs PBE indirect gap (N = 31,211 paired)
 
@@ -295,10 +306,14 @@ zero-gap tendency is accidentally correct.
    this diagnosis as context.
 4. **Refit SK parameters** for alkali-F / alkaline-earth-F pairs — this
    is independent of the spin issue and would recover the fluoride subset.
-5. **Rerun SlakoNet on the 17,553 missing structures** (ALIGNN has
-   predictions for these but SlakoNet does not) via `rerun_missing.py`,
-   so the paired comparison set matches the filtered Alexandria hull set
-   in full.
+5. **Do not rerun SlakoNet on the 17,553 missing structures.** The
+   previously-suggested `rerun_missing.py` path is effectively dead: 99.9 %
+   of those ids contain an f-block lanthanide (Ce–Tb) that inference
+   silently rejects — see the lanthanide note in the cross-check section.
+   The paired set cannot be extended until either SlakoNet gains 4f-shell
+   support or `ALLOWED_SYMBOLS` is tightened to `Z ≤ 57` (and the
+   comparison framed against the smaller 31,211-entry hull subset, which
+   is what's already in this repo).
 6. **Composition-gated hybrid predictor**: use ALIGNN on structures with
    open-shell TMs or fluoride cation–F pairs, and SlakoNet elsewhere —
    the head-to-head plot suggests this is roughly where each model wins.

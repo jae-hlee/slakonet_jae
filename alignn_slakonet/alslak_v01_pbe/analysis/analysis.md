@@ -9,7 +9,7 @@ SlakoNet counterpart are excluded from this comparison.
 ## Dataset composition (merged set)
 
 - Merged structures: **31211**
-- ALIGNN entries without SK match (excluded): **17553**
+- ALIGNN entries without SK match (excluded): **17553** (~99.9 % are lanthanide-containing cells that SlakoNet silently rejects, not recoverable by rerun — see `../alslak_v00/analysis/analysis.md`)
 - SK entries without ALIGNN match (excluded): **0**
 - PBE metals (gap = 0): **15119**
 - PBE non-metals (gap > 0): **16092**

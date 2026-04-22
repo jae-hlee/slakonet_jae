@@ -4,7 +4,7 @@
 
 - **Input:** JARVIS `surfacedb` (607 relaxed slab structures, PBE/R2SCAN).
 - **Model:** SlakoNet (DFTB Slater-Koster neural network).
-- **Coverage:** 466 / 607 slabs successfully predicted. 141 skipped because they contain elements heavier than Tb (Z > 65), which SlakoNet does not parameterize (Au, Pt, W, Hf, Ir, Os, etc.).
+- **Coverage:** 466 / 607 slabs successfully predicted. Of the 141 missing: **120 are filtered up-front** because they contain elements heavier than Tb (Z > 65; Au, Pt, W, Hf, Ir, Os, etc.), and **21 pass the filter but silently fail inside `gpu_worker`** — 19 contain an f-block lanthanide (Ce–Tb, Z 58–65; the same 4f-shell wall documented in `../../slako_v10_2d/analysis/analysis.md`) and 2 contain argon. Nominal ceiling is Z ≤ 65; effective usable ceiling is Z ≤ 57 excluding noble gases.
 - **Per-structure output:** `sk_bandgap` (eV) and a full DOS (`dos_energies`, `dos_values`).
 
 ## Prediction target
@@ -87,7 +87,7 @@ The H4NF case (16 eV) is likely a molecular/ammonium-fluoride-like slab where th
 1. **Metal vs. insulator is well learned** — 83 % accuracy, r = 0.75. SlakoNet correctly returns near-zero gaps for most metallic slabs.
 2. **Gap magnitudes are over-predicted** in the non-metallic subset by ~1.4 eV on average; ionic insulators (MgO, LiCl, ZnS, AlPO4) are the worst offenders.
 3. **A handful of molecular / ammonium-like slabs** produce unphysical gaps (H4NF: 16 eV) and inflate the RMSE — filtering these or treating molecular slabs separately would meaningfully improve reported error.
-4. **Z ≤ 65 ceiling** excludes 23 % of the dataset, including most noble-metal and 5d transition-metal surfaces of catalytic interest; extending SlakoNet parameters upward is the main path to broader coverage.
+4. **Z ≤ 57 effective ceiling** excludes 23 % of the dataset (20 % filtered up-front as Z > 65, plus another 3.5 % dropped silently on lanthanides/noble gases). The bulk are noble-metal and 5d transition-metal surfaces of catalytic interest; extending SlakoNet parameters upward — and adding real 4f-shell and noble-gas support — is the main path to broader coverage.
 
 ## Generated artifacts
 

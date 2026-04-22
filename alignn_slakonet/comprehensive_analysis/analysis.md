@@ -23,7 +23,11 @@ caveat when reading the MAE tables below.
 
 **Paired set:** 31,211 structures — the intersection of SlakoNet's completed
 run and each ALIGNN prediction. 17,553 structures have ALIGNN predictions but
-no SlakoNet counterpart (v00 SlakoNet timeouts) and are excluded. Because all
+no SlakoNet counterpart and are excluded. These are not timeouts: a post-hoc
+audit (see `../alslak_v00/analysis/analysis.md`) shows 99.9 % of them
+contain an f-block lanthanide (Ce–Tb) that SlakoNet cannot handle — the
+filter passes them but inference silently fails. A rerun will not rescue
+them. Because all
 three ALIGNN models run the same 48,764-structure input, the excluded set is
 identical for all of them, which means every comparison below is apples-to-
 apples across models.

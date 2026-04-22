@@ -27,12 +27,22 @@ insulating character) without running full DFT on each defective supercell.
 |---|---|
 | Vacancy DB entries | 530 |
 | SlakoNet results computed | 444 |
-| Skipped (unsupported elements, Z > 65) | 86 |
+| Filtered up-front (element Z > 65) | 60 |
+| Silently dropped inside `gpu_worker` | 26 |
+| &nbsp;&nbsp;&nbsp;&nbsp;of those, containing Ce–Tb (4f shell) | 22 |
+| &nbsp;&nbsp;&nbsp;&nbsp;of those, containing a noble gas (Ne/Ar/Kr/Xe) | 4 |
 | Finite `sk_bandgap` & `ef` | 444 |
 | Effectively metallic (gap < 1 meV) | 170 (38.3%) |
 
-Skipped structures typically contain heavy elements outside SlakoNet's
-supported set (Z ≤ 65 / up to Tb); top elements appearing in skipped cells:
+86 entries are missing from `results/` total, but the "Z > 65" framing
+conflates two separate filters: the up-front `ALLOWED_SYMBOLS` filter
+rejects 60 heavy-element cells (W, Pt, Hf, Ir, Bi, …), while the
+remaining 26 silently fail inside `gpu_worker` because SlakoNet cannot
+handle the 4f shell or noble-gas chemistries even though
+`generate_shell_dict_upto_Z65()` nominally covers Ce–Tb — the same
+pattern documented in `../../slako_v10_2d/analysis/analysis.md` and
+`../../slako_v09_1d/analysis/analysis.md`. Effective usable ceiling is
+Z ≤ 57 (excluding noble gases). Top elements in missing cells:
 Te, Se, Sm, Bi, O, S, W, Pt, Hf, Ir.
 
 ## Summary statistics (N = 444)
@@ -132,10 +142,15 @@ progression from metallic to wide-gap insulating character.
 2. **No simple `gap ↔ ef` relation** exists across the full dataset; any
    regression would need host chemistry (or at least vacancy element +
    material class) as a feature.
-3. The **limiting factor in coverage** is SlakoNet's element support
-   (Z ≤ 65) — extending the Slater–Koster parameterisation to heavier
-   elements would unlock the remaining 86 structures (notably
-   Te/Se/Sm/Bi/W/Pt/Hf/Ir-containing cells).
+3. The **limiting factor in coverage** is SlakoNet's element support.
+   Of the 86 missing structures: 60 are filtered up-front for Z > 65
+   (Bi/W/Pt/Hf/Ir/…) and would need an extended Slater–Koster
+   parameterization; the other 26 fail silently despite passing the
+   filter — 22 because SlakoNet cannot handle the 4f shell (Ce–Tb,
+   including the Sm cells in the top-elements list) and 4 because
+   SlakoNet has no parameters for noble gases (Xe/Kr/Ne/Ar). Fixing
+   both would unlock the full 530-entry set only after extending
+   element coverage upward.
 4. Next validation step: compare SlakoNet gaps against the parent
    JARVIS-DFT gaps for the pristine hosts (and, where available, DFT gaps
    for the defective cells) to quantify accuracy beyond the qualitative

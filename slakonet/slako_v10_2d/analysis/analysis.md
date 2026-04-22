@@ -54,7 +54,28 @@ set is `Z ≤ 57` (through La), not `Z ≤ 65`. Either tighten the filter — dr
 `gpu_worker` exception so future runs don't hide this kind of systematic miss
 behind the same "silently swallowed" curtain.
 
-The 8,000 IDs are saved in `analysis/missing_ids.txt`.
+**Cross-project verification.** After this v10 finding, every other sister
+project with a non-zero "dropout" count was audited against the source zip.
+Every one shows the same pattern:
+
+| project | missing | % lanthanide | % noble gas |
+|---|---:|---:|---:|
+| v03 Alexandria 3D hull | 17,553 | 99.9 % | 0.1 % |
+| v10 Alexandria 2D (this file) | 8,000 | 100.0 % | 0.0 % |
+| v09 Alexandria 1D | 904 | 100.0 % | 0.0 % |
+| v07 vacancy | 26 | 84.6 % | 15.4 % (Xe/Kr/Ne/Ar) |
+| v06 surface | 21 | 90.5 % | 9.5 % (Ar) |
+| v04 CCCBDB | 9 | 0.0 % | 100.0 % (He/Ne/Ar) |
+| v05 interface | 0 | — | — |
+| v08 supercon | 0 | — | — |
+
+v05 and v08 are clean because their datasets contain no lanthanide or
+noble-gas entries in the first place. v04's small dropout is entirely
+noble gases (monatomic / rare-gas molecular species). The two walls —
+lanthanide 4f and noble-gas chemistry — explain essentially all silent
+dropout across the repo.
+
+The 8,000 v10 IDs are saved in `analysis/missing_ids.txt`.
 
 ## Headline metrics (N = 79,903)
 

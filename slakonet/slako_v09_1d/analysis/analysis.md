@@ -10,10 +10,11 @@ PBE indirect gap (`band_gap_ind`). Full **DOS** curves are saved as a
 secondary output.
 
 - Dataset total: 13,295 entries
-- Filtered out (Z > 65): 3,755
+- Filtered out up-front (element outside `ALLOWED_SYMBOLS`, Z > 65): 3,755
 - Successfully evaluated: **8,636** (904 of the 9,540 attempted are missing —
-  the multi-GPU worker silently swallows exceptions; rerun on a single GPU
-  to surface the cause)
+  **100% of those 904 contain an f-block lanthanide** Ce–Tb, identical to the
+  v10 2D pattern; see "The 904 missing entries are 100% f-block lanthanides"
+  below for the diagnosis)
 - Reference: Alexandria PBE indirect gap (`band_gap_ind`); direct gap
   (`band_gap_dir`) tracked alongside
 
@@ -96,10 +97,40 @@ same residual structure. For ranking-style screening (top-k by gap) the
 output is usable; for absolute gaps a calibration step or a chemistry-aware
 fine-tune would be required.
 
-The 904 missing structures (~10 % of the attempted batch) deserve a one-GPU
-rerun before treating these numbers as final, because the silent multi-GPU
-worker may have hidden a systematic failure on a particular chemistry or
-cell shape.
+## The 904 missing entries are 100% f-block lanthanides
+
+This section overturns the "~10 % mystery dropout — rerun on one GPU to
+diagnose" narrative that originally lived here. Cross-checking the 904
+missing ids against the source zip:
+
+- **904 / 904 (100%) contain at least one of Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb.**
+- **0 / 8,636** completed entries contain any of those elements.
+
+Breakdown of which lanthanide dominates the missing set (1D-specific — Pr
+and Pm never appear in Alexandria 1D at all, so this list is a subset of
+the v10 2D list):
+
+| Lanthanide | Z | in missing | in completed |
+|---|---:|---:|---:|
+| Sm | 62 | 19.6% | 0.0% |
+| Nd | 60 | 19.1% | 0.0% |
+| Tb | 65 | 19.1% | 0.0% |
+| Gd | 64 | 17.4% | 0.0% |
+| Eu | 63 | 16.9% | 0.0% |
+| Ce | 58 |  7.9% | 0.0% |
+
+This is the same deterministic 4f-shell wall documented in
+`../slako_v10_2d/analysis/analysis.md`: `generate_shell_dict_upto_Z65()`
+nominally produces a shell dict for these elements, so the `ALLOWED_SYMBOLS`
+filter lets them through, but inference fails inside
+`model.compute_multi_element_properties(...)` and `gpu_worker` silently
+swallows the exception. A one-GPU rerun will **not** surface new structures
+— the failure is not a race condition or a per-node fluke, it is a model
+capability limit. The effective usable ceiling is `Z ≤ 57` (through La),
+not the `Z ≤ 65` the filter advertises.
+
+Implication: reruns / sister projects should drop Ce–Tb from
+`ALLOWED_SYMBOLS` to stop burning GPU hours on guaranteed silent failures.
 
 ## Artifacts in this directory
 
