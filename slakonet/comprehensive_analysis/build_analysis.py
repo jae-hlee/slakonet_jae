@@ -1,5 +1,5 @@
 """
-Cross-dataset analysis for SlakoNet runs v03–v09 (extensible to v10/v11).
+Cross-dataset analysis for SlakoNet runs v03–v10 (extensible to v11/v12).
 
 Loads the per-dataset summaries and per-structure results already produced by each
 sister project and emits a unified set of comparison plots into this directory:
@@ -14,7 +14,7 @@ sister project and emits a unified set of comparison plots into this directory:
   - summary_table.csv / .md      : Headline stats
 
 Silently skips datasets that have no `results/all_results.json` yet, so the same
-script picks up v10_2d / v11_alexwz / v12_all once those runs finish.
+script picks up v11_alexwz / v12_all once those runs finish.
 """
 
 from __future__ import annotations
@@ -175,7 +175,7 @@ def load_v08() -> Dataset | None:
 
 # Extension hooks — these just need to land a summary.csv with sk_bandgap_eV
 def load_stub(key: str, title: str, kind: str, sub: str) -> Dataset | None:
-    """Pick up v09/v10/v11 once results land."""
+    """Pick up v09/v10/v11/v12 once results land."""
     candidates = [
         ROOT / sub / "analysis" / "summary.csv",
         ROOT / sub / "summary.csv",
@@ -421,7 +421,7 @@ def _iter_dos_files(dataset_key: str) -> Iterable[dict]:
         "v07_vacancy": ROOT / "slako_v07_vacancy" / "results" / "all_results.json",
         "v08_supercon": ROOT / "slako_v08_supercon" / "results" / "all_results.json",
         "v09_1d": ROOT / "slako_v09_1d" / "results" / "all_results.json",
-        "v10_2d": ROOT / "slako_v10_2d" / "results" / "all_results.json",
+        "v10_2d": None,  # 15.2 GB all_results.json; skip DOS aggregation
         "v11_alexwz": ROOT / "slako_v11_alexwz" / "results" / "all_results.json",
         "v12_all": None,  # too large once complete; skip
     }

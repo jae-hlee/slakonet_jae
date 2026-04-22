@@ -1,6 +1,6 @@
 # SlakoNet cross-dataset analysis
 
-Aggregates the following SlakoNet runs: `v03_alex`, `v04_cccbdb`, `v05_interface`, `v06_surface`, `v07_vacancy`, `v08_supercon`, `v09_1d`.
+Aggregates the following SlakoNet runs: `v03_alex`, `v04_cccbdb`, `v05_interface`, `v06_surface`, `v07_vacancy`, `v08_supercon`, `v09_1d`, `v10_2d`.
 Re-running `build_analysis.py` automatically picks up any sister `slako_v*`
 project once it drops a `summary.csv` (or `results/all_results.json`).
 
@@ -15,6 +15,7 @@ project once it drops a `summary.csv` (or `results/all_results.json`).
 | v07_vacancy | Vacancy defects | defect | 444 | — |
 | v08_supercon | Alexandria supercon candidates | supercon | 4,827 | — |
 | v09_1d | Alexandria 1D PBE | low_dim | 8,636 | dft_bandgap_eV |
+| v10_2d | Alexandria 2D PBE | low_dim | 79,903 | dft_bandgap_eV |
 
 ## Headline metrics (see `summary_table.csv`)
 
@@ -27,6 +28,7 @@ project once it drops a `summary.csv` (or `results/all_results.json`).
 | v07_vacancy | 444 | 0.157 | 0.001 | 0.921 | — | — | — | — |
 | v08_supercon | 4827 | 0.019 | 0.004 | 0.983 | — | — | — | — |
 | v09_1d | 8636 | 1.869 | 0.308 | 0.398 | 1.088 | 0.989 | 1.701 | 0.879 |
+| v10_2d | 79903 | 1.161 | 0.017 | 0.624 | 0.671 | 0.621 | 1.328 | 0.890 |
 
 ## Figures
 
