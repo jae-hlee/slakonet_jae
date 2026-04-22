@@ -1,6 +1,6 @@
 # slakonet_jae
 
-Results of applying [SlakoNet](https://github.com/atomgptlab/slakonet) — a machine-learned Slater–Koster tight-binding model — to a range of crystalline, molecular, defect, surface, and interface datasets, together with [ALIGNN](https://github.com/usnistgov/alignn) cross-checks on the same structures.
+Results of applying [SlakoNet](https://github.com/atomgptlab/slakonet) — a machine-learned Slater–Koster tight-binding model — to a range of crystalline, molecular, defect, surface, and interface datasets, together with [ALIGNN](https://github.com/atomgptlab/alignn) cross-checks on the same structures.
 
 Each sub-project is a self-contained batch-inference pipeline: one script loads a dataset, runs SlakoNet (or ALIGNN) on every valid structure, and writes per-structure JSON outputs plus plots, summary CSVs, and a written `analysis.md` describing what the numbers say.
 
@@ -126,7 +126,7 @@ ALIGNN predictions use the same per-structure layout with `alignn_bandgap` inste
 ## Upstream references
 
 - SlakoNet — <https://github.com/atomgptlab/slakonet>
-- ALIGNN — <https://github.com/usnistgov/alignn>
+- ALIGNN — <https://github.com/atomgptlab/alignn>
 - Alexandria materials database — <https://alexandria.icams.rub.de/>
 - JARVIS-Tools — <https://github.com/usnistgov/jarvis>
 - NIST CCCBDB — <https://cccbdb.nist.gov/>
