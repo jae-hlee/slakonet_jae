@@ -5,8 +5,8 @@ ALIGNN predictions come from this directory (ran with the mp_gappbe_alignn model
     results/alignn_predictions.json
         entry: {mat_id, formula, band_gap_ind, band_gap_dir, e_form, alignn_bandgap}
 
-SlakoNet predictions come from slako_v03 (already produced there):
-    ../slako_v03/results/sk_scalars.json
+SlakoNet predictions come from the parent slako_v03/ dir (already produced there):
+    ../../results/sk_scalars.json
         entry: {mat_id, sk_bandgap}
 
 Merges on mat_id and evaluates both models against PBE `band_gap_ind`.
@@ -49,7 +49,7 @@ from sklearn.metrics import (
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 ALIGNN_FILE = os.path.join(ROOT, "results", "alignn_predictions.json")
-SK_FILE = os.path.join(ROOT, "..", "slako_v03", "results", "sk_scalars.json")
+SK_FILE = os.path.join(ROOT, "..", "results", "sk_scalars.json")
 
 OUT_DIR = HERE
 PLOT_DIR = os.path.join(OUT_DIR, "plots")
@@ -437,7 +437,7 @@ cls_sk = metrics["classification"]["slakonet"]
 cls_al = metrics["classification"]["alignn"]
 h2h = metrics["head_to_head"]
 
-summary = f"""# ALIGNN vs SlakoNet band-gap predictions — analysis (alslak_v1_pbe)
+summary = f"""# ALIGNN vs SlakoNet band-gap predictions — analysis (alignn_v1_pbe)
 
 **ALIGNN:** `mp_gappbe_alignn` (pretrained PBE-gap model) run in this directory.
 **SlakoNet:** predictions reused from `../slako_v03/results/sk_scalars.json`.

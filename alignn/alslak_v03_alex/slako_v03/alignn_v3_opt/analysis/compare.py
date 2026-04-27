@@ -6,14 +6,14 @@ Reference sets:
       v03 predictions from the pretrained JARVIS jv_optb88vdw_bandgap_alignn
       model on the filtered Alexandria PBE 3D hull set (48,764 structures).
       Fields: mat_id, formula, band_gap_ind, band_gap_dir, e_form, alignn_bandgap
-  - ../slako_v03/results/sk_scalars.json
-      SlakoNet sk_bandgap per mat_id, extracted once from the 5.6GB
-      all_results.json that v00 produced. Same Alexandria filter, so the
-      mat_id keys line up.
-  - ../slako_v03/results/alignn_predictions.json
-      v00 predictions from the mp_gappbe_alignn (PBE-trained) model,
-      included here for an apples-to-apples "PBE-ALIGNN vs optb-ALIGNN"
-      comparison on the overlapping structures.
+  - ../../results/sk_scalars.json
+      SlakoNet sk_bandgap per mat_id, in the parent slako_v03/ dir.
+      Extracted once from the 5.6GB all_results.json that the SlakoNet
+      run produced. Same Alexandria filter, so mat_id keys line up.
+  - ../../alignn_v1_pbe/results/alignn_predictions.json
+      sibling alignn_v1_pbe predictions from the mp_gappbe_alignn
+      (PBE-trained) model, included here for an apples-to-apples
+      "PBE-ALIGNN vs optb-ALIGNN" comparison on the overlapping structures.
 
 Outputs go to analysis/plots/ and analysis/summary.txt.
 """
@@ -37,8 +37,8 @@ OUT_DIR = os.path.join(HERE, "plots")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 ALIGNN_OPT_FILE = os.path.join(ROOT, "results/alignn_predictions.json")
-ALIGNN_PBE_FILE = os.path.join(ROOT, "../slako_v03/results/alignn_predictions.json")
-SK_SCALARS_FILE = os.path.join(ROOT, "../slako_v03/results/sk_scalars.json")
+ALIGNN_PBE_FILE = os.path.join(ROOT, "..", "alignn_v1_pbe", "results", "alignn_predictions.json")
+SK_SCALARS_FILE = os.path.join(ROOT, "..", "results", "sk_scalars.json")
 
 METAL_THRESH = 0.1  # eV
 

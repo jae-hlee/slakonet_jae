@@ -8,7 +8,7 @@ of the comparison: mBJ should NOT track PBE one-to-one; it should sit higher.
 
 Loads:
   - ../results/alignn_predictions.json              (v02 TB-mBJ predictions, + PBE cols)
-  - ../../slako_v03/results/sk_scalars.json        (SlakoNet scalars, cached from v00)
+  - ../../results/sk_scalars.json                  (SlakoNet scalars, in parent slako_v03/)
 
 Produces plots + stats in this directory.
 """
@@ -27,7 +27,7 @@ from sklearn.metrics import (
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ALIGNN_FILE = os.path.join(HERE, "..", "results", "alignn_predictions.json")
-SK_FILE = os.path.join(HERE, "..", "..", "slako_v03", "results", "sk_scalars.json")
+SK_FILE = os.path.join(HERE, "..", "..", "results", "sk_scalars.json")
 OUT_DIR = HERE
 STATS_FILE = os.path.join(OUT_DIR, "stats.txt")
 METAL_THRESH = 0.1  # eV

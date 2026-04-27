@@ -1,7 +1,7 @@
 # Comprehensive ALIGNN-vs-SlakoNet band-gap analysis
 
 This is the unified, side-by-side comparison of the three ALIGNN checkpoints
-evaluated in `alslak_v1_pbe`, `alslak_v2_mbj`, `alslak_v3_opt` against the
+evaluated in `alignn_v1_pbe`, `alignn_v2_mbj`, `alignn_v3_opt` against the
 SlakoNet DFTB predictions from `slako_v03`. All numbers, plots, and CSVs in
 this directory are regenerated from the raw `results/alignn_predictions.json`
 files by running `python compare_all.py`.
@@ -11,9 +11,9 @@ files by running `python compare_all.py`.
 | Source | Model / quantity | Records | Notes |
 |--------|-------------------|--------:|-------|
 | `slako_v03/results/sk_scalars.json`           | **SlakoNet** (TBLite/DFTB scalar band-gap) | 31,211 | shared DFTB baseline for all ALIGNN variants |
-| `alslak_v1_pbe/results/alignn_predictions.json` | **ALIGNN `mp_gappbe_alignn`** (trained on MP PBE gaps)          | 48,764 | PBE-matched |
-| `alslak_v2_mbj/results/alignn_predictions.json` | **ALIGNN `jv_mbj_bandgap_alignn`** (trained on JARVIS TB-mBJ gaps) | 48,764 | different functional → gaps systematically *opened* |
-| `alslak_v3_opt/results/alignn_predictions.json` | **ALIGNN `jv_optb88vdw_bandgap_alignn`** (trained on OptB88vdW gaps) | 48,764 | vdW-GGA, gaps slightly *closed* vs PBE |
+| `slako_v03/alignn_v1_pbe/results/alignn_predictions.json` | **ALIGNN `mp_gappbe_alignn`** (trained on MP PBE gaps)          | 48,764 | PBE-matched |
+| `slako_v03/alignn_v2_mbj/results/alignn_predictions.json` | **ALIGNN `jv_mbj_bandgap_alignn`** (trained on JARVIS TB-mBJ gaps) | 48,764 | different functional → gaps systematically *opened* |
+| `slako_v03/alignn_v3_opt/results/alignn_predictions.json` | **ALIGNN `jv_optb88vdw_bandgap_alignn`** (trained on OptB88vdW gaps) | 48,764 | vdW-GGA, gaps slightly *closed* vs PBE |
 
 **Reference:** Alexandria PBE indirect gap (`band_gap_ind`) on the filtered 3D
 hull set (`e_above_hull == 0`, Z ≤ 65). Treating PBE as the ground truth is
@@ -286,7 +286,7 @@ not well represented in the training set), not a pure model failure.
 ## Reproducing
 
 ```bash
-cd alignn_slakonet/alslak_v03_alex/comprehensive_analysis
+cd alignn/alslak_v03_alex/comprehensive_analysis
 python compare_all.py
 ```
 

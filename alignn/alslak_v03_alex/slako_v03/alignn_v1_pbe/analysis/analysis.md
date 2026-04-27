@@ -1,4 +1,4 @@
-# ALIGNN vs SlakoNet band-gap predictions — analysis (alslak_v1_pbe)
+# ALIGNN vs SlakoNet band-gap predictions — analysis (alignn_v1_pbe)
 
 **ALIGNN:** `mp_gappbe_alignn` (pretrained PBE-gap model) run in this directory.
 **SlakoNet:** predictions reused from `../slako_v03/results/sk_scalars.json`.
