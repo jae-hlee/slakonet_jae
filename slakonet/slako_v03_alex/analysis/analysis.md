@@ -326,9 +326,3 @@ zero-gap tendency is accidentally correct.
 - `analysis/failure_dos_comparison.png` — average SlakoNet DOS, failing vs working non-metals
 - `analysis/failure_structural.png` — atom-count and formation-energy distributions
 
-## Scripts
-
-- `investigate_failures.py` — element enrichment, DOS comparison, top-20 failing formulas
-- `investigate_pbe_metals.py` — PBE-metal TM contamination audit, DOS@E_F comparison
-- `predict_alignn.py` — runs `mp_gappbe_alignn` on the filtered Alexandria set
-- `analyze_alignn.py` — three-way comparison plots and statistics (PBE vs SK vs ALIGNN)

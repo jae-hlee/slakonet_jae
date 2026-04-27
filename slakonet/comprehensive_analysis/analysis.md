@@ -42,7 +42,7 @@ project once it drops a `summary.csv` (or `results/all_results.json`).
 
 ## Notes
 
-- Reference gap for v03 is the paired subset of Alexandria PBE entries that also have an ALIGNN prediction (~31 k of 48 k). This is the scalar cache produced by `slako_v03_alex/analyze_alignn.py`.
+- Reference gap for v03 is the paired subset of Alexandria PBE entries that also have an ALIGNN prediction (~31 k of 48 k). The scalar cache (`results/sk_scalars.json`) is built locally by an analysis utility kept off-repo.
 - v04 assumes the CCCBDB HOMO/LUMO columns are in **Hartree** (the `hl_gap_hartree_eV` column in that project's `summary.csv`). The alternative eV assumption yields 0.1–0.3 eV gaps that are clearly wrong relative to SlakoNet's 4–15 eV predictions.
 - v05/v06 clip the DFT reference to ≥ 0 (v06 subtracts `surf_cbm − surf_vbm`, which goes slightly negative for metals — treated as gap = 0).
 - v07 (vacancy) and v08 (supercon) have **no DFT band-gap reference**, so they do not appear in the parity / residual / error plots — only in the distribution and DOS grids.

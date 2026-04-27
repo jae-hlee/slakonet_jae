@@ -24,7 +24,7 @@ caveat when reading the MAE tables below.
 **Paired set:** 31,211 structures — the intersection of SlakoNet's completed
 run and each ALIGNN prediction. 17,553 structures have ALIGNN predictions but
 no SlakoNet counterpart and are excluded. These are not timeouts: a post-hoc
-audit (see `../alignn_v03_alex/analysis/analysis.md`) shows 99.9 % of them
+audit (see `../../../slakonet/slako_v03_alex/analysis/analysis.md`) shows 99.9 % of them
 contain an f-block lanthanide (Ce–Tb) that SlakoNet cannot handle — the
 filter passes them but inference silently fails. A rerun will not rescue
 them. Because all
