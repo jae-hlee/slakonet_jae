@@ -138,9 +138,8 @@ no clean external override.
 
 ## Diagnostic to run on the cluster
 
-The σ-sensitivity sweep (no longer in the repo as a runnable script;
-results in `analysis/sigma_diagnostic.png` and `analysis/sigma_diagnostic.json`)
-did the following:
+The σ-sensitivity sweep (script and outputs are kept local-only) did
+the following:
 
 1. Re-derived the 30 worst-bias structures from `results/all_results.json`.
 2. Monkey-patched `SimpleDftb.calculate_dos` to force σ ∈ {0.02, 0.05, 0.10,

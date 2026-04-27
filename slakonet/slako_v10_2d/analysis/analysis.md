@@ -155,7 +155,7 @@ non-metals (see below) and a handful of extreme outliers (MaxErr ≈ 21 eV).
 ```
 analysis.md                    (this file)
 stats.txt                      (plain-text metrics, same numbers as above)
-summary.csv                    (79,903 rows; feeds comprehensive_analysis/build_analysis.py)
+summary.csv                    (79,903 rows; sk_bandgap_eV column read by the cross-dataset aggregator)
 confusion_matrix.png
 dos_average.png
 dos_examples.png
@@ -167,9 +167,8 @@ residuals_all.png
 residuals_nonmetals.png
 ```
 
-`summary.csv` has a `sk_bandgap_eV` column, so
-`slakonet/comprehensive_analysis/build_analysis.py`'s v10 stub loader will
-pick it up automatically on the next cross-dataset aggregation run.
+`summary.csv` has a `sk_bandgap_eV` column, so the local cross-dataset
+aggregator's v10 stub loader picks it up automatically on the next run.
 
 ## Reproducing
 
