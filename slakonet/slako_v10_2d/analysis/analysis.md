@@ -154,7 +154,6 @@ non-metals (see below) and a handful of extreme outliers (MaxErr ≈ 21 eV).
 
 ```
 analysis.md                    (this file)
-analyze_results.py             (env: /Users/jaelee/miniconda3/envs/jupyter; needs ijson)
 stats.txt                      (plain-text metrics, same numbers as above)
 summary.csv                    (79,903 rows; feeds comprehensive_analysis/build_analysis.py)
 confusion_matrix.png
@@ -174,11 +173,4 @@ pick it up automatically on the next cross-dataset aggregation run.
 
 ## Reproducing
 
-1. Make sure `results/all_results.json` is the cumulative aggregate (build
-   via `aggregate_results.py` if per-id JSONs are present but the combined
-   file is stale — `jslako_v10.py` only dumps the final run's in-memory list,
-   so the file left on the cluster after the last resume is not the full set).
-2. `pip install ijson` into the `jupyter` env (one-time).
-3. `cd slako_v10_2d && /Users/jaelee/miniconda3/envs/jupyter/bin/python analysis/analyze_results.py`.
-
-Peak memory during analysis stays under ~2 GB (streaming JSON + a pandas frame of 79,903 rows × 10 cols).
+The plots, `stats.txt`, and `summary.csv` in this directory are pre-built. The original analysis script is no longer kept in the repo; outputs were generated from a cumulative `results/all_results.json` (built locally via `aggregate_results.py` when per-id JSONs were present). Peak memory during the original run stayed under ~2 GB by streaming the JSON.

@@ -328,7 +328,6 @@ zero-gap tendency is accidentally correct.
 
 ## Scripts
 
-- `analyze_results.py` — original plots + false-negative diagnostic block
 - `investigate_failures.py` — element enrichment, DOS comparison, top-20 failing formulas
 - `investigate_pbe_metals.py` — PBE-metal TM contamination audit, DOS@E_F comparison
 - `predict_alignn.py` — runs `mp_gappbe_alignn` on the filtered Alexandria set

@@ -93,11 +93,7 @@ No dataset zips ship with the repo. Download each from the [atomgptlab JARVIS da
 
 ### Analysis
 
-Inside each sub-project:
-
-```bash
-python analyze_results.py      # writes analysis/*.png and summary.csv
-```
+Each sub-project's `analysis/` directory ships with pre-built plots, an `analysis.md` write-up, and a `summary.csv` of the key scalars.
 
 The cross-dataset layers are reader-only — no `slakonet` needed, just `pandas numpy matplotlib scipy`. Pre-built outputs live in `slakonet/comprehensive_analysis/` and `alignn_slakonet/alslak_v03_alex/comprehensive_analysis/`. To regenerate the ALIGNN side:
 
