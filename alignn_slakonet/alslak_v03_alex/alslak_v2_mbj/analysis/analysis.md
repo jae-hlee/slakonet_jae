@@ -3,7 +3,7 @@
 ## Setup
 
 - **ALIGNN model**: `jv_mbj_bandgap_alignn` (trained on JARVIS TB-mBJ band gaps).
-- **SlakoNet results**: reused from `alslak_v00/results/sk_scalars.json`
+- **SlakoNet results**: reused from `slako_v03/results/sk_scalars.json`
   (same DFTB run, same filtered Alexandria hull set).
 - **Reference label** in the merged records: PBE indirect gap (`band_gap_ind`)
   from the Alexandria dataset — **this is what we compare *against*, but note
@@ -13,7 +13,7 @@
   and 31,211 SlakoNet results). 17,553 ALIGNN-only structures are carried over
   from the v00 missing set and are not analyzed here — 99.9 % of those are
   lanthanide-containing cells that SlakoNet silently rejects (see
-  `../alslak_v00/analysis/analysis.md`), so the excluded set is not
+  `../slako_v03/analysis/analysis.md`), so the excluded set is not
   recoverable by rerunning.
 
 ## Key numbers

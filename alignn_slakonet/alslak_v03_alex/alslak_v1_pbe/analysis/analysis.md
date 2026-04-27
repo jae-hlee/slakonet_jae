@@ -1,7 +1,7 @@
-# ALIGNN vs SlakoNet band-gap predictions — analysis (alslak_v01_pbe)
+# ALIGNN vs SlakoNet band-gap predictions — analysis (alslak_v1_pbe)
 
 **ALIGNN:** `mp_gappbe_alignn` (pretrained PBE-gap model) run in this directory.
-**SlakoNet:** predictions reused from `../alslak_v00/results/sk_scalars.json`.
+**SlakoNet:** predictions reused from `../slako_v03/results/sk_scalars.json`.
 **Reference:** Alexandria PBE `band_gap_ind` (indirect gap) on `e_above_hull==0`,
 elements with Z≤65. Materials are matched by `mat_id`; ALIGNN entries without a
 SlakoNet counterpart are excluded from this comparison.
@@ -9,7 +9,7 @@ SlakoNet counterpart are excluded from this comparison.
 ## Dataset composition (merged set)
 
 - Merged structures: **31211**
-- ALIGNN entries without SK match (excluded): **17553** (~99.9 % are lanthanide-containing cells that SlakoNet silently rejects, not recoverable by rerun — see `../alslak_v00/analysis/analysis.md`)
+- ALIGNN entries without SK match (excluded): **17553** (~99.9 % are lanthanide-containing cells that SlakoNet silently rejects, not recoverable by rerun — see `../slako_v03/analysis/analysis.md`)
 - SK entries without ALIGNN match (excluded): **0**
 - PBE metals (gap = 0): **15119**
 - PBE non-metals (gap > 0): **16092**
