@@ -97,7 +97,6 @@ DFT functionals as learned by two ALIGNN checkpoints".
 
 | File                                     | What it shows                                                       |
 |------------------------------------------|---------------------------------------------------------------------|
-| `analyze_alignn_mbj.py`                  | The analysis script (rerun to regenerate)                          |
 | `stats.txt`                              | Raw numeric output (MAE/RMSE/R²/classification counts)             |
 | `paired_predictions.json`                | 31,211 merged records: mat_id, formula, PBE, SK, ALIGNN-mBJ, e_form |
 | `parity_three_way.png`                   | Density scatter: SK vs PBE, mBJ vs PBE, mBJ vs SK (all structures) |

@@ -63,13 +63,11 @@ From `alignn/comprehensive_analysis/`. Reference is Alexandria PBE indirect gap.
 
 ## Reproducing a run
 
-Inference is designed for a SLURM cluster with GPUs. The general flow for any `slako_v*`:
+Inference is designed for a SLURM cluster with GPUs. SLURM job scripts (`job.sh`) are not tracked in this repo — write your own based on your cluster's partition, walltime, and GPU/CPU layout. The general flow for any `slako_v*`:
 
 ```bash
 # On the cluster, with the slakonet conda env active
 conda activate slakonet
-sbatch job.sh                  # h100 partition, 4 GPUs, ~72 hr
-# — or interactively —
 python jslako_v<N>.py          # auto-detects single vs multi-GPU
 ```
 
@@ -96,11 +94,7 @@ No dataset zips ship with the repo. Download each from the [atomgptlab JARVIS da
 
 Each sub-project's `analysis/` directory ships with pre-built plots, an `analysis.md` write-up, and a `summary.csv` of the key scalars.
 
-The cross-dataset layers are reader-only — no `slakonet` needed, just `pandas numpy matplotlib scipy`. Pre-built outputs live in `slakonet/comprehensive_analysis/` and `alignn/comprehensive_analysis/`. To regenerate the ALIGNN side:
-
-```bash
-python alignn/comprehensive_analysis/compare_all.py
-```
+The cross-dataset layers are reader-only. Pre-built outputs (plots, `analysis.md`, `metrics.json`, `merged_predictions.json`, `summary.csv`/`summary.txt`) live in `slakonet/comprehensive_analysis/` and `alignn/comprehensive_analysis/`. The scripts that produced them are kept local; analysis lives entirely in the artifacts on this side.
 
 ## Output schema
 

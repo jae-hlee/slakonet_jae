@@ -123,6 +123,6 @@ All in `plots/`:
 
 ## Artefacts
 
-- `compare.py` — script that produced everything above
-- `summary.txt` — raw stdout from the script (regression metrics, confusion
-  counts, fit coefficients — reproduce by `python analysis/compare.py`)
+- `summary.txt` — raw stdout from the original analysis run (regression
+  metrics, confusion counts, fit coefficients). The script that produced
+  this is kept local-only.

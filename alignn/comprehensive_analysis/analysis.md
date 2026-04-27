@@ -3,8 +3,8 @@
 This is the unified, side-by-side comparison of the three ALIGNN checkpoints
 evaluated in `alignn_v1_pbe`, `alignn_v2_mbj`, `alignn_v3_opt` against the
 SlakoNet DFTB predictions from `alignn_v03_alex/`. All numbers, plots, and CSVs in
-this directory are regenerated from the raw `results/alignn_predictions.json`
-files by running `python compare_all.py`.
+this directory are pre-built artifacts; the script that produced them is
+kept local-only.
 
 ## Setup
 
@@ -267,7 +267,6 @@ not well represented in the training set), not a pure model failure.
 
 | File                              | Contents |
 |-----------------------------------|----------|
-| `compare_all.py`                  | regenerates everything — single-file analysis script |
 | `metrics.json`                    | every numeric result used in tables (all/nonmetal/metal regression, classification, head-to-head, bin MAE, linear fits, worst cases, hard-for-all list) |
 | `merged_predictions.json`         | 31,211 merged records: `{mat_id, formula, pbe_ref, pbe_dir, e_form, slakonet, alignn_pbe, alignn_mbj, alignn_optb}` |
 | `summary.txt`                     | human-readable stdout from the script |
@@ -285,11 +284,7 @@ not well represented in the training set), not a pure model failure.
 
 ## Reproducing
 
-```bash
-cd alignn/comprehensive_analysis
-python compare_all.py
-```
-
-The script rebuilds `metrics.json`, `summary.txt`, `merged_predictions.json`,
-and every PNG under `plots/` from the four raw prediction files listed in
-§Setup. No other data is consumed.
+The artifacts above are pre-built. The original script that produced them
+is kept local; no other data is consumed beyond the four raw prediction
+files listed in §Setup (which are also local-only — see the convention in
+the root `README.md`).
