@@ -95,8 +95,8 @@ vs SK = 0.83.
 
 ## Per-element bias
 
-`mae_by_element.py` aggregates the residual over every structure containing
-each element (one vote per structure). 44 elements have N ≥ 20.
+The per-element analysis aggregated the residual over every structure
+containing each element (one vote per structure); 44 elements have N ≥ 20.
 
 **All 44 elements have negative bias.** No chemistry escapes the under-binding.
 
@@ -138,18 +138,14 @@ no clean external override.
 
 ## Diagnostic to run on the cluster
 
-`sigma_diagnostic.py` (root directory):
+The σ-sensitivity sweep (no longer in the repo as a runnable script;
+results in `analysis/sigma_diagnostic.png` and `analysis/sigma_diagnostic.json`)
+did the following:
 
-1. Re-derives the 30 worst-bias structures from `results/all_results.json`.
-2. Monkey-patches `SimpleDftb.calculate_dos` to force σ ∈ {0.02, 0.05, 0.10,
+1. Re-derived the 30 worst-bias structures from `results/all_results.json`.
+2. Monkey-patched `SimpleDftb.calculate_dos` to force σ ∈ {0.02, 0.05, 0.10,
    0.20, 0.40} eV (0.10 reproduces the baseline).
-3. Re-runs SlakoNet at each σ, writes `analysis/sigma_diagnostic.json`.
-
-Then locally:
-
-```
-python sigma_diagnostic_plot.py    # writes analysis/sigma_diagnostic.png
-```
+3. Re-ran SlakoNet at each σ.
 
 **Decision rule:**
 - MAE decreases monotonically as σ → 0.02 → broadening is the cause; the fix
