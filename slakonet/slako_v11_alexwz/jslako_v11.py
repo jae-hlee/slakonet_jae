@@ -158,6 +158,61 @@ def run_multi_gpu(valid_entries, shell_dict):
     return mem
 
 
+def cpu_worker(worker_id, chunk, shell_dict):
+    torch.set_num_threads(1)
+    device = "cpu"
+    model = default_model().float().eval()
+    results = []
+    n_timeout = 0
+    for item in tqdm(chunk, desc=f"CPU {worker_id}", position=worker_id):
+        try:
+            fname = os.path.join("results", f"{item['mat_id']}.json")
+            if os.path.exists(fname):
+                continue
+
+            p = prepare_inputs(item)
+            info = run_inference_with_timeout(p, model, shell_dict, device)
+            if info == "TIMEOUT":
+                n_timeout += 1
+                tqdm.write(
+                    f"[CPU {worker_id}] TIMEOUT ({TIMEOUT_SECONDS}s): {item['mat_id']} — skipping (timeouts: {n_timeout})"
+                )
+                continue
+            if info:
+                tqdm.write(
+                    f"[CPU {worker_id}] {info['mat_id']} {info['formula']} pbe_gap={info['band_gap_ind']} sk={info['sk_bandgap']:.4f}"
+                )
+                dumpjson(data=info, filename=fname)
+                results.append(info)
+        except Exception:
+            pass
+    print(f"[CPU {worker_id}] Total timeouts: {n_timeout}")
+    return results
+
+
+def run_multi_cpu(valid_entries, shell_dict, num_workers):
+    print(f"Using {num_workers} CPU workers")
+    chunks = [valid_entries[w::num_workers] for w in range(num_workers)]
+
+    # Must use 'spawn' here, not 'fork'. The parent imports torch at module
+    # load, which initializes OpenMP/MKL threadpools. fork() copies the
+    # pthread mutexes but not the threads themselves, so children deadlock
+    # on inherited locks inside torch.load. spawn re-imports torch fresh in
+    # each worker. Costs ~5-10s of import time per worker but avoids hang.
+    import multiprocessing as mp
+    ctx = mp.get_context('spawn')
+
+    with ProcessPoolExecutor(max_workers=num_workers, mp_context=ctx) as pool:
+        futures = [
+            pool.submit(cpu_worker, w, chunks[w], shell_dict)
+            for w in range(num_workers)
+        ]
+        mem = []
+        for f in tqdm(futures, desc="Collecting CPU results"):
+            mem.extend(f.result())
+    return mem
+
+
 if __name__ == '__main__':
     import json
     import zipfile
@@ -196,8 +251,21 @@ if __name__ == '__main__':
 
     if torch.cuda.device_count() > 1:
         mem = run_multi_gpu(valid_entries, shell_dict)
-    else:
+    elif torch.cuda.is_available():
         mem = run_single_gpu(valid_entries, shell_dict)
+    else:
+        # Multi-process CPU fallback (atomgptlab nodes: 256 cores, 503 GB).
+        # Default 64 workers — empirically 256 workers caused massive
+        # contention loading the cached model in spawn mode (each worker
+        # pickles its chunk over a pipe + re-imports torch + reads the
+        # 183 MB .pt file). 64 strikes a balance: per-worker chunk pickle
+        # stays under ~300 MB, model load ladder finishes in ~minute, and
+        # all 64 cores peg CPU during inference. Override:
+        #   SLAKO_CPU_WORKERS=128 python jslako_v11.py
+        import multiprocessing as _mp
+        default_workers = min(_mp.cpu_count(), 64)
+        num_workers = int(os.environ.get('SLAKO_CPU_WORKERS', default_workers))
+        mem = run_multi_cpu(valid_entries, shell_dict, num_workers)
 
     print(f"\nCompleted: {len(mem)} structures", flush=True)
     dumpjson(data=mem, filename=os.path.join(RESULTS_DIR, 'all_results.json'))
