@@ -25,10 +25,8 @@ alignn/                       ALIGNN runs grouped by source dataset
     alignn_v1_pbe/            ALIGNN  mp_gappbe_alignn       (label-matched)
     alignn_v2_mbj/            ALIGNN  jv_mbj_bandgap_alignn  (TB-mBJ)
     alignn_v3_opt/            ALIGNN  jv_optb88vdw_bandgap_alignn
-    analysis/                 SlakoNet baseline write-up + plots
-    results/                  SlakoNet sk_scalars.json + paired ALIGNN PBE predictions
+    comprehensive_analysis/   SlakoNet vs three ALIGNN variants, side-by-side
   alignn_v04_cccbdb/          CCCBDB molecules — scaffolded for future ALIGNN runs
-  comprehensive_analysis/     SlakoNet vs three ALIGNN variants, side-by-side
 ```
 
 Every sub-project has a top-level `jslako_v*.py` (SlakoNet) or `predict_alignn.py` (ALIGNN), a `results/` directory of per-structure JSONs, an `analysis/` directory of plots and a written `analysis.md`, and a `summary.csv` with the key scalars.
@@ -50,7 +48,7 @@ Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's D
 
 ## Headline ALIGNN vs SlakoNet (Alexandria PBE 3D, paired N = 31,211)
 
-From `alignn/comprehensive_analysis/`. Reference is Alexandria PBE indirect gap.
+From `alignn/alignn_v03_alex/comprehensive_analysis/`. Reference is Alexandria PBE indirect gap.
 
 | Model                               | MAE   | RMSE  |   R²    | Non-metal MAE |
 |-------------------------------------|------:|------:|--------:|--------------:|
@@ -59,7 +57,7 @@ From `alignn/comprehensive_analysis/`. Reference is Alexandria PBE indirect gap.
 | ALIGNN `jv_mbj_bandgap_alignn`      | 0.752 | 1.461 | +0.208  | 1.236         |
 | ALIGNN `jv_optb88vdw_bandgap_alignn`| 0.354 | 0.746 | +0.794  | 0.602         |
 
-**What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV — the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two failure modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/comprehensive_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
+**What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV — the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two failure modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/alignn_v03_alex/comprehensive_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
 
 ## Reproducing a run
 
@@ -94,7 +92,7 @@ No dataset zips ship with the repo. Download each from the [atomgptlab JARVIS da
 
 Each sub-project's `analysis/` directory ships with pre-built plots, an `analysis.md` write-up, and a `summary.csv` of the key scalars.
 
-The cross-dataset layers are reader-only. Pre-built outputs (plots, `analysis.md`, `metrics.json`, `merged_predictions.json`, `summary.csv`/`summary.txt`) live in `slakonet/comprehensive_analysis/` and `alignn/comprehensive_analysis/`. The scripts that produced them are kept local; analysis lives entirely in the artifacts on this side.
+The cross-dataset layers are reader-only. Pre-built outputs (plots, `analysis.md`, `metrics.json`, `merged_predictions.json`, `summary.csv`/`summary.txt`) live in `slakonet/comprehensive_analysis/` and `alignn/alignn_v03_alex/comprehensive_analysis/`. The scripts that produced them are kept local; analysis lives entirely in the artifacts on this side.
 
 ## Output schema
 
