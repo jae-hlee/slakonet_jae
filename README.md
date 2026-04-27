@@ -99,10 +99,9 @@ Inside each sub-project:
 python analyze_results.py      # writes analysis/*.png and summary.csv
 ```
 
-The cross-dataset layers are reader-only — no `slakonet` needed, just `pandas numpy matplotlib scipy`:
+The cross-dataset layers are reader-only — no `slakonet` needed, just `pandas numpy matplotlib scipy`. Pre-built outputs live in `slakonet/comprehensive_analysis/` and `alignn_slakonet/alslak_v03_alex/comprehensive_analysis/`. To regenerate the ALIGNN side:
 
 ```bash
-python slakonet/comprehensive_analysis/build_analysis.py
 python alignn_slakonet/alslak_v03_alex/comprehensive_analysis/compare_all.py
 ```
 
