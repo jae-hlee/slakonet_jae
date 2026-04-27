@@ -1,8 +1,8 @@
 Loading v03 (optb88vdw-ALIGNN) predictions from /Users/jaelee/Desktop/work/alignn_slako/alignn_v3_opt/results/alignn_predictions.json
   48764 entries
-Loading v00 (PBE-ALIGNN) predictions from /Users/jaelee/Desktop/work/alignn_slako/alignn_v3_opt/../slako_v03/results/alignn_predictions.json
+Loading v00 (PBE-ALIGNN) predictions from /Users/jaelee/Desktop/work/alignn_slako/alignn_v3_opt/../../results/alignn_predictions.json
   48764 entries
-Loading SlakoNet scalars from /Users/jaelee/Desktop/work/alignn_slako/alignn_v3_opt/../slako_v03/results/sk_scalars.json
+Loading SlakoNet scalars from /Users/jaelee/Desktop/work/alignn_slako/alignn_v3_opt/../../results/sk_scalars.json
   31211 entries
 
 Merge summary:

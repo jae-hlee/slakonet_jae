@@ -21,13 +21,14 @@ slakonet/                     SlakoNet inference per dataset
   comprehensive_analysis/     Cross-dataset aggregation + unified plots
 
 alignn/                       ALIGNN runs grouped by source dataset
-  alslak_v03_alex/            Alexandria PBE 3D hull (paired with slakonet/slako_v03_alex)
-    slako_v03/                SlakoNet baseline + ALIGNN per-functional sub-runs
-      alignn_v1_pbe/          ALIGNN  mp_gappbe_alignn       (label-matched)
-      alignn_v2_mbj/          ALIGNN  jv_mbj_bandgap_alignn  (TB-mBJ)
-      alignn_v3_opt/          ALIGNN  jv_optb88vdw_bandgap_alignn
-    comprehensive_analysis/   SlakoNet vs three ALIGNN variants, side-by-side
-  alslak_v04_cccbdb/          CCCBDB molecules — scaffolded for future ALIGNN runs
+  alignn_v03_alex/            Alexandria PBE 3D hull (paired with slakonet/slako_v03_alex)
+    alignn_v1_pbe/            ALIGNN  mp_gappbe_alignn       (label-matched)
+    alignn_v2_mbj/            ALIGNN  jv_mbj_bandgap_alignn  (TB-mBJ)
+    alignn_v3_opt/            ALIGNN  jv_optb88vdw_bandgap_alignn
+    analysis/                 SlakoNet baseline write-up + plots
+    results/                  SlakoNet sk_scalars.json + paired ALIGNN PBE predictions
+  alignn_v04_cccbdb/          CCCBDB molecules — scaffolded for future ALIGNN runs
+  comprehensive_analysis/     SlakoNet vs three ALIGNN variants, side-by-side
 ```
 
 Every sub-project has a top-level `jslako_v*.py` (SlakoNet) or `predict_alignn.py` (ALIGNN), a `results/` directory of per-structure JSONs, an `analysis/` directory of plots and a written `analysis.md`, and a `summary.csv` with the key scalars.
@@ -49,7 +50,7 @@ Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's D
 
 ## Headline ALIGNN vs SlakoNet (Alexandria PBE 3D, paired N = 31,211)
 
-From `alignn/alslak_v03_alex/comprehensive_analysis/`. Reference is Alexandria PBE indirect gap.
+From `alignn/comprehensive_analysis/`. Reference is Alexandria PBE indirect gap.
 
 | Model                               | MAE   | RMSE  |   R²    | Non-metal MAE |
 |-------------------------------------|------:|------:|--------:|--------------:|
@@ -58,7 +59,7 @@ From `alignn/alslak_v03_alex/comprehensive_analysis/`. Reference is Alexandria P
 | ALIGNN `jv_mbj_bandgap_alignn`      | 0.752 | 1.461 | +0.208  | 1.236         |
 | ALIGNN `jv_optb88vdw_bandgap_alignn`| 0.354 | 0.746 | +0.794  | 0.602         |
 
-**What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV — the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two failure modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/alslak_v03_alex/comprehensive_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
+**What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV — the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two failure modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/comprehensive_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
 
 ## Reproducing a run
 
@@ -82,7 +83,7 @@ No dataset zips ship with the repo. Download each from the [atomgptlab JARVIS da
 
 | Sub-project                                                                 | Expected zip                                                 |
 |-----------------------------------------------------------------------------|--------------------------------------------------------------|
-| `slako_v03_alex`, `slako_v11_alexwz`, `slako_v12_all`, `alslak_v03_alex/slako_v03/alignn_v{1,2,3}_*`   | `alexandria_pbe_3d_2024.10.1_jarvis_tools.json.zip` (1.1 GB) |
+| `slako_v03_alex`, `slako_v11_alexwz`, `slako_v12_all`, `alignn_v03_alex/alignn_v{1,2,3}_*`   | `alexandria_pbe_3d_2024.10.1_jarvis_tools.json.zip` (1.1 GB) |
 | `slako_v04_cccbdb`                                                          | `cccbdb.json.zip`                                            |
 | `slako_v05_interface`                                                       | `interface_db_dd.json.zip`                                   |
 | `slako_v06_surface`                                                         | `surface_db_dd.json.zip`                                     |
@@ -95,10 +96,10 @@ No dataset zips ship with the repo. Download each from the [atomgptlab JARVIS da
 
 Each sub-project's `analysis/` directory ships with pre-built plots, an `analysis.md` write-up, and a `summary.csv` of the key scalars.
 
-The cross-dataset layers are reader-only — no `slakonet` needed, just `pandas numpy matplotlib scipy`. Pre-built outputs live in `slakonet/comprehensive_analysis/` and `alignn/alslak_v03_alex/comprehensive_analysis/`. To regenerate the ALIGNN side:
+The cross-dataset layers are reader-only — no `slakonet` needed, just `pandas numpy matplotlib scipy`. Pre-built outputs live in `slakonet/comprehensive_analysis/` and `alignn/comprehensive_analysis/`. To regenerate the ALIGNN side:
 
 ```bash
-python alignn/alslak_v03_alex/comprehensive_analysis/compare_all.py
+python alignn/comprehensive_analysis/compare_all.py
 ```
 
 ## Output schema
@@ -115,7 +116,7 @@ ALIGNN predictions use the same per-structure layout with `alignn_bandgap` inste
 
 ## Limitations
 
-- **Element support.** SlakoNet ships Slater–Koster parameters for Z ≤ 65 (up to terbium); heavier elements are filtered out up front. For Alexandria PBE 3D, the combined Z ≤ 65 + `e_above_hull == 0` filter reduces the 4,489,295-entry dataset to 48,764 structures (see `alignn/alslak_v03_alex/alignn_v1_pbe/alignn_1282176.out`). **The nominal Z ≤ 65 ceiling is optimistic.** A post-hoc audit across every sister project shows that entries containing an f-block lanthanide (Ce–Tb, Z = 58–65) pass `ALLOWED_SYMBOLS` but silently fail inside `gpu_worker` — `generate_shell_dict_upto_Z65()` produces a shell dict that the rest of the model can't actually handle. Measured impact: v03 3D hull-filtered set drops 17,529 of 17,553 missing (99.9%) to lanthanides, v10 2D drops 8,000 of 8,000 (100%), v09 1D drops 904 of 904 (100%), v07 vacancy drops 22 of 26 (85%), v06 surface drops 19 of 21 (90%). A smaller noble-gas failure mode (Ne/Ar/Kr/Xe) accounts for the rest. **The effective usable ceiling is Z ≤ 57** (through La) excluding noble gases; full analysis in `slakonet/slako_v10_2d/analysis/analysis.md`.
+- **Element support.** SlakoNet ships Slater–Koster parameters for Z ≤ 65 (up to terbium); heavier elements are filtered out up front. For Alexandria PBE 3D, the combined Z ≤ 65 + `e_above_hull == 0` filter reduces the 4,489,295-entry dataset to 48,764 structures (see `alignn/alignn_v03_alex/alignn_v1_pbe/alignn_1282176.out`). **The nominal Z ≤ 65 ceiling is optimistic.** A post-hoc audit across every sister project shows that entries containing an f-block lanthanide (Ce–Tb, Z = 58–65) pass `ALLOWED_SYMBOLS` but silently fail inside `gpu_worker` — `generate_shell_dict_upto_Z65()` produces a shell dict that the rest of the model can't actually handle. Measured impact: v03 3D hull-filtered set drops 17,529 of 17,553 missing (99.9%) to lanthanides, v10 2D drops 8,000 of 8,000 (100%), v09 1D drops 904 of 904 (100%), v07 vacancy drops 22 of 26 (85%), v06 surface drops 19 of 21 (90%). A smaller noble-gas failure mode (Ne/Ar/Kr/Xe) accounts for the rest. **The effective usable ceiling is Z ≤ 57** (through La) excluding noble gases; full analysis in `slakonet/slako_v10_2d/analysis/analysis.md`.
 - **Aggregated `all_results.json` files are not in the repo.** They exceed GitHub's 100 MB file-size limit (the Alexandria 3D file is 5.6 GB). They can be rebuilt from the per-structure JSONs, or re-generated by running the inference script.
 - **Systematic failure modes for SlakoNet on non-metals.** On Alexandria 3D, ~4,909 PBE non-metals are predicted as metals — ~3,942 contain open-shell transition metals (no spin polarization in the current SlakoNet) and ~967 are ionic fluorides (bad SK parameters). Documented in `slakonet/slako_v03_alex/analysis/analysis.md`.
 - **DOS broadening is fixed.** `σ = 0.1 eV` is hardcoded inside `SimpleDftb.calculate_dos`. Override requires a monkey-patch at runtime; the v08 sensitivity-test results are in `slako_v08_supercon/analysis/`.

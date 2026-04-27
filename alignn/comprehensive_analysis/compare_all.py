@@ -2,10 +2,10 @@
 filtered Alexandria 3D PBE hull set.
 
 Models merged here:
-  - SlakoNet  (slako_v03/results/sk_scalars.json)
-  - ALIGNN mp_gappbe_alignn      (slako_v03/alignn_v1_pbe/results/alignn_predictions.json)
-  - ALIGNN jv_mbj_bandgap_alignn (slako_v03/alignn_v2_mbj/results/alignn_predictions.json)
-  - ALIGNN jv_optb88vdw_bandgap_alignn (slako_v03/alignn_v3_opt/results/alignn_predictions.json)
+  - SlakoNet  (alignn_v03_alex/results/sk_scalars.json)
+  - ALIGNN mp_gappbe_alignn      (alignn_v03_alex/alignn_v1_pbe/results/alignn_predictions.json)
+  - ALIGNN jv_mbj_bandgap_alignn (alignn_v03_alex/alignn_v2_mbj/results/alignn_predictions.json)
+  - ALIGNN jv_optb88vdw_bandgap_alignn (alignn_v03_alex/alignn_v3_opt/results/alignn_predictions.json)
 
 Reference: Alexandria PBE indirect gap (band_gap_ind) on e_above_hull == 0.
 """
@@ -25,10 +25,10 @@ OUT = ROOT / "comprehensive_analysis"
 PLOTS = OUT / "plots"
 PLOTS.mkdir(parents=True, exist_ok=True)
 
-V00_SK = ROOT / "slako_v03/results/sk_scalars.json"
-V01_AL = ROOT / "slako_v03/alignn_v1_pbe/results/alignn_predictions.json"
-V02_AL = ROOT / "slako_v03/alignn_v2_mbj/results/alignn_predictions.json"
-V03_AL = ROOT / "slako_v03/alignn_v3_opt/results/alignn_predictions.json"
+V00_SK = ROOT / "alignn_v03_alex/results/sk_scalars.json"
+V01_AL = ROOT / "alignn_v03_alex/alignn_v1_pbe/results/alignn_predictions.json"
+V02_AL = ROOT / "alignn_v03_alex/alignn_v2_mbj/results/alignn_predictions.json"
+V03_AL = ROOT / "alignn_v03_alex/alignn_v3_opt/results/alignn_predictions.json"
 
 MODELS = ["slakonet", "alignn_pbe", "alignn_mbj", "alignn_optb"]
 LABELS = {

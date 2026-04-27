@@ -8,7 +8,7 @@ of the comparison: mBJ should NOT track PBE one-to-one; it should sit higher.
 
 Loads:
   - ../results/alignn_predictions.json              (v02 TB-mBJ predictions, + PBE cols)
-  - ../../results/sk_scalars.json                  (SlakoNet scalars, in parent slako_v03/)
+  - ../../results/sk_scalars.json                  (SlakoNet scalars, in parent alignn_v03_alex/)
 
 Produces plots + stats in this directory.
 """

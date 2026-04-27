@@ -7,7 +7,7 @@ Reference sets:
       model on the filtered Alexandria PBE 3D hull set (48,764 structures).
       Fields: mat_id, formula, band_gap_ind, band_gap_dir, e_form, alignn_bandgap
   - ../../results/sk_scalars.json
-      SlakoNet sk_bandgap per mat_id, in the parent slako_v03/ dir.
+      SlakoNet sk_bandgap per mat_id, in the parent alignn_v03_alex/ dir.
       Extracted once from the 5.6GB all_results.json that the SlakoNet
       run produced. Same Alexandria filter, so mat_id keys line up.
   - ../../alignn_v1_pbe/results/alignn_predictions.json

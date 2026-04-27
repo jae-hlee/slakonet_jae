@@ -19,7 +19,7 @@ Paired comparison uses the N = 31,211 structures for which SlakoNet, v00
 PBE-ALIGNN, and v03 optb-ALIGNN all produced a prediction (17,553 structures
 have optb predictions but no SlakoNet match — 99.9 % of those are
 lanthanide-containing cells that SlakoNet silently rejects despite passing
-the `ALLOWED_SYMBOLS` filter; see `../slako_v03/analysis/analysis.md`).
+the `ALLOWED_SYMBOLS` filter; see `../../analysis/analysis.md`).
 
 ## Headline numbers — regression vs PBE indirect gap
 
