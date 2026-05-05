@@ -1,0 +1,64 @@
+Loading v03 (optb88vdw-ALIGNN) predictions from ./alignn_v3_opt/results/alignn_predictions.json
+  48764 entries
+Loading v00 (PBE-ALIGNN) predictions from ./alignn_v3_opt/../../results/alignn_predictions.json
+  48764 entries
+Loading SlakoNet scalars from ./alignn_v3_opt/../../results/sk_scalars.json
+  31211 entries
+
+Merge summary:
+  v03 optb-ALIGNN entries              = 48764
+  v03 entries with no SK match         = 17553
+  v03 entries with no v00-ALIGNN match = 0
+  triple-paired (PBE, SK, both ALIGNN) = 31211
+
+  PBE metals: 15119   PBE non-metals: 16092
+  optb-ALIGNN negatives (clamped): 11213
+  pbe-ALIGNN  negatives (clamped): 4541
+
+============================================================================================
+REGRESSION METRICS vs PBE indirect gap  (triple-paired subset)
+============================================================================================
+
+All structures:
+  SlakoNet                                  N= 31211  MAE=0.9299  RMSE=1.6487  R2=-0.0082  ME=+0.3285  MaxErr=21.4872
+  ALIGNN-pbe  (v00, clamped)                N= 31211  MAE=0.1928  RMSE=0.4631  R2=0.9204  ME=+0.0172  MaxErr=7.2009
+  ALIGNN-optb (v03, clamped)                N= 31211  MAE=0.3540  RMSE=0.7459  R2=0.7936  ME=-0.1474  MaxErr=8.6605
+
+Non-metals only (PBE gap > 0):
+  SlakoNet                                  N= 16092  MAE=1.7810  RMSE=2.2909  R2=-1.0685  ME=+0.6145  MaxErr=21.4872
+  ALIGNN-pbe  (v00, clamped)                N= 16092  MAE=0.2739  RMSE=0.4897  R2=0.9055  ME=-0.0666  MaxErr=6.3117
+  ALIGNN-optb (v03, clamped)                N= 16092  MAE=0.6020  RMSE=0.9491  R2=0.6450  ME=-0.3704  MaxErr=8.6605
+
+Metals only (PBE gap == 0):
+  SlakoNet                                  N= 15119  MAE=0.0241  RMSE=0.1596  R2=nan  ME=+0.0241  MaxErr=5.6349
+  ALIGNN-pbe  (v00, clamped)                N= 15119  MAE=0.1064  RMSE=0.4331  R2=nan  ME=+0.1064  MaxErr=7.2009
+  ALIGNN-optb (v03, clamped)                N= 15119  MAE=0.0899  RMSE=0.4356  R2=nan  ME=+0.0899  MaxErr=7.6743
+
+Generating 3-panel parity plot (all structures)...
+Generating 3-panel parity plot (non-metals only)...
+Generating residual histograms...
+
+Classification metrics (metal/non-metal, 0.1 eV threshold):
+
+  SlakoNet
+    Accuracy: 0.8298
+    TN=14715  FP=404  FN=4909  TP=11183
+
+  ALIGNN-pbe
+    Accuracy: 0.9163
+    TN=13283  FP=1836  FN=777  TP=15315
+
+  ALIGNN-optb
+    Accuracy: 0.8921
+    TN=13709  FP=1410  FN=1957  TP=14135
+
+Head-to-head errors:
+  optb-ALIGNN closer to PBE than PBE-ALIGNN: 13974 (44.8%)
+  optb-ALIGNN closer to PBE than SlakoNet:   25439 (81.5%)
+  PBE-ALIGNN  closer to PBE than SlakoNet:   21157 (67.8%)
+Generating gap distribution plot...
+
+optb-ALIGNN = 0.9391 * PBE + -0.2267  (non-metals)
+
+All plots saved to ./alignn_v3_opt/analysis/plots/
+Done.

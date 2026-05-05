@@ -1,0 +1,57 @@
+N merged (SlakoNet ∩ ALIGNN): 31211
+  PBE non-metals (>0.1 eV): 16092
+  PBE metals:                      15119
+
+Negative predictions clamped to 0:
+  slakonet    : 0
+  alignn_pbe  : 4541
+  alignn_mbj  : 6718
+  alignn_optb : 11213
+
+Regression vs PBE (ALL):
+  SlakoNet (DFTB)                   MAE=0.930  RMSE=1.649  R2=-0.008  ME=+0.328
+  ALIGNN mp_gappbe (PBE)            MAE=0.193  RMSE=0.463  R2=+0.920  ME=+0.017
+  ALIGNN jv_mbj (TB-mBJ)            MAE=0.752  RMSE=1.461  R2=+0.208  ME=+0.358
+  ALIGNN jv_optb88vdw (OptB88vdW)   MAE=0.354  RMSE=0.746  R2=+0.794  ME=-0.147
+
+Regression vs PBE (NON-METALS):
+  SlakoNet (DFTB)                   MAE=1.781  RMSE=2.291  R2=-1.069  ME=+0.615
+  ALIGNN mp_gappbe (PBE)            MAE=0.274  RMSE=0.490  R2=+0.906  ME=-0.067
+  ALIGNN jv_mbj (TB-mBJ)            MAE=1.236  RMSE=1.594  R2=-0.002  ME=+0.473
+  ALIGNN jv_optb88vdw (OptB88vdW)   MAE=0.602  RMSE=0.949  R2=+0.645  ME=-0.370
+
+Regression vs PBE (METALS):
+  SlakoNet (DFTB)                   MAE=0.024  RMSE=0.160  R2=   n/a  ME=+0.024
+  ALIGNN mp_gappbe (PBE)            MAE=0.106  RMSE=0.433  R2=   n/a  ME=+0.106
+  ALIGNN jv_mbj (TB-mBJ)            MAE=0.237  RMSE=1.304  R2=   n/a  ME=+0.237
+  ALIGNN jv_optb88vdw (OptB88vdW)   MAE=0.090  RMSE=0.436  R2=   n/a  ME=+0.090
+
+Classification vs PBE (threshold 0.1 eV):
+  SlakoNet (DFTB)                   acc=0.830  TN=14715  FP=404  FN=4909  TP=11183
+  ALIGNN mp_gappbe (PBE)            acc=0.916  TN=13283  FP=1836  FN=777  TP=15315
+  ALIGNN jv_mbj (TB-mBJ)            acc=0.838  TN=11871  FP=3248  FN=1817  TP=14275
+  ALIGNN jv_optb88vdw (OptB88vdW)   acc=0.892  TN=13709  FP=1410  FN=1957  TP=14135
+
+Head-to-head (fraction of structures where first is closer to PBE):
+  slakonet_vs_alignn_pbe                    a_better=10054  b_better=21157  frac_a=0.322
+  slakonet_vs_alignn_mbj                    a_better=13121  b_better=18090  frac_a=0.420
+  slakonet_vs_alignn_optb                   a_better=5772  b_better=25439  frac_a=0.185
+  alignn_pbe_vs_alignn_mbj                  a_better=21101  b_better=8033  frac_a=0.676
+  alignn_pbe_vs_alignn_optb                 a_better=13596  b_better=13974  frac_a=0.436
+  alignn_mbj_vs_alignn_optb                 a_better=5519  b_better=20457  frac_a=0.177
+
+Linear fits (non-metals): pred ≈ slope * PBE + intercept
+  SlakoNet (DFTB)                   slope=1.325  intercept=-0.151
+  ALIGNN mp_gappbe (PBE)            slope=0.952  intercept=+0.047
+  ALIGNN jv_mbj (TB-mBJ)            slope=1.225  intercept=-0.058
+  ALIGNN jv_optb88vdw (OptB88vdW)   slope=0.939  intercept=-0.227
+
+Pairwise model-model MAE (no reference):
+  slakonet_vs_alignn_pbe                    MAE=0.996
+  slakonet_vs_alignn_mbj                    MAE=0.751
+  slakonet_vs_alignn_optb                   MAE=0.889
+  alignn_pbe_vs_alignn_mbj                  MAE=0.715
+  alignn_pbe_vs_alignn_optb                 MAE=0.308
+  alignn_mbj_vs_alignn_optb                 MAE=0.609
+
+Structures where every ALIGNN model is off by >1 eV on non-metals: 333
