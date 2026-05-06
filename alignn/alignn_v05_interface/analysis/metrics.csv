@@ -1,0 +1,20 @@
+metric,value
+N,587
+MAE,0.5305865127118523
+RMSE,0.7173019281835833
+ME,0.4869058300703308
+med_abs_err,0.3961000886917114
+p90_abs_err,1.0518652575302123
+ref_mean,0.4662064735945485
+ref_std,0.4935657093336039
+pred_mean,0.9531123036648792
+pred_std,0.6124974419656256
+dataset,v05_interface
+reference,optb88vdw_bandgap (clipped at 0; NOT PBE)
+N_total,587
+N_with_ref,587
+N_negative_dft_gap,107
+frac_metal_pred,0.027257240204429302
+confusion_TN_FP_FN_TP,"12,131,4,440"
+accuracy_metal_vs_gap,0.7700170357751278
+caveat,"ALIGNN predicts PBE; reference is OptB88vdW (typically larger gaps than PBE for most materials), so ME is partially the functional shift"

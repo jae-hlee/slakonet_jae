@@ -263,13 +263,22 @@ if __name__ == '__main__':
     # children to fail with "CUDA driver initialization failed" on this
     # cluster — the parent's CUDA init leaves state that spawn children
     # inherit but cannot re-enter. Keep the parent completely CUDA-free.
-    slurm_gpus = os.environ.get('SLURM_GPUS_ON_NODE')
-    if slurm_gpus is not None:
-        num_gpus = int(slurm_gpus)
+    #
+    # Prefer CUDA_VISIBLE_DEVICES over SLURM_GPUS_ON_NODE: the former is
+    # what torch in the spawn child will actually see (its device count
+    # equals len(CUDA_VISIBLE_DEVICES)). SLURM_GPUS_ON_NODE is unreliable
+    # here — on job 1332815 it reported 4 while CVD had only 2 ids, so
+    # the parent fanned out 4 workers and gpu_worker(2,...) crashed with
+    # "device=2, num_gpus=2" before any inference ran.
+    cvd = os.environ.get('CUDA_VISIBLE_DEVICES', '')
+    if cvd:
+        num_gpus = len([x for x in cvd.split(',') if x])
+        gpu_src = 'CUDA_VISIBLE_DEVICES'
     else:
-        cvd = os.environ.get('CUDA_VISIBLE_DEVICES', '')
-        num_gpus = len([x for x in cvd.split(',') if x]) if cvd else 0
-    print(f"Detected {num_gpus} GPU(s) from SLURM env", flush=True)
+        slurm_gpus = os.environ.get('SLURM_GPUS_ON_NODE')
+        num_gpus = int(slurm_gpus) if slurm_gpus is not None else 0
+        gpu_src = 'SLURM_GPUS_ON_NODE' if slurm_gpus is not None else 'none'
+    print(f"Detected {num_gpus} GPU(s) from {gpu_src}", flush=True)
 
     if num_gpus > 1:
         mem = run_multi_gpu(valid_entries, shell_dict, num_gpus)

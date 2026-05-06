@@ -1,0 +1,20 @@
+metric,value
+dataset,v08_supercon
+N,4827
+pred_mean,0.026757666480736946
+pred_std,0.15093586553015506
+frac_metal_pred,0.9351564118500103
+frac_metal_pred_Tc_gt_5K,0.953125
+N_Tc_gt_5K,704
+pearson_pred_vs_Tc,0.049393812206533994
+pearson_pred_vs_dosef,-0.07795995722405884
+note,no DFT bandgap reference; SK-vs-ALIGNN cross-check below
+sk_vs_alignn_N,4827
+sk_vs_alignn_MAE,0.03865815694508516
+sk_vs_alignn_RMSE,0.1757816202205888
+sk_vs_alignn_ME,0.00814710609053007
+sk_vs_alignn_pearson,0.19167463328038178
+sk_metal_frac,0.9726538222498446
+alignn_metal_frac,0.9351564118500103
+sk_vs_alignn_metal_agreement,0.9243836751605552
+sk_vs_alignn_confusion_TN_FP_FN_TP,"4422,273,92,40"

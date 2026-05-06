@@ -1,0 +1,16 @@
+metric,value
+N,1330
+MAE,3.3647927137775753
+RMSE,7.930967475326987
+ME,-3.1973208956841717
+med_abs_err,3.0189054188165194
+p90_abs_err,5.182534197180623
+ref_mean,7.022897471983408
+ref_std,7.5105123196278525
+pred_mean,3.825576576299237
+pred_std,1.2821901365658686
+N_total,1333
+N_with_ref,1330
+dataset,v04_cccbdb
+reference,"lumo - homo (Hartree, x 27.2114 to eV)"
+caveat,"OOD: ALIGNN trained on crystals, applied to molecules; HOMO-LUMO gap from molecular DFT, not solid-state PBE"

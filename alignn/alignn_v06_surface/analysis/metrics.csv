@@ -1,0 +1,14 @@
+metric,value
+N,487
+MAE,0.5071923322169198
+RMSE,0.8900477989223025
+ME,0.19030940045931008
+med_abs_err,0.3021007522583008
+p90_abs_err,1.1572662806320195
+ref_mean,0.7842088295687886
+ref_std,1.042028420545182
+pred_mean,0.9745182300280986
+pred_std,1.1580845941130047
+dataset,v06_surface
+reference,surf_cbm - surf_vbm (clipped at 0)
+confusion_TN_FP_FN_TP,"90,77,18,302"

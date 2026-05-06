@@ -1,0 +1,19 @@
+metric,value
+dataset,v07_vacancy
+N,470
+pred_mean,0.7298770112322366
+pred_std,1.4134214508347658
+frac_metal_pred,0.5595744680851064
+ef_mean,2.99914
+ef_std,2.3512881718045717
+pearson_pred_vs_ef,0.36649989211208633
+note,no DFT bandgap reference; SK-vs-ALIGNN cross-check below
+sk_vs_alignn_N,444
+sk_vs_alignn_MAE,0.6337829251094041
+sk_vs_alignn_RMSE,1.352128473400501
+sk_vs_alignn_ME,0.560813470072373
+sk_vs_alignn_pearson,0.3962262433575497
+sk_metal_frac,0.9121621621621622
+alignn_metal_frac,0.5427927927927928
+sk_vs_alignn_metal_agreement,0.6126126126126126
+sk_vs_alignn_confusion_TN_FP_FN_TP,"237,168,4,35"
