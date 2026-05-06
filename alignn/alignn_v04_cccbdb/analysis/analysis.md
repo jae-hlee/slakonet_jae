@@ -74,3 +74,7 @@ Full table at `per_element_mae.csv`; bar chart at `per_element_mae.png`.
 - `stratified_metrics.csv` (the all/metals/non-metals MAE table above)
 - `per_element_mae.csv`, `per_element_mae.png`
 - existing: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`, `summary.md`
+
+## See also
+
+Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v04_cccbdb/analysis/sk_vs_alignn.png` and `confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v04_cccbdb/analysis/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.

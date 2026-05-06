@@ -77,3 +77,7 @@ Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.365**. Negative: l
 - `per_element_mae.csv`, `per_element_mae.png`
 - `error_vs_eform.png`
 - existing: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`, `summary.md`
+
+## See also
+
+Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v09_1d/analysis/sk_vs_alignn.png` and `confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v09_1d/analysis/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.
