@@ -1,0 +1,2 @@
+dataset,N_sk_matched,N_sk_inf_dropped,N_sk_total,N_alignn_total,MAE_alignn_vs_sk,RMSE_alignn_vs_sk,ME_alignn_minus_sk,med_abs_err,p90_abs_err,pearson_sk_vs_alignn,sk_metal_frac,alignn_metal_frac,metal_gap_agreement,TN_FP_FN_TP_sk_ref_alignn_pred,ood_note
+v05_interface,433,0,433,433,0.8825583490897959,1.0905399134284768,-0.4854992892825438,0.7642912864685059,1.7757378101348882,0.3993417357543891,0.16859122401847576,0.025404157043879907,0.815242494226328,"2,71,9,351",JARVIS interfaces (slabs with vacuum); OOD for ALIGNN

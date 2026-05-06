@@ -1,0 +1,2 @@
+dataset,N_sk_matched,N_sk_inf_dropped,N_sk_total,N_alignn_total,MAE_alignn_vs_sk,RMSE_alignn_vs_sk,ME_alignn_minus_sk,med_abs_err,p90_abs_err,pearson_sk_vs_alignn,sk_metal_frac,alignn_metal_frac,metal_gap_agreement,TN_FP_FN_TP_sk_ref_alignn_pred,ood_note
+v09_1d,8636,0,8636,9540,1.1642232055572215,1.8934124806423007,-0.9397059623400054,0.45887542329728603,3.090341329574585,0.8573987857364921,0.3207503473830477,0.30592867068087076,0.7135247799907365,"1,469,1,301,1,173,4,693",Alexandria 1D; OOD for ALIGNN's 3D bulk training distribution

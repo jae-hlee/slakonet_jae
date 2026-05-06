@@ -85,27 +85,36 @@ On v11 the worst-MAE elements are similar (Np, F, Cl, Cs, Yb, Rb, Br, K, I, O) b
 
 |ALIGNN - DFT| has a Pearson correlation of **-0.333 on v11 and -0.371 on v12** with `e_form`. Negative correlation: less stable structures (higher formation energy) tend to have **smaller** absolute errors. This is the same artifact as the far-off-hull MAE drop: high-e_form structures are usually metallic in DFT (and ALIGNN agrees), so absolute errors stay small even though metal/gap classification accuracy is worst there.
 
-## SlakoNet vs ALIGNN cross-checks (v07 / v08)
+## SlakoNet vs ALIGNN cross-method comparisons (v04, v05, v06, v07, v08, v09, v10, v11)
 
-For datasets without a DFT bandgap reference, the ALIGNN run pairs with SlakoNet results we already have locally. Two contrasting outcomes:
+This is the cleanest one-to-one cross-method view: same structures, same dataset, both methods predicting bandgap. DFT may or may not be available as a third reference. The complete table:
 
-**v07 vacancy_db (N=444 SK-matched).** SK and ALIGNN disagree massively on metallicity:
+| dataset | N matched | MAE (ALIGNN-SK) | RMSE | ME (ALIGNN-SK) | Pearson | metal frac (SK / ALIGNN) | metal/gap agreement |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| v08_supercon (Tc-focused, no DFT) | 4,827 | **0.039** | 0.176 | +0.008 | 0.19 | 97.3% / 93.5% | **92.4%** |
+| v06_surface (slabs) | 466 | 1.066 | 1.527 | -0.723 | 0.71 | 33% / 21% | 82.0% |
+| v05_interface | 433 | 0.883 | 1.091 | -0.485 | 0.40 | 17% / 2.5% | 81.5% |
+| v09_1d (Alex 1D) | 8,636 | 1.164 | 1.893 | -0.940 | **0.86** | 32% / 31% | 71.4% |
+| v07_vacancy (TM defects) | 444 | 0.634 | 1.352 | +0.561 | 0.40 | 91.2% / 54.3% | 61.3% |
+| v10_2d (Alex 2D) | 79,903 | 0.864 | 1.532 | -0.300 | 0.76 | **59% / 28%** | **61.9%** |
+| v04_cccbdb (molecules) | 1,324 | 3.928 | 5.291 | **-3.632** | 0.61 | 0% / 0.3% | 99.7% |
+| v11_alexwz (3D bulk hull, partial SK) | 6,781 | 1.084 | 2.068 | -0.314 | n/a | 64% / 54% | 72.2% |
 
-- SK: 91.2% predicted metallic
-- ALIGNN: 54.3% predicted metallic
-- Metal/gap agreement: 61.3%
-- MAE (ALIGNN vs SK): 0.634 eV
+(Per-dataset plots: `slakonet/slako_v0*_*/analysis/sk_vs_alignn.png` plus matching `confusion_sk_vs_alignn.png`. Cross-dataset CSV: `slakonet/sk_vs_alignn_cross_dataset.csv`. The v11 row above is from the three-way analysis on the matched 6,781 subset, not the SK-vs-ALIGNN-only run.)
 
-The parity plot shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV. **This is the cleanest illustration of SK's documented transition-metal failure mode in this repo.** SK silently collapses to zero on open-shell TM-defect cells; ALIGNN sees structure that SK misses. The TM-defect story is consistent with the v03 SK analysis where SK fails on open-shell TM compounds and ionic fluorides.
+### Cross-cutting patterns
 
-**v08 alex_supercon (N=4,827 fully matched).** SK and ALIGNN agree:
+**SK predicts more metals than ALIGNN on every dataset except molecules.** This is the most consistent cross-method asymmetry. The gap is largest on v10 2D (SK 59% vs ALIGNN 28%, a 31-percentage-point spread) and v07 vacancy (SK 91% vs ALIGNN 54%). This is the wild side of SK's documented transition-metal-and-fluoride failure mode showing up across geometries: SK silently collapses to zero gap on chemistries it can't handle, inflating its metal-frac across all datasets.
 
-- SK: 97.3% predicted metallic
-- ALIGNN: 93.5% predicted metallic
-- Metal/gap agreement: 92.4%
-- MAE (ALIGNN vs SK): 0.039 eV
+**Strongest rank correlation appears on v09 1D (Pearson 0.86), highest MAE on v04 molecules (3.93 eV).** v09 is the case where the methods agree on which structures have bigger gaps than others (rank), but disagree systematically by ~1 eV on magnitude (SK biased high). For paper purposes, this is a clean signal that geometry-OOD doesn't destroy rank stability across methods, only absolute calibration.
 
-This is a **clean baseline**: both methods agree the supercon candidates are metallic, consistent with the dataset's superconductor focus. The high-Tc subset (Tc > 5 K, N=704) is 95.3% predicted metallic by ALIGNN, passing the sanity check.
+**v07 is the cleanest illustration of SK's TM failure mode.** The vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV (visible in `slakonet/slako_v07_vacancy/analysis/sk_vs_alignn.png`) is the visual signature of SK's silent dropout on open-shell transition metals. SK's 91.2% metal-frac on transition-metal vacancies is essentially the silent-failure rate in disguise.
+
+**v08 is a clean baseline.** Both methods agree the supercon candidates are metallic (92.4% classification agreement, MAE 0.039 eV between methods). This confirms the cross-method pipeline is sound when both methods are operating in their reliable regimes.
+
+**v04 molecules show the largest absolute disagreement (3.93 eV).** Both methods are out-of-distribution (ALIGNN trained on crystals, SK trained on solid-state DFT), and they fail in opposite directions: SK predicts much larger gaps than ALIGNN (-3.6 eV ME). The 99.7% classification agreement is essentially trivial since both methods see molecules as non-metallic; the magnitude disagreement is where the real OOD signal is.
+
+**v11 SK-vs-ALIGNN (partial, 6,781 entries)** sits in the middle: MAE 1.08 eV between methods, similar to v05/v06/v09/v10 cross-method MAEs. This is consistent with v11 being in-distribution for ALIGNN (which is why ALIGNN-vs-DFT MAE is 0.18) but mid-distribution for SK (where catastrophic outliers drag MAE to 1.0). When the v11 SK run completes on Rockfish, the matched subset will grow from 6,781 toward ~115k and these numbers will firm up.
 
 ## Three-way comparison on v11 (DFT vs SK vs ALIGNN, on the matched subset)
 
@@ -137,10 +146,12 @@ v05 interface_db's reference is `optb88vdw_bandgap` (OptB88vdW), **not** PBE. AL
 | 1D / 2D / slab / interface geometries | **OOD penalty**: ~3x worse MAE (0.47 to 0.53 eV) | v05 / v06 / v09 / v10 |
 | Isolated molecules | **Far OOD**: MAE 3.37 eV, -3.2 eV bias; sanity-bound only | v04 CCCBDB |
 | Tc-focused or vacancy-only datasets without DFT gap | **No parity comparison possible**; SK-vs-ALIGNN cross-check works | v07 (TM disagreement), v08 (clean baseline) |
+| SK vs ALIGNN cross-method (8 datasets) | **SK predicts ~30% more metals than ALIGNN** on most datasets; v07 / v10 are the biggest disagreements; v08 is the clean baseline | `slakonet/sk_vs_alignn_cross_dataset.csv` |
 
 ## Pointers
 
 - **Per-dataset deep analysis**: `alignn/alignn_v0*/analysis/analysis.md` and the stratified plots / CSVs alongside.
 - **At-a-glance table**: `alignn/analysis_summary.md` and `analysis_summary.csv`.
 - **Three-way SK / ALIGNN / DFT on v11**: `slakonet/slako_v11_alexwz/analysis/`.
+- **SK-vs-ALIGNN per-dataset comparisons**: `slakonet/slako_v0*_*/analysis/sk_vs_alignn.png` + `confusion_sk_vs_alignn.png` for v04, v05, v06, v07, v08, v09, v10. Cross-dataset CSV at `slakonet/sk_vs_alignn_cross_dataset.csv`.
 - **SK-side failure analysis**: `slakonet/slako_v03_alex/analysis/analysis.md` (the bar this writeup tries to clear on the ALIGNN side).

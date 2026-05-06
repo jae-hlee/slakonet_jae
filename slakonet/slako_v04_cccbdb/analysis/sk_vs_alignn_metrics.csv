@@ -1,0 +1,2 @@
+dataset,N_sk_matched,N_sk_inf_dropped,N_sk_total,N_alignn_total,MAE_alignn_vs_sk,RMSE_alignn_vs_sk,ME_alignn_minus_sk,med_abs_err,p90_abs_err,pearson_sk_vs_alignn,sk_metal_frac,alignn_metal_frac,metal_gap_agreement,TN_FP_FN_TP_sk_ref_alignn_pred,ood_note
+v04_cccbdb,1324,0,1324,1333,3.9280448634728926,5.291344339246057,-3.6322834401242323,2.5423614978790283,9.451818990707398,0.6148379659363703,0.0,0.0030211480362537764,0.9969788519637462,"0,0,4,1,320","molecules; both SK and ALIGNN are out-of-distribution; ALIGNN trained on crystals, SK trained on solid-state DFT"

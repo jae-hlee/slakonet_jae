@@ -1,0 +1,2 @@
+dataset,N_sk_matched,N_sk_inf_dropped,N_sk_total,N_alignn_total,MAE_alignn_vs_sk,RMSE_alignn_vs_sk,ME_alignn_minus_sk,med_abs_err,p90_abs_err,pearson_sk_vs_alignn,sk_metal_frac,alignn_metal_frac,metal_gap_agreement,TN_FP_FN_TP_sk_ref_alignn_pred,ood_note
+v06_surface,466,0,466,487,1.0656592068242412,1.5270421452976892,-0.7229177875068566,0.8149608969688416,2.6149449720978737,0.7059199519355635,0.3283261802575107,0.20815450643776823,0.8197424892703863,"83,70,14,299",JARVIS surfaces (slabs); OOD for ALIGNN
