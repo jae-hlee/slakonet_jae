@@ -34,7 +34,7 @@ alignn/                       ALIGNN runs grouped by source dataset
   alignn_v09_1d/              Alexandria PBE 1D          jalignn9.py
   alignn_v10_2d/              Alexandria PBE 2D          jalignn10.py
   alignn_v11_alexwz/          Alexandria PBE 3D, no Z<=65 filter (jalignn11.py)
-  alignn_v12_all/             Alexandria PBE 3D, full set (jalignn12.py; 100/100 shards complete)
+  alignn_v12_all/             Alexandria PBE 3D, full set (jalignn12.py)
   alignn_comprehensive_analysis/  Cross-dataset ALIGNN roll-up (analysis.md + csv + plots)
 ```
 
