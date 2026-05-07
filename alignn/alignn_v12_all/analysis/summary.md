@@ -1,6 +1,6 @@
 # v12 alex_pbe_3d_all: ALIGNN PBE bandgap on the full Alexandria PBE 3D set
 
-All 100 array shards landed; total **4,489,295 entries** (the full Alexandria PBE 3D set). Every row has a `band_gap_ind` reference, so all 4,489,295 are usable for parity vs DFT PBE.
+Total **4,489,295 entries** (the full Alexandria PBE 3D set). Every row has a `band_gap_ind` reference, so all 4,489,295 are usable for parity vs DFT PBE.
 
 ## Headline (full set)
 
@@ -29,6 +29,6 @@ All 100 array shards landed; total **4,489,295 entries** (the full Alexandria PB
 
 ## Caveats
 
-- All 100 shards present; full coverage of the 4,489,295-entry Alexandria PBE 3D set. All plots and CSVs in this directory reflect the full 100-shard data.
+- Full coverage of the 4,489,295-entry Alexandria PBE 3D set.
 - Off-hull DFT references in Alexandria are computed at the same PBE level as on-hull, but off-hull structures are less physically meaningful (high formation energy, often unstable in real synthesis). Per-bin breakdown is provided so the on-hull subset can be read separately as the cleanest comparison.
 - v12 on-hull (e_above_hull = 0) result is directly comparable to v11_alexwz ALIGNN (MAE 0.168). They share the input zip and filter; v12 numbers match v11 exactly on the same subset (115,535 entries, MAE 0.168, accuracy 89.3%).

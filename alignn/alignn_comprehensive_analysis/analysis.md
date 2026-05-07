@@ -28,7 +28,7 @@ directory.
 | v09_1d         | Alexandria 1D PBE          | low_dim   |   9,540 | `band_gap_ind`                    | `mp_gappbe_alignn` |
 | v10_2d         | Alexandria 2D PBE          | low_dim   |  87,903 | `band_gap_ind`                    | `mp_gappbe_alignn` |
 | v11_alexwz     | Alexandria 3D, no Z filter | crystal   | 115,535 | `band_gap_ind`                    | `mp_gappbe_alignn` |
-| v12_all        | Alexandria 3D, full hull + off-hull | crystal | 4,489,295 | `band_gap_ind`             | `mp_gappbe_alignn` (100/100 shards) |
+| v12_all        | Alexandria 3D, full hull + off-hull | crystal | 4,489,295 | `band_gap_ind`             | `mp_gappbe_alignn` |
 
 ## Headline metrics (see `csv/summary_table.csv`)
 
@@ -61,7 +61,7 @@ The 9 single-checkpoint ALIGNN runs (v04 to v12) fall into three regimes determi
 
 The pattern cleanly maps geometry to error magnitude: removing the periodic-bulk assumption costs ~0.3 eV of MAE per step.
 
-The **on-hull subset of v12** (115,535 entries) now matches v11 exactly in N and MAE (0.168) after the shard 9 backfill, confirming the array-sharded pipeline returns the identical on-hull subset as the single-job v11 run. v12's MAE rises with `e_above_hull` from 0.168 (on-hull) through 0.186 (near-hull) to 0.205 (off-hull), then drops to 0.154 at far-off-hull where DFT and ALIGNN both pile near zero (most far-off-hull entries are metallic in DFT). Metal/gap accuracy degrades monotonically across the same bins (89.3% to 66.0%) and bias grows from +0.024 to +0.178.
+The **on-hull subset of v12** (115,535 entries) matches v11 exactly in N and MAE (0.168), confirming the array-sharded pipeline returns the identical on-hull subset as the single-job v11 run. v12's MAE rises with `e_above_hull` from 0.168 (on-hull) through 0.186 (near-hull) to 0.205 (off-hull), then drops to 0.154 at far-off-hull where DFT and ALIGNN both pile near zero (most far-off-hull entries are metallic in DFT). Metal/gap accuracy degrades monotonically across the same bins (89.3% to 66.0%) and bias grows from +0.024 to +0.178.
 
 ## Metal vs non-metal stratification: where the error lives
 
@@ -208,7 +208,7 @@ v05 interface_db's reference is `optb88vdw_bandgap` (OptB88vdW), **not** PBE. AL
 - v07 (vacancy) and v08 (supercon) have **no DFT bandgap reference**, so they appear in the dataset-overview and gap-distribution plots but not in parity / residual / error / functional-shift plots. The interesting analysis on those two is the SK-vs-ALIGNN cross-method comparison; per-dir details in `alignn/alignn_v07_vacancy/analysis/analysis.md` and `alignn/alignn_v08_supercon/analysis/analysis.md`.
 - v04 (CCCBDB) reference is computed as `(lumo - homo) * 27.2114` from raw Hartree HOMO/LUMO values in the source. The separate column `hl_gap_hartree_eV` in `slakonet/slako_v04_cccbdb/analysis/csv/summary.csv` is misleadingly named (values are already in eV); use the formula above for clean parity.
 - v06 reference uses `max(surf_cbm - surf_vbm, 0)` per the surface_db schema gotcha (the bundled `scf_*` reference is bulk-on-slab-vacuum scale and is wrong; see the slakonet-side workflow docs (kept local) for the documented fix).
-- v12_all has no per-row `pred_mean` / `pred_median` / `ref_mean` / `r` because the full predictions JSON (~3 GB) is not loaded into the aggregator; numbers come from the per-shard `metrics.csv` rollup. The on-hull subset of v12 (115,535 entries after the shard 9 backfill) reproduces v11_alexwz exactly, which is the cross-check that the array-sharded pipeline matches the single-job v11 run.
+- v12_all has no per-row `pred_mean` / `pred_median` / `ref_mean` / `r` because the full predictions JSON (~3 GB) is not loaded into the aggregator; numbers come from the per-shard `metrics.csv` rollup. The on-hull subset of v12 (115,535 entries) reproduces v11_alexwz exactly, which is the cross-check that the array-sharded pipeline matches the single-job v11 run.
 - Metallic threshold used for coverage bars: ALIGNN gap < 0.10 eV (matches the slakonet-side convention).
 - All numbers regenerated from per-row predictions in `alignn/alignn_v*/results/alignn_predictions.json` and `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/merged_predictions.json`. The aggregation script is kept local off-repo (per the standing rule on Claude-generated analysis scripts).
 

@@ -1,4 +1,4 @@
-# v12_all (full Alexandria 3D, 100/100 shards): ALIGNN PBE bandgap deep analysis
+# v12_all (full Alexandria 3D): ALIGNN PBE bandgap deep analysis
 
 Reference: DFT PBE `band_gap_ind` from Alexandria. Metal/gap split at 0.05 eV.
 
@@ -67,7 +67,7 @@ Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.371**. Negative: l
 
 ## Caveats
 
-- All 100 array shards landed (shard 9 backfilled 2026-05-07); full coverage of the 4,489,295-entry Alexandria PBE 3D set. All metrics, plots, and per-row CSVs in this directory are computed from the full 100-shard data.
+- Full coverage of the 4,489,295-entry Alexandria PBE 3D set.
 - v12 includes off-hull entries (e_above_hull > 0) which are less physically meaningful than on-hull structures. The on-hull subset (115,535 entries) reproduces v11 exactly (MAE 0.168, accuracy 89.3%); see per-hull-bin breakdown in `plots/parity_by_hull_bin.png` and `csv/metrics.csv`.
 - ALIGNN `mp_gappbe_alignn` was trained on Materials Project 3D bulk PBE bandgaps, so v12 (Alexandria 3D) is in-distribution. The MAE 0.185 eV on 4.49M structures is comparable to the model's published validation MAE.
 
