@@ -28,7 +28,7 @@ directory.
 | v09_1d         | Alexandria 1D PBE          | low_dim   |   9,540 | `band_gap_ind`                    | `mp_gappbe_alignn` |
 | v10_2d         | Alexandria 2D PBE          | low_dim   |  87,903 | `band_gap_ind`                    | `mp_gappbe_alignn` |
 | v11_alexwz     | Alexandria 3D, no Z filter | crystal   | 115,535 | `band_gap_ind`                    | `mp_gappbe_alignn` |
-| v12_all        | Alexandria 3D, full hull + off-hull | crystal | 4,444,402 | `band_gap_ind`             | `mp_gappbe_alignn` (99/100 shards) |
+| v12_all        | Alexandria 3D, full hull + off-hull | crystal | 4,489,295 | `band_gap_ind`             | `mp_gappbe_alignn` (100/100 shards) |
 
 ## Headline metrics (see `csv/summary_table.csv`)
 
@@ -45,7 +45,7 @@ directory.
 | v09_1d         |     9,540 | 0.927 | 0.247 | 0.384 | 1.070 |  0.485    |  0.755    |  0.873    |
 | v10_2d         |    87,903 | 0.863 | 0.275 | 0.365 | 0.674 |  0.470    |  0.837    |  0.789    |
 | v11_alexwz     |   115,535 | 0.677 | 0.015 | 0.655 | 0.653 | **0.168** | **0.476** | **0.933** |
-| v12_all        | 4,444,402 |   -   |   -   | 0.709 |   -   |  0.185    |  0.551    |   -       |
+| v12_all        | 4,489,295 |   -   |   -   | 0.709 |   -   |  0.185    |  0.551    |   -       |
 
 The two strongest rows are v11_alexwz (`mp_gappbe_alignn`'s in-distribution best on Alexandria 3D bulk crystals) and v03_alex_pbe (the matched 31,211 paired subset used as the head-to-head benchmark vs SlakoNet). The mBJ and OptB88vdW v03 rows show the functional shift recovered cleanly from a non-metal slope fit (~1.23 for mBJ, ~0.94 for OptB88vdW); their MAE-against-PBE is dominated by that shift and not by model error.
 
@@ -55,13 +55,13 @@ The 9 single-checkpoint ALIGNN runs (v04 to v12) fall into three regimes determi
 
 | regime | datasets | typical MAE | what it tells us |
 |---|---|---|---|
-| **In-distribution** (3D bulk crystals at PBE) | v11_alexwz (115k), v12_all (4.44M) | **0.17 to 0.19 eV** | matches the model's published validation MAE; cleanest comparison |
+| **In-distribution** (3D bulk crystals at PBE) | v11_alexwz (115k), v12_all (4.49M) | **0.17 to 0.19 eV** | matches the model's published validation MAE; cleanest comparison |
 | **OOD geometries** (low-dim, slabs, interfaces) | v05 interface, v06 surface, v09 1D, v10 2D | **0.47 to 0.53 eV** | ~3x worse than in-distribution; the price of vacuum / low coordination |
 | **Far OOD + reference mismatch** | v04 CCCBDB molecules | **3.37 eV** with -3.2 eV bias | molecules + molecular DFT reference; useful only as a sanity bound |
 
 The pattern cleanly maps geometry to error magnitude: removing the periodic-bulk assumption costs ~0.3 eV of MAE per step.
 
-The **on-hull subset of v12** (114,389 entries) reproduces v11 exactly (MAE 0.168, accuracy 89.1%), confirming the array-sharded pipeline matches the single-job v11 run. v12's MAE rises with `e_above_hull` from 0.168 (on-hull) through 0.186 (near-hull) to 0.205 (off-hull), then drops to 0.154 at far-off-hull where DFT and ALIGNN both pile near zero (most far-off-hull entries are metallic in DFT). Metal/gap accuracy degrades monotonically across the same bins (89.1% to 66.0%) and bias grows from +0.024 to +0.178.
+The **on-hull subset of v12** (115,535 entries) now matches v11 exactly in N and MAE (0.168) after the shard 9 backfill, confirming the array-sharded pipeline returns the identical on-hull subset as the single-job v11 run. v12's MAE rises with `e_above_hull` from 0.168 (on-hull) through 0.186 (near-hull) to 0.205 (off-hull), then drops to 0.154 at far-off-hull where DFT and ALIGNN both pile near zero (most far-off-hull entries are metallic in DFT). Metal/gap accuracy degrades monotonically across the same bins (89.3% to 66.0%) and bias grows from +0.024 to +0.178.
 
 ## Metal vs non-metal stratification: where the error lives
 
@@ -70,7 +70,7 @@ The full-set MAE numbers hide a strong asymmetry between metals (DFT gap <= 0.05
 | dataset | N | MAE all | MAE metals | MAE non-metals | metal/non-metal ratio |
 |---|---|---|---|---|---|
 | v11_alexwz | 115,535 | 0.168 | **0.081** | **0.369** | 4.6x |
-| v12_all (full Alex 3D) | 4,444,402 | 0.185 | **0.153** | **0.544** | 3.6x |
+| v12_all (full Alex 3D) | 4,489,295 | 0.185 | **0.153** | **0.544** | 3.6x |
 
 **ALIGNN is much more accurate on metals than non-metals.** On v11, non-metal MAE (0.369 eV) is 4.6x the metal MAE (0.081 eV). On v12 the gap is similar (3.6x). The metals' very low MAE (0.081 eV on v11) reflects that ALIGNN's default behavior is to predict near-zero for systems that lack obvious gap signatures, which is correct on metals but underestimates wide-gap insulators.
 
@@ -83,9 +83,9 @@ Across both v11 and v12, the dominant classification error is **DFT calls metall
 | dataset | accuracy | TN (DFT metal, ALIGNN metal) | FP (DFT metal, ALIGNN gap) | FN (DFT gap, ALIGNN metal) | TP (DFT gap, ALIGNN gap) |
 |---|---|---|---|---|---|
 | v11_alexwz | 89.1% | 69,866 (60.5%) | **10,829 (9.4%)** | 1,730 (1.5%) | 33,110 (28.7%) |
-| v12_all | 78.1% | 3,130,841 (70.4%) | **953,196 (21.4%)** | 20,152 (0.5%) | 340,213 (7.7%) |
+| v12_all | 78.4% | 3,154,044 (70.3%) | **941,170 (21.0%)** | 28,732 (0.6%) | 365,349 (8.1%) |
 
-False positives outnumber false negatives by **6x on v11 and 47x on v12**. ALIGNN tends to see structure where DFT does not. This is not random noise: the worst-prediction tables reveal a consistent pattern.
+False positives outnumber false negatives by **6x on v11 and 33x on v12**. ALIGNN tends to see structure where DFT does not. This is not random noise: the worst-prediction tables reveal a consistent pattern.
 
 ## Worst predictions are fluoride / fluoroborate compositions
 
@@ -208,7 +208,7 @@ v05 interface_db's reference is `optb88vdw_bandgap` (OptB88vdW), **not** PBE. AL
 - v07 (vacancy) and v08 (supercon) have **no DFT bandgap reference**, so they appear in the dataset-overview and gap-distribution plots but not in parity / residual / error / functional-shift plots. The interesting analysis on those two is the SK-vs-ALIGNN cross-method comparison; per-dir details in `alignn/alignn_v07_vacancy/analysis/analysis.md` and `alignn/alignn_v08_supercon/analysis/analysis.md`.
 - v04 (CCCBDB) reference is computed as `(lumo - homo) * 27.2114` from raw Hartree HOMO/LUMO values in the source. The separate column `hl_gap_hartree_eV` in `slakonet/slako_v04_cccbdb/analysis/csv/summary.csv` is misleadingly named (values are already in eV); use the formula above for clean parity.
 - v06 reference uses `max(surf_cbm - surf_vbm, 0)` per the surface_db schema gotcha (the bundled `scf_*` reference is bulk-on-slab-vacuum scale and is wrong; see the slakonet-side workflow docs (kept local) for the documented fix).
-- v12_all has no per-row `pred_mean` / `pred_median` / `ref_mean` / `r` because the full predictions JSON (~3 GB) is not loaded into the aggregator; numbers come from the per-shard `metrics.csv` rollup. The on-hull subset of v12 (114,389 entries) reproduces v11_alexwz exactly, which is the cross-check that the array-sharded pipeline matches the single-job v11 run.
+- v12_all has no per-row `pred_mean` / `pred_median` / `ref_mean` / `r` because the full predictions JSON (~3 GB) is not loaded into the aggregator; numbers come from the per-shard `metrics.csv` rollup. The on-hull subset of v12 (115,535 entries after the shard 9 backfill) reproduces v11_alexwz exactly, which is the cross-check that the array-sharded pipeline matches the single-job v11 run.
 - Metallic threshold used for coverage bars: ALIGNN gap < 0.10 eV (matches the slakonet-side convention).
 - All numbers regenerated from per-row predictions in `alignn/alignn_v*/results/alignn_predictions.json` and `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/merged_predictions.json`. The aggregation script is kept local off-repo (per the standing rule on Claude-generated analysis scripts).
 

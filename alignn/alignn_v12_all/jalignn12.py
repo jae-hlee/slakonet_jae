@@ -27,7 +27,11 @@ NUM_WORKERS = 0
 CHECKPOINT_EVERY = 500
 
 SHARD_ID = int(os.environ.get("SLURM_ARRAY_TASK_ID", 0))
-SHARD_COUNT = int(os.environ.get("SLURM_ARRAY_TASK_COUNT", 1))
+# TOTAL_SHARDS overrides SLURM_ARRAY_TASK_COUNT so single-shard resubmits
+# (e.g. `sbatch --array=9`, where SLURM_ARRAY_TASK_COUNT=1) still slice
+# entries[SHARD_ID::100] instead of entries[SHARD_ID::1].
+SHARD_COUNT = int(os.environ.get("TOTAL_SHARDS",
+                                 os.environ.get("SLURM_ARRAY_TASK_COUNT", 1)))
 
 # Per-shard paths so concurrent array tasks don't collide
 CHECKPOINT_DIR = f"results/alignn_checkpoints_shard{SHARD_ID:03d}"
