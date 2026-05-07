@@ -44,7 +44,7 @@ Every sub-project has a top-level inference script (`jslako_v*.py` for SlakoNet,
 
 Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 9 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (~4.5M structures total). Three core findings:
 
-1. **ALIGNN wins by ~6x on the matched bulk-crystal set.** On the 6,781 Alexandria 3D crystals where both methods produced output, ALIGNN reaches MAE 0.18 eV vs PBE; SlakoNet sits at 1.03 eV. Same structures, same reference.
+1. **ALIGNN wins by ~5x on the matched bulk-crystal set.** On the paired N = 31,211 Alexandria 3D hull subset where both methods produced output, ALIGNN reaches MAE 0.193 eV vs PBE; SlakoNet sits at 0.930 eV. Same structures, same reference.
 
 2. **The two methods have differently shaped error distributions.** SlakoNet's residuals are **bimodal**: median error is tiny (0.027 eV, most predictions are dead-on) but ~10% of structures collapse to predicted gap = 0 when DFT says 5+ eV. The largest residuals concentrate on transition-metal compounds and ionic fluorides. ALIGNN's residuals are **unimodal and gentler**: spread Gaussian-ish around zero with no catastrophic collapse, but accuracy on non-metals is 4-5x worse than on metals. ALIGNN's largest residuals are also fluorides, but in the over-predict direction (off-hull fluoroborates where Alexandria PBE gives 0; ALIGNN may be more physically correct than the label here).
 

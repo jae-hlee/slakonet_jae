@@ -145,7 +145,7 @@ This is the cleanest one-to-one cross-method view: same structures, same dataset
 | v04_cccbdb (molecules) | 1,324 | 3.928 | 5.291 | **-3.632** | 0.61 | 0% / 0.3% | 99.7% |
 | v11_alexwz (3D bulk hull, partial SK) | 6,781 | 1.084 | 2.068 | -0.314 | n/a | 64% / 54% | 72.2% |
 
-(Per-dataset plots: `slakonet/slako_v0*_*/analysis/plots/sk_vs_alignn.png` plus matching `confusion_sk_vs_alignn.png`. Cross-dataset CSV: `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`. The v11 row above is from the three-way analysis on the matched 6,781 subset, not the SK-vs-ALIGNN-only run.)
+(Per-dataset plots: `slakonet/slako_v0*_*/analysis/plots/sk_vs_alignn.png` plus matching `confusion_sk_vs_alignn.png`. Cross-dataset CSV: `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`.)
 
 ### Cross-cutting patterns
 
