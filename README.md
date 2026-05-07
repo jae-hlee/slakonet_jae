@@ -46,17 +46,17 @@ Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are 
 
 1. **ALIGNN wins by ~6x on the matched bulk-crystal set.** On the 6,781 Alexandria 3D crystals where both methods produced output, ALIGNN reaches MAE 0.18 eV vs PBE; SlakoNet sits at 1.03 eV. Same structures, same reference.
 
-2. **The two methods fail in different shapes.** SlakoNet's failure is **bimodal**: median error is tiny (0.027 eV, most predictions are dead-on) but ~10% of structures collapse to predicted gap = 0 when DFT says 5+ eV. Disasters are concentrated on transition-metal compounds and ionic fluorides. ALIGNN's failure is **unimodal and gentler**: residuals spread Gaussian-ish around zero with no catastrophic collapse, but accuracy on non-metals is 4-5x worse than on metals. ALIGNN's worst residuals are also fluorides, but in the over-predict direction (off-hull fluoroborates where Alexandria PBE gives 0; ALIGNN may be more physically correct than the label here).
+2. **The two methods have differently shaped error distributions.** SlakoNet's residuals are **bimodal**: median error is tiny (0.027 eV, most predictions are dead-on) but ~10% of structures collapse to predicted gap = 0 when DFT says 5+ eV. The largest residuals concentrate on transition-metal compounds and ionic fluorides. ALIGNN's residuals are **unimodal and gentler**: spread Gaussian-ish around zero with no catastrophic collapse, but accuracy on non-metals is 4-5x worse than on metals. ALIGNN's largest residuals are also fluorides, but in the over-predict direction (off-hull fluoroborates where Alexandria PBE gives 0; ALIGNN may be more physically correct than the label here).
 
-   A consistent cross-method pattern: **SK predicts more metals than ALIGNN on every dataset except molecules.** The metallicity gap is biggest on v10 2D (SK 59% metal, ALIGNN 28%) and v07 vacancy (SK 91% / ALIGNN 54%); similar but smaller on v05 / v06 / v09. SK's "extra metals" are its silent-dropout failures on chemistries it can't handle, showing up across all geometries.
+   A consistent cross-method pattern: **SK predicts more metals than ALIGNN on every dataset except molecules.** The metallicity gap is biggest on v10 2D (SK 59% metal, ALIGNN 28%) and v07 vacancy (SK 91% / ALIGNN 54%); similar but smaller on v05 / v06 / v09. SK's "extra metals" are silent-dropout cases on chemistries the model can't handle, showing up across all geometries.
 
 3. **Geometry matters more than model architecture.** ALIGNN's MAE rises cleanly as inputs leave its 3D-bulk training distribution: 3D bulk crystals 0.17-0.19 eV, slabs/interfaces/1D/2D ~0.5 eV (~3x worse), isolated molecules 3.4 eV. The same model degrades by 3x just from removing the periodic-bulk assumption.
 
-The two methods are complementary, not redundant: SlakoNet offers physical interpretability and DOS access plus a known failure-mode set; ALIGNN offers uniformly decent accuracy within its training distribution but no transferability guarantee outside it. The v07 vacancy result (SK 91% metal vs ALIGNN 54% metal on the same 444 transition-metal-defect cells) is the cleanest direct illustration of SK's failure mode in a held-out cross-method test. The v12 fluoroborate worst-prediction pattern (DFT=0, ALIGNN=8 eV on Li/Sr/Ba/Ca-fluoroborates) is the cleanest illustration that "model error" and "label error" are not the same thing.
+The two methods are complementary, not redundant: SlakoNet offers physical interpretability and DOS access plus a known set of pathological compositions; ALIGNN offers uniformly decent accuracy within its training distribution but no transferability guarantee outside it. The v07 vacancy result (SK 91% metal vs ALIGNN 54% metal on the same 444 transition-metal-defect cells) is the cleanest direct illustration of SK's documented error mode in a held-out cross-method test. The v12 fluoroborate worst-prediction pattern (DFT=0, ALIGNN=8 eV on Li/Sr/Ba/Ca-fluoroborates) is the cleanest illustration that "model error" and "label error" are not the same thing.
 
-Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet failure modes), `alignn/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison).
+Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison).
 
-## Headline SlakoNet results (from `slakonet/comprehensive_analysis/summary_table.csv`)
+## Headline SlakoNet results
 
 Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's DFT reference (PBE for Alexandria and surface_db, OptB88vdW for interface_db, HOMO–LUMO for CCCBDB). Vacancy and supercon sets have no DFT gap reference available.
 
@@ -84,38 +84,28 @@ From `alignn/alignn_v03_alex/comprehensive_analysis/`. Reference is Alexandria P
 
 **What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV: the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two failure modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/alignn_v03_alex/comprehensive_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
 
-## Headline ALIGNN PBE results on v04-v11
+## Headline ALIGNN results
 
-ALIGNN `mp_gappbe_alignn` was run on each of v04 through v11 on the atomgptlab CPU cluster (PBE-only by design; see `alignn/CLAUDE.md` for the scope rationale and the deferred mBJ/Opt extension for v09-v12). Cross-dataset roll-up is at `alignn/analysis_summary.md` and `alignn/analysis_summary.csv`; per-dir details (parity plots, residuals, confusion matrices, metrics) live in each `alignn/alignn_v0*/analysis/`.
+ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptlab CPU cluster (PBE-only by design; see `alignn/CLAUDE.md` for the scope rationale and the deferred mBJ/Opt extension for v09-v12). Conventions match the SlakoNet table above. The Alexandria 3D row uses the paired N = 31,211 subset where both methods succeeded (basis for the head-to-head section above). The vacancy_db and alex_supercon rows have no DFT gap reference; their MAE / RMSE / r columns are blank and the cross-method comparison appears below.
 
-### Datasets with a DFT bandgap reference
+| Dataset        |     N  | ALIGNN mean | ALIGNN median | Frac metallic | Ref mean | MAE   | RMSE  |  r    |
+|----------------|-------:|------------:|--------------:|--------------:|---------:|------:|------:|------:|
+| Alexandria 3D  | 31,211 | 1.23        | 0.34          | 0.42          | 1.22     | 0.19  | 0.46  | 0.96  |
+| Alexandria 2D  | 87,903 | 0.86        | 0.28          | 0.28          | 0.67     | 0.47  | 0.84  | 0.79  |
+| Alexandria 1D  |  9,540 | 0.93        | 0.25          | 0.30          | 1.07     | 0.48  | 0.76  | 0.87  |
+| CCCBDB mols.   |  1,330 | 3.83        | 3.85          | 0.00          | 7.02     | 3.36  | 7.93  | 0.28  |
+| interface_db   |    587 | 0.95        | 0.88          | 0.03          | 0.47     | 0.53  | 0.72  | 0.56  |
+| surface_db     |    487 | 0.97        | 0.59          | 0.22          | 0.78     | 0.51  | 0.89  | 0.69  |
+| vacancy_db     |    444 | 0.73        | 0.02          | 0.54          | n/a      | n/a   | n/a   | n/a   |
+| alex_supercon  |  4,827 | 0.03        | 0.00          | 0.94          | n/a      | n/a   | n/a   | n/a   |
 
-| Dataset                       |     N    |  MAE (eV) |  RMSE | ME (bias) | Metal/gap acc. | Reference                                 |
-|-------------------------------|---------:|----------:|------:|----------:|---------------:|-------------------------------------------|
-| **v12_all** (full Alex 3D)    | 4,444,402|   0.185   | 0.551 |  +0.148   |       78.1%    | `band_gap_ind` (PBE), 99/100 shards       |
-| **v11_alexwz** (3D bulk hull) |  115,535 | **0.168** | 0.476 |  +0.024   |    **89.1%**   | `band_gap_ind` (PBE)                      |
-| v10_2d                        |   87,903 |   0.470   | 0.837 |  +0.190   |       64.1%    | `band_gap_ind` (PBE)                      |
-| v09_1d                        |    9,540 |   0.485   | 0.755 |  −0.143   |       73.0%    | `band_gap_ind` (PBE)                      |
-| v06_surface                   |      487 |   0.507   | 0.890 |  +0.190   |       (slab)   | `max(surf_cbm − surf_vbm, 0)`             |
-| v05_interface                 |      587 |   0.531   | 0.717 |  +0.487   |       77.0%    | `optb88vdw_bandgap` clipped at 0 (NOT PBE)|
-| v04_cccbdb (molecules)        |    1,330 |   3.365   | 7.931 |  −3.197   |       (mol.)   | `lumo − homo` (Hartree, ×27.2114 to eV)   |
+**Three regimes.** Alexandria 3D is in-distribution: PBE-trained ALIGNN reaches MAE 0.19 eV with r = 0.96. Alexandria 2D, 1D, surface_db, and interface_db cluster around MAE 0.47 to 0.53 eV (~3x worse) because their geometries (1D, 2D, slab + vacuum, layered interface) sit outside the 3D-bulk training distribution. CCCBDB molecules are the third, far-OOD regime at MAE 3.36 eV with r = 0.28: ALIGNN is trained on crystals (graph neighborhood mismatch for isolated molecules) and the reference is molecular DFT (Gaussian basis, different functional), not solid-state PBE.
 
-**Three regimes.** v11 is in-distribution: 3D bulk Alexandria matches `mp_gappbe_alignn`'s Materials Project training distribution, and the model reaches MAE 0.17 eV on 115k structures with near-zero bias and median |err| of 0.015 eV. **v12** extends the same comparison to the full ~4.5M Alexandria 3D set (hull and off-hull); MAE rises modestly to 0.185 eV with metal/gap accuracy 78.1%, and the on-hull subset of v12 (N=114k) reproduces v11 exactly (MAE 0.168, accuracy 89.1%), confirming the array-sharded pipeline matches the single-job v11 run. v05, v06, v09, and v10 cluster around MAE 0.47 to 0.53 eV (~3x worse than v11/v12) because their geometries (1D, 2D, slab+vacuum, layered interface) sit outside the 3D-bulk training distribution. The pattern cleanly maps low-dimensional or vacuum-rich geometry to error magnitude. **v04 (CCCBDB molecules)** is a third, far-OOD regime at MAE 3.37 eV with a strong negative bias (ALIGNN under-predicts molecular HOMO-LUMO by ~3.2 eV); the number is most useful as a sanity bound, not a quantitative claim. Two compounding factors: the model is trained on crystals (graph neighborhood mismatch for isolated molecules) and the reference is molecular DFT (Gaussian basis, different functional), not solid-state PBE.
+**Extended Alexandria 3D coverage (ALIGNN only).** Beyond the paired 31,211, ALIGNN was also run on `v11_alexwz` (115,535 hull-stable structures, no Z ≤ 65 element filter) and `v12_all` (4,444,402 structures, full hull + off-hull). On v11, ALIGNN reaches MAE 0.168 / RMSE 0.476 / metal-vs-gap accuracy 89.1% — its in-distribution best, with median |err| of 0.015 eV. On v12, MAE rises modestly to 0.185 / RMSE 0.551 / accuracy 78.1%; the on-hull subset of v12 (114k entries) reproduces v11 exactly. Hull-bin breakdown: on-hull MAE 0.168 / 89.1%; near-hull (0 to 0.1 eV/atom) 0.186 / 85.4%; off-hull (0.1 to 0.5) 0.205 / 79.8%; far off-hull (>0.5) 0.154 / 66.0%. Bias grows monotonically from on-hull (+0.024) to off-hull (+0.178). Shard 9 of 100 is missing (~45k entries, easy to fill in via resubmit).
 
-**v12 hull-bin breakdown** (in `alignn/alignn_v12_all/analysis/`): on-hull MAE 0.168 / accuracy 89.1%; near-hull (0 to 0.1 eV/atom) MAE 0.186 / 85.4%; off-hull (0.1 to 0.5) MAE 0.205 / 79.8%; far off-hull (>0.5) MAE 0.154 but accuracy drops to 66.0% as ALIGNN over-predicts small gaps on metallic far-off-hull entries. Bias grows monotonically from on-hull (+0.024) to off-hull (+0.178). Shard 9 of 100 is missing (~45k entries, easy to fill in via resubmit; numbers unlikely to shift past the 4th decimal).
+**vacancy_db and alex_supercon (cross-method comparison).** Both lack a DFT bandgap reference. On **vacancy_db** (N = 444 paired), SK predicts 91.2% metallic, ALIGNN 54.3%, with metal/gap agreement of 61.3% and SK-vs-ALIGNN MAE of 0.634 eV. The parity plot in `alignn/alignn_v07_vacancy/analysis/sk_vs_alignn.png` shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV, the visual signature of SK's silent dropout on open-shell transition metals (full diagnosis in `slakonet/slako_v03_alex/analysis/analysis.md`). On **alex_supercon** (N = 4,827) both methods predict the candidates are metallic (97.3% SK / 93.5% ALIGNN), with 92.4% agreement and SK-vs-ALIGNN MAE of 0.04 eV; the high-Tc subset (Tc > 5 K, N = 704) is 95.3% predicted metallic by ALIGNN, passing the sanity check.
 
-**Functional-shift caveat for v05.** The interface_db reference is `optb88vdw_bandgap` (OptB88vdW), not PBE. ALIGNN predicts PBE. OptB88vdW typically gives slightly larger gaps than PBE for non-metals, so part of the +0.49 eV ALIGNN-over-DFT bias is the functional shift, not pure model error. 107 of 587 entries had negative OptB88vdW gaps (the documented interface SCF artifact) and were clipped to 0 before parity.
-
-### Datasets without a DFT bandgap reference (SK vs ALIGNN cross-checks)
-
-For v07 and v08 the source dataset has no DFT gap field, so the comparison is between SlakoNet and ALIGNN directly.
-
-| Dataset                  | N (matched) | MAE vs SK (eV) | Metal frac (SK / ALIGNN) | Metal/gap agreement |
-|--------------------------|------------:|---------------:|-------------------------:|--------------------:|
-| **v07_vacancy** (defects)|         444 |          0.634 |        91.2% / 54.3%     |             61.3%   |
-| v08_supercon             |       4,827 |          0.039 |        97.3% / 93.5%     |             92.4%   |
-
-**v07** is the cleanest illustration of SlakoNet's documented transition-metal failure mode in this repo. SK predicts 91% of the defective cells are metallic; ALIGNN predicts only 54%. The parity plot in `alignn/alignn_v07_vacancy/analysis/sk_vs_alignn.png` shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV, the visual signature of SK's silent dropout on open-shell transition metals (full diagnosis in `slakonet/slako_v03_alex/analysis/analysis.md`). **v08** is a clean baseline: both methods predict the supercon candidates are metallic (consistent with the dataset's superconductor focus), with 92.4% agreement and an MAE of 0.04 eV. The high-Tc subset (Tc > 5 K, N=704) is 95.3% predicted metallic by ALIGNN, passing the sanity check.
+**Functional-shift caveat for interface_db.** The reference is `optb88vdw_bandgap` (OptB88vdW), not PBE. ALIGNN predicts PBE. OptB88vdW typically gives slightly larger gaps than PBE for non-metals, so part of the +0.49 eV ALIGNN-over-DFT bias is the functional shift, not pure model error. 107 of 587 entries had negative OptB88vdW gaps (the documented interface SCF artifact) and were clipped to 0 before parity.
 
 ### Schema corrections from the reruns
 
