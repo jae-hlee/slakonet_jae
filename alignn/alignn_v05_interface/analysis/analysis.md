@@ -52,4 +52,4 @@ Top 20 entries by absolute residual (full table at `csv/worst_predictions.csv`):
 
 ## See also
 
-Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v05_interface/analysis/plots/sk_vs_alignn.png` and `slakonet/slako_v05_interface/analysis/plots/confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v05_interface/analysis/csv/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.
+Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v05_interface/analysis/plots/sk_vs_alignn.png` and `slakonet/slako_v05_interface/analysis/plots/confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v05_interface/analysis/csv/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`.

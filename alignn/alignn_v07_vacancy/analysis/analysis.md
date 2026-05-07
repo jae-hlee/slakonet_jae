@@ -56,4 +56,4 @@ The full root-cause analysis of SK's failure mode (open-shell TM compounds + ion
 
 - Cross-dataset SK-vs-ALIGNN narrative at `alignn/alignn_comprehensive_analysis/analysis.md`
 - SK-side root-cause analysis at `slakonet/slako_v03_alex/analysis/analysis.md`
-- Cross-dataset CSV at `slakonet/sk_vs_alignn_cross_dataset.csv`
+- Cross-dataset CSV at `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`

@@ -62,4 +62,4 @@ These are not failure-mode signals; they are confirmation that ALIGNN behaves co
 
 - Cross-dataset SK-vs-ALIGNN narrative at `alignn/alignn_comprehensive_analysis/analysis.md`
 - v07 vacancy_db (the cleanest in-the-wild illustration of SK's transition-metal failure mode, contrast with v08's clean agreement)
-- Cross-dataset CSV at `slakonet/sk_vs_alignn_cross_dataset.csv`
+- Cross-dataset CSV at `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`

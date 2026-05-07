@@ -145,7 +145,7 @@ This is the cleanest one-to-one cross-method view: same structures, same dataset
 | v04_cccbdb (molecules) | 1,324 | 3.928 | 5.291 | **-3.632** | 0.61 | 0% / 0.3% | 99.7% |
 | v11_alexwz (3D bulk hull, partial SK) | 6,781 | 1.084 | 2.068 | -0.314 | n/a | 64% / 54% | 72.2% |
 
-(Per-dataset plots: `slakonet/slako_v0*_*/analysis/plots/sk_vs_alignn.png` plus matching `confusion_sk_vs_alignn.png`. Cross-dataset CSV: `slakonet/sk_vs_alignn_cross_dataset.csv`. The v11 row above is from the three-way analysis on the matched 6,781 subset, not the SK-vs-ALIGNN-only run.)
+(Per-dataset plots: `slakonet/slako_v0*_*/analysis/plots/sk_vs_alignn.png` plus matching `confusion_sk_vs_alignn.png`. Cross-dataset CSV: `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`. The v11 row above is from the three-way analysis on the matched 6,781 subset, not the SK-vs-ALIGNN-only run.)
 
 ### Cross-cutting patterns
 
@@ -191,7 +191,7 @@ v05 interface_db's reference is `optb88vdw_bandgap` (OptB88vdW), **not** PBE. AL
 | 1D / 2D / slab / interface geometries | **OOD penalty**: ~3x worse MAE (0.47 to 0.53 eV) | v05 / v06 / v09 / v10 |
 | Isolated molecules | **Far OOD**: MAE 3.37 eV, -3.2 eV bias; sanity-bound only | v04 CCCBDB |
 | Tc-focused or vacancy-only datasets without DFT gap | **No parity comparison possible**; SK-vs-ALIGNN cross-check works | v07 (TM disagreement), v08 (clean baseline) |
-| SK vs ALIGNN cross-method (8 datasets) | **SK predicts ~30% more metals than ALIGNN** on most datasets; v07 / v10 are the biggest disagreements; v08 is the clean baseline | `slakonet/sk_vs_alignn_cross_dataset.csv` |
+| SK vs ALIGNN cross-method (8 datasets) | **SK predicts ~30% more metals than ALIGNN** on most datasets; v07 / v10 are the biggest disagreements; v08 is the clean baseline | `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv` |
 
 ## Figures
 
@@ -228,5 +228,5 @@ The three are not interchangeable: `== 0` and `<= 0.05` classify the *ground tru
 - `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/analysis.md` - SK vs three ALIGNN variants on the v03 paired set, including bootstrap CI on the headline MAEs.
 - `slakonet/slakonet_comprehensive_analysis/` - the SlakoNet counterpart to this directory (same column conventions in `csv/summary_table.csv`).
 - `slakonet/slako_v11_alexwz/analysis/` - three-way SK / ALIGNN / DFT comparison on v11.
-- `slakonet/sk_vs_alignn_cross_dataset.csv` - SK-vs-ALIGNN per-dataset cross-method comparisons.
+- `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv` - SK-vs-ALIGNN per-dataset cross-method comparisons.
 - `slakonet/slako_v03_alex/analysis/analysis.md` - SK-side error-mode analysis (the bar this writeup tries to clear on the ALIGNN side).

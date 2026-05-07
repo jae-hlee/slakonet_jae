@@ -77,4 +77,4 @@ Full table at `csv/per_element_mae.csv`; bar chart at `plots/per_element_mae.png
 
 ## See also
 
-Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v04_cccbdb/analysis/plots/sk_vs_alignn.png` and `slakonet/slako_v04_cccbdb/analysis/plots/confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v04_cccbdb/analysis/csv/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.
+Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v04_cccbdb/analysis/plots/sk_vs_alignn.png` and `slakonet/slako_v04_cccbdb/analysis/plots/confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v04_cccbdb/analysis/csv/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`.
