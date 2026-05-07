@@ -93,12 +93,6 @@ ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptl
 **vacancy_db and alex_supercon (cross-method comparison).** Both lack a DFT bandgap reference. On **vacancy_db** (N = 444 paired), SK predicts 91.2% metallic, ALIGNN 54.3%, with metal/gap agreement of 61.3% and SK-vs-ALIGNN MAE of 0.634 eV. The parity plot in `alignn/alignn_v07_vacancy/analysis/plots/sk_vs_alignn.png` shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV, the visual signature of SK's silent dropout on open-shell transition metals (full diagnosis in `slakonet/slako_v03_alex/analysis/analysis.md`). On **alex_supercon** (N = 4,827) both methods predict the candidates are metallic (97.3% SK / 93.5% ALIGNN), with 92.4% agreement and SK-vs-ALIGNN MAE of 0.04 eV; the high-Tc subset (Tc > 5 K, N = 704) is 95.3% predicted metallic by ALIGNN, passing the sanity check.
 
 **Functional-shift caveat for interface_db.** The reference is `optb88vdw_bandgap` (OptB88vdW), not PBE. ALIGNN predicts PBE. OptB88vdW typically gives slightly larger gaps than PBE for non-metals, so part of the +0.49 eV ALIGNN-over-DFT bias is the functional shift, not pure model error. 107 of 587 entries had negative OptB88vdW gaps (the documented interface SCF artifact) and were clipped to 0 before parity.
-
-### Compute venue
-
-- SlakoNet inference runs on Rockfish CPU (`parallel` partition, 48-core nodes). See `slakonet/job_template.sh`.
-- ALIGNN inference runs on atomgptlab CPU (`main` partition, 256-core / 500 GB nodes). See `alignn/job_template.sh`. Conda lives at `/data/$USER/miniforge3` on atomgptlab; `dgl` must be installed explicitly via `pip install dgl==1.1.3 -f https://data.dgl.ai/wheels/repo.html` since it is not a transitive dependency of `pip install alignn`.
-
 ## Headline ALIGNN vs SlakoNet (Alexandria PBE 3D, paired N = 31,211)
 
 From `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/`. Reference is Alexandria PBE indirect gap.
@@ -140,6 +134,11 @@ No dataset zips ship with the repo. Download each from the [atomgptlab JARVIS da
 | `slako_v08_supercon`                                                        | `alex_supercon.json.zip`                                     |
 | `slako_v09_1d`                                                              | `alexandria_pbe_1d_2024.10.1_jarvis_tools.json.zip`          |
 | `slako_v10_2d`                                                              | `alexandria_pbe_2d_2024.10.1_jarvis_tools.json.zip`          |
+
+### Compute venue
+
+- SlakoNet inference runs on Rockfish CPU (`parallel` partition, 48-core nodes). See `slakonet/job_template.sh`.
+- ALIGNN inference runs on atomgptlab CPU (`main` partition, 256-core / 500 GB nodes). See `alignn/job_template.sh`. Conda lives at `/data/$USER/miniforge3` on atomgptlab; `dgl` must be installed explicitly via `pip install dgl==1.1.3 -f https://data.dgl.ai/wheels/repo.html` since it is not a transitive dependency of `pip install alignn`.
 
 ### Analysis
 
