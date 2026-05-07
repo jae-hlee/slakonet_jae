@@ -65,7 +65,7 @@ insulators** (Mott insulators, antiferromagnets) — MnO, CrO₂, NiO, FeO, CoO
 families. In reality they open a gap via **spin polarization** (and often
 need a Hubbard *U*). PBE captures this because it's spin-polarized.
 
-SlakoNet's inference call in `jslako_v3.py:47-56` runs a **single
+SlakoNet's inference call runs a **single
 non-spin-polarized calculation** — the returned DOS has no spin index. Without
 spin splitting, partially filled d-manifolds are required by symmetry to sit
 degenerate at E_F, producing a metallic DOS. The extreme Mn enrichment (45.5×)
