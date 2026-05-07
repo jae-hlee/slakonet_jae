@@ -22,7 +22,7 @@ Reference: DFT PBE `band_gap_ind` from Alexandria. Metal/gap split at 0.05 eV.
 
 ## Worst predictions
 
-Top 20 entries by absolute residual (full table at `worst_predictions.csv`):
+Top 20 entries by absolute residual (full table at `csv/worst_predictions.csv`):
 
 | id | formula | band_gap_ind | alignn_bandgap | residual | e_form |
 | --- | --- | --- | --- | --- | --- |
@@ -59,11 +59,11 @@ Entries containing each element (compositions overlap; the same entry appears un
 | Sr | 1,648 | 0.674 | 0.365 |
 | Ca | 1,810 | 0.672 | 0.370 |
 
-Full table at `per_element_mae.csv`; bar chart at `per_element_mae.png`.
+Full table at `csv/per_element_mae.csv`; bar chart at `plots/per_element_mae.png`.
 
 ## Error vs formation energy
 
-Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.344**. Negative: less stable structures have smaller error (often because they trend metallic in DFT and ALIGNN agrees). Plot at `error_vs_eform.png`.
+Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.344**. Negative: less stable structures have smaller error (often because they trend metallic in DFT and ALIGNN agrees). Plot at `plots/error_vs_eform.png`.
 
 ## Caveats
 
@@ -71,13 +71,13 @@ Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.344**. Negative: l
 
 ## Files
 
-- `parity_all.png`, `parity_metals.png`, `parity_nonmetals.png` (stratified parity + residual panels)
-- `worst_predictions.csv` (top 20 by absolute residual)
-- `stratified_metrics.csv` (the all/metals/non-metals MAE table above)
-- `per_element_mae.csv`, `per_element_mae.png`
-- `error_vs_eform.png`
-- existing: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`, `summary.md`
+- `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png` (stratified parity + residual panels)
+- `csv/worst_predictions.csv` (top 20 by absolute residual)
+- `csv/stratified_metrics.csv` (the all/metals/non-metals MAE table above)
+- `csv/per_element_mae.csv`, `plots/per_element_mae.png`
+- `plots/error_vs_eform.png`
+- existing: `plots/parity.png`, `plots/confusion.png`, `plots/distribution.png`, `csv/metrics.csv`, `summary.md`
 
 ## See also
 
-Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v10_2d/analysis/sk_vs_alignn.png` and `confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v10_2d/analysis/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.
+Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v10_2d/analysis/plots/sk_vs_alignn.png` and `slakonet/slako_v10_2d/analysis/plots/confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v10_2d/analysis/csv/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.

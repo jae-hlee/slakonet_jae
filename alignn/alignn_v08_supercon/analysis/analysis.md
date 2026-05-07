@@ -51,15 +51,15 @@ These are not failure-mode signals; they are confirmation that ALIGNN behaves co
 
 ## Files
 
-- `sk_vs_alignn.png`: SK-vs-ALIGNN parity + residual histogram (with N/MAE/RMSE/ME annotations)
-- `confusion_sk_vs_alignn.png`: 2x2 metal/gap classification (SK reference, ALIGNN prediction)
-- `distribution.png`: ALIGNN bandgap distribution
-- `alignn_vs_supercon.png`: ALIGNN gap vs Tc / DOS(Ef) / lambda
-- `metrics.csv`: full metric table
+- `plots/sk_vs_alignn.png`: SK-vs-ALIGNN parity + residual histogram (with N/MAE/RMSE/ME annotations)
+- `plots/confusion_sk_vs_alignn.png`: 2x2 metal/gap classification (SK reference, ALIGNN prediction)
+- `plots/distribution.png`: ALIGNN bandgap distribution
+- `plots/alignn_vs_supercon.png`: ALIGNN gap vs Tc / DOS(Ef) / lambda
+- `csv/metrics.csv`: full metric table
 - `summary.md`: shorter at-a-glance writeup
 
 ## See also
 
-- Cross-dataset SK-vs-ALIGNN narrative at `alignn/analysis.md`
+- Cross-dataset SK-vs-ALIGNN narrative at `alignn/alignn_comprehensive_analysis/analysis.md`
 - v07 vacancy_db (the cleanest in-the-wild illustration of SK's transition-metal failure mode, contrast with v08's clean agreement)
 - Cross-dataset CSV at `slakonet/sk_vs_alignn_cross_dataset.csv`

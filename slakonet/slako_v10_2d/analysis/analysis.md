@@ -43,7 +43,7 @@ This is not a stochastic runtime pattern:
 - `gpu_worker` silently swallows the exception (per root CLAUDE.md), so the
   structures vanish instead of erroring out loudly.
 
-SlakoNet's `ALLOWED_SYMBOLS` in `jslako_v10.py` passes these elements through the
+SlakoNet's `ALLOWED_SYMBOLS` in `../jslako_v10.py` passes these elements through the
 filter because `generate_shell_dict_upto_Z65()` nominally produces a shell dict
 for them, but the actual inference pipeline cannot handle the 4f shell — basis
 or parameter coverage does not extend to open-shell f-electron chemistry.
@@ -75,7 +75,7 @@ noble gases (monatomic / rare-gas molecular species). The two walls —
 lanthanide 4f and noble-gas chemistry — explain essentially all silent
 dropout across the repo.
 
-The 8,000 v10 IDs are saved in `analysis/missing_ids.txt`.
+The 8,000 v10 IDs are saved in (missing-id list previously at `analysis/missing_ids.txt`, since removed).
 
 ## Headline metrics (N = 79,903)
 
@@ -132,22 +132,22 @@ non-metals (see below) and a handful of extreme outliers (MaxErr ≈ 21 eV).
 
 ## Plot catalog
 
-- **`parity_all.png` / `parity_nonmetals.png`** — density-colored SlakoNet vs
+- **`plots/parity_all.png` / `plots/parity_nonmetals.png`** — density-colored SlakoNet vs
   PBE (indirect + direct), with and without the PBE-metal rows. You can see a
   diagonal y=x cluster plus a clear horizontal band at SK ≈ 0 that contains
   most of the non-metal misses.
-- **`residuals_all.png` / `residuals_nonmetals.png`** — SK − PBE histograms.
+- **`plots/residuals_all.png` / `plots/residuals_nonmetals.png`** — SK − PBE histograms.
   The non-metal plot is explicitly split into "SK > 0.1 eV" (working mode,
   centered near zero) and "SK ≤ 0.1 eV" (broken mode, large negative bias).
-- **`confusion_matrix.png`** — metal / non-metal at the 0.1 eV threshold.
-- **`gap_distribution.png`** — PBE vs SlakoNet gap histograms (both normalized).
-- **`error_vs_eform.png`** — |SK − PBE| vs formation energy, colored by PBE gap.
+- **`plots/confusion_matrix.png`** — metal / non-metal at the 0.1 eV threshold.
+- **`plots/gap_distribution.png`** — PBE vs SlakoNet gap histograms (both normalized).
+- **`plots/error_vs_eform.png`** — |SK − PBE| vs formation energy, colored by PBE gap.
   Useful for seeing whether high-error outliers correlate with high-`e_form`
   (i.e. likely unstable) 2D phases.
-- **`dos_average.png`** — averaged SlakoNet DOS, split by PBE metal vs
+- **`plots/dos_average.png`** — averaged SlakoNet DOS, split by PBE metal vs
   non-metal. Confirms that metals have meaningful DOS at E_F and non-metals
   have a clear gap.
-- **`dos_examples.png`** — three individual DOS curves (one metal, one
+- **`plots/dos_examples.png`** — three individual DOS curves (one metal, one
   ~1 eV semiconductor, one ~4 eV wide-gap insulator) with formula and ID.
 
 ## Outputs
@@ -167,9 +167,9 @@ residuals_all.png
 residuals_nonmetals.png
 ```
 
-`summary.csv` has a `sk_bandgap_eV` column, so the local cross-dataset
+`csv/summary.csv` has a `sk_bandgap_eV` column, so the local cross-dataset
 aggregator's v10 stub loader picks it up automatically on the next run.
 
 ## Reproducing
 
-The plots, `stats.txt`, and `summary.csv` in this directory are pre-built. The original analysis script is no longer kept in the repo; outputs were generated from a cumulative `results/all_results.json` (built locally via `aggregate_results.py` when per-id JSONs were present). Peak memory during the original run stayed under ~2 GB by streaming the JSON.
+The plots, `csv/stats.txt`, and `csv/summary.csv` in this directory are pre-built. The original analysis script is no longer kept in the repo; outputs were generated from a cumulative the per-id JSONs in `results/` (gitignored) (built locally via `aggregate_results.py` when per-id JSONs were present). Peak memory during the original run stayed under ~2 GB by streaming the JSON.

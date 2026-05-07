@@ -22,7 +22,7 @@ Reference: molecular HOMO-LUMO gap (Hartree -> eV via x27.2114). Metal/gap split
 
 ## Worst predictions
 
-Top 20 entries by absolute residual (full table at `worst_predictions.csv`):
+Top 20 entries by absolute residual (full table at `csv/worst_predictions.csv`):
 
 | jid | species | homo_lumo_gap_eV | alignn_bandgap | residual |
 | --- | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ Entries containing each element (compositions overlap; the same entry appears un
 | B | 48 | 2.626 | 2.296 |
 | Zn | 13 | 2.618 | 3.248 |
 
-Full table at `per_element_mae.csv`; bar chart at `per_element_mae.png`.
+Full table at `csv/per_element_mae.csv`; bar chart at `plots/per_element_mae.png`.
 
 ## Caveats
 
@@ -69,12 +69,12 @@ Full table at `per_element_mae.csv`; bar chart at `per_element_mae.png`.
 
 ## Files
 
-- `parity_all.png`, `parity_metals.png`, `parity_nonmetals.png` (stratified parity + residual panels)
-- `worst_predictions.csv` (top 20 by absolute residual)
-- `stratified_metrics.csv` (the all/metals/non-metals MAE table above)
-- `per_element_mae.csv`, `per_element_mae.png`
-- existing: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`, `summary.md`
+- `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png` (stratified parity + residual panels)
+- `csv/worst_predictions.csv` (top 20 by absolute residual)
+- `csv/stratified_metrics.csv` (the all/metals/non-metals MAE table above)
+- `csv/per_element_mae.csv`, `plots/per_element_mae.png`
+- existing: `plots/parity.png`, `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png`, `plots/distribution.png`, `plots/per_element_mae.png`, `csv/metrics.csv`, `summary.md`
 
 ## See also
 
-Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v04_cccbdb/analysis/sk_vs_alignn.png` and `confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v04_cccbdb/analysis/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.
+Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v04_cccbdb/analysis/plots/sk_vs_alignn.png` and `slakonet/slako_v04_cccbdb/analysis/plots/confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v04_cccbdb/analysis/csv/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.

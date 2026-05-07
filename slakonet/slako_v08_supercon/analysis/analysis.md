@@ -22,7 +22,7 @@ superconductors, so the implicit reference is "metallic" (gap ≈ 0).
 
 ## Run
 
-`jslako_v08.py` on 4 GPUs, ~4h 12m wall.
+`../jslako_v08.py` on 4 GPUs, ~4h 12m wall.
 
 | | count |
 |---|---|
@@ -48,7 +48,7 @@ Median gap 3.5 meV. The 0.5% with gap > 1 eV (e.g. agm002224543 = 2.89 eV) all
 have Tc ≈ 0 in the source — SlakoNet is correctly flagging them as
 non-superconducting outliers in the screening list.
 
-See `distributions.png`, `tc_metallic_vs_gapped.png`.
+See `plots/distributions.png`, `plots/tc_metallic_vs_gapped.png`.
 
 ## Tc descriptor correlations
 
@@ -66,7 +66,7 @@ expects (Spearman ρ vs Tc):
 SlakoNet bandgap → Tc is weakly negative (ρ = −0.18): tiny gaps go with
 slightly higher Tc, consistent with metallicity.
 
-See `sk_vs_super_descriptors.png`.
+See `plots/sk_vs_super_descriptors.png`.
 
 ## SlakoNet dos(Ef) vs DFT dos(Ef) — MAE
 
@@ -84,7 +84,7 @@ SlakoNet's dos(Ef) is read off the saved DOS by linear interpolation at E = 0
 | Pearson r     | +0.69           |
 | best-fit slope through origin | **0.63** |
 
-Plot: `mae_dosef.png` (parity hexbin + residual histogram + MAE binned by DFT
+Plot: `plots/mae_dosef.png` (parity hexbin + residual histogram + MAE binned by DFT
 dos(Ef)).
 
 The slope ≈ 0.63 (not 1.0, not 0.5) rules out a clean spin-counting unit
@@ -112,7 +112,7 @@ DFT dos(Ef) of the subset — i.e. structures that *tend* to have high DOS get
 under-predicted more in absolute terms.
 
 Combined with the slope = 0.63, this is a **global multiplicative
-under-binding** signature, not chemistry-specific. Plot: `mae_by_element.png`.
+under-binding** signature, not chemistry-specific. Plot: `plots/mae_by_element.png`.
 
 ## Hypothesis: hardcoded Gaussian broadening
 
@@ -141,7 +141,7 @@ no clean external override.
 The σ-sensitivity sweep (script and outputs are kept local-only) did
 the following:
 
-1. Re-derived the 30 worst-bias structures from `results/all_results.json`.
+1. Re-derived the 30 worst-bias structures from the per-id JSONs in `results/` (gitignored).
 2. Monkey-patched `SimpleDftb.calculate_dos` to force σ ∈ {0.02, 0.05, 0.10,
    0.20, 0.40} eV (0.10 reproduces the baseline).
 3. Re-ran SlakoNet at each σ.
@@ -163,10 +163,10 @@ all future dos(Ef) analyses exact and one-line.
 
 | file | what |
 |---|---|
-| `distributions.png`            | histograms of gap, Tc, dos(Ef), λ, Θ_D, wlog |
-| `sk_vs_super_descriptors.png`  | scatter: gap vs Tc, gap vs DFT dos(Ef) |
-| `tc_metallic_vs_gapped.png`    | Tc distribution split by SlakoNet metallicity |
-| `dos_average.png`              | average SlakoNet DOS, low-Tc vs high-Tc |
-| `mae_dosef.png`                | parity, residual histogram, MAE vs DFT bin |
-| `mae_by_element.png`           | per-element bias and MAE bar charts |
-| `summary.csv`                  | one row per structure, all scalar fields |
+| `plots/distributions.png`            | histograms of gap, Tc, dos(Ef), λ, Θ_D, wlog |
+| `plots/sk_vs_super_descriptors.png`  | scatter: gap vs Tc, gap vs DFT dos(Ef) |
+| `plots/tc_metallic_vs_gapped.png`    | Tc distribution split by SlakoNet metallicity |
+| `plots/dos_average.png`              | average SlakoNet DOS, low-Tc vs high-Tc |
+| `plots/mae_dosef.png`                | parity, residual histogram, MAE vs DFT bin |
+| `plots/mae_by_element.png`           | per-element bias and MAE bar charts |
+| `csv/summary.csv`                  | one row per structure, all scalar fields |

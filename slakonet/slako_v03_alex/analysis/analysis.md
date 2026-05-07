@@ -2,9 +2,9 @@
 
 ## Motivating question
 
-The confusion matrix (`analysis/confusion_matrix.png`) shows **4,909 PBE non-metals
+The confusion matrix (`plots/confusion_matrix.png`) shows **4,909 PBE non-metals
 predicted as metals** by SlakoNet, while the non-metal residual histogram
-(`analysis/residual_histogram_nonmetals.png`) shows that SlakoNet **overestimates**
+(`plots/residual_histogram_nonmetals.png`) shows that SlakoNet **overestimates**
 the band gap on average. These appear contradictory: if SlakoNet overshoots gaps,
 how can it be turning 4,909 non-metals into metals?
 
@@ -31,7 +31,7 @@ readings happen on hot and cold days alike.
 ## Root cause: E_F is placed *inside* a band, not in the gap
 
 The average SlakoNet DOS comparison
-(`analysis/failure_dos_comparison.png`) is the smoking gun:
+(`plots/failure_dos_comparison.png`) is the smoking gun:
 
 - **Failing non-metals**: sharp DOS spike (~14 arb.) right at E_F
 - **Working non-metals**: proper dip at E_F (~5 arb.)
@@ -211,8 +211,8 @@ are not "timeouts / prep failures" and should not be re-run via
 17,553) contain an f-block lanthanide (Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb)**,
 the remaining 19 contain a noble gas, and only 5 are truly unexplained.
 Zero completed structures contain any of those elements. This is the same
-deterministic 4f-shell wall documented in `../slako_v09_1d/analysis/analysis.md`
-and `../slako_v10_2d/analysis/analysis.md`: `generate_shell_dict_upto_Z65()`
+deterministic 4f-shell wall documented in `../../slako_v09_1d/analysis/analysis.md`
+and `../../slako_v10_2d/analysis/analysis.md`: `generate_shell_dict_upto_Z65()`
 nominally produces a shell dict for those elements so the `ALLOWED_SYMBOLS`
 filter passes them, but `model.compute_multi_element_properties(...)` throws
 inside `gpu_worker`, which silently swallows the exception. **Effective
@@ -269,12 +269,12 @@ zero-gap tendency is accidentally correct.
 
 ### Figures (ALIGNN cross-check)
 
-- `analysis/parity_three_way.png` — PBE vs SK, PBE vs ALIGNN, SK vs ALIGNN
-- `analysis/parity_three_way_nonmetals.png` — same, non-metals only
-- `analysis/residuals_sk_vs_alignn.png` — residual histograms side-by-side
-- `analysis/confusion_sk_vs_alignn.png` — confusion matrices side-by-side
-- `analysis/head_to_head_error.png` — per-structure |error| scatter
-- `analysis/gap_distribution_alignn.png` — PBE vs SK vs ALIGNN densities
+- `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/parity_three_way.png` — PBE vs SK, PBE vs ALIGNN, SK vs ALIGNN
+- `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/parity_three_way_nonmetals.png` — same, non-metals only
+-  — residual histograms side-by-side
+-  — confusion matrices side-by-side
+- `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/head_to_head_error.png` — per-structure |error| scatter
+-  — PBE vs SK vs ALIGNN densities
 
 ## Implications for the dataset
 
@@ -288,7 +288,7 @@ zero-gap tendency is accidentally correct.
    in the current release as a workaround. A practical alternative is to
    substitute `alignn_bandgap` for these problematic compositions — ALIGNN
    handles both failure modes and is available per structure in
-   `results/alignn_predictions.json`.
+   `results/alignn_predictions.json` (gitignored, kept local).
 
 3. **The "PBE metal" subset appears trustworthy** at the aggregate level
    (see verification above), so the 14,715 TN count is not materially
@@ -320,9 +320,9 @@ zero-gap tendency is accidentally correct.
 
 ## Figures referenced
 
-- `analysis/confusion_matrix.png` — original 2×2 metal/non-metal matrix
-- `analysis/residual_histogram_nonmetals.png` — SK − PBE gap distribution, non-metals
-- `analysis/false_negatives_diagnosis.png` — PBE gap and SK gap of the 4,909 failing structures
-- `analysis/failure_dos_comparison.png` — average SlakoNet DOS, failing vs working non-metals
-- `analysis/failure_structural.png` — atom-count and formation-energy distributions
+- `plots/confusion_matrix.png` — original 2×2 metal/non-metal matrix
+- `plots/residual_histogram_nonmetals.png` — SK − PBE gap distribution, non-metals
+- `plots/false_negatives_diagnosis.png` — PBE gap and SK gap of the 4,909 failing structures
+- `plots/failure_dos_comparison.png` — average SlakoNet DOS, failing vs working non-metals
+- `plots/failure_structural.png` — atom-count and formation-energy distributions
 

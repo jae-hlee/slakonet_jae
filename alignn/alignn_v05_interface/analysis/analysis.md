@@ -22,7 +22,7 @@ Reference: OptB88vdW bandgap (clipped at 0). Metal/gap split at 0.05 eV.
 
 ## Worst predictions
 
-Top 20 entries by absolute residual (full table at `worst_predictions.csv`):
+Top 20 entries by absolute residual (full table at `csv/worst_predictions.csv`):
 
 | jid | formula | optb88vdw_bandgap_clipped | alignn_bandgap | residual |
 | --- | --- | --- | --- | --- |
@@ -45,11 +45,11 @@ Top 20 entries by absolute residual (full table at `worst_predictions.csv`):
 
 ## Files
 
-- `parity_all.png`, `parity_metals.png`, `parity_nonmetals.png` (stratified parity + residual panels)
-- `worst_predictions.csv` (top 20 by absolute residual)
-- `stratified_metrics.csv` (the all/metals/non-metals MAE table above)
-- existing: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`, `summary.md`
+- `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png` (stratified parity + residual panels)
+- `csv/worst_predictions.csv` (top 20 by absolute residual)
+- `csv/stratified_metrics.csv` (the all/metals/non-metals MAE table above)
+- existing: `plots/parity.png`, `plots/confusion.png`, `plots/distribution.png`, `csv/metrics.csv`, `summary.md`
 
 ## See also
 
-Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v05_interface/analysis/sk_vs_alignn.png` and `confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v05_interface/analysis/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.
+Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v05_interface/analysis/plots/sk_vs_alignn.png` and `slakonet/slako_v05_interface/analysis/plots/confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v05_interface/analysis/csv/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.

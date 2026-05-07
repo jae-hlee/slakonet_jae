@@ -22,7 +22,7 @@ Reference handling: this dataset has no DFT bandgap field. The deep analysis her
 
 ## What this dataset shows: SK's transition-metal failure mode in the wild
 
-This is the cleanest illustration of SlakoNet's documented transition-metal failure mode anywhere in the repo. SlakoNet predicts 91.2% of these defective supercells as metallic; ALIGNN predicts only 54.3% as metallic on the same 444 structures. The parity plot (`sk_vs_alignn.png`) shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV.
+This is the cleanest illustration of SlakoNet's documented transition-metal failure mode anywhere in the repo. SlakoNet predicts 91.2% of these defective supercells as metallic; ALIGNN predicts only 54.3% as metallic on the same 444 structures. The parity plot (`plots/sk_vs_alignn.png`) shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV.
 
 Interpretation:
 - v07 is dominated by transition-metal vacancies (Cu, V, Co, etc.) where SK's tight-binding parameters and its lack of spin polarization produce ~zero gap regardless of the true band structure.
@@ -34,7 +34,7 @@ The full root-cause analysis of SK's failure mode (open-shell TM compounds + ion
 ## ALIGNN-side observations
 
 - ALIGNN gap mean / std: 0.730 / 1.413 eV. Distribution is bimodal: 56% of entries predicted metallic (gap ≤ 0.05 eV), the rest spread 0.05 to 6 eV.
-- Pearson(ALIGNN gap, formation energy `ef`) = 0.367. Modest positive correlation: defective cells with higher formation energy tend to have higher predicted gaps. Plot: `alignn_vs_ef.png`.
+- Pearson(ALIGNN gap, formation energy `ef`) = 0.367. Modest positive correlation: defective cells with higher formation energy tend to have higher predicted gaps. Plot: `plots/alignn_vs_ef.png`.
 - No DFT bandgap available, so no parity test against ground truth. The SK-vs-ALIGNN comparison above is the cross-method substitute.
 
 ## Caveats
@@ -45,15 +45,15 @@ The full root-cause analysis of SK's failure mode (open-shell TM compounds + ion
 
 ## Files
 
-- `sk_vs_alignn.png`: SK-vs-ALIGNN parity + residual histogram (with N/MAE/RMSE/ME annotations)
-- `confusion_sk_vs_alignn.png`: 2x2 metal/gap classification (SK reference, ALIGNN prediction)
-- `distribution.png`: ALIGNN bandgap distribution
-- `alignn_vs_ef.png`: ALIGNN bandgap vs formation energy
-- `metrics.csv`: full metric table
+- `plots/sk_vs_alignn.png`: SK-vs-ALIGNN parity + residual histogram (with N/MAE/RMSE/ME annotations)
+- `plots/confusion_sk_vs_alignn.png`: 2x2 metal/gap classification (SK reference, ALIGNN prediction)
+- `plots/distribution.png`: ALIGNN bandgap distribution
+- `plots/alignn_vs_ef.png`: ALIGNN bandgap vs formation energy
+- `csv/metrics.csv`: full metric table
 - `summary.md`: shorter at-a-glance writeup
 
 ## See also
 
-- Cross-dataset SK-vs-ALIGNN narrative at `alignn/analysis.md`
+- Cross-dataset SK-vs-ALIGNN narrative at `alignn/alignn_comprehensive_analysis/analysis.md`
 - SK-side root-cause analysis at `slakonet/slako_v03_alex/analysis/analysis.md`
 - Cross-dataset CSV at `slakonet/sk_vs_alignn_cross_dataset.csv`

@@ -1,0 +1,55 @@
+{
+  "config": {
+    "B": 1000,
+    "seed": 42,
+    "method": "non-parametric percentile bootstrap on per-structure rows",
+    "N": 31211
+  },
+  "point_estimates": {
+    "SlakoNet": {
+      "all": 0.9299335575968364,
+      "non_metal": 1.7810360740740918,
+      "metal": 0.02405739547288704
+    },
+    "ALIGNN-PBE": {
+      "all": 0.19278514297240004,
+      "non_metal": 0.27390063231619005,
+      "metal": 0.10644937641903875
+    },
+    "ALIGNN-mBJ": {
+      "all": 0.7519132126904323,
+      "non_metal": 1.2359442520442514,
+      "metal": 0.23673181939182422
+    },
+    "ALIGNN-OptB88vdW": {
+      "all": 0.35395874112339226,
+      "non_metal": 0.6020406330979758,
+      "metal": 0.08991126406439374
+    }
+  },
+  "ci_95_half_width": {
+    "SlakoNet": {
+      "all": 0.015721041107603417,
+      "non_metal": 0.023352141310660213,
+      "metal": 0.0025450723456817027
+    },
+    "ALIGNN-PBE": {
+      "all": 0.004705924137080611,
+      "non_metal": 0.00630912625921104,
+      "metal": 0.006776175573621555
+    },
+    "ALIGNN-mBJ": {
+      "all": 0.013281530926628482,
+      "non_metal": 0.015442609382713912,
+      "metal": 0.019797226246224903
+    },
+    "ALIGNN-OptB88vdW": {
+      "all": 0.007224265343345276,
+      "non_metal": 0.011315456190574391,
+      "metal": 0.006619373603270223
+    }
+  },
+  "ranking_stability": {
+    "ALIGNN-PBE < ALIGNN-OptB88vdW < ALIGNN-mBJ < SlakoNet": 1000
+  }
+}

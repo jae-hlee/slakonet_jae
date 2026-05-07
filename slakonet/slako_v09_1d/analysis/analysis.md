@@ -44,8 +44,8 @@ every subset — expected, since SlakoNet returns one scalar.
 
 The cross-dataset aggregator reports Pearson **r = 0.88** for the full set,
 so the *trend* is captured well even though the regression R² goes negative
-once the population mean is the comparison baseline. See `parity_all.png` and
-`parity_nonmetals.png`.
+once the population mean is the comparison baseline. See `plots/parity_all.png` and
+`plots/parity_nonmetals.png`.
 
 ## Metal / non-metal classification
 
@@ -61,7 +61,7 @@ SK threshold = 0.1 eV.
   gap median 0.26 eV (mean 0.53, max 4.36 eV)
 - False positives (PBE metal predicted non-metal by SK): 817
 
-See `confusion_matrix.png`.
+See `plots/confusion_matrix.png`.
 
 ## Key observations
 
@@ -70,7 +70,7 @@ See `confusion_matrix.png`.
    that SlakoNet collapses to ~0. Likely culprits are the missing spin
    polarization (open-shell transition-metal cations) and weak SK parameters
    for ionic / fluoride chemistries — see
-   `../slako_v03_alex/analysis/analysis.md` for the detailed write-up.
+   `../../slako_v03_alex/analysis/analysis.md` for the detailed write-up.
 2. **Wider non-metal spread than 3D.** Non-metal MAE is 1.42 eV (3D was
    1.78 eV in the paired ALIGNN comparison). RMSE 2.07 eV is dominated by a
    long tail of SK-overestimated insulators reaching 21 eV.
@@ -78,13 +78,13 @@ See `confusion_matrix.png`.
    correctly; the negative R² says the absolute scale is off and a constant
    "predict the population mean" baseline beats the regressor on
    sum-of-squares. Useful signal for screening, not for absolute gaps.
-4. **No obvious correlation with formation energy.** `error_vs_eform.png`
+4. **No obvious correlation with formation energy.** `plots/error_vs_eform.png`
    shows the SK − PBE residual is roughly flat in `e_form`, so the error is
    not concentrated on stable / unstable structures.
-5. **DOS quality.** Averaged DOS (`dos_average.png`) matches the expected
+5. **DOS quality.** Averaged DOS (`plots/dos_average.png`) matches the expected
    quasi-1D shape — sharp peaks at the band edges either side of E_F. Per-
    structure examples at the 10/50/90th SK-gap percentiles
-   (`dos_examples.png`) are qualitatively sensible.
+   (`plots/dos_examples.png`) are qualitatively sensible.
 
 ## Interpretation
 
@@ -120,7 +120,7 @@ the v10 2D list):
 | Ce | 58 |  7.9% | 0.0% |
 
 This is the same deterministic 4f-shell wall documented in
-`../slako_v10_2d/analysis/analysis.md`: `generate_shell_dict_upto_Z65()`
+`../../slako_v10_2d/analysis/analysis.md`: `generate_shell_dict_upto_Z65()`
 nominally produces a shell dict for these elements, so the `ALLOWED_SYMBOLS`
 filter lets them through, but inference fails inside
 `model.compute_multi_element_properties(...)` and `gpu_worker` silently
@@ -134,13 +134,13 @@ Implication: reruns / sister projects should drop Ce–Tb from
 
 ## Artifacts in this directory
 
-- `parity_all.png` / `parity_nonmetals.png` — density scatter, SK vs PBE
-- `residuals_all.png` / `residuals_nonmetals.png` — SK − PBE residual densities
-- `gap_distribution.png` — SK and PBE gap histograms overlaid
-- `confusion_matrix.png` — metal / non-metal classification at 0.1 eV threshold
-- `error_vs_eform.png` — residual vs formation energy
-- `dos_average.png` — mean Fermi-aligned DOS
-- `dos_examples.png` — representative DOS at 10/50/90th SK-gap percentiles
-- `summary.csv` — per-structure scalars: id, formula, nsites, spg, e_form,
+- `plots/parity_all.png` / `plots/parity_nonmetals.png` — density scatter, SK vs PBE
+- `plots/residuals_all.png` / `plots/residuals_nonmetals.png` — SK − PBE residual densities
+- `plots/gap_distribution.png` — SK and PBE gap histograms overlaid
+- `plots/confusion_matrix.png` — metal / non-metal classification at 0.1 eV threshold
+- `plots/error_vs_eform.png` — residual vs formation energy
+- `plots/dos_average.png` — mean Fermi-aligned DOS
+- `plots/dos_examples.png` — representative DOS at 10/50/90th SK-gap percentiles
+- `csv/summary.csv` — per-structure scalars: id, formula, nsites, spg, e_form,
   PBE indirect / direct gaps, PBE DOS(E_F), SlakoNet gap
-- `stats.txt` — raw headline numbers used to build this write-up
+- `csv/stats.txt` — raw headline numbers used to build this write-up

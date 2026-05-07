@@ -22,7 +22,7 @@ Reference: DFT PBE `band_gap_ind` from Alexandria. Metal/gap split at 0.05 eV.
 
 ## Worst predictions
 
-Top 20 entries by absolute residual (full table at `worst_predictions.csv`):
+Top 20 entries by absolute residual (full table at `csv/worst_predictions.csv`):
 
 | mat_id | formula | band_gap_ind | alignn_bandgap | residual | e_form |
 | --- | --- | --- | --- | --- | --- |
@@ -59,11 +59,11 @@ Entries containing each element (compositions overlap; the same entry appears un
 | Ba | 4,930 | 0.300 | 0.060 |
 | S | 8,093 | 0.277 | 0.076 |
 
-Full table at `per_element_mae.csv`; bar chart at `per_element_mae.png`.
+Full table at `csv/per_element_mae.csv`; bar chart at `plots/per_element_mae.png`.
 
 ## Error vs formation energy
 
-Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.333**. Negative: less stable structures have smaller error (often because they trend metallic in DFT and ALIGNN agrees). Plot at `error_vs_eform.png`.
+Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.333**. Negative: less stable structures have smaller error (often because they trend metallic in DFT and ALIGNN agrees). Plot at `plots/error_vs_eform.png`.
 
 ## Caveats
 
@@ -72,9 +72,9 @@ Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.333**. Negative: l
 
 ## Files
 
-- `parity_all.png`, `parity_metals.png`, `parity_nonmetals.png` (stratified parity + residual panels)
-- `worst_predictions.csv` (top 20 by absolute residual)
-- `stratified_metrics.csv` (the all/metals/non-metals MAE table above)
-- `per_element_mae.csv`, `per_element_mae.png`
-- `error_vs_eform.png`
-- existing: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`, `summary.md`
+- `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png` (stratified parity + residual panels)
+- `csv/worst_predictions.csv` (top 20 by absolute residual)
+- `csv/stratified_metrics.csv` (the all/metals/non-metals MAE table above)
+- `csv/per_element_mae.csv`, `plots/per_element_mae.png`
+- `plots/error_vs_eform.png`
+- existing: `plots/parity.png`, `plots/confusion.png`, `plots/distribution.png`, `csv/metrics.csv`, `summary.md`

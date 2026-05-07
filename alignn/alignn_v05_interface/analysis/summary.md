@@ -9,4 +9,4 @@
 - **Confusion (metal/gap, threshold 0.05 eV), TN/FP/FN/TP**: 12,131,4,440
 - **Accuracy**: 77.002%
 - **Caveat**: ALIGNN predicts PBE; reference is OptB88vdW. The two functionals differ on bandgap (OptB88vdW is typically larger than PBE for most materials), so part of the ME is the functional shift, not pure model error.
-- **Files**: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`
+- **Files**: `plots/parity.png`, `plots/confusion.png`, `plots/distribution.png`, `csv/metrics.csv`

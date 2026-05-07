@@ -12,7 +12,7 @@ Matched subset of 6,781 entries (SK 7,547 of 115,535 hull entries; 766 SK inf va
 
 ## Files
 
-- `parity_dft_vs_sk.png`, `parity_dft_vs_alignn.png`, `parity_sk_vs_alignn.png`
-- `confusion_grid.png`: 1x3 panel for the three pairwise metal/gap classifications
-- `distribution_overlay.png`: histogram overlay of the three methods on the matched set
-- `metrics.csv`, `matched_predictions.csv`
+- `plots/parity_dft_vs_sk.png`, `plots/parity_dft_vs_alignn.png`, `plots/parity_sk_vs_alignn.png`
+- `plots/confusion_grid.png`: 1x3 panel for the three pairwise metal/gap classifications
+- `plots/distribution_overlay.png`: histogram overlay of the three methods on the matched set
+- `csv/metrics.csv`, `csv/matched_predictions.csv`

@@ -22,7 +22,7 @@ Reference: max(surf_cbm - surf_vbm, 0) (PBE slab edges). Metal/gap split at 0.05
 
 ## Worst predictions
 
-Top 20 entries by absolute residual (full table at `worst_predictions.csv`):
+Top 20 entries by absolute residual (full table at `csv/worst_predictions.csv`):
 
 | name | formula | surf_gap_clipped | alignn_bandgap | residual |
 | --- | --- | --- | --- | --- |
@@ -59,21 +59,21 @@ Entries containing each element (compositions overlap; the same entry appears un
 | P | 42 | 0.554 | 0.302 |
 | Li | 37 | 0.534 | 0.326 |
 
-Full table at `per_element_mae.csv`; bar chart at `per_element_mae.png`.
+Full table at `csv/per_element_mae.csv`; bar chart at `plots/per_element_mae.png`.
 
 ## Caveats
 
-- Reference is the slab's own band edges (`surf_*`), not the bulk-projected `scf_*` (which is wrong-scale and is plotted only for documentation in `parity_scf_wrong.png`).
+- Reference is the slab's own band edges (`surf_*`), not the bulk-projected `scf_*` (which is wrong-scale and is plotted only for documentation in `plots/parity_scf_wrong.png`).
 - Slab geometries with vacuum sit outside the 3D-bulk training distribution of `mp_gappbe_alignn`; expect errors comparable to other OOD geometries (v09/v10).
 
 ## Files
 
-- `parity_all.png`, `parity_metals.png`, `parity_nonmetals.png` (stratified parity + residual panels)
-- `worst_predictions.csv` (top 20 by absolute residual)
-- `stratified_metrics.csv` (the all/metals/non-metals MAE table above)
-- `per_element_mae.csv`, `per_element_mae.png`
-- existing: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`, `summary.md`
+- `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png` (stratified parity + residual panels)
+- `csv/worst_predictions.csv` (top 20 by absolute residual)
+- `csv/stratified_metrics.csv` (the all/metals/non-metals MAE table above)
+- `csv/per_element_mae.csv`, `plots/per_element_mae.png`
+- existing: `plots/parity_surf.png`, `plots/parity_scf_wrong.png`, `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png`, `plots/confusion_surf.png`, `plots/distribution.png`, `plots/per_element_mae.png`, `csv/metrics.csv`, `summary.md`
 
 ## See also
 
-Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v06_surface/analysis/sk_vs_alignn.png` and `confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v06_surface/analysis/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.
+Cross-method comparison vs SlakoNet on the same matched structures: `slakonet/slako_v06_surface/analysis/plots/sk_vs_alignn.png` and `slakonet/slako_v06_surface/analysis/plots/confusion_sk_vs_alignn.png`. Metrics in `slakonet/slako_v06_surface/analysis/csv/sk_vs_alignn_metrics.csv`. Cross-dataset roll-up at `slakonet/sk_vs_alignn_cross_dataset.csv`.

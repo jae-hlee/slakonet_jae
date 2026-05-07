@@ -18,14 +18,14 @@ slakonet/                     SlakoNet inference per dataset
   slako_v10_2d/               Alexandria PBE 2D           (N = 79,903)
   slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter (in progress)
   slako_v12_all/              Alexandria PBE 3D, full 5M set, no filters (in progress)
-  comprehensive_analysis/     Cross-dataset aggregation + unified plots
+  slakonet_comprehensive_analysis/  Cross-dataset aggregation + unified plots
 
 alignn/                       ALIGNN runs grouped by source dataset
   alignn_v03_alex/            Alexandria PBE 3D hull (paired with slakonet/slako_v03_alex)
     alignn_v1_pbe/            ALIGNN  mp_gappbe_alignn       (label-matched)
     alignn_v2_mbj/            ALIGNN  jv_mbj_bandgap_alignn  (TB-mBJ)
     alignn_v3_opt/            ALIGNN  jv_optb88vdw_bandgap_alignn
-    comprehensive_analysis/   SlakoNet vs three ALIGNN variants, side-by-side
+    pbe_mbj_opt_analysis/     SlakoNet vs three ALIGNN variants, side-by-side
   alignn_v04_cccbdb/          CCCBDB molecules           jalignn4.py
   alignn_v05_interface/       JARVIS interface_db        jalignn5.py
   alignn_v06_surface/         JARVIS surface_db          jalignn6.py
@@ -35,7 +35,7 @@ alignn/                       ALIGNN runs grouped by source dataset
   alignn_v10_2d/              Alexandria PBE 2D          jalignn10.py
   alignn_v11_alexwz/          Alexandria PBE 3D, no Z<=65 filter (jalignn11.py)
   alignn_v12_all/             Alexandria PBE 3D, full set (jalignn12.py; 99/100 shards complete)
-  analysis_summary.md         Cross-dataset roll-up of v04..v11 ALIGNN results
+  alignn_comprehensive_analysis/  Cross-dataset ALIGNN roll-up (analysis.md + csv + plots)
 ```
 
 Every sub-project has a top-level inference script (`jslako_v*.py` for SlakoNet, `jalignn{N}.py` for the v04..v12 ALIGNN runs, `predict_alignn.py` for the older `alignn_v03_alex/alignn_v*` sub-runs), a `results/` directory of per-structure JSONs, and an `analysis/` directory of plots, metrics, and a written `summary.md` (or `analysis.md` in v03_alex).
@@ -54,7 +54,7 @@ Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are 
 
 The two methods are complementary, not redundant: SlakoNet offers physical interpretability and DOS access plus a known set of pathological compositions; ALIGNN offers uniformly decent accuracy within its training distribution but no transferability guarantee outside it. The v07 vacancy result (SK 91% metal vs ALIGNN 54% metal on the same 444 transition-metal-defect cells) is the cleanest direct illustration of SK's documented error mode in a held-out cross-method test. The v12 fluoroborate worst-prediction pattern (DFT=0, ALIGNN=8 eV on Li/Sr/Ba/Ca-fluoroborates) is the cleanest illustration that "model error" and "label error" are not the same thing.
 
-Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison).
+Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/alignn_comprehensive_analysis/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison).
 
 ## Headline SlakoNet results
 
@@ -73,7 +73,7 @@ Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's D
 
 ## Headline ALIGNN vs SlakoNet (Alexandria PBE 3D, paired N = 31,211)
 
-From `alignn/alignn_v03_alex/comprehensive_analysis/`. Reference is Alexandria PBE indirect gap.
+From `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/`. Reference is Alexandria PBE indirect gap.
 
 | Model                               | MAE   | RMSE  |   R²    | Non-metal MAE |
 |-------------------------------------|------:|------:|--------:|--------------:|
@@ -82,7 +82,7 @@ From `alignn/alignn_v03_alex/comprehensive_analysis/`. Reference is Alexandria P
 | ALIGNN `jv_mbj_bandgap_alignn`      | 0.752 | 1.461 | +0.208  | 1.236         |
 | ALIGNN `jv_optb88vdw_bandgap_alignn`| 0.354 | 0.746 | +0.794  | 0.602         |
 
-**What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV: the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two failure modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/alignn_v03_alex/comprehensive_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
+**What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV: the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two error modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
 
 ## Headline ALIGNN results
 
@@ -101,9 +101,9 @@ ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptl
 
 **Three regimes.** Alexandria 3D is in-distribution: PBE-trained ALIGNN reaches MAE 0.19 eV with r = 0.96. Alexandria 2D, 1D, surface_db, and interface_db cluster around MAE 0.47 to 0.53 eV (~3x worse) because their geometries (1D, 2D, slab + vacuum, layered interface) sit outside the 3D-bulk training distribution. CCCBDB molecules are the third, far-OOD regime at MAE 3.36 eV with r = 0.28: ALIGNN is trained on crystals (graph neighborhood mismatch for isolated molecules) and the reference is molecular DFT (Gaussian basis, different functional), not solid-state PBE.
 
-**Extended Alexandria 3D coverage (ALIGNN only).** Beyond the paired 31,211, ALIGNN was also run on `v11_alexwz` (115,535 hull-stable structures, no Z ≤ 65 element filter) and `v12_all` (4,444,402 structures, full hull + off-hull). On v11, ALIGNN reaches MAE 0.168 / RMSE 0.476 / metal-vs-gap accuracy 89.1% — its in-distribution best, with median |err| of 0.015 eV. On v12, MAE rises modestly to 0.185 / RMSE 0.551 / accuracy 78.1%; the on-hull subset of v12 (114k entries) reproduces v11 exactly. Hull-bin breakdown: on-hull MAE 0.168 / 89.1%; near-hull (0 to 0.1 eV/atom) 0.186 / 85.4%; off-hull (0.1 to 0.5) 0.205 / 79.8%; far off-hull (>0.5) 0.154 / 66.0%. Bias grows monotonically from on-hull (+0.024) to off-hull (+0.178). Shard 9 of 100 is missing (~45k entries, easy to fill in via resubmit).
+**Extended Alexandria 3D coverage (ALIGNN only).** Beyond the paired 31,211, ALIGNN was also run on `v11_alexwz` (115,535 hull-stable structures, no Z ≤ 65 element filter) and `v12_all` (4,444,402 structures, full hull + off-hull). On v11, ALIGNN reaches MAE 0.168 / RMSE 0.476 / metal-vs-gap accuracy 89.1% (its in-distribution best), with median |err| of 0.015 eV. On v12, MAE rises modestly to 0.185 / RMSE 0.551 / accuracy 78.1%; the on-hull subset of v12 (114k entries) reproduces v11 exactly. Hull-bin breakdown: on-hull MAE 0.168 / 89.1%; near-hull (0 to 0.1 eV/atom) 0.186 / 85.4%; off-hull (0.1 to 0.5) 0.205 / 79.8%; far off-hull (>0.5) 0.154 / 66.0%. Bias grows monotonically from on-hull (+0.024) to off-hull (+0.178). Shard 9 of 100 is missing (~45k entries, easy to fill in via resubmit).
 
-**vacancy_db and alex_supercon (cross-method comparison).** Both lack a DFT bandgap reference. On **vacancy_db** (N = 444 paired), SK predicts 91.2% metallic, ALIGNN 54.3%, with metal/gap agreement of 61.3% and SK-vs-ALIGNN MAE of 0.634 eV. The parity plot in `alignn/alignn_v07_vacancy/analysis/sk_vs_alignn.png` shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV, the visual signature of SK's silent dropout on open-shell transition metals (full diagnosis in `slakonet/slako_v03_alex/analysis/analysis.md`). On **alex_supercon** (N = 4,827) both methods predict the candidates are metallic (97.3% SK / 93.5% ALIGNN), with 92.4% agreement and SK-vs-ALIGNN MAE of 0.04 eV; the high-Tc subset (Tc > 5 K, N = 704) is 95.3% predicted metallic by ALIGNN, passing the sanity check.
+**vacancy_db and alex_supercon (cross-method comparison).** Both lack a DFT bandgap reference. On **vacancy_db** (N = 444 paired), SK predicts 91.2% metallic, ALIGNN 54.3%, with metal/gap agreement of 61.3% and SK-vs-ALIGNN MAE of 0.634 eV. The parity plot in `alignn/alignn_v07_vacancy/analysis/plots/sk_vs_alignn.png` shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV, the visual signature of SK's silent dropout on open-shell transition metals (full diagnosis in `slakonet/slako_v03_alex/analysis/analysis.md`). On **alex_supercon** (N = 4,827) both methods predict the candidates are metallic (97.3% SK / 93.5% ALIGNN), with 92.4% agreement and SK-vs-ALIGNN MAE of 0.04 eV; the high-Tc subset (Tc > 5 K, N = 704) is 95.3% predicted metallic by ALIGNN, passing the sanity check.
 
 **Functional-shift caveat for interface_db.** The reference is `optb88vdw_bandgap` (OptB88vdW), not PBE. ALIGNN predicts PBE. OptB88vdW typically gives slightly larger gaps than PBE for non-metals, so part of the +0.49 eV ALIGNN-over-DFT bias is the functional shift, not pure model error. 107 of 587 entries had negative OptB88vdW gaps (the documented interface SCF artifact) and were clipped to 0 before parity.
 
@@ -156,9 +156,9 @@ Each sub-project's `analysis/` directory ships with pre-built plots, a `summary.
 
 The cross-dataset layers are reader-only. Pre-built outputs live in:
 
-- `slakonet/comprehensive_analysis/` (cross-dataset SlakoNet roll-up)
-- `alignn/alignn_v03_alex/comprehensive_analysis/` (SlakoNet vs three ALIGNN variants on Alexandria 3D)
-- `alignn/analysis_summary.md` and `alignn/analysis_summary.csv` (cross-dataset roll-up of the v04..v11 ALIGNN runs)
+- `slakonet/slakonet_comprehensive_analysis/` (cross-dataset SlakoNet roll-up)
+- `alignn/alignn_comprehensive_analysis/` (cross-dataset ALIGNN roll-up, mirrors the SlakoNet layout)
+- `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/` (SlakoNet vs three ALIGNN variants on Alexandria 3D)
 
 The scripts that produced them are kept local; analysis lives entirely in the artifacts on this side.
 

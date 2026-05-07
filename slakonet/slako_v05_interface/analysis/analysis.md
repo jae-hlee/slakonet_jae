@@ -37,7 +37,7 @@ negative gaps):
 - **RMSE = 1.259 eV**
 - **Pearson r = 0.730**
 
-See `parity_sk_vs_dft.png`.
+See `plots/parity_sk_vs_dft.png`.
 
 ## Key observations
 
@@ -49,13 +49,13 @@ See `parity_sk_vs_dft.png`.
    out near zero. SlakoNet tends to open a gap where DFT sees band overlap.
 3. **Moderate correlation (r = 0.73).** The trend is right — SlakoNet
    distinguishes small- vs large-gap interfaces — but the quantitative spread
-   is large and error is gap-dependent (see `residual_vs_gap.png`).
+   is large and error is gap-dependent (see `plots/residual_vs_gap.png`).
 4. **Outlier concentration.** The top-15 residuals are dominated by
    `miller_1_1_0` interfaces, suggesting a facet-specific failure mode worth
    investigating.
-5. **DOS quality.** Averaged DOS curves (`dos_average.png`) clearly separate
+5. **DOS quality.** Averaged DOS curves (`plots/dos_average.png`) clearly separate
    small- vs large-gap populations around the Fermi level, and individual DOS
-   examples at the 10th/50th/90th SK-gap percentiles (`dos_examples.png`)
+   examples at the 10th/50th/90th SK-gap percentiles (`plots/dos_examples.png`)
    show qualitatively reasonable shapes.
 
 ## Interpretation
@@ -70,11 +70,11 @@ on interface data would likely be needed.
 
 ## Artifacts in this directory
 
-- `parity_sk_vs_dft.png` — density scatter, SlakoNet vs clipped DFT
-- `distributions.png` — per-quantity histograms (SK gap, DFT gap, CBM/VBM, offset)
-- `gap_overlay.png` — SlakoNet vs DFT gap distributions overlaid
-- `residuals.png` — histogram of SK − DFT
-- `residual_vs_gap.png` — residual as a function of DFT gap
-- `dos_average.png` — mean DOS, small-gap vs large-gap populations
-- `dos_examples.png` — representative DOS at 10th / 50th / 90th percentile of SK gap
-- `summary.csv` — per-structure table of all scalar fields and residuals
+- `plots/parity_sk_vs_dft.png` — density scatter, SlakoNet vs clipped DFT
+- `plots/distributions.png` — per-quantity histograms (SK gap, DFT gap, CBM/VBM, offset)
+- `plots/gap_overlay.png` — SlakoNet vs DFT gap distributions overlaid
+- `plots/residuals.png` — histogram of SK − DFT
+- `plots/residual_vs_gap.png` — residual as a function of DFT gap
+- `plots/dos_average.png` — mean DOS, small-gap vs large-gap populations
+- `plots/dos_examples.png` — representative DOS at 10th / 50th / 90th percentile of SK gap
+- `csv/summary.csv` — per-structure table of all scalar fields and residuals

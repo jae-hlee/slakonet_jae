@@ -16,4 +16,4 @@
 - **Metal fractions**: SK 97.265%, ALIGNN 93.516%
 - **Metal/gap agreement** (threshold 0.05 eV): 92.438%
 - **Confusion (SK reference, ALIGNN prediction)** TN/FP/FN/TP: 4422,273,92,40
-- **Files**: `distribution.png`, `alignn_vs_supercon.png`, `metrics.csv`, `sk_vs_alignn.png`, `confusion_sk_vs_alignn.png`
+- **Files**: `plots/distribution.png`, `plots/alignn_vs_supercon.png`, `csv/metrics.csv`, `plots/sk_vs_alignn.png`, `plots/confusion_sk_vs_alignn.png`

@@ -80,7 +80,7 @@ The H4NF case (16 eV) is likely a molecular/ammonium-fluoride-like slab where th
 ## DOS
 
 - Average SlakoNet DOS, split at DFT gap = 0.5 eV, shows a clear pseudogap near E = 0 for the large-gap group and continuous spectral weight across E = 0 for the small-gap group — consistent with SlakoNet distinguishing metallic from insulating character at the DOS level even when the scalar `sk_bandgap` is quantitatively off.
-- See `dos_average.png` and `dos_examples.png`.
+- See `plots/dos_average.png` and `plots/dos_examples.png`.
 
 ## Takeaways
 
@@ -91,10 +91,10 @@ The H4NF case (16 eV) is likely a molecular/ammonium-fluoride-like slab where th
 
 ## Generated artifacts
 
-- `parity_sk_vs_dft.png` — parity plot with MAE/RMSE/r annotation
-- `distributions.png`, `gap_distribution_comparison.png` — gap histograms
-- `residual_histogram.png` — SK − DFT residuals
-- `dos_average.png`, `dos_examples.png` — DOS comparisons
-- `../summary.csv` — per-slab table (name, formula, edges, gaps, residuals)
+- `plots/parity_sk_vs_dft.png` — parity plot with MAE/RMSE/r annotation
+- `plots/distributions.png`, `plots/gap_distribution_comparison.png` — gap histograms
+- `plots/residual_histogram.png` — SK − DFT residuals
+- `plots/dos_average.png`, `plots/dos_examples.png` — DOS comparisons
+- `csv/summary.csv` — per-slab table (name, formula, edges, gaps, residuals)
 
 *Note: the parity/MAE/RMSE values currently rendered in `analysis/*.png` were produced using `scf_cbm − scf_vbm` as the DFT target and should be regenerated with `surf_cbm − surf_vbm` for the numbers in this document. The values in this markdown are the recomputed ones.*

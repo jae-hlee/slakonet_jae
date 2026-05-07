@@ -21,11 +21,11 @@
 
 ## Files
 
-- `parity.png`: full-set parity + residuals (with N/MAE/RMSE/ME annotations)
-- `parity_by_hull_bin.png`: 2x2 grid, one panel per hull bin
-- `confusion.png`: full-set metal/gap confusion matrix
-- `distribution_overlay.png`: DFT vs ALIGNN gap histograms
-- `metrics.csv`: full-set + per-hull-bin metrics
+- `plots/parity.png`: full-set parity + residuals (with N/MAE/RMSE/ME annotations)
+- `plots/parity_by_hull_bin.png`: 2x2 grid, one panel per hull bin
+- `plots/confusion.png`: full-set metal/gap confusion matrix
+- `plots/distribution_overlay.png`: DFT vs ALIGNN gap histograms
+- `csv/metrics.csv`: full-set + per-hull-bin metrics
 
 ## Caveats
 

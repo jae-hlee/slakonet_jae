@@ -3,7 +3,7 @@
 ## Setup
 
 - **ALIGNN model**: `jv_mbj_bandgap_alignn` (trained on JARVIS TB-mBJ band gaps).
-- **SlakoNet results**: reused from `alignn_v03_alex/results/sk_scalars.json`
+- **SlakoNet results**: reused from `slakonet/slako_v03_alex/results/sk_scalars.json` (gitignored, kept local)
   (same DFTB run, same filtered Alexandria hull set).
 - **Reference label** in the merged records: PBE indirect gap (`band_gap_ind`)
   from the Alexandria dataset — **this is what we compare *against*, but note
@@ -13,7 +13,7 @@
   and 31,211 SlakoNet results). 17,553 ALIGNN-only structures are carried over
   from the v00 missing set and are not analyzed here — 99.9 % of those are
   lanthanide-containing cells that SlakoNet silently rejects (see
-  `../../analysis/analysis.md`), so the excluded set is not
+  `../../pbe_mbj_opt_analysis/analysis.md`), so the excluded set is not
   recoverable by rerunning.
 
 ## Key numbers
@@ -99,13 +99,13 @@ DFT functionals as learned by two ALIGNN checkpoints".
 |------------------------------------------|---------------------------------------------------------------------|
 | `stats.txt`                              | Raw numeric output (MAE/RMSE/R²/classification counts)             |
 | `paired_predictions.json`                | 31,211 merged records: mat_id, formula, PBE, SK, ALIGNN-mBJ, e_form |
-| `parity_three_way.png`                   | Density scatter: SK vs PBE, mBJ vs PBE, mBJ vs SK (all structures) |
-| `parity_three_way_nonmetals.png`         | Same, restricted to PBE non-metals                                 |
-| `residuals_sk_vs_alignn_mbj.png`         | (pred − PBE) histograms for SlakoNet and TB-mBJ side-by-side       |
-| `confusion_sk_vs_alignn_mbj.png`         | Metal/non-metal confusion matrices at 0.1 eV threshold             |
-| `head_to_head_error.png`                 | Per-structure \|err vs PBE\| scatter: SK vs TB-mBJ                 |
-| `gap_distribution_alignn_mbj.png`        | Overlayed densities: PBE, SK, TB-mBJ (non-metals)                  |
-| `mbj_correction_vs_pbe.png`              | (TB-mBJ − PBE) as a function of PBE gap with binned mean           |
+| `plots/parity_three_way.png`                   | Density scatter: SK vs PBE, mBJ vs PBE, mBJ vs SK (all structures) |
+| `plots/parity_three_way_nonmetals.png`         | Same, restricted to PBE non-metals                                 |
+| `plots/residuals_sk_vs_alignn_mbj.png`         | (pred − PBE) histograms for SlakoNet and TB-mBJ side-by-side       |
+| `plots/confusion_sk_vs_alignn_mbj.png`         | Metal/non-metal confusion matrices at 0.1 eV threshold             |
+| `plots/head_to_head_error.png`                 | Per-structure \|err vs PBE\| scatter: SK vs TB-mBJ                 |
+| `plots/gap_distribution_alignn_mbj.png`        | Overlayed densities: PBE, SK, TB-mBJ (non-metals)                  |
+| `plots/mbj_correction_vs_pbe.png`              | (TB-mBJ − PBE) as a function of PBE gap with binned mean           |
 
 ## Short recommendations
 

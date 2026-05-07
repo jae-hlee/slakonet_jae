@@ -91,7 +91,7 @@ The scatter of band gap vs. `ef` shows **no global correlation** — vacancy
 energetics do not track the electronic gap across the whole dataset. The
 data instead **clusters by host chemistry**: oxide/sulfide hosts occupy the
 high-gap region, while metallic hosts sit along the `gap ≈ 0` axis at a
-wide range of formation energies. See `gap_vs_ef.png`.
+wide range of formation energies. See `plots/gap_vs_ef.png`.
 
 ## Notable entries
 
@@ -127,10 +127,10 @@ wide range of formation energies. See `gap_vs_ef.png`.
 
 ## DOS
 
-`dos_average.png` splits the dataset at the median gap (~0.0015 eV) and
+`plots/dos_average.png` splits the dataset at the median gap (~0.0015 eV) and
 averages the DOS in each half. The small-gap (effectively metallic) subset
 shows finite DOS at the Fermi level; the large-gap subset shows a clear
-pseudogap/gap around `E = 0`. `dos_examples.png` shows representative
+pseudogap/gap around `E = 0`. `plots/dos_examples.png` shows representative
 single-structure DOS at gap targets of 0, 1, 3, and 6 eV, illustrating the
 progression from metallic to wide-gap insulating character.
 
@@ -158,13 +158,13 @@ progression from metallic to wide-gap insulating character.
 
 ## Artifacts
 
-- `analysis/distributions.png` — histograms of SlakoNet gap and `ef`.
-- `analysis/gap_vs_ef.png` — scatter of gap vs. `ef`, colored by
+- `plots/distributions.png` — histograms of SlakoNet gap and `ef`.
+- `plots/gap_vs_ef.png` — scatter of gap vs. `ef`, colored by
   `material_class`.
-- `analysis/gap_by_vacancy_element.png` — boxplot of gap by vacancy element
+- `plots/gap_by_vacancy_element.png` — boxplot of gap by vacancy element
   (top 20 by count).
-- `analysis/dos_average.png` — average DOS for small-gap vs. large-gap
+- `plots/dos_average.png` — average DOS for small-gap vs. large-gap
   subsets.
-- `analysis/dos_examples.png` — example DOS at target gaps of 0, 1, 3, 6 eV.
-- `summary.csv` — per-structure table (id, jid, material_class,
+- `plots/dos_examples.png` — example DOS at target gaps of 0, 1, 3, 6 eV.
+- `csv/summary.csv` — per-structure table (id, jid, material_class,
   vacancy_symbol, wyckoff, `ef`, `sk_bandgap`).

@@ -7,4 +7,4 @@
 - **Reference**: PBE `band_gap_ind` from Alexandria
 - **Confusion (metal/gap, threshold 0.05 eV), TN/FP/FN/TP**: 1929,1646,930,5035
 - **Accuracy**: 72.998%
-- **Files**: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`
+- **Files**: `plots/parity.png`, `plots/confusion.png`, `plots/distribution.png`, `csv/metrics.csv`

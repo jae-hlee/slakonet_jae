@@ -22,7 +22,7 @@ Reference: DFT PBE `band_gap_ind` from Alexandria. Metal/gap split at 0.05 eV.
 
 ## Worst predictions
 
-Top 50 entries by absolute residual (full table at `worst_predictions.csv`):
+Top 50 entries by absolute residual (full table at `csv/worst_predictions.csv`):
 
 | mat_id | formula | band_gap_ind | alignn_bandgap | residual | e_form | e_above_hull |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -59,23 +59,23 @@ Entries containing each element (compositions overlap; the same entry appears un
 | Ba | 190,249 | 0.310 | 0.025 |
 | Te | 236,835 | 0.293 | 0.088 |
 
-Full table at `per_element_mae.csv`; bar chart at `per_element_mae.png`.
+Full table at `csv/per_element_mae.csv`; bar chart at `plots/per_element_mae.png`.
 
 ## Error vs formation energy
 
-Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.371**. Negative: less stable structures have smaller error (often because they trend metallic in DFT and ALIGNN agrees). Plot at `error_vs_eform.png`.
+Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.371**. Negative: less stable structures have smaller error (often because they trend metallic in DFT and ALIGNN agrees). Plot at `plots/error_vs_eform.png`.
 
 ## Caveats
 
 - 99 of 100 array shards landed; shard 9 missing (~45k entries; resubmit fills in).
-- v12 includes off-hull entries (e_above_hull > 0) which are less physically meaningful than on-hull structures. The on-hull subset (114,389 entries) reproduces v11 exactly (MAE 0.168, accuracy 89.1%); see per-hull-bin breakdown in `parity_by_hull_bin.png` and `metrics.csv`.
+- v12 includes off-hull entries (e_above_hull > 0) which are less physically meaningful than on-hull structures. The on-hull subset (114,389 entries) reproduces v11 exactly (MAE 0.168, accuracy 89.1%); see per-hull-bin breakdown in `plots/parity_by_hull_bin.png` and `csv/metrics.csv`.
 - ALIGNN `mp_gappbe_alignn` was trained on Materials Project 3D bulk PBE bandgaps, so v12 (Alexandria 3D) is in-distribution. The MAE 0.185 eV on 4.44M structures is comparable to the model's published validation MAE.
 
 ## Files
 
-- `parity_all.png`, `parity_metals.png`, `parity_nonmetals.png` (stratified parity + residual panels)
-- `worst_predictions.csv` (top 20 by absolute residual)
-- `stratified_metrics.csv` (the all/metals/non-metals MAE table above)
-- `per_element_mae.csv`, `per_element_mae.png`
-- `error_vs_eform.png`
-- existing: `parity.png`, `confusion.png`, `distribution.png`, `metrics.csv`, `summary.md`
+- `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png` (stratified parity + residual panels)
+- `csv/worst_predictions.csv` (top 20 by absolute residual)
+- `csv/stratified_metrics.csv` (the all/metals/non-metals MAE table above)
+- `csv/per_element_mae.csv`, `plots/per_element_mae.png`
+- `plots/error_vs_eform.png`
+- existing: `plots/parity.png`, `plots/parity_all.png`, `plots/parity_by_hull_bin.png`, `plots/parity_density.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png`, `plots/confusion.png`, `plots/distribution_overlay.png`, `plots/error_vs_eform.png`, `plots/per_element_mae.png`, `csv/metrics.csv`, `summary.md`

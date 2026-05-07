@@ -19,7 +19,7 @@ Paired comparison uses the N = 31,211 structures for which SlakoNet, v00
 PBE-ALIGNN, and v03 optb-ALIGNN all produced a prediction (17,553 structures
 have optb predictions but no SlakoNet match — 99.9 % of those are
 lanthanide-containing cells that SlakoNet silently rejects despite passing
-the `ALLOWED_SYMBOLS` filter; see `../../analysis/analysis.md`).
+the `ALLOWED_SYMBOLS` filter; see `../../pbe_mbj_opt_analysis/analysis.md`).
 
 ## Headline numbers — regression vs PBE indirect gap
 
@@ -113,13 +113,13 @@ PBE-ALIGNN is slightly better when the downstream target is a PBE gap.
 
 All in `plots/`:
 
-- `parity_three_way.png` — PBE vs {SlakoNet, PBE-ALIGNN, optb-ALIGNN}, all structures
-- `parity_three_way_nonmetals.png` — same, non-metals only
-- `residuals_three_way.png` — residual histograms, side-by-side
-- `confusion_three_way.png` — metal/non-metal confusion matrices
-- `head_to_head_error.png` — per-structure |error| (optb vs SK, optb vs PBE-ALIGNN)
-- `gap_distribution.png` — PBE vs SK vs both ALIGNN densities (non-metals)
-- `optb_vs_pbe_shift.png` — OptB88vdW–PBE systematic shift (linear fit)
+- `plots/parity_three_way.png` — PBE vs {SlakoNet, PBE-ALIGNN, optb-ALIGNN}, all structures
+- `plots/parity_three_way_nonmetals.png` — same, non-metals only
+- `plots/residuals_three_way.png` — residual histograms, side-by-side
+- `plots/confusion_three_way.png` — metal/non-metal confusion matrices
+- `plots/head_to_head_error.png` — per-structure |error| (optb vs SK, optb vs PBE-ALIGNN)
+- `plots/gap_distribution.png` — PBE vs SK vs both ALIGNN densities (non-metals)
+- `plots/optb_vs_pbe_shift.png` — OptB88vdW–PBE systematic shift (linear fit)
 
 ## Artefacts
 

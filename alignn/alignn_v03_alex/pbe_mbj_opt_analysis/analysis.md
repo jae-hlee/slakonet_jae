@@ -10,10 +10,10 @@ kept local-only.
 
 | Source | Model / quantity | Records | Notes |
 |--------|-------------------|--------:|-------|
-| `alignn_v03_alex/results/sk_scalars.json`           | **SlakoNet** (TBLite/DFTB scalar band-gap) | 31,211 | shared DFTB baseline for all ALIGNN variants |
-| `alignn_v03_alex/alignn_v1_pbe/results/alignn_predictions.json` | **ALIGNN `mp_gappbe_alignn`** (trained on MP PBE gaps)          | 48,764 | PBE-matched |
-| `alignn_v03_alex/alignn_v2_mbj/results/alignn_predictions.json` | **ALIGNN `jv_mbj_bandgap_alignn`** (trained on JARVIS TB-mBJ gaps) | 48,764 | different functional → gaps systematically *opened* |
-| `alignn_v03_alex/alignn_v3_opt/results/alignn_predictions.json` | **ALIGNN `jv_optb88vdw_bandgap_alignn`** (trained on OptB88vdW gaps) | 48,764 | vdW-GGA, gaps slightly *closed* vs PBE |
+| `slakonet/slako_v03_alex/results/sk_scalars.json` (gitignored, kept local)           | **SlakoNet** (TBLite/DFTB scalar band-gap) | 31,211 | shared DFTB baseline for all ALIGNN variants |
+| `alignn/alignn_v03_alex/alignn_v1_pbe/results/alignn_predictions.json` (gitignored, kept local) | **ALIGNN `mp_gappbe_alignn`** (trained on MP PBE gaps)          | 48,764 | PBE-matched |
+| `alignn/alignn_v03_alex/alignn_v2_mbj/results/alignn_predictions.json` (gitignored, kept local) | **ALIGNN `jv_mbj_bandgap_alignn`** (trained on JARVIS TB-mBJ gaps) | 48,764 | different functional → gaps systematically *opened* |
+| `alignn/alignn_v03_alex/alignn_v3_opt/results/alignn_predictions.json` (gitignored, kept local) | **ALIGNN `jv_optb88vdw_bandgap_alignn`** (trained on OptB88vdW gaps) | 48,764 | vdW-GGA, gaps slightly *closed* vs PBE |
 
 **Reference:** Alexandria PBE indirect gap (`band_gap_ind`) on the filtered 3D
 hull set (`e_above_hull == 0`, Z ≤ 65). Treating PBE as the ground truth is
