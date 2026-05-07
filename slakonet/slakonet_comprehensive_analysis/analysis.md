@@ -48,3 +48,15 @@ project drops a `summary.csv` (or the per-id JSONs in `results/` (gitignored)).
 - v05/v06 clip the DFT reference to ≥ 0 (v06 subtracts `surf_cbm − surf_vbm`, which goes slightly negative for metals — treated as gap = 0).
 - v07 (vacancy) and v08 (supercon) have **no DFT band-gap reference**, so they do not appear in the parity / residual / error plots — only in the distribution and DOS grids.
 - Metallic threshold used for coverage bars: SlakoNet gap < 0.10 eV.
+
+
+## Metal/non-metal threshold conventions
+
+Three thresholds for "metal" appear across this repo, applied to different things:
+
+- `pbe_ref == 0` (strictest, DFT-side): Alexandria flags metallic structures with an exact-zero gap. Used in the v03 bootstrap CI artifact (`pbe_mbj_opt_analysis/bootstrap_ci.json`) for the most conservative ground-truth metal split, since the ranking-stability claim should be insensitive to a tolerance choice.
+- `pbe_ref <= 0.05` (conventional, DFT-side): standard ML stratification threshold that absorbs sub-50 meV DFT noise (sub-zero or near-zero gaps that are physically metallic) into the metal class. Used in the manuscript Section 6 v11 stratified MAE (80,695 metals / 34,840 non-metals).
+- `pred < 0.10` (or `< 0.05`) (model-side): applied to *predictions*, not the reference. Reports "what fraction of structures the model predicted as metallic" with a small tolerance for near-zero outputs. Used in the `frac_*_metal` columns of the cross-dataset summary tables (`< 0.10` in `csv/summary_table.csv`; `< 0.05` in the top-level README's headline ALIGNN table on the paired subset, which uses the tighter cut to match the SlakoNet headline's tighter cut).
+
+The three are not interchangeable: `== 0` and `<= 0.05` classify the *ground truth* (DFT label); `< 0.10` (or `< 0.05`) classifies the *prediction*.
+
