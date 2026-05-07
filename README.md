@@ -71,22 +71,9 @@ Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's D
 | vacancy_db     |    444 | 0.16    | 0.00      | 0.92          | n/a      | n/a   | n/a   | n/a   |
 | alex_supercon  |  4,827 | 0.02    | 0.00      | 0.98          | n/a      | n/a   | n/a   | n/a   |
 
-## Headline ALIGNN vs SlakoNet (Alexandria PBE 3D, paired N = 31,211)
-
-From `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/`. Reference is Alexandria PBE indirect gap.
-
-| Model                               | MAE   | RMSE  |   R²    | Non-metal MAE |
-|-------------------------------------|------:|------:|--------:|--------------:|
-| SlakoNet (DFTB)                     | 0.930 | 1.649 | −0.008  | 1.781         |
-| ALIGNN `mp_gappbe_alignn` (PBE)     | **0.193** | **0.463** | **+0.920** | **0.274**     |
-| ALIGNN `jv_mbj_bandgap_alignn`      | 0.752 | 1.461 | +0.208  | 1.236         |
-| ALIGNN `jv_optb88vdw_bandgap_alignn`| 0.354 | 0.746 | +0.794  | 0.602         |
-
-**What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV: the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two error modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
-
 ## Headline ALIGNN results
 
-ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptlab CPU cluster (PBE-only by design; see `alignn/CLAUDE.md` for the scope rationale and the deferred mBJ/Opt extension for v09-v12). Conventions match the SlakoNet table above. The Alexandria 3D row uses the paired N = 31,211 subset where both methods succeeded (basis for the head-to-head section above). The vacancy_db and alex_supercon rows have no DFT gap reference; their MAE / RMSE / r columns are blank and the cross-method comparison appears below.
+ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptlab CPU cluster (PBE-only by design; see `alignn/CLAUDE.md` for the scope rationale and the deferred mBJ/Opt extension for v09-v12). Conventions match the SlakoNet table above. The Alexandria 3D row uses the paired N = 31,211 subset where both methods succeeded (basis for the head-to-head section below). The vacancy_db and alex_supercon rows have no DFT gap reference; their MAE / RMSE / r columns are blank and the cross-method comparison appears below.
 
 | Dataset        |     N  | ALIGNN mean | ALIGNN median | Frac metallic | Ref mean | MAE   | RMSE  |  r    |
 |----------------|-------:|------------:|--------------:|--------------:|---------:|------:|------:|------:|
@@ -107,19 +94,23 @@ ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptl
 
 **Functional-shift caveat for interface_db.** The reference is `optb88vdw_bandgap` (OptB88vdW), not PBE. ALIGNN predicts PBE. OptB88vdW typically gives slightly larger gaps than PBE for non-metals, so part of the +0.49 eV ALIGNN-over-DFT bias is the functional shift, not pure model error. 107 of 587 entries had negative OptB88vdW gaps (the documented interface SCF artifact) and were clipped to 0 before parity.
 
-### Schema corrections from the reruns
-
-The first round of v04 and v05 outputs was missing DFT references (the predict scripts looked for fields that don't exist in those input zips: `hl_gap_hartree_eV` for v04, `scf_*` for v05). `jalignn4.py` and `jalignn5.py` were patched to print first-entry keys at startup and auto-propagate every scalar/string field from the input into the output JSON. Reruns on atomgptlab landed the actual reference fields:
-
-- **v04**: `homo` and `lumo` (separately, in Hartree) plus `species` and `name`. Gap = `lumo − homo`.
-- **v05**: `optb88vdw_bandgap`, `optb88vdw_cbm`, `optb88vdw_vbm`, `final_energy`, `offset`. The DFT reference is OptB88vdW, not PBE.
-
-After the rerun both datasets are now parity-eligible (rows in the table above).
-
 ### Compute venue
 
 - SlakoNet inference runs on Rockfish CPU (`parallel` partition, 48-core nodes). See `slakonet/job_template.sh`.
 - ALIGNN inference runs on atomgptlab CPU (`main` partition, 256-core / 500 GB nodes). See `alignn/job_template.sh`. Conda lives at `/data/$USER/miniforge3` on atomgptlab; `dgl` must be installed explicitly via `pip install dgl==1.1.3 -f https://data.dgl.ai/wheels/repo.html` since it is not a transitive dependency of `pip install alignn`.
+
+## Headline ALIGNN vs SlakoNet (Alexandria PBE 3D, paired N = 31,211)
+
+From `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/`. Reference is Alexandria PBE indirect gap.
+
+| Model                               | MAE   | RMSE  |   R²    | Non-metal MAE |
+|-------------------------------------|------:|------:|--------:|--------------:|
+| SlakoNet (DFTB)                     | 0.930 | 1.649 | −0.008  | 1.781         |
+| ALIGNN `mp_gappbe_alignn` (PBE)     | **0.193** | **0.463** | **+0.920** | **0.274**     |
+| ALIGNN `jv_mbj_bandgap_alignn`      | 0.752 | 1.461 | +0.208  | 1.236         |
+| ALIGNN `jv_optb88vdw_bandgap_alignn`| 0.354 | 0.746 | +0.794  | 0.602         |
+
+**What this says.** On the accuracy-matched ALIGNN checkpoint, non-metal MAE is ~0.27 eV: the accuracy ceiling for these structures. SlakoNet reaches 1.78 eV on the same subset, dominated by two error modes (open-shell transition-metal compounds and ionic fluorides predicted as metals). On metals alone SlakoNet is actually the most accurate model (MAE 0.024 eV), because its default behaviour is to return ≈0. See `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/analysis.md` for the full breakdown, including the functional-shift calibration between PBE / TB-mBJ / OptB88vdW.
 
 ## Reproducing a run
 
