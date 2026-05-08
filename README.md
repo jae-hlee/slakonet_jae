@@ -39,8 +39,8 @@ alignn/                       ALIGNN runs grouped by source dataset
 
 eform/                        ALIGNN formation-energy inference (separate parallel project; see "Other work" below)
   eform_v0N_<dataset>/        same 10 datasets as above (v03 through v12), two model arms each
-    eform_v1_jv/              ALIGNN  jv_formation_energy_peratom_alignn   predict_eform.py
-    eform_v2_mp/              ALIGNN  mp_e_form_alignn                     predict_eform.py
+    eform_v1_pbe/             ALIGNN  mp_e_form_alignn                     predict_eform.py
+    eform_v2_opt/             ALIGNN  jv_formation_energy_peratom_alignn   predict_eform.py
 ```
 
 Every sub-project has a top-level inference script (`jslako_v*.py` for SlakoNet, `jalignn{N}.py` for the v04..v12 ALIGNN runs, `predict_alignn.py` for the older `alignn_v03_alex/alignn_v*` sub-runs), a `results/` directory of per-structure JSONs, and an `analysis/` directory of plots, metrics, and a written `summary.md` (or `analysis.md` in v03_alex).
@@ -178,7 +178,7 @@ ALIGNN predictions use the same per-structure layout with `alignn_bandgap` inste
 
 ## Other work in this repo
 
-The `eform/` tree is a separate, parallel-track research project that runs ALIGNN formation-energy inference (eV/atom) on the same 10 datasets covered above (v03 through v12), with two pretrained model arms per dataset: `jv_formation_energy_peratom_alignn` (JARVIS / OptB88vdW) and `mp_e_form_alignn` (Materials Project / PBE). It shares input zips, conda environment, and cluster paths with the bandgap pipeline for convenience, but is not part of the bandgap study described in this README. Results are in progress.
+The `eform/` tree is a separate, parallel-track research project that runs ALIGNN formation-energy inference (eV/atom) on the same 10 datasets covered above (v03 through v12), with two pretrained model arms per dataset: `mp_e_form_alignn` (Materials Project / PBE) under `eform_v1_pbe/` and `jv_formation_energy_peratom_alignn` (JARVIS / OptB88vdW) under `eform_v2_opt/`. It shares input zips, conda environment, and cluster paths with the bandgap pipeline for convenience, but is not part of the bandgap study described in this README. Results are in progress.
 
 ## Upstream references
 
