@@ -56,11 +56,13 @@ eform/                        ALIGNN formation-energy inference (separate parall
   # analysis/ per arm).
 ```
 
+**Totals processed.** SlakoNet bandgap ran on **127,238** materials across v03–v10 (v11 and v12 still in progress). ALIGNN bandgap ran on **4,741,159** materials across all 10 datasets. ALIGNN formation energy ran on **4,758,741** materials *per arm* across all 10 datasets (the eform tree runs two pretrained-model arms in parallel, so ~9.5M predictions total).
+
 Every sub-project has a top-level inference script (`jslako_v*.py` for SlakoNet, `jalignn{N}.py` for the v04..v12 ALIGNN runs, `predict_alignn.py` for the older `alignn_v03_alex/alignn_v*` sub-runs), a `results/` directory of per-structure JSONs, and an `analysis/` directory of plots, metrics, and a written `summary.md` (or `analysis.md` in v03_alex).
 
 ## What this study finds
 
-Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 9 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (~4.5M structures total). Three core findings:
+Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 10 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (~4.74M structures total on the ALIGNN side; SlakoNet covers v03–v10 fully with v11 and v12 partial). Three core findings:
 
 1. **ALIGNN wins by ~5x on the matched bulk-crystal set.** On the paired N = 31,211 Alexandria 3D hull subset where both methods produced output, ALIGNN reaches MAE 0.193 eV vs PBE; SlakoNet sits at 0.930 eV. Same structures, same reference.
 
