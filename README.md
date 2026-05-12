@@ -38,9 +38,22 @@ alignn/                       ALIGNN runs grouped by source dataset
   alignn_comprehensive_analysis/  Cross-dataset ALIGNN roll-up (analysis.md + csv + plots)
 
 eform/                        ALIGNN formation-energy inference (separate parallel project; see "Other work" below)
-  eform_v0N_<dataset>/        same 10 datasets as above (v03 through v12), two model arms each
-    eform_v1_pbe/             ALIGNN  mp_e_form_alignn                     predict_eform.py
-    eform_v2_opt/             ALIGNN  jv_formation_energy_peratom_alignn   predict_eform.py
+  eform_v03_alex/             Alexandria PBE 3D hull                                    (N = 48,764)
+    eform_v1_pbe/             ALIGNN  mp_e_form_alignn                                  predict_eform.py
+    eform_v2_opt/             ALIGNN  jv_formation_energy_peratom_alignn                predict_eform.py
+    eform_v{1_pbe,2_opt}/analysis/   summary.md + csv + plots per arm
+  eform_v04_cccbdb/           NIST CCCBDB molecules                                     (N = 1,333)
+  eform_v05_interface/        JARVIS interface_db slabs                                 (N = 587)
+  eform_v06_surface/          JARVIS surface_db slabs                                   (N = 487)
+  eform_v07_vacancy/          JARVIS vacancy_db defects                                 (N = 470)
+  eform_v08_supercon/         Alexandria alex_supercon candidates                       (N = 4,827)
+  eform_v09_1d/               Alexandria PBE 1D                                         (N = 9,540)
+  eform_v10_2d/               Alexandria PBE 2D                                         (N = 87,903)
+  eform_v11_alexwz/           Alexandria PBE 3D hull, no Z≤65 filter                    (N = 115,535)
+  eform_v12_all/              Alexandria PBE 3D, full 4.5M set, sharded                 (N = 4,489,295)
+  # Every v04..v12 dir follows the same eform_v0N_<dataset>/eform_v{1_pbe,2_opt}/
+  # two-arm layout shown for eform_v03_alex above (predict_eform.py per arm,
+  # analysis/ per arm).
 ```
 
 Every sub-project has a top-level inference script (`jslako_v*.py` for SlakoNet, `jalignn{N}.py` for the v04..v12 ALIGNN runs, `predict_alignn.py` for the older `alignn_v03_alex/alignn_v*` sub-runs), a `results/` directory of per-structure JSONs, and an `analysis/` directory of plots, metrics, and a written `summary.md` (or `analysis.md` in v03_alex).
