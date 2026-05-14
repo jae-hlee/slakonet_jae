@@ -88,8 +88,14 @@ Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's D
 | CCCBDB mols.   |  1,318 | 7.45    | 6.31      | 0.00          | 6.74     | 2.52  | 3.52  | 0.65  |
 | interface_db   |    433 | 1.43    | 1.41      | 0.17          | 0.43     | 1.01  | 1.26  | 0.73  |
 | surface_db     |    466 | 1.67    | 1.18      | 0.35          | 0.77     | 0.97  | 1.59  | 0.75  |
+| Alex 3D (v11, no Z≤65)¹ | 40,807 | 1.35 | 0.01 | 0.71 | 1.01 | 1.04 | 2.03 | 0.71 |
+| Alex 3D (v12, no filter)² | 1,646,059 | 0.24 | 0.00 | 0.91 | 0.15 | 0.21 | 0.83 | 0.66 |
 | vacancy_db     |    444 | 0.16    | 0.00      | 0.92          | n/a      | n/a   | n/a   | n/a   |
 | alex_supercon  |  4,827 | 0.02    | 0.00      | 0.98          | n/a      | n/a   | n/a   | n/a   |
+
+¹ v11 N is the **SK-finite count** of 40,807 out of 115,535 attempted hull entries (39% success rate; the 60% miss is SK's chemical ceiling on f-block lanthanides + Z>65, not a model-error rate). The same dataset row in the ALIGNN table below uses N = 115,535 because ALIGNN has no comparable chemical ceiling.
+
+² v12 SK is **partial — 43% of 4,489,295 attempted** (1,931,787 per-id JSONs produced, 76 of 100 array shards on disk; 24 shards backfilling). The N = 1,646,059 is the finite-SK count after clipping 103 numerical-overflow outliers (sk_bandgap up to 6.7×10⁶ eV that contribute >99% of the raw RMSE — see `slakonet/slako_v12_all/analysis/summary.md`). The 91% metal fraction reflects v12's full-Alexandria distribution including off-hull metallic chemistries, not improved SK calibration.
 
 ## Headline ALIGNN results
 
@@ -103,12 +109,16 @@ ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptl
 | CCCBDB mols.   |  1,330 | 3.83        | 3.85          | 0.00          | 7.02     | 3.36  | 7.93  | 0.28  |
 | interface_db   |    587 | 0.95        | 0.88          | 0.03          | 0.47     | 0.53  | 0.72  | 0.56  |
 | surface_db     |    487 | 0.97        | 0.59          | 0.22          | 0.78     | 0.51  | 0.89  | 0.69  |
+| Alex 3D (v11, no Z≤65) | 115,535 | 0.68 | 0.01 | 0.62 | 0.65 | 0.17 | 0.48 | 0.93 |
+| Alex 3D (v12, no filter)³ | 4,489,295 | — | — | 0.71 | — | 0.19 | 0.55 | — |
 | vacancy_db     |    444 | 0.73        | 0.02          | 0.54          | n/a      | n/a   | n/a   | n/a   |
 | alex_supercon  |  4,827 | 0.03        | 0.00          | 0.94          | n/a      | n/a   | n/a   | n/a   |
 
+³ The per-id v12 ALIGNN predictions file isn't local — only the aggregate `alignn/alignn_v12_all/analysis/csv/metrics.csv` is. ALIGNN mean / median / ref mean / r couldn't be filled without re-scp'ing the full prediction file from atomgptlab. Authoritative numbers in `alignn/alignn_v12_all/analysis/`.
+
 **Three regimes.** Alexandria 3D is in-distribution: PBE-trained ALIGNN reaches MAE 0.19 eV with r = 0.96. Alexandria 2D, 1D, surface_db, and interface_db cluster around MAE 0.47 to 0.53 eV (~3x worse) because their geometries (1D, 2D, slab + vacuum, layered interface) sit outside the 3D-bulk training distribution. CCCBDB molecules are the third, far-OOD regime at MAE 3.36 eV with r = 0.28: ALIGNN is trained on crystals (graph neighborhood mismatch for isolated molecules) and the reference is molecular DFT (Gaussian basis, different functional), not solid-state PBE.
 
-**Extended Alexandria 3D coverage (ALIGNN only).** Beyond the paired 31,211, ALIGNN was also run on `v11_alexwz` (115,535 hull-stable structures, no Z ≤ 65 element filter) and `v12_all` (4,489,295 structures, the full Alexandria PBE 3D set including off-hull). On v11, ALIGNN reaches MAE 0.168 / RMSE 0.476 / metal-vs-gap accuracy 89.3% (its in-distribution best), with median |err| of 0.015 eV. On v12, MAE rises modestly to 0.185 / RMSE 0.551 / accuracy 78.4%; the on-hull subset of v12 (115k entries) reproduces v11 exactly. Hull-bin breakdown: on-hull MAE 0.168 / 89.3%; near-hull (0 to 0.1 eV/atom) 0.186 / 85.8%; off-hull (0.1 to 0.5) 0.205 / 80.1%; far off-hull (>0.5) 0.154 / 66.0%. Bias grows monotonically from on-hull (+0.024) to off-hull (+0.178).
+**v12 hull-bin breakdown (ALIGNN).** The on-hull subset of v12 (115,535 entries) reproduces v11 exactly: same N, same MAE (0.168), same metal/gap accuracy (89.3% vs 89.1%) within rounding — the strongest in-repo reproducibility cross-check. Within v12, ALIGNN MAE rises with hull energy then dips: on-hull 0.168 / acc 89.3%; near-hull (0 to 0.1 eV/atom) 0.186 / 85.8%; off-hull (0.1 to 0.5) 0.205 / 80.1%; far off-hull (>0.5) 0.154 / 66.0%. Bias grows monotonically from on-hull (+0.024) to off-hull (+0.178); the far-off MAE drop is misleading because those entries are predominantly metallic in DFT (predictions pile near zero), masking the falling classification accuracy.
 
 **vacancy_db and alex_supercon (cross-method comparison).** Both lack a DFT bandgap reference. On **vacancy_db** (N = 444 paired), SK predicts 91.2% metallic, ALIGNN 54.3%, with metal/gap agreement of 61.3% and SK-vs-ALIGNN MAE of 0.634 eV. The parity plot in `alignn/alignn_v07_vacancy/analysis/plots/sk_vs_alignn.png` shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV, the visual signature of SK's silent dropout on open-shell transition metals (full diagnosis in `slakonet/slako_v03_alex/analysis/analysis.md`). On **alex_supercon** (N = 4,827) both methods predict the candidates are metallic (97.3% SK / 93.5% ALIGNN), with 92.4% agreement and SK-vs-ALIGNN MAE of 0.04 eV; the high-Tc subset (Tc > 5 K, N = 704) is 95.3% predicted metallic by ALIGNN, passing the sanity check.
 
