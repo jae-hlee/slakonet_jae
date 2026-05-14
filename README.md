@@ -8,7 +8,7 @@ Each sub-project is a self-contained batch-inference pipeline: one script loads 
 
 ```
 slakonet/                     SlakoNet inference per dataset
-  slako_v03_alex/             Alexandria PBE 3D crystals  (N = 31,211 paired)
+  slako_v03_alex/             Alexandria PBE 3D hull with Z<=65 filter  (N = 31,211 paired)
   slako_v04_cccbdb/           NIST CCCBDB molecules       (N = 1,318)
   slako_v05_interface/        JARVIS interface_db slabs   (N = 433)
   slako_v06_surface/          JARVIS surface_db slabs     (N = 466)
@@ -21,7 +21,7 @@ slakonet/                     SlakoNet inference per dataset
   slakonet_comprehensive_analysis/  Cross-dataset aggregation + unified plots
 
 alignn/                       ALIGNN runs grouped by source dataset
-  alignn_v03_alex/            Alexandria PBE 3D hull (paired with slakonet/slako_v03_alex)
+  alignn_v03_alex/            Alexandria PBE 3D hull with Z<=65 filter (paired with slakonet/slako_v03_alex)
     alignn_v1_pbe/            ALIGNN  mp_gappbe_alignn       (label-matched)
     alignn_v2_mbj/            ALIGNN  jv_mbj_bandgap_alignn  (TB-mBJ)
     alignn_v3_opt/            ALIGNN  jv_optb88vdw_bandgap_alignn
@@ -38,7 +38,7 @@ alignn/                       ALIGNN runs grouped by source dataset
   alignn_comprehensive_analysis/  Cross-dataset ALIGNN roll-up (analysis.md + csv + plots)
 
 eform/                        ALIGNN formation-energy inference (separate parallel project; see "Other work" below)
-  eform_v03_alex/             Alexandria PBE 3D hull                                    (N = 48,764)
+  eform_v03_alex/             Alexandria PBE 3D hull with Z<=65 filter                  (N = 48,764)
     eform_v1_pbe/             ALIGNN  mp_e_form_alignn                                  predict_eform.py
     eform_v2_opt/             ALIGNN  jv_formation_energy_peratom_alignn                predict_eform.py
     eform_v{1_pbe,2_opt}/analysis/   summary.md + csv + plots per arm
@@ -74,7 +74,7 @@ Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are 
 
 The two methods are complementary, not redundant: SlakoNet offers physical interpretability and DOS access plus a known set of pathological compositions; ALIGNN offers uniformly decent accuracy within its training distribution but no transferability guarantee outside it. The v07 vacancy result (SK 91% metal vs ALIGNN 54% metal on the same 444 transition-metal-defect cells) is the cleanest direct illustration of SK's documented error mode in a held-out cross-method test. The v12 fluoroborate worst-prediction pattern (DFT=0, ALIGNN=8 eV on Li/Sr/Ba/Ca-fluoroborates) is the cleanest illustration that "model error" and "label error" are not the same thing.
 
-Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/alignn_comprehensive_analysis/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison).
+Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/alignn_comprehensive_analysis/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison at N = 40,807), `slakonet/three_way_rollup_v04_v10.csv` and per-dataset `slakonet/slako_v0*/analysis/csv/three_way_metrics.csv` (cross-method comparison rollup for v04 through v10).
 
 ## Headline SlakoNet results
 

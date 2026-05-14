@@ -1,6 +1,6 @@
 # v11_alexwz: SlakoNet vs ALIGNN vs DFT (cross-method)
 
-SK v11 effectively complete on Rockfish /data (rsync from /scratch4 after the group inode-quota workaround). DFT reference is Alexandria PBE `band_gap_ind`.
+SK v11 effectively complete on Rockfish /data; ALIGNN v11 predictions re-sourced from atomgptlab (2026-05-14) after the prior copy went missing. DFT reference is Alexandria PBE `band_gap_ind`.
 
 ## SK run accounting
 
@@ -10,23 +10,20 @@ Of 115,535 hull entries attempted:
   - 4,396 (3.8%) `sk_bandgap = inf` (gap-too-wide overflow; dropped)
 - 70,332 (60.9%) no JSON produced — silent dropout on lanthanides + heavies (Z>65), the documented SK ceiling on this dataset
 
+ALIGNN v11 ran cleanly on all 115,535 hull entries (no chemical ceiling on its side); three-way scope is therefore bounded by SK's 40,807.
+
 ## Pairwise metrics
 
-DFT vs SK at the **full 40,807-entry finite-SK scale** (up from the prior 6,781):
+Three-way comparison on the full 40,807-entry SK-finite ∩ ALIGNN-finite intersection (now at SK-finite scale, not 6,781 as in the prior writeup):
 
 | comparison | N | MAE (eV) | RMSE | ME (bias) | metal/gap acc. |
 |---|---|---|---|---|---|
-| DFT_PBE_vs_SK (45k run) | 40,807 | 1.039 | 2.029 | +0.344 | 78.518% |
+| DFT_PBE_vs_SK | 40,807 | 1.039 | 2.029 | +0.344 | 78.518% |
+| DFT_PBE_vs_ALIGNN | 40,807 | 0.174 | 0.427 | +0.016 | 90.038% |
+| SK_vs_ALIGNN | 40,807 | 1.086 | 2.068 | -0.328 | 72.399% |
+| DFT_PBE_vs_ALIGNN (full ALIGNN 115k) | 115,535 | 0.168 | 0.476 | +0.024 | 89.130% |
 
-Three-way comparison on the 6,781-entry intersection with the prior ALIGNN-bearing matched set (the full ALIGNN-v11 predictions live on the cluster, not local; scaling the three-way to ~40k would require scp'ing `alignn_v11_alexwz/results/alignn_predictions.json`):
-
-| comparison | N | MAE (eV) | RMSE | ME (bias) | metal/gap acc. |
-|---|---|---|---|---|---|
-| DFT_PBE_vs_SK | 6,781 | 1.034 | 2.027 | +0.333 | 77.820% |
-| DFT_PBE_vs_ALIGNN | 6,781 | 0.177 | 0.443 | +0.019 | 90.473% |
-| SK_vs_ALIGNN | 6,781 | 1.084 | 2.068 | -0.314 | 72.216% |
-
-DFT-vs-SK MAE at full scale (1.039 eV) tracks the 6,781-subset value (1.034 eV) within 0.005 eV; the prior matched set is representative of the full SK-finite population. The "ALIGNN wins by ~5.9x on bulk crystals" headline holds.
+ALIGNN headline MAE on the 40,807 SK-finite intersection is 0.174 eV vs 0.168 eV on the full 115,535 — restricting to SK-finite mat_ids shifts ALIGNN's MAE by 6 meV, i.e. the SK chemical ceiling (lanthanides + Z>65) is not where ALIGNN's worst predictions live. **ALIGNN wins by ~6.0x on bulk crystals** (MAE 1.04 vs 0.17), the same factor seen at the 6,781 scale.
 
 ## SK bimodal failure, surfaced at scale
 
