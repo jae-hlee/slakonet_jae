@@ -16,8 +16,8 @@ slakonet/                     SlakoNet inference per dataset
   slako_v08_supercon/         Alexandria supercon set     (N = 4,827)
   slako_v09_1d/               Alexandria PBE 1D           (N = 8,636)
   slako_v10_2d/               Alexandria PBE 2D           (N = 79,903)
-  slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter (in progress)
-  slako_v12_all/              Alexandria PBE 3D, full 5M set, no filters (in progress)
+  slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter (N = 45,203 finite of 115,535 attempted; SK ceiling)
+  slako_v12_all/              Alexandria PBE 3D, full 5M set, no filters (N = 1,646,162 finite of 4,489,295 attempted; 43% complete, sharded)
   slakonet_comprehensive_analysis/  Cross-dataset aggregation + unified plots
 
 alignn/                       ALIGNN runs grouped by source dataset
@@ -56,13 +56,13 @@ eform/                        ALIGNN formation-energy inference (separate parall
   # analysis/ per arm).
 ```
 
-**Totals processed.** SlakoNet bandgap ran on **127,238** materials across v03–v10 (v11 and v12 still in progress). ALIGNN bandgap ran on **4,741,159** materials across all 10 datasets. ALIGNN formation energy ran on **4,758,741** materials *per arm* across all 10 datasets (the eform tree runs two pretrained-model arms in parallel, so ~9.5M predictions total).
+**Totals processed.** SlakoNet bandgap ran on **127,238** materials across v03–v10, plus **45,203** more on v11 (39% of 115,535 attempted; rest is silent dropout on lanthanides + Z>65), plus **1,931,787** on v12 (43% of the 4.49M Alexandria 3D set, sharded; 1,646,162 with finite bandgap predictions). Total SK predictions: **~2.10M**. ALIGNN bandgap ran on **4,741,159** materials across all 10 datasets. ALIGNN formation energy ran on **4,758,741** materials *per arm* across all 10 datasets (the eform tree runs two pretrained-model arms in parallel, so ~9.5M predictions total).
 
 Every sub-project has a top-level inference script (`jslako_v*.py` for SlakoNet, `jalignn{N}.py` for the v04..v12 ALIGNN runs, `predict_alignn.py` for the older `alignn_v03_alex/alignn_v*` sub-runs), a `results/` directory of per-structure JSONs, and an `analysis/` directory of plots, metrics, and a written `summary.md` (or `analysis.md` in v03_alex).
 
 ## What this study finds
 
-Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 10 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (~4.74M structures total on the ALIGNN side; SlakoNet covers v03–v10 fully with v11 and v12 partial). Three core findings:
+Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 10 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (~4.74M structures total on the ALIGNN side; SlakoNet covers v03–v10 fully plus v11 at its 39% chemical ceiling and v12 at 43% completion / ~1.93M predictions). Three core findings:
 
 1. **ALIGNN wins by ~5x on the matched bulk-crystal set.** On the paired N = 31,211 Alexandria 3D hull subset where both methods produced output, ALIGNN reaches MAE 0.193 eV vs PBE; SlakoNet sits at 0.930 eV. Same structures, same reference.
 
