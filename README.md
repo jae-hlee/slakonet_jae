@@ -74,7 +74,7 @@ Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are 
 
 The two methods are complementary, not redundant: SlakoNet offers physical interpretability and DOS access plus a known set of pathological compositions; ALIGNN offers uniformly decent accuracy within its training distribution but no transferability guarantee outside it. The v07 vacancy result (SK 91% metal vs ALIGNN 54% metal on the same 444 transition-metal-defect cells) is the cleanest direct illustration of SK's documented error mode in a held-out cross-method test. The v12 fluoroborate worst-prediction pattern (DFT=0, ALIGNN=8 eV on Li/Sr/Ba/Ca-fluoroborates) is the cleanest illustration that "model error" and "label error" are not the same thing.
 
-Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/alignn_comprehensive_analysis/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison at N = 40,807), `slakonet/three_way_rollup_v04_v10.csv` and per-dataset `slakonet/slako_v0*/analysis/csv/three_way_metrics.csv` (cross-method comparison rollup for v04 through v10).
+Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/alignn_comprehensive_analysis/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison at N = 40,807), `slakonet/slako_v12_all/analysis/` (three-way at N = 1,646,059 — the largest cross-method comparison in the repo, where v12's 91% metallic distribution reverses the v11 "ALIGNN wins" headline), `slakonet/three_way_rollup_v04_v10.csv` and per-dataset `slakonet/slako_v0*/analysis/csv/three_way_metrics.csv` (cross-method comparison rollup for v04 through v10).
 
 ## Headline SlakoNet results
 
@@ -110,11 +110,9 @@ ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptl
 | interface_db   |    587 | 0.95        | 0.88          | 0.03          | 0.47     | 0.53  | 0.72  | 0.56  |
 | surface_db     |    487 | 0.97        | 0.59          | 0.22          | 0.78     | 0.51  | 0.89  | 0.69  |
 | Alex 3D (v11, no Z≤65) | 115,535 | 0.68 | 0.01 | 0.62 | 0.65 | 0.17 | 0.48 | 0.93 |
-| Alex 3D (v12, no filter)³ | 4,489,295 | — | — | 0.71 | — | 0.19 | 0.55 | — |
+| Alex 3D (v12, no filter) | 4,489,295 | 0.28 | 0.01 | 0.71 | 0.13 | 0.19 | 0.55 | 0.70 |
 | vacancy_db     |    444 | 0.73        | 0.02          | 0.54          | n/a      | n/a   | n/a   | n/a   |
 | alex_supercon  |  4,827 | 0.03        | 0.00          | 0.94          | n/a      | n/a   | n/a   | n/a   |
-
-³ The per-id v12 ALIGNN predictions file isn't local — only the aggregate `alignn/alignn_v12_all/analysis/csv/metrics.csv` is. ALIGNN mean / median / ref mean / r couldn't be filled without re-scp'ing the full prediction file from atomgptlab. Authoritative numbers in `alignn/alignn_v12_all/analysis/`.
 
 **Three regimes.** Alexandria 3D is in-distribution: PBE-trained ALIGNN reaches MAE 0.19 eV with r = 0.96. Alexandria 2D, 1D, surface_db, and interface_db cluster around MAE 0.47 to 0.53 eV (~3x worse) because their geometries (1D, 2D, slab + vacuum, layered interface) sit outside the 3D-bulk training distribution. CCCBDB molecules are the third, far-OOD regime at MAE 3.36 eV with r = 0.28: ALIGNN is trained on crystals (graph neighborhood mismatch for isolated molecules) and the reference is molecular DFT (Gaussian basis, different functional), not solid-state PBE.
 
