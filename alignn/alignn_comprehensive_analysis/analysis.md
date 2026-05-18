@@ -130,7 +130,7 @@ On v11 the worst-MAE elements are similar (Np, F, Cl, Cs, Yb, Rb, Br, K, I, O) b
 
 |ALIGNN - DFT| has a Pearson correlation of **-0.333 on v11 and -0.371 on v12** with `e_form`. Negative correlation: less stable structures (higher formation energy) tend to have **smaller** absolute errors. This is the same artifact as the far-off-hull MAE drop: high-e_form structures are usually metallic in DFT (and ALIGNN agrees), so absolute errors stay small even though metal/gap classification accuracy is worst there.
 
-## SlakoNet vs ALIGNN cross-method comparisons (v04 to v11)
+## SlakoNet vs ALIGNN cross-method comparisons (v04 to v12)
 
 This is the cleanest one-to-one cross-method view: same structures, same dataset, both methods predicting bandgap. DFT may or may not be available as a third reference.
 
@@ -143,7 +143,8 @@ This is the cleanest one-to-one cross-method view: same structures, same dataset
 | v07_vacancy (TM defects) | 444 | 0.634 | 1.352 | +0.561 | 0.40 | 91.2% / 54.3% | 61.3% |
 | v10_2d (Alex 2D) | 79,903 | 0.864 | 1.532 | -0.300 | 0.76 | **59% / 28%** | **61.9%** |
 | v04_cccbdb (molecules) | 1,324 | 3.928 | 5.291 | **-3.632** | 0.61 | 0% / 0.3% | 99.7% |
-| v11_alexwz (3D bulk hull, partial SK) | 6,781 | 1.084 | 2.068 | -0.314 | n/a | 64% / 54% | 72.2% |
+| v11_alexwz (3D bulk hull, SK chemical-ceiling-effective) | 40,807 | 1.086 | 2.068 | -0.328 | 0.69 | 71% / 48% | 72.4% |
+| v12_all (full 3D, SK 43% partial) | **1,646,059** | 0.365 | 0.985 | +0.095 | 0.50 | **91% / 63%** | 67.1% |
 
 (Per-dataset plots: `slakonet/slako_v0*_*/analysis/plots/sk_vs_alignn.png` plus matching `confusion_sk_vs_alignn.png`. Cross-dataset CSV: `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`.)
 
