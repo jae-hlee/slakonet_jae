@@ -65,7 +65,7 @@ Top 25 cross-arm disagreements (full table at `csv/cross_arm_top_disagreements.c
 
 ## Dataset `ef` field (vacancy formation energy, eV per defect)
 
-Carried for cross-method reference only; **not parity-comparable to ALIGNN's per-atom formation energy.**
+Carried for cross-method reference only. **Not parity-comparable to ALIGNN's per-atom formation energy.**
 
 | stat | value |
 |---|---|

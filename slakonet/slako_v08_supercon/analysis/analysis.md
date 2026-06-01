@@ -44,7 +44,7 @@ SlakoNet should predict gap ≈ 0 for everything. It does:
 | gap < 1 meV   | 647   | 13.4% |
 | gap < 50 meV  | 4,695 | 97.3% |
 
-Median gap 3.5 meV. The 0.5% with gap > 1 eV (e.g. agm002224543 = 2.89 eV) all
+Median gap 3.5 meV. The 0.4% with gap > 1 eV (e.g. agm002224543 = 2.89 eV) all
 have Tc ≈ 0 in the source — SlakoNet is correctly flagging them as
 non-superconducting outliers in the screening list.
 

@@ -20,7 +20,7 @@ directory.
 | v03_alex_pbe   | Alexandria 3D PBE (paired) | crystal   |  31,211 | Alexandria PBE `band_gap_ind`     | `mp_gappbe_alignn` (label-matched) |
 | v03_alex_mbj   | Alexandria 3D PBE (paired) | crystal   |  31,211 | Alexandria PBE `band_gap_ind`     | `jv_mbj_bandgap_alignn` (functional shift) |
 | v03_alex_opt   | Alexandria 3D PBE (paired) | crystal   |  31,211 | Alexandria PBE `band_gap_ind`     | `jv_optb88vdw_bandgap_alignn` (functional shift) |
-| v04_cccbdb     | CCCBDB molecules           | molecule  |   1,330 | `(lumo - homo) * 27.2114`         | `mp_gappbe_alignn` |
+| v04_cccbdb     | CCCBDB molecules           | molecule  |   1,333 | `(lumo - homo) * 27.2114`         | `mp_gappbe_alignn` |
 | v05_interface  | Interface slabs            | interface |     587 | `optb88vdw_bandgap` clipped at 0  | `mp_gappbe_alignn` |
 | v06_surface    | Surface slabs              | surface   |     487 | `max(surf_cbm - surf_vbm, 0)`     | `mp_gappbe_alignn` |
 | v07_vacancy    | Vacancy defects            | defect    |     470 | -                                 | `mp_gappbe_alignn` |
@@ -172,7 +172,7 @@ This is the cleanest one-to-one cross-method view: same structures, same dataset
 | DFT vs ALIGNN | 40,807 | 0.174 | 0.427 | +0.016 | 90.0% |
 | SK vs ALIGNN  | 40,807 | 1.086 | 2.068 | -0.328 | 72.4% |
 
-**ALIGNN dominates on this subset by ~6x in MAE and 12 percentage points in metal/gap accuracy.** The SK MAE of 1.039 eV is dragged up by a long tail (median |err| 0.023 eV but p90 |err| 3.16 eV); ALIGNN has no equivalent tail (median |err| 0.026 eV, p90 |err| 0.487 eV). The SK errors are bimodal (mostly correct + catastrophic outliers); ALIGNN errors are unimodal (broader Gaussian-ish residuals with no catastrophic mode). Three-way reference for the full ALIGNN scope on v11 (N = 115,535, no SK intersection requirement): MAE 0.168 — restricting to SK-finite mat_ids shifts ALIGNN's MAE only +6 meV, in stark contrast to v12 where the same restriction worsens ALIGNN by +37 meV (see v12 three-way at `slakonet/slako_v12_all/analysis/summary.md`).
+**ALIGNN dominates on this subset by ~6x in MAE and 12 percentage points in metal/gap accuracy.** The SK MAE of 1.039 eV is dragged up by a long tail (median |err| 0.023 eV but p90 |err| 3.16 eV), while ALIGNN has no equivalent tail (median |err| 0.026 eV, p90 |err| 0.487 eV). The SK errors are bimodal (mostly correct plus catastrophic outliers), while ALIGNN errors are unimodal (broader Gaussian-ish residuals with no catastrophic mode). Three-way reference for the full ALIGNN scope on v11 (N = 115,535, no SK intersection requirement): MAE 0.168. Restricting to SK-finite mat_ids shifts ALIGNN's MAE only +6 meV, in stark contrast to v12 where the same restriction worsens ALIGNN by +37 meV (see v12 three-way at `slakonet/slako_v12_all/analysis/summary.md`).
 
 ## Functional-shift caveat (v05)
 
@@ -216,7 +216,7 @@ v05 interface_db's reference is `optb88vdw_bandgap` (OptB88vdW), **not** PBE. AL
 Three thresholds for "metal" appear across this repo, applied to different things:
 
 - `pbe_ref == 0` (strictest, DFT-side): Alexandria flags metallic structures with an exact-zero gap. Used in the v03 bootstrap CI artifact (`../alignn_v03_alex/pbe_mbj_opt_analysis/bootstrap_ci.json`) for the most conservative ground-truth metal split, since the ranking-stability claim should be insensitive to a tolerance choice.
-- `pbe_ref <= 0.05` (conventional, DFT-side): standard ML stratification threshold that absorbs sub-50 meV DFT noise (sub-zero or near-zero gaps that are physically metallic) into the metal class. Used in the manuscript Section 6 v11 stratified MAE (80,695 metals / 34,840 non-metals).
+- `pbe_ref <= 0.05` (conventional, DFT-side): standard ML stratification threshold that absorbs sub-50 meV DFT noise (sub-zero or near-zero gaps that are physically metallic) into the metal class. Used in the v11 stratified MAE split (80,695 metals / 34,840 non-metals).
 - `pred <= 0.05` (model-side): applied to *predictions*, not the reference. Reports "what fraction of structures the model predicted as metallic" with a small tolerance for near-zero outputs. Used in the `frac_alignn_metal` column of `csv/summary_table.csv` (this rebuild standardizes it at 0.05 across all datasets) and in the top-level README headline tables.
 
 The two are not interchangeable: `== 0` and `<= 0.05` classify the *ground truth* (DFT label); the `frac_alignn_metal` 0.05 cut classifies the *prediction*.

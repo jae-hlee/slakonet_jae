@@ -65,7 +65,7 @@ data lives there rather than in a `summary.csv`).
 Three thresholds for "metal" appear across this repo, applied to different things:
 
 - `pbe_ref == 0` (strictest, DFT-side): Alexandria flags metallic structures with an exact-zero gap. Used in the v03 bootstrap CI artifact (`../../alignn/alignn_v03_alex/pbe_mbj_opt_analysis/bootstrap_ci.json`) for the most conservative ground-truth metal split, since the ranking-stability claim should be insensitive to a tolerance choice.
-- `pbe_ref <= 0.05` (conventional, DFT-side): standard ML stratification threshold that absorbs sub-50 meV DFT noise (sub-zero or near-zero gaps that are physically metallic) into the metal class. Used in the manuscript Section 6 v11 stratified MAE (80,695 metals / 34,840 non-metals).
+- `pbe_ref <= 0.05` (conventional, DFT-side): standard ML stratification threshold that absorbs sub-50 meV DFT noise (sub-zero or near-zero gaps that are physically metallic) into the metal class. Used in the v11 stratified MAE split (80,695 metals / 34,840 non-metals).
 - `pred <= 0.05` (model-side): applied to *predictions*, not the reference. Reports "what fraction of structures the model predicted as metallic" with a small tolerance for near-zero outputs. Used in the `frac_sk_metal` column of `csv/summary_table.csv` (this rebuild standardizes it at 0.05 across all 10 datasets) and in the top-level README headline tables.
 
 The two are not interchangeable: `== 0` and `<= 0.05` classify the *ground truth* (DFT label); the `frac_sk_metal` 0.05 cut classifies the *prediction*.

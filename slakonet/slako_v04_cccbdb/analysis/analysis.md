@@ -17,7 +17,7 @@ Band gap, all values in eV. Reference is the CCCBDB HOMO-LUMO gap (`lumo - homo`
 | Pearson r | 0.65 |
 | SK frac metallic | 0.00 |
 | SK mean / median | 7.45 / 6.31 |
-| HL-gap mean / median | 6.74 / 6.86 |
+| HL-gap mean / median | 6.74 / 6.85 |
 
 SK predicts no molecules as metallic (correctly, since CCCBDB is closed-shell molecules). The MAE of 2.52 eV with positive bias means SK systematically over-predicts the gap by about 0.7 eV on average; the 3.52 eV RMSE indicates that overprediction has a long upper tail (hydrocarbons and saturated organics push SK gaps into the 15-20 eV range while CCCBDB references stay around 7-12 eV).
 
