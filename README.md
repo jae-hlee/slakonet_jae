@@ -56,13 +56,20 @@ eform/                        ALIGNN formation-energy inference (separate parall
   # analysis/ per arm).
 ```
 
-**Totals processed.** SlakoNet bandgap ran on **127,240** materials across v03–v10 (paired counts: 31,211 + 1,320 + 433 + 466 + 444 + 4,827 + 8,636 + 79,903), plus **45,203** more on v11 (39% of 115,535 attempted, rest is silent dropout on lanthanides + Z>65), plus **2,503,043** on v12 (56% of the 4.49M Alexandria 3D set, all 100/100 shards complete, 2,138,447 with finite bandgap predictions). Total SK predictions: **~2.68M**. ALIGNN bandgap ran on **4,741,185** materials across all 10 datasets (v03 paired N + ALIGNN-side N for v04-v12). ALIGNN formation energy ran on **4,758,741** materials *per arm* across all 10 datasets (the eform tree runs two pretrained-model arms in parallel, so ~9.5M predictions total).
+**Totals processed.** The benchmark spans **4,589,542 unique structures** across the 10 datasets, de-duplicated by structure ID. The Alexandria PBE 3D pool accounts for 4,489,376 of them and already contains the v03 hull+Z≤65 paired subset, the v11 hull subset, and 98% of the v08 supercon candidates (all share the Alexandria 3D `agm0…` ID namespace). The rest are distinct: Alexandria 2D (87,903), Alexandria 1D (9,540), CCCBDB molecules (1,333), and the JARVIS surface (487), vacancy (470), and interface (433) sets.
+
+Two properties are computed on those structures:
+
+- **Bandgap.** ALIGNN (`mp_gappbe_alignn`) predicts a bandgap for all 4,589,542 structures. SlakoNet predicts a bandgap for the **2,594,907** that clear its effective Z≤57 chemical ceiling (of which 2,138,447 carry a finite gap on the 3D set, after dropping numerical-overflow outliers).
+- **Formation energy** (the separate `eform/` track). ALIGNN predicts e_form for the same 4,589,542 structures, run twice: the PBE-trained `mp_e_form_alignn` arm and the OptB88vdW-trained `jv_formation_energy_peratom_alignn` arm.
+
+Per-dataset prediction counts double-count the Alexandria 3D structures that recur in v03, v08, v11, and v12, so the raw sums (~4.74M ALIGNN bandgap, ~9.5M ALIGNN e_form across both arms, ~2.68M SlakoNet bandgap) overstate coverage. They all land on the same ~4.59M unique structures.
 
 Every sub-project has a top-level inference script (`jslako_v*.py` for SlakoNet, `jalignn{N}.py` for the v04..v12 ALIGNN runs, `predict_alignn.py` for the older `alignn_v03_alex/alignn_v*` sub-runs), a `results/` directory of per-structure JSONs, and an `analysis/` directory of plots, metrics, and a written `summary.md` (or `analysis.md` in v03_alex).
 
 ## What this study finds
 
-Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 10 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (~4.74M structures total on the ALIGNN side; SlakoNet covers v03–v10 fully plus v11 at its 39% chemical ceiling and v12 at full 100/100-shard completion / ~2.50M predictions). Three core findings:
+Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 10 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (**4,589,542 unique structures** after de-duplicating the heavy Alexandria 3D overlap between v03, v11, and v12). ALIGNN covers all of them, SlakoNet covers the ~2.59M that clear its chemical ceiling. Three core findings:
 
 1. **ALIGNN wins by ~5x on the matched bulk-crystal set, conditional on metallic fraction.** On the paired N = 31,211 Alexandria 3D hull subset (55% DFT metals) where both methods produced output, ALIGNN reaches MAE 0.193 eV vs PBE; SlakoNet sits at 0.930 eV (4.8x ratio). Same structures, same reference. The same finding holds at v11's matched 40,807 set (also ~55% DFT metals: SK 1.04 / ALIGNN 0.17, 6.1x ratio). But at v12's matched 2,138,447 set (91% DFT metals, full Alexandria), the comparison **flips**: SK MAE 0.21 vs ALIGNN MAE 0.22. SK is near-perfect on metals (median |err| 0.005 eV), so when metals dominate by mass, its aggregate collapses below ALIGNN's. This is a distribution-shift artifact, not a relative-accuracy claim, and it surfaces the same lesson: median |err| is a more dataset-invariant diagnostic than MAE when metallic fractions differ.
 
@@ -82,24 +89,24 @@ Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's D
 
 | Dataset        |     N  | SK mean | SK median | Frac metallic | Ref mean | MAE   | RMSE  |  r    |
 |----------------|-------:|--------:|----------:|--------------:|---------:|------:|------:|------:|
-| Alexandria 3D  | 31,211 | 1.54    | 0.01      | 0.63          | 1.22     | 0.93  | 1.65  | 0.81  |
-| Alexandria 2D  | 79,903 | 1.16    | 0.02      | 0.62          | 0.67     | 0.62  | 1.33  | 0.89  |
-| Alexandria 1D  |  8,636 | 1.87    | 0.31      | 0.40          | 1.09     | 0.99  | 1.70  | 0.88  |
+| Alexandria 3D  | 31,211 | 1.54    | 0.01      | 0.62          | 1.22     | 0.93  | 1.65  | 0.81  |
+| Alexandria 2D  | 79,903 | 1.16    | 0.02      | 0.59          | 0.67     | 0.62  | 1.33  | 0.89  |
+| Alexandria 1D  |  8,636 | 1.87    | 0.31      | 0.32          | 1.09     | 0.99  | 1.70  | 0.88  |
 | CCCBDB mols.   |  1,320 | 7.45    | 6.31      | 0.00          | 6.74     | 2.52  | 3.52  | 0.65  |
 | interface_db   |    433 | 1.43    | 1.41      | 0.17          | 0.43     | 1.01  | 1.26  | 0.73  |
-| surface_db     |    466 | 1.67    | 1.18      | 0.35          | 0.77     | 0.97  | 1.59  | 0.75  |
+| surface_db     |    466 | 1.67    | 1.18      | 0.33          | 0.77     | 0.97  | 1.59  | 0.75  |
 | Alex 3D (v11, no Z≤65)¹ | 40,807 | 1.35 | 0.01 | 0.71 | 1.01 | 1.04 | 2.03 | 0.71 |
 | Alex 3D (v12, no filter)² | 2,138,447 | 0.24 | 0.00 | 0.91 | 0.15 | 0.21 | 0.83 | 0.67 |
-| vacancy_db     |    444 | 0.16    | 0.00      | 0.92          | n/a      | n/a   | n/a   | n/a   |
-| alex_supercon  |  4,827 | 0.02    | 0.00      | 0.98          | n/a      | n/a   | n/a   | n/a   |
+| vacancy_db     |    444 | 0.16    | 0.00      | 0.91          | n/a      | n/a   | n/a   | n/a   |
+| alex_supercon  |  4,827 | 0.02    | 0.00      | 0.97          | n/a      | n/a   | n/a   | n/a   |
 
-¹ v11 N is the **SK-finite count** of 40,807 out of 115,535 attempted hull entries (39% success rate, 45,203 per-id JSONs of which 4,396 are inf-overflows that drop; the 61% miss is SK's chemical ceiling on f-block lanthanides + Z>65, not a model-error rate). The same dataset row in the ALIGNN table below uses N = 115,535 because ALIGNN has no comparable chemical ceiling.
+¹ v11 N is the **SK-finite count** of 40,807 out of 115,535 attempted hull entries (39% success rate, 45,203 per-id JSONs of which 4,396 are inf-overflows that drop). The 61% miss is SK's chemical ceiling on f-block lanthanides + Z>65, not a model-error rate. The same dataset row in the ALIGNN table below uses N = 115,535 because ALIGNN has no comparable chemical ceiling.
 
-² v12 SK is **complete, 100/100 array shards landed** (0-90 on Rockfish, 91-99 backfilled on DSAI by 2026-05-31). 2,503,043 per-id JSONs produced of 4,489,295 attempted (56%); the remaining 44% is silent dropout on the SK chemical ceiling (lanthanides + Z>65 + noble gases). The N = 2,138,447 is the finite-SK count after clipping 122 numerical-overflow outliers (sk_bandgap up to ~6×10⁶ eV that contribute >99% of the raw RMSE, see `slakonet/slako_v12_all/analysis/summary.md`). The 91% metal fraction reflects v12's full-Alexandria distribution including off-hull metallic chemistries, not improved SK calibration.
+² v12 SK is **complete**. 2,503,043 per-id JSONs produced of 4,489,295 attempted (56%); the remaining 44% is silent dropout on the SK chemical ceiling (lanthanides + Z>65 + noble gases). The N = 2,138,447 is the finite-SK count after clipping 122 numerical-overflow outliers (sk_bandgap up to ~6×10⁶ eV that contribute >99% of the raw RMSE, see `slakonet/slako_v12_all/analysis/summary.md`). The 91% metal fraction reflects v12's full-Alexandria distribution including off-hull metallic chemistries, not improved SK calibration.
 
 ## Headline ALIGNN results
 
-ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptlab CPU cluster (PBE-only by design; see `alignn/CLAUDE.md` for the scope rationale and the deferred mBJ/Opt extension for v09-v12). Conventions match the SlakoNet table above. The Alexandria 3D row uses the paired N = 31,211 subset where both methods succeeded (basis for the head-to-head section below). The vacancy_db and alex_supercon rows have no DFT gap reference; their MAE / RMSE / r columns are blank and the cross-method comparison appears below.
+ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset (PBE-only by design; see `alignn/CLAUDE.md` for the scope rationale and the deferred mBJ/Opt extension for v09-v12). Conventions match the SlakoNet table above. The Alexandria 3D row uses the paired N = 31,211 subset where both methods succeeded (basis for the head-to-head section below). The vacancy_db and alex_supercon rows have no DFT gap reference; their MAE / RMSE / r columns are blank and the cross-method comparison appears below.
 
 | Dataset        |     N  | ALIGNN mean | ALIGNN median | Frac metallic | Ref mean | MAE   | RMSE  |  r    |
 |----------------|-------:|------------:|--------------:|--------------:|---------:|------:|------:|------:|
@@ -162,11 +169,6 @@ No dataset zips ship with the repo. Download each from the [atomgptlab JARVIS da
 | `slako_v08_supercon`                                                        | `alex_supercon.json.zip`                                     |
 | `slako_v09_1d`                                                              | `alexandria_pbe_1d_2024.10.1_jarvis_tools.json.zip`          |
 | `slako_v10_2d`                                                              | `alexandria_pbe_2d_2024.10.1_jarvis_tools.json.zip`          |
-
-### Compute venue
-
-- SlakoNet inference runs on Rockfish CPU (`parallel` partition, 48-core nodes). See `slakonet/job_template.sh`.
-- ALIGNN inference runs on atomgptlab CPU (`main` partition, 256-core / 500 GB nodes). See `alignn/job_template.sh`. Conda lives at `/data/$USER/miniforge3` on atomgptlab; `dgl` must be installed explicitly via `pip install dgl==1.1.3 -f https://data.dgl.ai/wheels/repo.html` since it is not a transitive dependency of `pip install alignn`.
 
 ### Analysis
 

@@ -34,18 +34,18 @@ directory.
 
 | dataset | N | alignn_mean_eV | alignn_median_eV | frac_alignn_metal | ref_mean_eV | MAE_eV | RMSE_eV | pearson_r |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| v03_alex_pbe   |    31,211 | 1.232 | 0.343 | 0.450 | 1.215 | **0.194** | **0.463** | **0.960** |
-| v03_alex_mbj   |    31,211 | 1.569 | 0.251 | 0.439 | 1.215 |  0.757    |  1.462    |  0.808    |
-| v03_alex_opt   |    31,211 | 1.065 | 0.095 | 0.502 | 1.215 |  0.357    |  0.746    |  0.898    |
-| v04_cccbdb     |     1,330 | 3.826 | 3.855 | 0.008 | 7.023 |  3.365    |  7.931    |  0.279    |
-| v05_interface  |       587 | 0.953 | 0.882 | 0.044 | 0.466 |  0.531    |  0.717    |  0.565    |
-| v06_surface    |       487 | 0.975 | 0.589 | 0.269 | 0.784 |  0.507    |  0.890    |  0.692    |
-| v07_vacancy    |       470 | 0.730 | 0.023 | 0.594 | -     | -         | -         | -         |
-| v08_supercon   |     4,827 | 0.027 | 0.004 | 0.961 | -     | -         | -         | -         |
-| v09_1d         |     9,540 | 0.927 | 0.247 | 0.384 | 1.070 |  0.485    |  0.755    |  0.873    |
-| v10_2d         |    87,903 | 0.863 | 0.275 | 0.365 | 0.674 |  0.470    |  0.837    |  0.789    |
-| v11_alexwz     |   115,535 | 0.677 | 0.015 | 0.655 | 0.653 | **0.168** | **0.476** | **0.933** |
-| v12_all        | 4,489,295 |   -   |   -   | 0.709 |   -   |  0.185    |  0.551    |   -       |
+| v03_alex_pbe   |    31,211 | 1.232 | 0.343 | 0.424 | 1.215 | **0.193** | **0.463** | **0.960** |
+| v03_alex_mbj   |    31,211 | 1.574 | 0.251 | 0.390 | 1.215 |  0.752    |  1.461    |  0.808    |
+| v03_alex_opt   |    31,211 | 1.068 | 0.095 | 0.477 | 1.215 |  0.354    |  0.746    |  0.898    |
+| v04_cccbdb     |     1,333 | 3.823 | 3.848 | 0.003 | 7.023 |  3.365    |  7.931    |  0.279    |
+| v05_interface  |       587 | 0.953 | 0.882 | 0.027 | 0.466 |  0.531    |  0.717    |  0.565    |
+| v06_surface    |       487 | 0.975 | 0.589 | 0.222 | 0.784 |  0.507    |  0.890    |  0.692    |
+| v07_vacancy    |       470 | 0.730 | 0.023 | 0.560 | -     | -         | -         | -         |
+| v08_supercon   |     4,827 | 0.027 | 0.004 | 0.935 | -     | -         | -         | -         |
+| v09_1d         |     9,540 | 0.927 | 0.247 | 0.300 | 1.070 |  0.485    |  0.755    |  0.873    |
+| v10_2d         |    87,903 | 0.863 | 0.275 | 0.283 | 0.674 |  0.470    |  0.837    |  0.789    |
+| v11_alexwz     |   115,535 | 0.677 | 0.015 | 0.620 | 0.653 | **0.168** | **0.476** | **0.933** |
+| v12_all        | 4,489,295 | 0.275 | 0.011 | 0.709 | 0.128 |  0.185    |  0.551    |  0.705    |
 
 The two strongest rows are v11_alexwz (`mp_gappbe_alignn`'s in-distribution best on Alexandria 3D bulk crystals) and v03_alex_pbe (the matched 31,211 paired subset used as the head-to-head benchmark vs SlakoNet). The mBJ and OptB88vdW v03 rows show the functional shift recovered cleanly from a non-metal slope fit (~1.23 for mBJ, ~0.94 for OptB88vdW); their MAE-against-PBE is dominated by that shift and not by model error.
 
@@ -207,8 +207,8 @@ v05 interface_db's reference is `optb88vdw_bandgap` (OptB88vdW), **not** PBE. AL
 - v07 (vacancy) and v08 (supercon) have **no DFT bandgap reference**, so they appear in the dataset-overview and gap-distribution plots but not in parity / residual / error / functional-shift plots. The interesting analysis on those two is the SK-vs-ALIGNN cross-method comparison; per-dir details in `alignn/alignn_v07_vacancy/analysis/analysis.md` and `alignn/alignn_v08_supercon/analysis/analysis.md`.
 - v04 (CCCBDB) reference is computed as `(lumo - homo) * 27.2114` from raw Hartree HOMO/LUMO values in the source. The separate column `hl_gap_hartree_eV` in `slakonet/slako_v04_cccbdb/analysis/csv/summary.csv` is misleadingly named (values are already in eV); use the formula above for clean parity.
 - v06 reference uses `max(surf_cbm - surf_vbm, 0)` per the surface_db schema gotcha (the bundled `scf_*` reference is bulk-on-slab-vacuum scale and is wrong; see the slakonet-side workflow docs (kept local) for the documented fix).
-- v12_all has no per-row `pred_mean` / `pred_median` / `ref_mean` / `r` because the full predictions JSON (~3 GB) is not loaded into the aggregator; numbers come from the per-shard `metrics.csv` rollup. The on-hull subset of v12 (115,535 entries) reproduces v11_alexwz exactly, which is the cross-check that the array-sharded pipeline matches the single-job v11 run.
-- Metallic threshold used for coverage bars: ALIGNN gap < 0.10 eV (matches the slakonet-side convention).
+- v12_all per-row stats (`alignn_mean` / `alignn_median` / `ref_mean` / `pearson_r`) are now computed from the full 4.49M-entry slim file `alignn/alignn_v12_all/results/alignn_scalars_v12.jsonl.gz`. The on-hull subset of v12 (115,535 entries) reproduces v11_alexwz exactly, which is the cross-check that the array-sharded pipeline matches the single-job v11 run.
+- Metallic threshold used for the `frac_alignn_metal` coverage stat and the overview bars: ALIGNN gap < **0.05 eV**, applied uniformly across all datasets (matches the SlakoNet-side rebuild and the cross-method convention). The legacy table used 0.10 eV for v03–v11 and 0.05 eV for v12; this rebuild removes that inconsistency, shifting the v03–v11 `frac_alignn_metal` values slightly downward (e.g. v10 0.365 → 0.283).
 - All numbers regenerated from per-row predictions in `alignn/alignn_v*/results/alignn_predictions.json` and `alignn/alignn_v03_alex/pbe_mbj_opt_analysis/merged_predictions.json`. The aggregation script is kept local off-repo (per the standing rule on Claude-generated analysis scripts).
 
 ## Metal/non-metal threshold conventions
@@ -217,9 +217,9 @@ Three thresholds for "metal" appear across this repo, applied to different thing
 
 - `pbe_ref == 0` (strictest, DFT-side): Alexandria flags metallic structures with an exact-zero gap. Used in the v03 bootstrap CI artifact (`../alignn_v03_alex/pbe_mbj_opt_analysis/bootstrap_ci.json`) for the most conservative ground-truth metal split, since the ranking-stability claim should be insensitive to a tolerance choice.
 - `pbe_ref <= 0.05` (conventional, DFT-side): standard ML stratification threshold that absorbs sub-50 meV DFT noise (sub-zero or near-zero gaps that are physically metallic) into the metal class. Used in the manuscript Section 6 v11 stratified MAE (80,695 metals / 34,840 non-metals).
-- `pred < 0.10` (or `< 0.05`) (model-side): applied to *predictions*, not the reference. Reports "what fraction of structures the model predicted as metallic" with a small tolerance for near-zero outputs. Used in the `frac_*_metal` columns of the cross-dataset summary tables (`< 0.10` in `csv/summary_table.csv`; `< 0.05` in the top-level README's headline ALIGNN table on the paired subset, which uses the tighter cut to match the SlakoNet headline's tighter cut).
+- `pred <= 0.05` (model-side): applied to *predictions*, not the reference. Reports "what fraction of structures the model predicted as metallic" with a small tolerance for near-zero outputs. Used in the `frac_alignn_metal` column of `csv/summary_table.csv` (this rebuild standardizes it at 0.05 across all datasets) and in the top-level README headline tables.
 
-The three are not interchangeable: `== 0` and `<= 0.05` classify the *ground truth* (DFT label); `< 0.10` (or `< 0.05`) classifies the *prediction*.
+The two are not interchangeable: `== 0` and `<= 0.05` classify the *ground truth* (DFT label); the `frac_alignn_metal` 0.05 cut classifies the *prediction*.
 
 ## See also
 
