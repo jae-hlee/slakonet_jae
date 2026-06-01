@@ -203,7 +203,21 @@ ALIGNN predictions use the same per-structure layout with `alignn_bandgap` inste
 
 ## Other work in this repo
 
-The `eform/` tree is a separate, parallel-track research project that runs ALIGNN formation-energy inference (eV/atom) on the same 10 datasets covered above (v03 through v12), with two pretrained model arms per dataset: `mp_e_form_alignn` (Materials Project / PBE) under `eform_v1_pbe/` and `jv_formation_energy_peratom_alignn` (JARVIS / OptB88vdW) under `eform_v2_opt/`. It shares input zips, conda environment, and cluster paths with the bandgap pipeline for convenience, but is not part of the bandgap study described in this README. All 10 datasets × 2 arms (20 inference runs) complete; per-arm analyses live at `eform/eform_v0N_*/eform_v{1_pbe,2_opt}/analysis/`.
+The `eform/` tree is a separate, parallel-track research project that runs ALIGNN formation-energy inference (eV/atom) on the same 10 datasets covered above (v03 through v12), with two pretrained model arms per dataset: `mp_e_form_alignn` (Materials Project / PBE) under `eform_v1_pbe/` and `jv_formation_energy_peratom_alignn` (JARVIS / OptB88vdW) under `eform_v2_opt/`. It shares input zips, conda environment, and cluster paths with the bandgap pipeline for convenience, but is not part of the bandgap study described in this README. All 10 datasets × 2 arms (20 inference runs) complete; per-arm analyses live at `eform/eform_v0N_*/eform_v{1_pbe,2_opt}/analysis/`, and a cross-dataset rollup is at `eform/eform_comprehensive_analysis/` (`analysis.md`, `csv/summary_table.csv`, plots).
+
+Five of the ten datasets carry a DFT formation-energy reference (Alexandria PBE `e_form`), so they admit a parity benchmark. Headline accuracy, all in eV/atom (MAE, bias = mean error pred − ref, Pearson r):
+
+| Dataset | N | PBE arm: MAE / bias / r | OptB88vdW arm: MAE / bias / r |
+|---|---:|---|---|
+| v03 Alexandria 3D (hull, Z≤65) | 48,764 | 0.029 / +0.007 / 0.998 | 0.117 / +0.074 / 0.987 |
+| v11 Alexandria 3D (hull, no Z filter) | 115,535 | 0.036 / +0.011 / 0.997 | 0.102 / +0.052 / 0.988 |
+| v12 Alexandria 3D (full, unfiltered) | 4,489,295 | 0.171 / −0.155 / 0.967 | 0.145 / −0.086 / 0.980 |
+| v10 Alexandria 2D | 87,903 | 0.165 / −0.142 / 0.977 | 0.201 / −0.026 / 0.955 |
+| v09 Alexandria 1D | 9,540 | 0.331 / −0.266 / 0.938 | 0.314 / +0.090 / 0.936 |
+
+The functional-matched PBE arm (`mp_e_form_alignn` against Alexandria PBE labels) reaches 0.03-0.04 eV/atom MAE on hull-filtered 3D crystals (0.029 on v03, 0.036 on v11), the in-distribution regime these models were trained for. The OptB88vdW arm is several-fold worse on those same crystals (4.0x on v03, 2.8x on v11), but that gap is the intended PBE-vs-OptB88vdW functional shift, not model error. Both arms degrade on low-dimensional geometries (v09 1D, v10 2D), the same kind of out-of-distribution penalty seen on the bandgap side. On the full unfiltered v12 set the ordering flips (OptB88vdW 0.145 < PBE 0.171 eV/atom): off-hull and far-off-hull structures make up 68% of the 4.49M set, and on the far-off-hull stratum the PBE arm (MAE 0.424) trails the OptB88vdW arm (0.281), which is what reverses the aggregate.
+
+The remaining five datasets have no DFT formation-energy reference, so only prediction distributions and cross-arm agreement are reported: CCCBDB molecules (v04, far-OOD), interface slabs (v05), surface slabs (v06), vacancy defects (v07), and supercon candidates (v08). For v07, the dataset's `ef` field is a vacancy formation energy in eV per defect and is not parity-comparable to the per-atom formation energy ALIGNN predicts.
 
 ## Upstream references
 
