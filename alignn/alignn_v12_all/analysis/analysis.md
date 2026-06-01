@@ -68,7 +68,7 @@ Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.371**. Negative: l
 ## Caveats
 
 - Full coverage of the 4,489,295-entry Alexandria PBE 3D set.
-- v12 includes off-hull entries (e_above_hull > 0) which are less physically meaningful than on-hull structures. The on-hull subset (115,535 entries) reproduces v11 exactly (MAE 0.168, accuracy 89.3%); see per-hull-bin breakdown in `plots/parity_by_hull_bin.png` and `csv/metrics.csv`.
+- v12 includes off-hull entries (e_above_hull > 0) which are less physically meaningful than on-hull structures. The on-hull subset (115,535 entries) is the same structures as v11 (no Z filter on either run, v11 = the hull-stable subset) and reproduces v11's MAE exactly (0.168), since the ALIGNN predictions are byte-identical between the two runs. The accuracy here (89.3%) uses a strict band_gap_ind = 0 metal cut, not directly comparable to v11's 89.1% at the 0.05 eV cut. See per-hull-bin breakdown in `plots/parity_by_hull_bin.png` and `csv/metrics.csv`.
 - ALIGNN `mp_gappbe_alignn` was trained on Materials Project 3D bulk PBE bandgaps, so v12 (Alexandria 3D) is in-distribution. The MAE 0.185 eV on 4.49M structures is comparable to the model's published validation MAE.
 
 ## Files
