@@ -105,15 +105,14 @@ False negatives (PBE says gap, SlakoNet predicts metal): 9,682
 
 ## How this compares with sister projects
 
-| | v09 1D (8,636) | **v10 2D (79,903)** | v03 3D (~100k on-hull) |
+| | v09 1D (8,636) | **v10 2D (79,903)** | v03 3D paired (31,211 on-hull) |
 |---|---:|---:|---|
-| Overall MAE | 0.33 eV | **0.62 eV** | ~0.6 eV |
-| Overall R² | +0.14 | **−0.12** | low |
-| Non-metal MAE | 0.87 eV | **1.29 eV** | ~1 eV |
-| Classification acc | 0.87 | **0.83** | ~0.84 |
+| Overall MAE | 0.99 eV | **0.62 eV** | 0.93 eV |
+| Overall R² | −0.25 | **−0.12** | −0.008 |
+| Non-metal MAE | 1.42 eV | **1.29 eV** | 1.78 eV |
+| Classification acc | 0.75 | **0.83** | 0.83 |
 
-2D is **harder** than 1D and roughly on par with 3D in difficulty. Two plausible
-contributors (see CLAUDE.md):
+2D sits between 1D and 3D in aggregate MAE, with the same negative-R² pattern across all three (SK predicts worse than the population mean). Classification accuracy is on par with 3D (0.83) and noticeably better than 1D (0.75). Two plausible contributors (see CLAUDE.md):
 
 1. **k-path handling is not 2D-aware.** `prepare_inputs` calls
    `Kpoints3D.kpath(atoms, line_density=20)` on a jarvis `Atoms` dict whose
@@ -172,4 +171,4 @@ aggregator's v10 stub loader picks it up automatically on the next run.
 
 ## Reproducing
 
-The plots, `csv/stats.txt`, and `csv/summary.csv` in this directory are pre-built. The original analysis script is no longer kept in the repo; outputs were generated from a cumulative the per-id JSONs in `results/` (gitignored) (built locally via `aggregate_results.py` when per-id JSONs were present). Peak memory during the original run stayed under ~2 GB by streaming the JSON.
+The plots, `csv/stats.txt`, and `csv/summary.csv` in this directory are pre-built. The original analysis script is no longer kept in the repo. Outputs were generated from a cumulative pass over the per-id JSONs in `results/` (gitignored), built locally via `aggregate_results.py` when per-id JSONs were present. Peak memory during the original run stayed under ~2 GB by streaming the JSON.

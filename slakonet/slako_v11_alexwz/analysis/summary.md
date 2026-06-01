@@ -31,10 +31,10 @@ Stratifying the full 40,807-entry DFT-vs-SK set by DFT gap bin:
 
 | bin (eV) | N | SK MAE | SK ME | median \|err\| |
 |---|---|---|---|---|
-| metallic (0.00–0.1) | 22,340 | 0.055 | +0.055 | 0.004 |
-| narrow (0.05–1.0) | 4,336 | 0.926 | +0.229 | 0.651 |
-| narrow-mid (1.00–2.0) | 4,965 | 1.910 | +0.323 | 1.557 |
-| mid (2.00–4.0) | 6,793 | 2.876 | +0.888 | 2.504 |
+| metallic (0.00–0.05) | 22,340 | 0.055 | +0.055 | 0.004 |
+| narrow (0.05–1.00) | 4,336 | 0.926 | +0.229 | 0.651 |
+| narrow-mid (1.00–2.00) | 4,965 | 1.910 | +0.323 | 1.557 |
+| mid (2.00–4.00) | 6,793 | 2.876 | +0.888 | 2.504 |
 | wide (4.00–∞) | 2,373 | 3.431 | +1.765 | 3.223 |
 
 SK is near-perfect on the 22,340 DFT metals (MAE 0.055 eV) and degrades monotonically with reference gap; by the wide-gap bin (DFT > 4 eV, N=2,373) MAE reaches 3.431 eV. The wide-gap mean error is +1.77 eV (net over-prediction on average), but the p90 |err| of 5.81 eV reflects a bimodal residual distribution: TM-compound and fluoride entries collapse to ~0 (large negative residuals) while other wide-gap chemistries over-shoot, both pulling the MAE up. This is the bimodal SK failure pattern documented in `slakonet/slako_v03_alex/analysis/analysis.md`, now visible at 40k scale rather than 7k.

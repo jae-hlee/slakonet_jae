@@ -87,6 +87,6 @@ Carried for cross-method reference only; **not parity-comparable to ALIGNN's per
 
 ## Caveats
 
-- v07 carries `ef` (vacancy formation E, eV/defect) — NOT comparable to ALIGNN's eV/atom.
+- v07 carries `ef` (vacancy formation E, eV/defect), which is NOT comparable to ALIGNN's eV/atom.
 - All `formula` fields are None; element info encoded in id only.
 - Cross-arm comparison with `eform_v1_pbe/analysis/` is the primary signal here (no DFT reference).

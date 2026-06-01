@@ -9,7 +9,7 @@ Each sub-project is a self-contained batch-inference pipeline: one script loads 
 ```
 slakonet/                     SlakoNet inference per dataset
   slako_v03_alex/             Alexandria PBE 3D hull with Z<=65 filter  (N = 31,211 paired)
-  slako_v04_cccbdb/           NIST CCCBDB molecules       (N = 1,318)
+  slako_v04_cccbdb/           NIST CCCBDB molecules       (N = 1,320)
   slako_v05_interface/        JARVIS interface_db slabs   (N = 433)
   slako_v06_surface/          JARVIS surface_db slabs     (N = 466)
   slako_v07_vacancy/          JARVIS vacancy_db defects   (N = 444)
@@ -17,7 +17,7 @@ slakonet/                     SlakoNet inference per dataset
   slako_v09_1d/               Alexandria PBE 1D           (N = 8,636)
   slako_v10_2d/               Alexandria PBE 2D           (N = 79,903)
   slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter (N = 45,203 finite of 115,535 attempted; SK ceiling)
-  slako_v12_all/              Alexandria PBE 3D, full 5M set, no filters (N = 1,646,162 finite of 4,489,295 attempted; 43% complete, sharded)
+  slako_v12_all/              Alexandria PBE 3D, full 5M set, no filters (N = 2,138,447 finite of 4,489,295 attempted; 100/100 shards complete)
   slakonet_comprehensive_analysis/  Cross-dataset aggregation + unified plots
 
 alignn/                       ALIGNN runs grouped by source dataset
@@ -56,15 +56,15 @@ eform/                        ALIGNN formation-energy inference (separate parall
   # analysis/ per arm).
 ```
 
-**Totals processed.** SlakoNet bandgap ran on **127,238** materials across v03–v10, plus **45,203** more on v11 (39% of 115,535 attempted; rest is silent dropout on lanthanides + Z>65), plus **1,931,787** on v12 (43% of the 4.49M Alexandria 3D set, sharded; 1,646,162 with finite bandgap predictions). Total SK predictions: **~2.10M**. ALIGNN bandgap ran on **4,741,159** materials across all 10 datasets. ALIGNN formation energy ran on **4,758,741** materials *per arm* across all 10 datasets (the eform tree runs two pretrained-model arms in parallel, so ~9.5M predictions total).
+**Totals processed.** SlakoNet bandgap ran on **127,240** materials across v03–v10 (paired counts: 31,211 + 1,320 + 433 + 466 + 444 + 4,827 + 8,636 + 79,903), plus **45,203** more on v11 (39% of 115,535 attempted, rest is silent dropout on lanthanides + Z>65), plus **2,503,043** on v12 (56% of the 4.49M Alexandria 3D set, all 100/100 shards complete, 2,138,447 with finite bandgap predictions). Total SK predictions: **~2.68M**. ALIGNN bandgap ran on **4,741,185** materials across all 10 datasets (v03 paired N + ALIGNN-side N for v04-v12). ALIGNN formation energy ran on **4,758,741** materials *per arm* across all 10 datasets (the eform tree runs two pretrained-model arms in parallel, so ~9.5M predictions total).
 
 Every sub-project has a top-level inference script (`jslako_v*.py` for SlakoNet, `jalignn{N}.py` for the v04..v12 ALIGNN runs, `predict_alignn.py` for the older `alignn_v03_alex/alignn_v*` sub-runs), a `results/` directory of per-structure JSONs, and an `analysis/` directory of plots, metrics, and a written `summary.md` (or `analysis.md` in v03_alex).
 
 ## What this study finds
 
-Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 10 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (~4.74M structures total on the ALIGNN side; SlakoNet covers v03–v10 fully plus v11 at its 39% chemical ceiling and v12 at 43% completion / ~1.93M predictions). Three core findings:
+Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are run on 10 datasets covering molecules, surfaces, interfaces, defects, superconductor candidates, and 1D/2D/3D Alexandria crystals (~4.74M structures total on the ALIGNN side; SlakoNet covers v03–v10 fully plus v11 at its 39% chemical ceiling and v12 at full 100/100-shard completion / ~2.50M predictions). Three core findings:
 
-1. **ALIGNN wins by ~5x on the matched bulk-crystal set, conditional on metallic fraction.** On the paired N = 31,211 Alexandria 3D hull subset (55% DFT metals) where both methods produced output, ALIGNN reaches MAE 0.193 eV vs PBE; SlakoNet sits at 0.930 eV. Same structures, same reference. The 6x finding holds at v11's matched 40,807 set too (also ~55% DFT metals: SK 1.04 / ALIGNN 0.17). But at v12's matched 1,646,059 set (91% DFT metals, full Alexandria), the comparison **flips**: SK MAE 0.21 vs ALIGNN MAE 0.22. SK is near-perfect on metals (median |err| 0.004 eV), so when metals dominate by mass, its aggregate collapses below ALIGNN's. This is a distribution-shift artifact, not a relative-accuracy claim — and surfaces the same lesson: median |err| is a more dataset-invariant diagnostic than MAE when metallic fractions differ.
+1. **ALIGNN wins by ~5x on the matched bulk-crystal set, conditional on metallic fraction.** On the paired N = 31,211 Alexandria 3D hull subset (55% DFT metals) where both methods produced output, ALIGNN reaches MAE 0.193 eV vs PBE; SlakoNet sits at 0.930 eV (4.8x ratio). Same structures, same reference. The same finding holds at v11's matched 40,807 set (also ~55% DFT metals: SK 1.04 / ALIGNN 0.17, 6.1x ratio). But at v12's matched 2,138,447 set (91% DFT metals, full Alexandria), the comparison **flips**: SK MAE 0.21 vs ALIGNN MAE 0.22. SK is near-perfect on metals (median |err| 0.005 eV), so when metals dominate by mass, its aggregate collapses below ALIGNN's. This is a distribution-shift artifact, not a relative-accuracy claim, and it surfaces the same lesson: median |err| is a more dataset-invariant diagnostic than MAE when metallic fractions differ.
 
 2. **The two methods have differently shaped error distributions.** SlakoNet's residuals are **bimodal**: median error is tiny (0.027 eV, most predictions are dead-on) but ~10% of structures collapse to predicted gap = 0 when DFT says 5+ eV. The largest residuals concentrate on transition-metal compounds and ionic fluorides. ALIGNN's residuals are **unimodal and gentler**: spread Gaussian-ish around zero with no catastrophic collapse, but accuracy on non-metals is 4-5x worse than on metals. ALIGNN's largest residuals are also fluorides, but in the over-predict direction (off-hull fluoroborates where Alexandria PBE gives 0; ALIGNN may be more physically correct than the label here).
 
@@ -74,7 +74,7 @@ Two ML methods (SlakoNet tight-binding and pretrained ALIGNN graph network) are 
 
 The two methods are complementary, not redundant: SlakoNet offers physical interpretability and DOS access plus a known set of pathological compositions; ALIGNN offers uniformly decent accuracy within its training distribution but no transferability guarantee outside it. The v07 vacancy result (SK 91% metal vs ALIGNN 54% metal on the same 444 transition-metal-defect cells) is the cleanest direct illustration of SK's documented error mode in a held-out cross-method test. The v12 fluoroborate worst-prediction pattern (DFT=0, ALIGNN=8 eV on Li/Sr/Ba/Ca-fluoroborates) is the cleanest illustration that "model error" and "label error" are not the same thing.
 
-Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/alignn_comprehensive_analysis/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison at N = 40,807), `slakonet/slako_v12_all/analysis/` (three-way at N = 1,646,059 — the largest cross-method comparison in the repo, where v12's 91% metallic distribution reverses the v11 "ALIGNN wins" headline), `slakonet/three_way_rollup_v04_v10.csv` and per-dataset `slakonet/slako_v0*/analysis/csv/three_way_metrics.csv` (cross-method comparison rollup for v04 through v10).
+Full deep-analysis writeups: `slakonet/slako_v03_alex/analysis/analysis.md` (SlakoNet error modes), `alignn/alignn_comprehensive_analysis/analysis.md` (ALIGNN cross-dataset narrative), `slakonet/slako_v11_alexwz/analysis/` (three-way DFT/SK/ALIGNN comparison at N = 40,807), `slakonet/slako_v12_all/analysis/` (three-way at N = 2,138,447, the largest cross-method comparison in the repo, where v12's 91% metallic distribution reverses the v11 "ALIGNN wins" headline), `slakonet/three_way_rollup_v04_v10.csv` and per-dataset `slakonet/slako_v0*/analysis/csv/three_way_metrics.csv` (cross-method comparison rollup for v04 through v10).
 
 ## Headline SlakoNet results
 
@@ -85,17 +85,17 @@ Band gap, all values in eV. MAE / RMSE / Pearson *r* are against the dataset's D
 | Alexandria 3D  | 31,211 | 1.54    | 0.01      | 0.63          | 1.22     | 0.93  | 1.65  | 0.81  |
 | Alexandria 2D  | 79,903 | 1.16    | 0.02      | 0.62          | 0.67     | 0.62  | 1.33  | 0.89  |
 | Alexandria 1D  |  8,636 | 1.87    | 0.31      | 0.40          | 1.09     | 0.99  | 1.70  | 0.88  |
-| CCCBDB mols.   |  1,318 | 7.45    | 6.31      | 0.00          | 6.74     | 2.52  | 3.52  | 0.65  |
+| CCCBDB mols.   |  1,320 | 7.45    | 6.31      | 0.00          | 6.74     | 2.52  | 3.52  | 0.65  |
 | interface_db   |    433 | 1.43    | 1.41      | 0.17          | 0.43     | 1.01  | 1.26  | 0.73  |
 | surface_db     |    466 | 1.67    | 1.18      | 0.35          | 0.77     | 0.97  | 1.59  | 0.75  |
 | Alex 3D (v11, no Z≤65)¹ | 40,807 | 1.35 | 0.01 | 0.71 | 1.01 | 1.04 | 2.03 | 0.71 |
-| Alex 3D (v12, no filter)² | 1,646,059 | 0.24 | 0.00 | 0.91 | 0.15 | 0.21 | 0.83 | 0.66 |
+| Alex 3D (v12, no filter)² | 2,138,447 | 0.24 | 0.00 | 0.91 | 0.15 | 0.21 | 0.83 | 0.67 |
 | vacancy_db     |    444 | 0.16    | 0.00      | 0.92          | n/a      | n/a   | n/a   | n/a   |
 | alex_supercon  |  4,827 | 0.02    | 0.00      | 0.98          | n/a      | n/a   | n/a   | n/a   |
 
-¹ v11 N is the **SK-finite count** of 40,807 out of 115,535 attempted hull entries (39% success rate; the 60% miss is SK's chemical ceiling on f-block lanthanides + Z>65, not a model-error rate). The same dataset row in the ALIGNN table below uses N = 115,535 because ALIGNN has no comparable chemical ceiling.
+¹ v11 N is the **SK-finite count** of 40,807 out of 115,535 attempted hull entries (39% success rate, 45,203 per-id JSONs of which 4,396 are inf-overflows that drop; the 61% miss is SK's chemical ceiling on f-block lanthanides + Z>65, not a model-error rate). The same dataset row in the ALIGNN table below uses N = 115,535 because ALIGNN has no comparable chemical ceiling.
 
-² v12 SK is **partial — 43% of 4,489,295 attempted** (1,931,787 per-id JSONs produced, 76 of 100 array shards on disk; 24 shards backfilling). The N = 1,646,059 is the finite-SK count after clipping 103 numerical-overflow outliers (sk_bandgap up to 6.7×10⁶ eV that contribute >99% of the raw RMSE — see `slakonet/slako_v12_all/analysis/summary.md`). The 91% metal fraction reflects v12's full-Alexandria distribution including off-hull metallic chemistries, not improved SK calibration.
+² v12 SK is **complete, 100/100 array shards landed** (0-90 on Rockfish, 91-99 backfilled on DSAI by 2026-05-31). 2,503,043 per-id JSONs produced of 4,489,295 attempted (56%); the remaining 44% is silent dropout on the SK chemical ceiling (lanthanides + Z>65 + noble gases). The N = 2,138,447 is the finite-SK count after clipping 122 numerical-overflow outliers (sk_bandgap up to ~6×10⁶ eV that contribute >99% of the raw RMSE, see `slakonet/slako_v12_all/analysis/summary.md`). The 91% metal fraction reflects v12's full-Alexandria distribution including off-hull metallic chemistries, not improved SK calibration.
 
 ## Headline ALIGNN results
 
@@ -111,12 +111,12 @@ ALIGNN `mp_gappbe_alignn` (PBE-trained) was run on every dataset on the atomgptl
 | surface_db     |    487 | 0.97        | 0.59          | 0.22          | 0.78     | 0.51  | 0.89  | 0.69  |
 | Alex 3D (v11, no Z≤65) | 115,535 | 0.68 | 0.01 | 0.62 | 0.65 | 0.17 | 0.48 | 0.93 |
 | Alex 3D (v12, no filter) | 4,489,295 | 0.28 | 0.01 | 0.71 | 0.13 | 0.19 | 0.55 | 0.70 |
-| vacancy_db     |    444 | 0.73        | 0.02          | 0.54          | n/a      | n/a   | n/a   | n/a   |
+| vacancy_db     |    470 | 0.73        | 0.02          | 0.56          | n/a      | n/a   | n/a   | n/a   |
 | alex_supercon  |  4,827 | 0.03        | 0.00          | 0.94          | n/a      | n/a   | n/a   | n/a   |
 
 **Three regimes.** Alexandria 3D is in-distribution: PBE-trained ALIGNN reaches MAE 0.19 eV with r = 0.96. Alexandria 2D, 1D, surface_db, and interface_db cluster around MAE 0.47 to 0.53 eV (~3x worse) because their geometries (1D, 2D, slab + vacuum, layered interface) sit outside the 3D-bulk training distribution. CCCBDB molecules are the third, far-OOD regime at MAE 3.36 eV with r = 0.28: ALIGNN is trained on crystals (graph neighborhood mismatch for isolated molecules) and the reference is molecular DFT (Gaussian basis, different functional), not solid-state PBE.
 
-**v12 hull-bin breakdown (ALIGNN).** The on-hull subset of v12 (115,535 entries) reproduces v11 exactly: same N, same MAE (0.168), same metal/gap accuracy (89.3% vs 89.1%) within rounding — the strongest in-repo reproducibility cross-check. Within v12, ALIGNN MAE rises with hull energy then dips: on-hull 0.168 / acc 89.3%; near-hull (0 to 0.1 eV/atom) 0.186 / 85.8%; off-hull (0.1 to 0.5) 0.205 / 80.1%; far off-hull (>0.5) 0.154 / 66.0%. Bias grows monotonically from on-hull (+0.024) to off-hull (+0.178); the far-off MAE drop is misleading because those entries are predominantly metallic in DFT (predictions pile near zero), masking the falling classification accuracy.
+**v12 hull-bin breakdown (ALIGNN).** The on-hull subset of v12 (115,535 entries) reproduces v11 exactly: same N, same MAE (0.168), same metal/gap accuracy (89.3% vs 89.1%) within rounding, the strongest in-repo reproducibility cross-check. Within v12, ALIGNN MAE rises with hull energy then dips: on-hull 0.168 / acc 89.3%; near-hull (0 to 0.1 eV/atom) 0.186 / 85.8%; off-hull (0.1 to 0.5) 0.205 / 80.1%; far off-hull (>0.5) 0.154 / 66.0%. Bias grows monotonically from on-hull (+0.024) to off-hull (+0.178); the far-off MAE drop is misleading because those entries are predominantly metallic in DFT (predictions pile near zero), masking the falling classification accuracy.
 
 **vacancy_db and alex_supercon (cross-method comparison).** Both lack a DFT bandgap reference. On **vacancy_db** (N = 444 paired), SK predicts 91.2% metallic, ALIGNN 54.3%, with metal/gap agreement of 61.3% and SK-vs-ALIGNN MAE of 0.634 eV. The parity plot in `alignn/alignn_v07_vacancy/analysis/plots/sk_vs_alignn.png` shows a vertical pile-up at SK gap = 0 against ALIGNN gaps spanning 0 to 6 eV, the visual signature of SK's silent dropout on open-shell transition metals (full diagnosis in `slakonet/slako_v03_alex/analysis/analysis.md`). On **alex_supercon** (N = 4,827) both methods predict the candidates are metallic (97.3% SK / 93.5% ALIGNN), with 92.4% agreement and SK-vs-ALIGNN MAE of 0.04 eV; the high-Tc subset (Tc > 5 K, N = 704) is 95.3% predicted metallic by ALIGNN, passing the sanity check.
 
@@ -201,7 +201,7 @@ ALIGNN predictions use the same per-structure layout with `alignn_bandgap` inste
 
 ## Other work in this repo
 
-The `eform/` tree is a separate, parallel-track research project that runs ALIGNN formation-energy inference (eV/atom) on the same 10 datasets covered above (v03 through v12), with two pretrained model arms per dataset: `mp_e_form_alignn` (Materials Project / PBE) under `eform_v1_pbe/` and `jv_formation_energy_peratom_alignn` (JARVIS / OptB88vdW) under `eform_v2_opt/`. It shares input zips, conda environment, and cluster paths with the bandgap pipeline for convenience, but is not part of the bandgap study described in this README. Results are in progress.
+The `eform/` tree is a separate, parallel-track research project that runs ALIGNN formation-energy inference (eV/atom) on the same 10 datasets covered above (v03 through v12), with two pretrained model arms per dataset: `mp_e_form_alignn` (Materials Project / PBE) under `eform_v1_pbe/` and `jv_formation_energy_peratom_alignn` (JARVIS / OptB88vdW) under `eform_v2_opt/`. It shares input zips, conda environment, and cluster paths with the bandgap pipeline for convenience, but is not part of the bandgap study described in this README. All 10 datasets × 2 arms (20 inference runs) complete; per-arm analyses live at `eform/eform_v0N_*/eform_v{1_pbe,2_opt}/analysis/`.
 
 ## Upstream references
 

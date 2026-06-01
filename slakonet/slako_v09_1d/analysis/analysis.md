@@ -22,9 +22,9 @@ secondary output.
 
 | Quantity                       |    N | mean   | median | min    | max    |
 |--------------------------------|-----:|-------:|-------:|-------:|-------:|
-| SlakoNet band gap (eV)         | 8,636| +1.869 | +0.308 | +0.000 | +21.0  |
-| PBE indirect gap (eV)          | 8,636| +1.088 | +0.426 | +0.000 | +9.55  |
-| PBE direct gap (eV)            | 8,636| +1.198 | +0.598 | +0.000 | +9.55  |
+| SlakoNet band gap (eV)         | 8,636| +1.869 | +0.308 | +0.000 | +30.43 |
+| PBE indirect gap (eV)          | 8,636| +1.088 | +0.346 | +0.000 | +9.50  |
+| PBE direct gap (eV)            | 8,636| +1.198 | +0.448 | +0.000 | +9.56  |
 
 - **PBE "metals"** (`band_gap_ind == 0`): 2,940 / 8,636 = **34.0 %**
 - **SlakoNet "metals"** (gap < 0.1 eV): 3,434 / 8,636 = **39.8 %**
@@ -73,7 +73,7 @@ See `plots/confusion_matrix.png`.
    `../../slako_v03_alex/analysis/analysis.md` for the detailed write-up.
 2. **Wider non-metal spread than 3D.** Non-metal MAE is 1.42 eV (3D was
    1.78 eV in the paired ALIGNN comparison). RMSE 2.07 eV is dominated by a
-   long tail of SK-overestimated insulators reaching 21 eV.
+   long tail of SK-overestimated insulators reaching 30 eV.
 3. **High Pearson r despite negative R².** r = 0.88 says SK ranks structures
    correctly; the negative R² says the absolute scale is off and a constant
    "predict the population mean" baseline beats the regressor on

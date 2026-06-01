@@ -6,11 +6,11 @@ The companion ALIGNN run on the same dataset is at `alignn/alignn_v04_cccbdb/`. 
 
 ## Headline numbers
 
-Band gap, all values in eV. Reference is the CCCBDB HOMO-LUMO gap (`lumo - homo`, Hartree converted to eV via x 27.2114). N = 1,318 valid molecules after the Z <= 65 filter and dropping 4 entries flagged as excluded.
+Band gap, all values in eV. Reference is the CCCBDB HOMO-LUMO gap (`lumo - homo`, Hartree converted to eV via x 27.2114). N = 1,320 valid molecules after the Z <= 65 filter and dropping 4 entries flagged as excluded.
 
 | metric | SK vs HL-gap (eV) |
 |---|---:|
-| N | 1,318 |
+| N | 1,320 |
 | MAE | 2.52 |
 | RMSE | 3.52 |
 | ME (bias) | +0.71 |
@@ -55,11 +55,11 @@ The two methods are OOD in opposite directions. SK over-predicts (mean 7.45 eV v
 
 ## Why include this dataset at all
 
-CCCBDB is the cleanest cross-domain stress test available for this benchmark: a tightly curated set of 1,318 small molecules with well-defined HOMO-LUMO references, no periodic-boundary ambiguity, and elemental coverage that SlakoNet nominally supports (Z <= 65). The 2.52 eV MAE quantifies the upper bound of the cross-domain penalty, and the +0.71 eV bias (vs ALIGNN's -3.20 eV) pins the direction of each method's OOD drift. For users planning to apply either method outside its training distribution, this dataset is the most informative single number in the benchmark.
+CCCBDB is the cleanest cross-domain stress test available for this benchmark: a tightly curated set of 1,320 small molecules with well-defined HOMO-LUMO references, no periodic-boundary ambiguity, and elemental coverage that SlakoNet nominally supports (Z <= 65). The 2.52 eV MAE quantifies the upper bound of the cross-domain penalty, and the +0.71 eV bias (vs ALIGNN's -3.20 eV) pins the direction of each method's OOD drift. For users planning to apply either method outside its training distribution, this dataset is the most informative single number in the benchmark.
 
 ## Pointers
 
-- Per-row scalars: `csv/summary.csv` (1,318 valid + 4 excluded rows; columns: `jid`, `species`, `homo_raw`, `lumo_raw`, `hl_gap_hartree_eV`, `hl_gap_ev_eV`, `sk_bandgap_eV`, `excluded`). Note: the column names `hl_gap_hartree_eV` and `hl_gap_ev_eV` are swapped relative to their values in the source CSV. The `_hartree_eV` column holds Hartree-converted-to-eV (the right reference); the `_ev_eV` column holds raw Hartree.
+- Per-row scalars: `csv/summary.csv` (1,320 valid + 4 excluded rows; columns: `jid`, `species`, `homo_raw`, `lumo_raw`, `hl_gap_hartree_eV`, `hl_gap_ev_eV`, `sk_bandgap_eV`, `excluded`). Note: the column names `hl_gap_hartree_eV` and `hl_gap_ev_eV` are swapped relative to their values in the source CSV. The `_hartree_eV` column holds Hartree-converted-to-eV (the right reference); the `_ev_eV` column holds raw Hartree.
 - SK vs ALIGNN aggregate: `csv/sk_vs_alignn_metrics.csv`.
 - Cross-dataset row: `slakonet/slakonet_comprehensive_analysis/csv/summary_table.csv` (look for `v04_cccbdb`).
 - Companion ALIGNN deep dive: `alignn/alignn_v04_cccbdb/analysis/analysis.md`.

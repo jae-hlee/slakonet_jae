@@ -271,10 +271,10 @@ zero-gap tendency is accidentally correct.
 
 - `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/parity_three_way.png` — PBE vs SK, PBE vs ALIGNN, SK vs ALIGNN
 - `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/parity_three_way_nonmetals.png` — same, non-metals only
--  — residual histograms side-by-side
--  — confusion matrices side-by-side
+- `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/residuals.png` — residual histograms side-by-side
+- `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/confusion_sk_vs_alignn.png` — confusion matrices side-by-side
 - `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/head_to_head_error.png` — per-structure |error| scatter
--  — PBE vs SK vs ALIGNN densities
+- `../../../alignn/alignn_v03_alex/alignn_v1_pbe/analysis/plots/gap_distribution.png` — PBE vs SK vs ALIGNN densities
 
 ## Implications for the dataset
 

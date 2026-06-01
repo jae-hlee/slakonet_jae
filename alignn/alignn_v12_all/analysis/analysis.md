@@ -18,7 +18,7 @@ Reference: DFT PBE `band_gap_ind` from Alexandria. Metal/gap split at 0.05 eV.
 - False negatives (DFT gap, ALIGNN metal):  28,732 (0.6%)
 - True positives (DFT gap, ALIGNN gap):     365,349 (8.1%)
 
-**Failure-mode breakdown.** The dominant error mode is **false positives** (953,196 vs 20,152): ALIGNN predicts a gap where DFT says the structure is metallic.  Metals are predicted much more accurately (MAE 0.153) than non-metals (MAE 0.544); the model defaults toward small-gap predictions which works for metals but underestimates non-metal gaps.
+**Failure-mode breakdown.** The dominant error mode is **false positives** (941,170 vs 28,732): ALIGNN predicts a gap where DFT says the structure is metallic.  Metals are predicted much more accurately (MAE 0.153) than non-metals (MAE 0.544); the model defaults toward small-gap predictions which works for metals but underestimates non-metal gaps.
 
 ## Worst predictions
 

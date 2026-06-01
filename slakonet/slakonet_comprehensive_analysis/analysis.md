@@ -10,7 +10,7 @@ project drops a `summary.csv` (or the per-id JSONs in `results/` (gitignored)).
 | key | title | kind | N | reference |
 |-----|-------|------|---:|-----------|
 | v03_alex | Alexandria 3D PBE | crystal | 31,211 | dft_bandgap_eV |
-| v04_cccbdb | CCCBDB molecules | molecule | 1,318 | dft_bandgap_eV |
+| v04_cccbdb | CCCBDB molecules | molecule | 1,320 | dft_bandgap_eV |
 | v05_interface | Interface slabs (optB88vdW) | interface | 433 | dft_bandgap_eV |
 | v06_surface | Surface slabs (PBE) | surface | 466 | dft_bandgap_eV |
 | v07_vacancy | Vacancy defects | defect | 444 | — |
@@ -18,18 +18,18 @@ project drops a `summary.csv` (or the per-id JSONs in `results/` (gitignored)).
 | v09_1d | Alexandria 1D PBE | low_dim | 8,636 | dft_bandgap_eV |
 | v10_2d | Alexandria 2D PBE | low_dim | 79,903 | dft_bandgap_eV |
 | v11_alexwz | Alexandria 3D PBE, no Z≤65 filter | crystal | 40,807¹ | band_gap_ind |
-| v12_all | Alexandria 3D PBE, no filters (partial 43%) | crystal | 1,646,059² | band_gap_ind |
+| v12_all | Alexandria 3D PBE, no filters (complete 100/100 shards) | crystal | 2,138,447² | band_gap_ind |
 
 ¹ v11 N = 40,807 is the SK-finite count out of 115,535 hull entries attempted (39% success rate; rest is SK's chemical ceiling on lanthanides + Z>65, not random failures). Reference is Alexandria PBE `band_gap_ind` indirect gap.
 
-² v12 N = 1,646,059 is the finite-SK count after a `sk_bandgap ≤ 20 eV` clip (drops 103 numerical-overflow outliers up to 6.7×10⁶ eV that contribute >99% of the raw RMSE). v12 SK is still backfilling at 43% complete (76/100 array shards on disk; the remaining 24 are running/queued). The headline numbers below will tighten when the backfill drains and the slim file is regenerated.
+² v12 N = 2,138,447 is the finite-SK count after a `sk_bandgap ≤ 20 eV` clip (drops 122 numerical-overflow outliers up to ~6×10⁶ eV that contribute >99% of the raw RMSE). v12 SK is **complete — 100/100 array shards landed** (0-90 on Rockfish, 91-99 backfilled on DSAI by 2026-05-31). 2,503,043 per-id JSONs produced of 4,489,295 attempted (56%); the remaining 44% is silent dropout on the SK chemical ceiling (lanthanides + Z>65 + noble gases).
 
 ## Headline metrics (see `csv/summary_table.csv`)
 
 | dataset | N | sk_mean_eV | sk_median_eV | frac_sk_metal | ref_mean_eV | MAE_eV | RMSE_eV | pearson_r |
 |---|---|---|---|---|---|---|---|---|
 | v03_alex | 31211 | 1.544 | 0.006 | 0.629 | 1.215 | 0.930 | 1.649 | 0.807 |
-| v04_cccbdb | 1318 | 7.451 | 6.312 | 0.000 | 6.735 | 2.518 | 3.517 | 0.648 |
+| v04_cccbdb | 1320 | 7.451 | 6.312 | 0.000 | 6.735 | 2.518 | 3.517 | 0.648 |
 | v05_interface | 433 | 1.432 | 1.412 | 0.173 | 0.429 | 1.013 | 1.259 | 0.730 |
 | v06_surface | 466 | 1.673 | 1.176 | 0.348 | 0.773 | 0.973 | 1.595 | 0.746 |
 | v07_vacancy | 444 | 0.157 | 0.001 | 0.921 | — | — | — | — |
@@ -37,7 +37,7 @@ project drops a `summary.csv` (or the per-id JSONs in `results/` (gitignored)).
 | v09_1d | 8636 | 1.869 | 0.308 | 0.398 | 1.088 | 0.989 | 1.701 | 0.879 |
 | v10_2d | 79903 | 1.161 | 0.017 | 0.624 | 0.671 | 0.621 | 1.328 | 0.890 |
 | v11_alexwz | 40807 | 1.352 | 0.006 | 0.714 | 1.008 | 1.039 | 2.029 | 0.712 |
-| v12_all | 1646059 | 0.235 | 0.005 | 0.907 | 0.147 | 0.206 | 0.831 | 0.664 |
+| v12_all | 2138447 | 0.238 | 0.005 | 0.907 | 0.150 | 0.206 | 0.827 | 0.671 |
 
 ## Figures
 

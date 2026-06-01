@@ -201,6 +201,6 @@ Full top-100 at `csv/worst_predictions.csv`.
 ## Caveats
 
 - Reference is Alexandria PBE `e_form`; this arm trained on **JARVIS/OptB88vdW** e_form. Training functional differs from reference; the systematic ME is the PBE-vs-OptB88vdW functional shift, not pure model error. Subtract ME to recover a rough error scale.
-- Includes Z>65 elements (lanthanides Ce-Tb and actinides) absent from v03.
-- All structures hull-stable (DFT e_form <= 0).
+- Includes Z>65 elements (lanthanides through Yb and actinides) absent from v03.
+- All structures hull-stable (e_above_hull = 0).
 - Cross-arm comparison with `eform_v1_pbe/analysis/` is in the cross-arm section above; large PBE-vs-this disagreements are characterized in `csv/worst_predictions.csv`.

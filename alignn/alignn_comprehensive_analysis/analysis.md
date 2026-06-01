@@ -113,14 +113,14 @@ Element-resolved MAE on v12 (entries containing each element, min 500 entries):
 
 | element | count | MAE (eV) | median \|err\| |
 |---|---|---|---|
-| F  | 138,258 | **0.855** | 0.288 |
-| Cs | 124,590 | 0.673 | 0.263 |
-| O  | 318,102 | 0.611 | 0.221 |
-| Cl | 195,153 | 0.594 | 0.223 |
-| Rb | 151,386 | 0.585 | 0.172 |
-| Br | 189,682 | 0.525 | 0.202 |
-| Np | 49,393 | 0.513 | 0.035 |
-| I  | 147,107 | 0.505 | 0.211 |
+| F  | 139,632 | **0.854** | 0.288 |
+| Cs | 125,848 | 0.673 | 0.263 |
+| O  | 321,221 | 0.611 | 0.221 |
+| Cl | 197,166 | 0.594 | 0.223 |
+| Rb | 152,916 | 0.585 | 0.172 |
+| Br | 191,595 | 0.525 | 0.202 |
+| Np | 49,884 | 0.513 | 0.035 |
+| I  | 148,588 | 0.505 | 0.211 |
 
 The pattern is **halides + alkali metals + oxygen**: ionic compounds with wide PBE gaps that ALIGNN sometimes hits and sometimes collapses (or where the structural-label mismatch above flips the residual sign). Np stands out because the median error is small (0.035) but the MAE is large, indicating a long-tailed distribution: most Np compounds are predicted well but a handful have extreme errors.
 
@@ -144,7 +144,7 @@ This is the cleanest one-to-one cross-method view: same structures, same dataset
 | v10_2d (Alex 2D) | 79,903 | 0.864 | 1.532 | -0.300 | 0.76 | **59% / 28%** | **61.9%** |
 | v04_cccbdb (molecules) | 1,324 | 3.928 | 5.291 | **-3.632** | 0.61 | 0% / 0.3% | 99.7% |
 | v11_alexwz (3D bulk hull, SK chemical-ceiling-effective) | 40,807 | 1.086 | 2.068 | -0.328 | 0.69 | 71% / 48% | 72.4% |
-| v12_all (full 3D, SK 43% partial) | **1,646,059** | 0.365 | 0.985 | +0.095 | 0.50 | **91% / 63%** | 67.1% |
+| v12_all (full 3D, SK complete 100/100) | **2,138,447** | 0.368 | 0.985 | +0.098 | 0.50 | **91% / 63%** | 66.9% |
 
 (Per-dataset plots: `slakonet/slako_v0*_*/analysis/plots/sk_vs_alignn.png` plus matching `confusion_sk_vs_alignn.png`. Cross-dataset CSV: `slakonet/slakonet_comprehensive_analysis/csv/sk_vs_alignn_cross_dataset.csv`.)
 
@@ -160,21 +160,19 @@ This is the cleanest one-to-one cross-method view: same structures, same dataset
 
 **v04 molecules show the largest absolute disagreement (3.93 eV).** Both methods are out-of-distribution (ALIGNN trained on crystals, SK trained on solid-state DFT), and they sit on opposite sides of the reference: SK predicts much larger gaps than ALIGNN (-3.6 eV ME). The 99.7% classification agreement is essentially trivial since both methods see molecules as non-metallic; the magnitude disagreement is where the real OOD signal is.
 
-**v11 SK-vs-ALIGNN (partial, 6,781 entries)** sits in the middle: MAE 1.08 eV between methods, similar to v05/v06/v09/v10 cross-method MAEs. This is consistent with v11 being in-distribution for ALIGNN (which is why ALIGNN-vs-DFT MAE is 0.18) but mid-distribution for SK (where catastrophic outliers drag MAE to 1.0). When the v11 SK run completes, the matched subset will grow from 6,781 toward ~115k and these numbers will firm up.
+**v11 SK-vs-ALIGNN (N = 40,807)** sits in the middle: MAE 1.09 eV between methods, similar to v05/v06/v09/v10 cross-method MAEs. This is consistent with v11 being in-distribution for ALIGNN (which is why ALIGNN-vs-DFT MAE is 0.17) but mid-distribution for SK (where catastrophic outliers drag MAE above 1.0). v11 SK is at its chemical-ceiling-effective completion (45,203 per-id JSONs of 115,535 attempted; 40,807 finite after dropping `inf` overflows).
 
 ## Three-way comparison on v11 (DFT vs SK vs ALIGNN, on the matched subset)
 
-`slakonet/slako_v11_alexwz/analysis/` carries a three-way comparison on the 6,781 v11 entries that have both SK and ALIGNN predictions (after dropping 766 SK inf values and entries SK didn't run on):
+`slakonet/slako_v11_alexwz/analysis/` carries a three-way comparison on the **40,807** v11 entries with finite SK + ALIGNN predictions:
 
 | comparison | N | MAE (eV) | RMSE | ME | metal/gap acc. |
 |---|---|---|---|---|---|
-| DFT vs SK     | 6,781 | 1.034 | 2.027 | +0.333 | 77.8% |
-| DFT vs ALIGNN | 6,781 | 0.177 | 0.443 | +0.019 | 90.5% |
-| SK vs ALIGNN  | 6,781 | 1.084 | 2.068 | -0.314 | 72.2% |
+| DFT vs SK     | 40,807 | 1.039 | 2.029 | +0.344 | 78.5% |
+| DFT vs ALIGNN | 40,807 | 0.174 | 0.427 | +0.016 | 90.0% |
+| SK vs ALIGNN  | 40,807 | 1.086 | 2.068 | -0.328 | 72.4% |
 
-**ALIGNN dominates on this subset by ~6x in MAE and 13 percentage points in metal/gap accuracy.** The SK MAE of 1.034 eV is dragged up by a long tail (median |err| 0.027 eV but p90 |err| 3.07 eV); ALIGNN has no equivalent tail (median |err| 0.015 eV, p90 |err| 0.467 eV). The SK errors are bimodal (mostly correct + catastrophic outliers); ALIGNN errors are unimodal (broader Gaussian-ish residuals with no catastrophic mode).
-
-The full v11 SK run is incomplete (the CPU job crashed at 8h40m via a single-worker torch.load error; 7,547 of ~115,535 entries done). When the resubmit fills in, the three-way numbers will firm up on a much larger N.
+**ALIGNN dominates on this subset by ~6x in MAE and 12 percentage points in metal/gap accuracy.** The SK MAE of 1.039 eV is dragged up by a long tail (median |err| 0.023 eV but p90 |err| 3.16 eV); ALIGNN has no equivalent tail (median |err| 0.026 eV, p90 |err| 0.487 eV). The SK errors are bimodal (mostly correct + catastrophic outliers); ALIGNN errors are unimodal (broader Gaussian-ish residuals with no catastrophic mode). Three-way reference for the full ALIGNN scope on v11 (N = 115,535, no SK intersection requirement): MAE 0.168 — restricting to SK-finite mat_ids shifts ALIGNN's MAE only +6 meV, in stark contrast to v12 where the same restriction worsens ALIGNN by +37 meV (see v12 three-way at `slakonet/slako_v12_all/analysis/summary.md`).
 
 ## Functional-shift caveat (v05)
 

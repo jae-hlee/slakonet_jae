@@ -214,5 +214,5 @@ Full top-100 at `csv/worst_predictions.csv`.
 
 - Reference is Alexandria PBE `e_form`; this arm trained on **MP/PBE** e_form. Training and reference functionals match.
 - Full Alexandria PBE 3D set with NO filters (no hull, no Z<=65); includes ~4.49M structures across the entire stability range.
-- Opt arm is missing shards 2 and 3 (~90k entries); cross-arm uses mat_id intersection rather than positional pairing.
+- Both arms now have all 100 shards complete (4,489,295 entries each); cross-arm uses positional pairing.
 - Cross-arm comparison with `eform_v2_opt/analysis/` is in the cross-arm section above; large Opt-vs-this disagreements are characterized in `csv/worst_predictions.csv`.

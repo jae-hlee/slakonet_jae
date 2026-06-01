@@ -201,6 +201,6 @@ Full top-100 at `csv/worst_predictions.csv`.
 ## Caveats
 
 - Reference is Alexandria PBE `e_form`; this arm trained on **MP/PBE** e_form. Training and reference functionals match.
-- Includes Z>65 elements (lanthanides Ce-Tb and actinides) absent from v03.
-- All structures hull-stable (DFT e_form <= 0).
+- Includes Z>65 elements (lanthanides through Yb and actinides) absent from v03.
+- All structures hull-stable (e_above_hull = 0).
 - Cross-arm comparison with `eform_v2_opt/analysis/` is in the cross-arm section above; large Opt-vs-this disagreements are characterized in `csv/worst_predictions.csv`.

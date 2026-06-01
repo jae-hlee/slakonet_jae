@@ -45,7 +45,7 @@ difference is negligible; see `metrics.json` for both.
 | SlakoNet (DFTB)                  | 0.930 | 1.649 | −0.008  | +0.328  | 21.49 |
 | ALIGNN `mp_gappbe` (PBE)         | **0.193** | **0.463** | **+0.920** | +0.017 | 7.20  |
 | ALIGNN `jv_mbj` (TB-mBJ)         | 0.752 | 1.461 | +0.208  | +0.358  | 99.04 |
-| ALIGNN `jv_optb88vdw` (OptB88vdW) | 0.354 | 0.746 | +0.794  | −0.147  | 6.54  |
+| ALIGNN `jv_optb88vdw` (OptB88vdW) | 0.354 | 0.746 | +0.794  | −0.147  | 8.66  |
 
 ### Non-metals only (PBE gap > 0, N = 16,092)
 
@@ -209,7 +209,7 @@ useful diagnostic for screening pipelines.
 
 - **TB-mBJ-ALIGNN emits 8 outputs > 15 eV, max 99.04 eV.** These are rare but
   real and should be filtered before downstream use. Neither PBE-ALIGNN nor
-  OptB-ALIGNN produce predictions of this magnitude (Max\|err\| 7.20 and 6.54
+  OptB-ALIGNN produce predictions of this magnitude (Max\|err\| 7.20 and 8.66
   eV respectively).
 - **SlakoNet's Max\|err\| is 21.49 eV** — that maximum is a genuine SlakoNet
   under-prediction on a wide-gap insulator, not an over-shoot. The SlakoNet
