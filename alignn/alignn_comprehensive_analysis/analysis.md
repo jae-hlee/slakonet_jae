@@ -47,6 +47,8 @@ directory.
 | v11_alexwz     |   115,535 | 0.677 | 0.015 | 0.620 | 0.653 | **0.168** | **0.476** | **0.933** |
 | v12_all        | 4,489,295 | 0.275 | 0.011 | 0.709 | 0.128 |  0.185    |  0.551    |  0.705    |
 
+For v04, N = 1,333 is the total ALIGNN-predicted molecules; `frac_alignn_metal` and `alignn_mean_eV` are over all 1,333, while `MAE_eV`/`RMSE_eV`/`ref_mean_eV`/`pearson_r` are over the 1,330 with a usable CCCBDB HOMO/LUMO reference (3 lack one).
+
 The two strongest rows are v11_alexwz (`mp_gappbe_alignn`'s in-distribution best on Alexandria 3D bulk crystals) and v03_alex_pbe (the matched 31,211 paired subset used as the head-to-head benchmark vs SlakoNet). The mBJ and OptB88vdW v03 rows show the functional shift recovered cleanly from a non-metal slope fit (~1.23 for mBJ, ~0.94 for OptB88vdW); their MAE-against-PBE is dominated by that shift and not by model error.
 
 ## The three-regime story
@@ -61,7 +63,7 @@ The 9 single-checkpoint ALIGNN runs (v04 to v12) fall into three regimes determi
 
 The pattern cleanly maps geometry to error magnitude: removing the periodic-bulk assumption costs ~0.3 eV of MAE per step.
 
-The **on-hull subset of v12** (115,535 entries) matches v11 exactly in N and MAE (0.168), confirming the array-sharded pipeline returns the identical on-hull subset as the single-job v11 run. v12's MAE rises with `e_above_hull` from 0.168 (on-hull) through 0.186 (near-hull) to 0.205 (off-hull), then drops to 0.154 at far-off-hull where DFT and ALIGNN both pile near zero (most far-off-hull entries are metallic in DFT). Metal/gap accuracy degrades monotonically across the same bins (89.3% to 66.0%) and bias grows from +0.024 to +0.178.
+The **on-hull subset of v12** (115,535 entries) matches v11 exactly in N and MAE (0.168), confirming the array-sharded pipeline returns the identical on-hull subset as the single-job v11 run. v12's MAE rises with `e_above_hull` from 0.168 (on-hull) through 0.186 (near-hull) to 0.205 (off-hull), then drops to 0.154 at far-off-hull where DFT and ALIGNN both pile near zero (most far-off-hull entries are metallic in DFT). Metal/gap accuracy degrades monotonically across the same bins (89.3% to 66.0%) and bias grows from +0.024 (on-hull) toward +0.178 (off-hull) before easing to +0.142 at far-off-hull. Note the on-hull 89.3% uses the strict `band_gap_ind == 0` metal cut, whereas v11's 89.1% (the same 115,535 structures) uses the 0.05 eV cut; the 0.2-point difference is a threshold-convention artifact, not a reproducibility gap.
 
 ## Metal vs non-metal stratification: where the error lives
 

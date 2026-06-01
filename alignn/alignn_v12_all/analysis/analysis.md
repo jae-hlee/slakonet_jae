@@ -74,7 +74,7 @@ Pearson correlation between |ALIGNN - DFT| and `e_form`: **-0.371**. Negative: l
 ## Files
 
 - `plots/parity_all.png`, `plots/parity_metals.png`, `plots/parity_nonmetals.png` (stratified parity + residual panels)
-- `csv/worst_predictions.csv` (top 20 by absolute residual)
+- `csv/worst_predictions.csv` (top 50 by absolute residual)
 - `csv/stratified_metrics.csv` (the all/metals/non-metals MAE table above)
 - `csv/per_element_mae.csv`, `plots/per_element_mae.png`
 - `plots/error_vs_eform.png`

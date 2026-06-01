@@ -16,7 +16,7 @@ slakonet/                     SlakoNet inference per dataset
   slako_v08_supercon/         Alexandria supercon set     (N = 4,827)
   slako_v09_1d/               Alexandria PBE 1D           (N = 8,636)
   slako_v10_2d/               Alexandria PBE 2D           (N = 79,903)
-  slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter (N = 45,203 finite of 115,535 attempted; SK ceiling)
+  slako_v11_alexwz/           Alexandria PBE 3D, no Z≤65 filter (N = 40,807 finite of 115,535 attempted; SK ceiling)
   slako_v12_all/              Alexandria PBE 3D, full 5M set, no filters (N = 2,138,447 finite of 4,489,295 attempted; 100/100 shards complete)
   slakonet_comprehensive_analysis/  Cross-dataset aggregation + unified plots
 

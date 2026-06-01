@@ -22,7 +22,7 @@ data lives there rather than in a `summary.csv`).
 | v11_alexwz | Alexandria 3D PBE, no Z≤65 filter | crystal | 40,807¹ | band_gap_ind |
 | v12_all | Alexandria 3D PBE, no filters (complete 100/100 shards) | crystal | 2,138,447² | band_gap_ind |
 
-¹ v11 N = 40,807 is the SK-finite count out of 115,535 hull entries attempted (39% success rate; rest is SK's chemical ceiling on lanthanides + Z>65, not random failures). Reference is Alexandria PBE `band_gap_ind` indirect gap.
+¹ v11 N = 40,807 is the SK-finite count out of 115,535 hull entries attempted (35.3% finite-gap rate; 39.1% produced a JSON, of which 4,396 were inf-overflow and dropped; the rest is SK's chemical ceiling on lanthanides + Z>65, not random failures). Reference is Alexandria PBE `band_gap_ind` indirect gap.
 
 ² v12 N = 2,138,447 is the finite-SK count after a `sk_bandgap ≤ 20 eV` clip (drops 122 numerical-overflow outliers up to ~6×10⁶ eV that contribute >99% of the raw RMSE). v12 SK is **complete**: 2,503,043 per-id JSONs produced of 4,489,295 attempted (56%), the remaining 44% is silent dropout on the SK chemical ceiling (lanthanides + Z>65 + noble gases).
 
