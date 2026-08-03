@@ -1,0 +1,78 @@
+/Users/jaelee/Desktop/temp/NeurIPS 2026/SlaKoNet DB/analysis/01_leakage_audit.py:138: DeprecationWarning: This module has been moved to the pymatgen.core.structure_matcher module. This stub will be removed v2027.1. 
+  from pymatgen.analysis.structure_matcher import StructureMatcher
+benchmark: 31211 structures
+loaded structures for 31211 / 31211
+Obtaining MEGNET-3D CFID dataset 69k...
+Reference:https://pubs.acs.org/doi/10.1021/acs.chemmater.9b01294
+Loading the zipfile...
+Loading completed.
+corpus 'mp': 69,239 entries (17s)
+/Users/jaelee/miniconda3/lib/python3.13/site-packages/pymatgen/core/composition.py:1398: UserWarning: No Pauling electronegativity for He. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sorted(sym, key=lambda x: [float("inf") if math.isnan(e_neg := get_el_sp(x).X) else e_neg, x])
+/Users/jaelee/miniconda3/lib/python3.13/site-packages/pymatgen/core/composition.py:1376: UserWarning: No Pauling electronegativity for He. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if len(syms) >= 3 and get_el_sp(syms[-1]).X - get_el_sp(syms[-2]).X < 1.65:
+/Users/jaelee/miniconda3/lib/python3.13/site-packages/pymatgen/core/composition.py:1398: UserWarning: No Pauling electronegativity for Ne. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sorted(sym, key=lambda x: [float("inf") if math.isnan(e_neg := get_el_sp(x).X) else e_neg, x])
+/Users/jaelee/miniconda3/lib/python3.13/site-packages/pymatgen/core/composition.py:1398: UserWarning: No Pauling electronegativity for Ar. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sorted(sym, key=lambda x: [float("inf") if math.isnan(e_neg := get_el_sp(x).X) else e_neg, x])
+corpus 'mp': 49,339 formula buckets
+  [mp] 2000/31211  matches=611  pairs=815  (8s)
+  [mp] 4000/31211  matches=1185  pairs=1720  (15s)
+  [mp] 6000/31211  matches=1776  pairs=2520  (22s)
+  [mp] 8000/31211  matches=2298  pairs=3264  (26s)
+  [mp] 10000/31211  matches=2911  pairs=4105  (32s)
+  [mp] 12000/31211  matches=3536  pairs=4980  (39s)
+  [mp] 14000/31211  matches=4162  pairs=5836  (46s)
+  [mp] 16000/31211  matches=4675  pairs=6592  (50s)
+  [mp] 18000/31211  matches=5264  pairs=7581  (56s)
+  [mp] 20000/31211  matches=5869  pairs=8416  (62s)
+  [mp] 22000/31211  matches=6476  pairs=9278  (69s)
+  [mp] 24000/31211  matches=7007  pairs=10068  (74s)
+  [mp] 26000/31211  matches=7637  pairs=10996  (80s)
+  [mp] 28000/31211  matches=8265  pairs=11982  (88s)
+  [mp] 30000/31211  matches=8847  pairs=12812  (96s)
+  [mp] done: 9114 matched of 31211 (98s)
+wrote /Users/jaelee/Desktop/temp/NeurIPS 2026/SlaKoNet DB/analysis/out/overlap_mp.json
+Obtaining 3D dataset 76k ...
+Reference:https://www.nature.com/articles/s41524-020-00440-1
+Other versions:https://doi.org/10.6084/m9.figshare.6815699
+Loading the zipfile...
+Loading completed.
+corpus 'jarvis': 75,993 entries (2s)
+/Users/jaelee/miniconda3/lib/python3.13/site-packages/pymatgen/core/composition.py:1398: UserWarning: No Pauling electronegativity for He. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sorted(sym, key=lambda x: [float("inf") if math.isnan(e_neg := get_el_sp(x).X) else e_neg, x])
+/Users/jaelee/miniconda3/lib/python3.13/site-packages/pymatgen/core/composition.py:1376: UserWarning: No Pauling electronegativity for He. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  if len(syms) >= 3 and get_el_sp(syms[-1]).X - get_el_sp(syms[-2]).X < 1.65:
+/Users/jaelee/miniconda3/lib/python3.13/site-packages/pymatgen/core/composition.py:1398: UserWarning: No Pauling electronegativity for Ar. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sorted(sym, key=lambda x: [float("inf") if math.isnan(e_neg := get_el_sp(x).X) else e_neg, x])
+/Users/jaelee/miniconda3/lib/python3.13/site-packages/pymatgen/core/composition.py:1398: UserWarning: No Pauling electronegativity for Ne. Setting to NaN. This has no physical meaning, and is mainly done to avoid errors caused by the code expecting a float.
+  return sorted(sym, key=lambda x: [float("inf") if math.isnan(e_neg := get_el_sp(x).X) else e_neg, x])
+corpus 'jarvis': 51,889 formula buckets
+  [jarvis] 2000/31211  matches=339  pairs=584  (2s)
+  [jarvis] 4000/31211  matches=759  pairs=1412  (5s)
+  [jarvis] 6000/31211  matches=1163  pairs=2101  (7s)
+  [jarvis] 8000/31211  matches=1617  pairs=2856  (9s)
+  [jarvis] 10000/31211  matches=1973  pairs=3478  (11s)
+  [jarvis] 12000/31211  matches=2394  pairs=4285  (13s)
+  [jarvis] 14000/31211  matches=2846  pairs=5065  (16s)
+  [jarvis] 16000/31211  matches=3295  pairs=5855  (18s)
+  [jarvis] 18000/31211  matches=3634  pairs=6649  (20s)
+  [jarvis] 20000/31211  matches=4060  pairs=7423  (22s)
+  [jarvis] 22000/31211  matches=4500  pairs=8245  (25s)
+  [jarvis] 24000/31211  matches=4979  pairs=9053  (27s)
+  [jarvis] 26000/31211  matches=5351  pairs=9773  (29s)
+  [jarvis] 28000/31211  matches=5782  pairs=10565  (32s)
+  [jarvis] 30000/31211  matches=6225  pairs=11357  (35s)
+  [jarvis] done: 6496 matched of 31211 (36s)
+wrote /Users/jaelee/Desktop/temp/NeurIPS 2026/SlaKoNet DB/analysis/out/overlap_jarvis.json
+NOTE: no --slakonet-fit-ids given; the JARVIS-DFT row is the upper bound for SlakoNet's fitting-set overlap (SK fit set is a subset of JARVIS-DFT).
+
+# Overlap audit (generated by 01_leakage_audit.py)
+
+| Checkpoint | Training corpus | Exact matches | Near-duplicates | % of eval set | Leak-free N |
+|---|---|---|---|---|---|
+| PBE-ALIGNN (mp_gappbe) | Materials Project | 8383 | 731 | 29.2% | 22097 |
+| mBJ-ALIGNN (jv_mbj) | JARVIS-DFT | 5746 | 750 | 20.8% | 24715 |
+| OptB88vdW-ALIGNN (jv_optb88vdw) | JARVIS-DFT | 5746 | 750 | 20.8% | 24715 |
+
+wrote out/leakfree_ids.json and out/audit_counts.md
